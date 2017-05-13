@@ -1,4 +1,3 @@
-# angular1
+# angular
 study angular
-
-text1111123123123
+用于个人angualr学习练习用
