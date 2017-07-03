@@ -1,0 +1,546 @@
+<div flex layout="column" class="ks-main ks-confirm-order ">
+    <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()"
+                         md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">确认订单</span>
+            </div>
+        </div>
+
+    </md-toolbar>
+
+    <md-divider></md-divider>
+    <md-content flex style="overflow-x: hidden">
+        <!--<div style="font-size: 1px;height: 20px;min-height: 20px; background: #fff;visibility: hidden"> ssa</div>-->
+        <div class="extract" flex layout="row" ng-if="order.cleanOrder"
+             ui-sref="main.vip.baiduMap({cleanOrder:'true'})">
+            <div class="condition" flex>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-carton"></md-icon>
+                <span>门店</span>
+            </div>
+            <div class="findShop" flex ng-click="vm.searchShops()">
+                <span>|</span>
+                查看附近门店
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+            </div>
+        </div>
+        <div class="extract_ser" ng-if="order.serviceList">
+            <div class="condition">
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-location-o"></md-icon>
+                <span>寄送地址</span>
+            </div>
+            <div class="addr">
+                {{addr.value}}<br>{{phone.value}}
+            </div>
+        </div>
+        <!-- 有 padding 的 -->
+        <div class="address-box" layout="row" layout-align="space-between center" ng-if="!order.cleanOrder">
+            <md-icon class="ks-icon-left" md-font-set="ks-icon" md-font-icon="ks-location-o"></md-icon>
+            <div class="add-address" flex ng-if="!order.address&&!order.cleanOrder" ng-click="updateAddress()">
+                填写您的收货地址
+            </div>
+            <div class="address-dis" ng-if="order.address&&!order.cleanOrder" ng-click="updateAddress()" flex
+                 layout="row" layout-align="start center ">
+                <div ng-if="order.address.province" layout="column">
+                    <span>{{order.address.contact}} {{order.address.phone}}</span>
+                    <span>{{order.address.province}}/{{order.address.city}}/{{order.address.area}}/{{order.address.street}}</span>
+                </div>
+                <!-- 直辖市没有省一级 -->
+                <div ng-if="!order.address.province" layout="column">
+                    <span>{{order.address.contact}} {{order.address.phone}}</span>
+                    <span>{{order.address.city}}/{{order.address.area}}/{{order.address.street}}</span>
+                </div>
+            </div>
+            <md-icon class="ks-icon-right" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+        </div>
+        <div class="div-line"></div>
+        <div class="order-detail">
+
+            <!-- 收货地址 -->
+            <!--<div class="block">
+
+                <div class="title-row" layout-align="center center" layout="" ng-click="updateAddress()">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">收货地址</div>
+
+                    <div layout="" layout-align="center" class="select-left">
+                        <div>选择收货地址</div>
+                        <md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div class="content-row" layout="column">
+                    <div>{{order.address.contact}} {{order.address.phone}}
+                        {{order.address.province}}/{{order.address.city}}/{{order.address.area}}/{{order.address.street}}
+                    </div>
+                    <div ng-if="order.address.province">
+                        {{order.address.province}}/{{order.address.city}}/{{order.address.area}}/{{order.address.street}}
+                    </div>
+                </div>
+                <md-divider></md-divider>
+            </div>-->
+
+            <!--弃用的div  -->
+            <!-- <div class="block" ng-if="!order.address&&!order.cleanOrder">
+                 <div class="title-row" layout-align="center center" layout="" ng-click="updateAddress()">
+                     <div class="color-block"></div>
+                     <div flex layout="" layout-align="start center">填写收货地址</div>
+
+                     <div layout="" layout-align="center" class="select-left">
+                         <div></div>
+                         <md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                     </div>
+                 </div>
+                 <md-divider></md-divider>
+             </div>
+             <div class="block" ng-if="order.address&&!order.cleanOrder">
+                 <div class="title-row" layout-align="center center" layout="" ng-click="updateAddress()">
+                     <div class="color-block"></div>
+                     <div flex layout="" layout-align="start center">收货地址</div>
+
+                     <div layout="" layout-align="center" class="select-left">
+                         <div style="line-height: 24px">选择收货地址</div>
+                         <md-icon style="line-height: 24px" md-font-set="ks-icon"
+                                  md-font-icon="ks-arrow_right"></md-icon>
+                     </div>
+                 </div>
+                 <md-divider class="dashed"></md-divider>
+                 <div class="content-row" layout="column">
+                     <div ng-if="order.address.province">{{order.address.contact}} {{order.address.phone}}<br>
+                         {{order.address.province}}/{{order.address.city}}/{{order.address.area}}/{{order.address.street}}
+                     </div>
+                     &lt;!&ndash; 直辖市没有省一级 &ndash;&gt;
+                     <div ng-if="!order.address.province">{{order.address.contact}} {{order.address.phone}}<br>
+                         {{order.address.city}}/{{order.address.area}}/{{order.address.street}}
+                     </div>
+                 </div>
+                 <md-divider></md-divider>
+             </div>-->
+
+
+            <!-- 商品清单 -->
+            <div class="block">
+                <!--<div class="title-row" layout-align="center center" layout="">-->
+                <!--<div class="color-block"></div>-->
+                <!--<div flex layout="" layout-align="start center">商品清单</div>-->
+                <!--</div>-->
+                <!--<md-divider class="dashed"></md-divider>-->
+
+                <div ng-repeat="orderItem in order.orderList track by $index">
+                    <div layout="row"
+                         class="item-row"
+                         layout-align="center center">
+
+                        <div class="item-img">
+                            <img img-holder
+                                 ng-src="{{imgUrl}}{{orderItem.img}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}"/>
+                            <!--<div class="ribbon" ng-if="$last">赠品</div>-->
+                        </div>
+
+                        <div flex layout="column" layout-align="start" class="item-desp">
+                            <div class="item-title" style="margin-top: 3px"> {{orderItem.title}}
+                            </div>
+                            <div layout-align="start start" flex class="item-specs">
+                                <span ng-repeat="spec in orderItem.specs">
+                                    {{spec.name}}:{{spec.value}}&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <!--租期:{{orderItem.day}}天--></span>
+                            </div>
+                            <div class="item-num-price" layout="row" layout-align="spance-between center"
+                                 style="margin-bottom: -8px">
+                                <!--<div flex class="item-price" ng-class="{free:$last}">&nbsp;{{orderItem.orderPrice/100.0|num:2}}&nbsp;</div>-->
+                                <div style="font-size: 13px;line-height: 1em;" flex class="item-price"
+                                     ng-if="!orderItem.orderPrice">￥&nbsp;{{orderItem.price/100.0|num:2}}&nbsp;</div>
+                                <div style="font-size: 13px;line-height: 1em;" flex class="item-price"
+                                     ng-if="orderItem.orderPrice">
+                                    ￥&nbsp;{{orderItem.orderPrice/100.0|num:2}}&nbsp;</div>
+                                <!-- <del flex class="item-price" ng-if="orderItem.orderPrice">￥&nbsp;{{orderItem.price/100.0|num:2}}&nbsp;</del>
+                                 <div flex class="item-price" ng-if="orderItem.orderPrice">￥&nbsp;{{orderItem.activityName}}&nbsp;</div>-->
+                                <div class="count-show" style="font-size: 13px">
+                                    x{{orderItem.num}}
+                                </div>
+                            </div>
+                            <br style="clear: both">
+
+                            <!--<input type="radio" ng-model="isChoose" ng-click="chooseInteral(orderItem)">-->
+                        </div>
+                    </div>
+                    <md-divider class="dashed" style="margin-left: 0"></md-divider>
+                    <div class="integral-box" layout="row" layout-align="space-between center">
+                        <span class="ingtegral-title">使用钱币</span>
+                        <div class="integral-right" layout="row" layout-align="center center">
+                            <div class="right-txt" ng-if="orderItem.useIntegral<=0">
+                                <div ng-if="order.canUseIntegral>0">
+                                    使用{{(orderItem.canUseIntegral/100|num:2)}}钱币抵用￥{{(orderItem.canUseIntegral/100)/orderItem.integralRate
+                                    |num:2}}
+                                </div>
+                                <div ng-if="order.canUseIntegral<=0" style="color: #d5d5d5">无钱币可用</div>
+                            </div>
+                            <div class="right-txt" ng-if="orderItem.useIntegral>0">
+                                使用{{orderItem.useIntegral/100|num:2}}钱币抵用￥{{(orderItem.useIntegral/orderItem.integralRate)/100|num:2}}
+                            </div>
+                            <md-checkbox ng-model="orderItem.canIntegralChoose"
+                                         ng-disabled="order.canUseIntegral == 0&&orderItem.useIntegral<=0"
+                                         ng-change="chooseInteral(orderItem,orderItem.canIntegralChoose)"
+                                         class="ks-gold goes"></md-checkbox>
+                        </div>
+                    </div>
+                    <md-divider class="dashed" ng-if="!$last"></md-divider>
+                </div>
+                <div ng-repeat="orderItem in order.serviceList track by $index">
+                    <div layout="row"
+                         class="item-row"
+                         layout-align="center center">
+
+                        <div class="item-img">
+                            <img img-holder
+                                 ng-src="{{imgUrl}}{{orderItem.img}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}"/>
+                            <!--<div class="ribbon" ng-if="$last">赠品</div>-->
+                        </div>
+
+                        <div flex layout="column" layout-align="start" class="item-desp">
+                            <div class="item-title" style="margin-top: 3px">{{orderItem.title}}
+                            </div>
+                            <div layout-align="start start" flex class="item-specs">
+                                <span ng-repeat="spec in orderItem.specs">
+                                    {{spec.name}}:{{spec.value}}&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <!--租期:{{orderItem.day}}天--></span>
+                            </div>
+                            <div layout="row" layout-align="end" style="margin-bottom: 1px" class="price-row">
+                                <!--<div flex class="item-price" ng-class="{free:$last}">&nbsp;{{orderItem.orderPrice/100.0|num:2}}&nbsp;</div>-->
+                                <div style="font-size: 13px" flex class="item-price" ng-if="!orderItem.orderPrice">￥&nbsp;{{orderItem.price/100.0|num:2}}&nbsp;</div>
+                                <div style="font-size: 13px" flex class="item-price" ng-if="orderItem.orderPrice">￥&nbsp;{{orderItem.orderPrice/100.0|num:2}}&nbsp;</div>
+                                <!--<del flex class="item-price" ng-if="orderItem.orderPrice">￥&nbsp;{{orderItem.price/100.0|num:2}}&nbsp;</del>
+                                <div flex class="item-price" ng-if="orderItem.orderPrice">￥&nbsp;{{orderItem.activityName}}&nbsp;</div>-->
+                                <div style="font-size: 13px" class="count-show">
+                                    x{{orderItem.num}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <md-divider class="dashed" style="margin-left: 0"></md-divider>
+                    <div class="integral-box" layout="row" layout-align="space-between center">
+                        <span class="ingtegral-title">使用钱币</span>
+                        <div class="integral-right" layout="row" layout-align="center center">
+                            <div class="right-txt" ng-if="orderItem.useIntegral<=0">
+                                <div ng-if="order.canUseIntegral>0">
+                                    使用{{(orderItem.canUseIntegral/100)|num:2}}钱币抵用￥{{(orderItem.canUseIntegral/100)/orderItem.integralRate|num:2}}
+                                </div>
+                                <div ng-if="order.canUseIntegral<=0" style="color: #d5d5d5">无钱币可用</div>
+                            </div>
+                            <div class="right-txt" ng-if="orderItem.useIntegral>0">
+                                使用{{orderItem.useIntegral/100|num:2}}钱币抵用￥{{(orderItem.useIntegral/orderItem.integralRate)/100|num:2}}
+                            </div>
+                            <md-checkbox ng-model="orderItem.canIntegralChoose"
+                                         ng-disabled="order.canUseIntegral == 0&&orderItem.useIntegral<=0"
+                                         ng-change="chooseInteral(orderItem,orderItem.canIntegralChoose)"
+                                         class="ks-gold goes"></md-checkbox>
+                        </div>
+                    </div>
+                    <md-divider class="dashed" ng-if="!$last"></md-divider>
+                </div>
+                <div ng-repeat="orderItem in order.rentList track by $index">
+                    <div layout="row"
+                         class="item-row"
+                         layout-align="center center">
+
+                        <div class="item-img">
+                            <img ng-src="{{imgUrl}}{{orderItem.img}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}"/>
+                            <!--<div class="ribbon" ng-if="$last">赠品</div>-->
+                        </div>
+
+                        <div flex layout="column" layout-align="start" class="item-desp">
+                            <div class="item-title" style="margin-top: 3px">{{orderItem.title}}
+                            </div>
+                            <div layout-align="start start" flex class="item-specs">
+                                <span>租期:{{orderItem.day}}天</span>
+                                <span ng-repeat="spec in orderItem.specs">
+                                    {{spec.name}}:{{spec.value}}&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </div>
+                            <div layout="row" layout-align="end" style="margin-bottom: -5px" class="price-row">
+                                <!--<div flex class="item-price" ng-class="{free:$last}">&nbsp;{{orderItem.orderPrice/100.0|num:2}}&nbsp;</div>-->
+                                <div style="font-size: 13px" flex class="item-price" ng-if="!orderItem.orderPrice">￥&nbsp;{{orderItem.price/100.0|num:2}}&nbsp;/天</div>
+                                <div style="font-size: 13px" flex class="item-price" ng-if="orderItem.orderPrice">￥&nbsp;{{orderItem.orderPrice/100.0|num:2}}&nbsp;/天</div>
+                                <!--<del flex class="item-price" ng-if="orderItem.orderPrice">￥&nbsp;{{orderItem.price/100.0|num:2}}&nbsp;/天</del>
+                                <div flex class="item-price" ng-if="orderItem.orderPrice">￥&nbsp;{{orderItem.activityName}}&nbsp;/天</div>-->
+                                <div style="font-size: 13px" class="count-show">
+                                    x{{orderItem.num}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <md-divider class="dashed" ng-if="!$last"></md-divider>
+                </div>
+                <div ng-if="order.cleanOrder&&order.cleanOrder.id">
+                    <div layout="row"
+                         class="item-row"
+                         layout-align="center center">
+
+                        <div class="item-img">
+                            <img ng-src="{{imgUrl}}{{order.cleanOrder.cleanItem.img}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}"/>
+                        </div>
+
+                        <div flex layout="column" layout-align="start" class="item-desp">
+                            <div class="item-title" style="margin-top: 3px">服务物品:{{order.cleanOrder.cleanItem.title}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <md-divider class="dashed" ng-if="order.cleanOrder&&order.cleanOrder.id"></md-divider>
+                <div ng-if="order.cleanOrder&&order.cleanOrder.id"
+                     ng-repeat="orderItem in order.cleanOrder.instructionItems">
+                    <div layout="row"
+                         class="item-row"
+                         layout-align="center center">
+
+                        <div class="item-img" style="background-color: #333">
+                            <img ng-src="{{imgUrl}}{{orderItem.selectImg}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}"/>
+                            <!--<div class="ribbon" ng-if="$last">赠品</div>-->
+                        </div>
+
+                        <div flex layout="column" layout-align="space-between none" class="item-desp"
+                             style="height: 70px">
+                            <div class="item-title" style="margin-top: 3px">{{orderItem.title}}
+                            </div>
+                            <div layout="row" layout-align="end" style="margin-bottom: -5px" class="price-row">
+                                <div style="font-size: 13px" flex class="item-price">￥&nbsp;{{orderItem.price/100.0|num:2}}</div>
+                                <div style="font-size: 13px" class="count-show">
+                                    x1
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <md-divider class="dashed" ng-if="!$last"></md-divider>
+                </div>
+                <!--<md-divider></md-divider>-->
+            </div>
+            <!-- 配送方式 -->
+            <!--<div class="block" ng-if="!order.cleanOrder">
+                <div class="title-row" layout-align="center center" layout="">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">配送方式</div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div class="content-row" layout="column">
+                    <div>快递 包邮</div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+-->
+        </div>
+        <div class="div-line"></div>
+        <div class="coupon-box" ng-if="showCoupon || order.coupon" layout="row" layout-align="space-between center"
+             ng-click="updateCoupon()">
+            <div flex class="coupon-txt">使用优惠券</div>
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+        </div>
+        <md-divider class="dashed" ng-if="order.coupon" style="margin: 0 10px"></md-divider>
+        <div class="coupon-box" ng-if="order.coupon" layout="row" layout-align="space-between center">
+            <span flex ng-if="order.coupon.type==='ORDER'">{{order.coupon.name}}</span>
+            <span flex ng-if="order.coupon.type==='DISCOUNT'">{{order.coupon.name}}</span>
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-trash-can-o"
+                     ng-click="removeCoupon()"></md-icon>
+        </div>
+        <!--<md-divider></md-divider>-->
+        <!--<md-checkbox ng-model="isChoose"-->
+        <!--ng-disabled="order.canUseIntegral == 0&&orderItem.useIntegral<=0"-->
+        <!--ng-change="chooseInteral(orderItem,isChoose)"-->
+        <!--class="ks-gold goes"></md-checkbox>-->
+
+
+        <div class="coupon-box" ng-if="canUseGift" layout="row" layout-align="space-between center">
+            <div flex class="coupon-txt">使用服务卡</div>
+            <div style="margin-right: 15px">本次可抵用{{showGiftAmout/100|num:2}}元</div>
+            <md-checkbox ng-click="useGiftCard()"
+                         ng-changed="useGiftCard()"
+                         ng-model="orderUseGift"
+                         ng-disabled="!canSelectGift"
+                         class="ks-gold goes"></md-checkbox>
+        </div>
+        <div class="div-line"></div>
+        <div class="coupon-box" ng-if="showCoupon || order.coupon" layout="row" layout-align="space-between center"
+             ng-click="updateInvoice()">
+            <div flex class="coupon-txt">发票抬头</div>
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+        </div>
+        <md-divider class="dashed" ng-if="order.invoiceTitle" style="margin: 0 10px"></md-divider>
+        <div class="coupon-box" ng-if="order.invoiceTitle" layout="row" layout-align="space-between center">
+            <div flex class="content-row-txt">{{order.invoiceTitle}}</div>
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-trash-can-o"
+                     ng-click="removeInvoice()"></md-icon>
+        </div>
+        <!--<md-divider></md-divider>-->
+
+        <div class="div-line"></div>
+        <div class="coupon-box" ng-if="!order.cleanOrder" layout="row" layout-align="space-between center">
+            <div class="coupon-txt">买家备注</div>
+            <input type="text" flex data-ng-model="order.buyerMemo" placeholder="填写您的特殊需求"
+                   ng-change="checkText()">
+
+        </div>
+        <div class="div-line"></div>
+        <div class="item-wrap">
+            <div class="item-box" ng-if="!order.cleanOrder" layout="row" layout-align="space-between center">
+                <div class="item-txt">商品合计</div>
+                <div class="item-price">￥{{order.orderPrice/100.0|num:2}}</div>
+            </div>
+            <div class="item-box" ng-if="!order.cleanOrder" layout="row" layout-align="space-between center">
+                <div class="item-txt">运费</div>
+                <div class="item-price">￥0.00</div>
+            </div>
+            <div class="item-box" ng-if="!order.cleanOrder" layout="row" layout-align="space-between center">
+                <div class="item-txt">获得钱币</div>
+                <div class="item-price">￥ {{order.paymentAmount/200|num:2}}</div>
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="item-wrap">
+            <div class="item-box" layout="row" layout-align="space-between center">
+                <div class="item-txt">活动抵用</div>
+                <div class="item-price">-
+                    ￥{{order.activityPrice/100.0|num:2}}
+                </div>
+            </div>
+
+            <div class="item-box" ng-if="!order.cleanOrder" layout="row" layout-align="space-between center">
+                <div class="item-txt">钱币抵用</div>
+                <div class="item-price">- ￥{{order.integralPrice/100|num:2}}</div>
+            </div>
+            <!--ng-if="orderRealUseGift == true"-->
+            <div class="item-box" layout="row" layout-align="space-between center">
+                <div class="item-txt">服务卡抵用</div>
+                <div class="item-price" ng-if="orderRealUseGift !== true">- ￥0.00</div>
+                <div class="item-price" ng-if="orderRealUseGift == true">- ￥{{showGiftAmout/100|num:2}}</div>
+            </div>
+            <div class="item-box" ng-if="order.coupon" layout="row" layout-align="space-between center">
+                <div class="item-txt">优惠券抵用</div>
+                <div class="item-price" ng-if="order.coupon.type==='ORDER'">-
+                    ￥{{order.coupon.reduceMoney/100.0|num:2}}
+                </div>
+                <div class="item-price" ng-if="order.coupon.type==='DISCOUNT'">-
+                    ￥{{order.coupon.reduceMoney/100.0|num:2}}
+                </div>
+            </div>
+        </div>
+
+
+        <!--<div ng-if="order.orderList&&minusPrice>0">指定满减活动：- -->
+        <!--￥{{minusPrice/100.0|num:0}}-->
+        <!--</div>-->
+        <!--<div ng-if="order.serviceList&&minusPrice>0">指定满减活动：- -->
+        <!--￥{{minusPrice/100.0|num:1}}-->
+        <!--</div>-->
+        <!--<div ng-if="order.activitys.length>0">{{order.activitys[0].name}}：- -->
+        <!--￥{{order.activitys[0].price/100.0|num:1}}-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 优惠券 &ndash;&gt;-->
+        <!--<div class="block" ng-if="showCoupon || order.coupon">-->
+        <!--<div class="title-row" layout-align="center center" layout="" ng-click="updateCoupon()">-->
+        <!--<div class="color-block"></div>-->
+        <!--<div flex layout="" layout-align="start center">优惠券</div>-->
+        <!--<div layout="" layout-align="center" class="select-left">-->
+        <!--<div ng-if="!order.coupon">选择</div>-->
+        <!--<md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<md-divider class="dashed" ng-if="order.coupon"></md-divider>-->
+        <!--<div class="content-row no-right" layout="row" ng-if="order.coupon">-->
+        <!--<span flex="" ng-if="order.coupon.type==='ORDER'">{{order.coupon.name}}</span>-->
+        <!--<span flex="" ng-if="order.coupon.type==='DISCOUNT'">{{order.coupon.name}}</span>-->
+        <!--<md-icon md-font-set="ks-icon" md-font-icon="ks-trash-can-o"-->
+        <!--ng-click="removeCoupon()"></md-icon>-->
+        <!--</div>-->
+        <!--<md-divider></md-divider>-->
+        <!--</div>-->
+
+        <!-- 发票抬头 -->
+        <!-- <div class="block">
+             <div class="title-row" layout-align="center center" layout="" ng-click="updateInvoice()">
+                 <div class="color-block"></div>
+                 <div flex layout="" layout-align="start center">发票抬头</div>
+                 <div layout="" layout-align="center" class="select-left">
+                     <div ng-if="!order.invoiceTitle">选择</div>
+                     <md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                 </div>
+             </div>
+             <md-divider class="dashed" ng-if="order.invoiceTitle"></md-divider>
+             <div class="content-row no-right" layout="row" ng-if="order.invoiceTitle">
+                 <div flex class="content-row-txt">{{order.invoiceTitle}}</div>
+                 <md-icon md-font-set="ks-icon" md-font-icon="ks-trash-can-o"
+                          ng-click="removeInvoice()"></md-icon>
+             </div>
+             <md-divider></md-divider>
+         </div>-->
+        <!--礼品卡-->
+        <!-- <div class="block" ng-if="canUseGift">
+             <div class="title-row" layout-align="center center" layout="">
+                 <div class="color-block"></div>
+                 <div flex layout="" layout-align="start center">使用礼品卡抵用￥{{showGiftAmout/100|num:1}}</div>
+                 <div layout="" layout-align="center" class="select-left">
+                     &lt;!&ndash;TODO 添加判断是否可用  ng-if="canUseGift == true"&ndash;&gt;
+                     <md-switch class="ks-gold" ng-click="useGiftCard()" ng-changed="useGiftCard()"
+                                ng-model="orderUseGift"></md-switch>
+                 </div>
+             </div>
+             <md-divider></md-divider>
+         </div>-->
+        <!-- 订单总额，优惠金额 -->
+        <!--<div class="block summary" layout="column" layout-align="center center">
+            &lt;!&ndash;<div>商品金额： ￥{{order.paymentAmount/100.0|num:2}}</div>&ndash;&gt;
+            &lt;!&ndash;<div ng-if="order.coupon" ng-click="removeCoupon()">不使用优惠券</div>&ndash;&gt;
+            <div>
+                商品金额： ￥{{order.orderPrice/100.0|num:1}}
+            </div>
+
+            <div ng-if="order.coupon">
+                <div ng-if="order.coupon.type==='ORDER'">优惠券：- ￥{{order.coupon.reduceMoney/100.0|num:1}}</div>
+                <div ng-if="order.coupon.type==='DISCOUNT'">优惠券：- ￥{{order.coupon.reduceMoney/100.0|num:1}}
+                </div>
+            </div>
+            <div ng-if="order.orderList&&minusPrice>0">指定满减活动：-
+                ￥{{minusPrice/100.0|num:0}}
+            </div>
+            <div ng-if="order.serviceList&&minusPrice>0">指定满减活动：-
+                ￥{{minusPrice/100.0|num:1}}
+            </div>
+            <div ng-if="order.activitys.length>0">{{order.activitys[0].name}}：-
+                ￥{{order.activitys[0].price/100.0|num:1}}
+            </div>
+            <div ng-if="orderRealUseGift == true">
+                使用礼品卡:- ￥{{showGiftAmout/100|num:1}}
+            </div>
+            <div ng-if="!order.coupon">不使用优惠券</div>
+            <div>购买此商品可获得{{order.paymentAmount/200|num:1}}钱币</div>
+        </div>-->
+        <!--<md-divider ng-if="!order.cleanOrder"></md-divider>
+        <div class="buyer-memo" layout="column" ng-if="!order.cleanOrder">
+                <textarea data-ng-model="order.buyerMemo" flex="" placeholder="补充说明..."
+                          ng-change="checkText()"></textarea>
+        </div>-->
+        <div class="agreement" ng-if="order.rentList">
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-r-selected" ng-if="select"
+                     ng-click="changeSelect()"></md-icon>
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-r-unselected" ng-if="!select"
+                     ng-click="changeSelect()"></md-icon>
+            <span class="agreetxt" ng-click="changeSelect()">已阅读并同意以下协议</span>
+            <i class="info" ng-click="goRentPage()">《租赁协议》</i>
+        </div>
+    </md-content>
+    <md-divider style="margin: 0"></md-divider>
+    <div class="pay-box" layout="row">
+        <div class="pay-txt" flex layout="column">
+            <div class="pay-price">实付款：￥{{order.paymentAmount/100.0|num:1}}</div>
+            <div class="pay-coin">交易成功可获得{{order.paymentAmount/200|num:1}}钱币</div>
+        </div>
+        <div class="pay-btn" ng-click="createOrder()">支付</div>
+    </div>
+
+    <!--<div class="pay-amount" layout="column" layout-align="center center">-->
+    <!--应付金额： ￥{{order.paymentAmount/100.0|num:1}}-->
+    <!--</div>-->
+    <!--<div class="submit-btn" layout="row" layout-align="center center">-->
+    <!--<md-button class="ks-black " flex="90" ng-click="createOrder()">提交订单</md-button>-->
+    <!--</div>-->
+
+</div>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <style>
+        .ui-justify {
+            text-align: justify;
+            font-size: 0; }
+        .ui-justify:after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+            height: 0;
+            overflow: hidden; }
+        .ui-justify li {
+            display: inline-block;
+            text-align: center; }
+        .ui-justify p {
+            font-size: 16px; }
+
+        .ui-justify-flex {
+            width: 100%;
+            display: -webkit-box;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between; }
+        ul,li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .column-col{
+            -webkit-column-count:2;-moz-column-count:2;column-count:2;
+            -webkit-column-gap:20px;-moz-column-gap:20px;column-gap:20px;
+
+
+        }
+        .ccg-col{
+            -webkit-column-count:5;
+            -moz-column-count:5;
+            column-count: 5;
+
+            -webkit-column-gap: 2em;
+            -moz-column-gap: 2em;
+            column-gap: 2em;
+
+        }
+    </style>
+</head>
+<body>
+
+<ul class="ui-justify ui-whitespace">
+    <li><div class="test-img"></div><p>1xxx</p></li>
+    <!--<li><div class="test-img"></div><p>xxx</p></li>-->
+    <li><div class="test-img"></div><p>3xxx</p></li>
+    <li><div class="test-img"></div><p>4xxx</p></li>
+</ul>
+
+<ul class="ui-justify-flex ">
+    <li><div class="test-img"></div><p>1xxx</p></li>
+    <!--<li><div class="test-img"></div><p>xxx</p></li>-->
+    <li><div class="test-img"></div><p>3xxx</p></li>
+    <li><div class="test-img"></div><p>4xxx</p></li>
+</ul>
+
+<ul class="column-col">
+    <li class="1">1</li>
+    <li class="2">2</li>
+    <!--<li class="3">3</li>-->
+    <!--<li class="4">4</li>-->
+</ul>
+
+<ul class="ccg-col">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+
+-colmc
+-colmg
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+

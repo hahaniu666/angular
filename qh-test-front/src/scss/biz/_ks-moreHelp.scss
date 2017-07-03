@@ -1,0 +1,49 @@
+.ks-moreHelp {
+  .ks-header._md {
+    height: 30px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+    }
+  }
+
+  .txtContent {
+    margin: 0 0 0 20px;
+    padding-right: 20px;
+    height: 44px;
+    line-height: 44px;
+    border-bottom: 1px solid #d5d5d5;
+    .chevron_right {
+      margin-left: 9px;
+      width: 1px;
+      min-width: 10px;
+      line-height: 24px;
+      font-size: 12px;
+      color: #999;
+    }
+    .txt {
+      font-size: 14px;
+      color: #101010;
+    }
+    span {
+      font-size: 14px;
+      color: #999;
+    }
+  }
+}

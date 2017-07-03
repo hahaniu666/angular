@@ -1,0 +1,220 @@
+.ks-studentLease {
+  //header开始
+  .ks-header._md {
+    height: 30px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 16px;
+          line-height: 44px;
+        }
+        .regSpan{
+          font-size: 18px;
+        }
+      }
+
+    }
+  }
+  //首页轮播
+  .slidenav{
+    .slideindex{
+      width: 100%;
+      margin: 0 auto;
+      ks-swiper-container {
+        .swiper-slide {
+          width: 100%;
+          position: relative;
+          overflow: hidden;
+          &:before {
+            content: "";
+            display: block;
+            padding-top: 66.6%;
+          }
+        }
+        img {
+           position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .swiper-container, .swiper-slide {
+          float: none;
+        }
+        .swiper-pagination-bullet {
+          background: #fff !important;
+          height: 7px;
+          width: 7px;
+        }
+        .swiper-pagination-bullet-active {
+          background: #fff !important;
+        }
+
+        .swiper-slide {
+          overflow: hidden;
+        }
+        /* .swiper-container {
+           height: 70%;
+         }*/
+      }
+      .swiper-container {
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        width: 100%;
+      }
+    }
+  }
+  //广告标题
+  .bannerText{
+    height: 44px;
+    width: 100%;
+    border-bottom: 1px solid #d5d5d5;
+    div.tip{
+      display: inline-block;
+      color: #fff;
+      line-height: 16px;
+      height: 16px;
+      background: #333;
+      margin:12px  10px 0 10px;
+      font-size: 12px;
+      padding: 2px 6px;
+      float: left;
+    }
+    div.txt{
+      display: inline-block;
+      line-height: 44px;
+      height: 14px;
+      color: #101010;
+      font-weight: bold;
+    }
+  }
+  //套餐精选
+  .jingxuantaocan{
+    .txtTitle{
+      margin:23px 0 0px 0px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    margin: 0 10px;
+    overflow: hidden;
+    .slidenav{
+      margin:10px 0 25px 0;
+      .slideindex ks-swiper-container .swiper-slide:before {
+        content: none;
+      }
+      .slideindex ks-swiper-container .swiper-slide a{
+        display: block;
+        position: relative;
+        padding-top: 66.6%;
+      }
+      .slideindex ks-swiper-container img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+      div.textDetails{
+        margin: 10px 0 0px 0;
+        line-height: 1.5em;
+        font-size: 16px;
+        color: #101010;
+        font-weight: bold;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        word-break: break-all;
+        overflow: hidden;
+      }
+      div.day{
+        color: #dd191d;
+        font-size: 16px;
+      }
+    }
+
+  }
+
+  //分类导航
+  div.flTitleBox{
+    background: #e6e6e6;
+    div.flTitle{
+      height: 44px;
+      margin: 0 10px;
+      div{
+        font-weight: bold;
+        width: 25%;
+        display: inline-block;
+        height: 100%;
+        line-height: 44px;
+        text-align: center;
+        font-size: 16px;
+        color: #999;
+      }
+      .cur{
+        color: #101010;
+      }
+    }
+  }
+  //商品列表
+  div.commodityList{
+    margin: 20px 10px 0 10px;
+    div.commodity{
+      float: left;
+      width: 49%;
+      margin-bottom: 30px;
+      div.imgDiv{
+        position: relative;
+        margin-bottom: 5px;
+        div.padTop{
+          padding-top:100%;
+        }
+        img{
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top:0;
+        }
+      }
+      div.textDetails{
+        line-height: 1.5em;
+        font-size: 14px;
+        color: #101010;
+        height: 42px;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        word-break: break-all;
+        overflow: hidden;
+      }
+      div.day{
+        color: #dd191d;
+        font-size: 14px;
+      }
+    }
+    div.commodity:nth-child(even){
+      margin-left: 2%;
+    }
+    div.clear{
+      clear: both;
+    }
+  }
+
+}

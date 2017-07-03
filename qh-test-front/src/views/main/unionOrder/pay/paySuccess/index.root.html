@@ -1,0 +1,49 @@
+<div flex="" layout="column" class=" ks-main ks-paySuccess">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+
+            <div class="divTop" flex class>
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"
+                         ng-click="fallbackPage()"></md-icon>
+                <span class="regSpan">支付成功</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+            <div class="changeTxtEmailBox" layout="column" layou-align="center center">
+                <div class="txtEmailBox" flex="100" layout="column" layou-align="center center">
+                    <div class="bindEmailTxt" flex layout="column">
+                        <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-selected-o"></md-icon>
+                        <div class="emailCode" flex>支付成功</div>
+                    </div>
+                </div>
+            </div>
+            <div class="InformationBox">
+                <div class="IfmRow"><span class="Information">支付号</span>
+                    <div class="floatRight">
+                        <div class="rightChildren">{{qhPay.seq}}</div>
+                        <!--  <md-icon md-font-icon="ks-arrow_right" class="chevron_right md-font ks-arrow_right ks-icon"
+                                   md-font-set="ks-icon" aria-hidden="true"></md-icon>-->
+                    </div>
+                </div>
+                <div class="IfmRow"><span class="Information">订单金额</span>
+                    <div class="floatRight">
+                        <div class="rightChildren">
+                            <span class="redTxt jine">￥{{qhPay.price/100.0|num:1}}</span>
+                        </div>
+                        <!--<md-icon md-font-icon="ks-arrow_right" class="chevron_right md-font ks-arrow_right ks-icon"
+                                 md-font-set="ks-icon" aria-hidden="true"></md-icon>-->
+                    </div>
+                </div>
+            </div>
+            <div class="solidRow"></div>
+            <div class="butWrap" ui-sref="main.unionOrder">
+                <button class="but">查看订单</button>
+            </div>
+        </div>
+    </md-content>
+    <div service-center="" info="index"></div>
+</div>

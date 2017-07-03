@@ -1,0 +1,52 @@
+<div flex="" layout="column" class="ks-refund ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">申请退款</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+
+    <md-content>
+        <!--选择框-->
+        <div class="choose">
+            <div class="chooseContent" layout="row">
+                <span>申请服务：</span>
+
+                <div class="sel" flex>
+                    <select flex>
+                        <option value="" checked="true">仅退款</option>
+                    </select>
+                </div>
+                <div class="txt" flex="10" layout="row">
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_down</md-icon>
+                </div>
+            </div>
+
+            <div class="chooseContent" layout="row">
+                <span>退款金额：</span>
+                <span style="line-height: 40px;width: auto;color: #101010;">￥</span>
+                <!--<div style="line-height: 40px;margin-left: 10px;color:#dd191d" >{{refund.price}}</div>-->
+                <input flex style="color: #dd191d;margin-left: 0;" type="text" placeholder="填写金额"
+                       data-ng-model="refund.price" ng-change="requirePrice()">
+            </div>
+            <!--此段说明代码是新加的，也加了css样式-->
+            <div class="chooseTxt">
+                <span>(最多￥{{maxPrice}},含邮费￥0)</span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span>退款说明：</span>
+                <textarea flex type="text" placeholder="最多200字" ng-change="checkText()" data-ng-model="refund.memo">
+                </textarea>
+                <!--style=’ resize: none;’-->
+            </div>
+        </div>
+    </md-content>
+    <div class="fixed" style="position: fixed;bottom: 0">
+        <div>
+            <span ng-click="orderRefund()">提交申请</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div flex="" layout="column" class="ks-unionpay ks-main md-whiteframe-z2 ">
+  <!--  <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">支付</span>
+            </div>
+        </div>
+    </md-toolbar>-->
+
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>支付</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content>
+        <div class="diviline"></div>
+        <div class="payNumCash">
+            <div class="rechageset rechargeNum" layout="row" layout-align="center center">
+                <div flex layout="row" layout-align="start center" class="cash-txt">订单金额：{{}}</div>
+                <div flex="70" layout="row" layout-align="end center" class="cash-input">
+                    ￥{{qhPay.price/100.0|num:1}}
+                </div>
+            </div>
+        </div>
+        <div class="diviline"></div>
+        <div class="payStaleTop">
+            <span>支付方式</span>
+            <span class="ye">{{qqq}}</span>
+        </div>
+        <div class="payStyleNext">
+            <div class="alipay" layout="row" ng-repeat="ss in list" ng-click="choose(ss.name)">
+                <div class="alipayCont">
+                    <!--<md-icon class="ks-rmb-symbol ks-icon" md-font-set="ks-icon">ks-rmb-symbol</md-icon>-->
+                    <md-icon md-font-set="ks-icon {{ss.icon}}" class="chevron_left ks-icon" md-font-icon="{{ss.icon}}"></md-icon>
+                </div>
+                <div class="alipayRight" flex>
+                    <span>{{ss.name}}</span>
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon" ng-if="!state[ss.name]">r-unselected
+                    </md-icon>
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon" ng-if="state[ss.name]"
+                             style="color: #ba9f6e">r-selected
+                    </md-icon>
+                </div>
+            </div>
+        </div>
+        <div class="bottomPay" layout="column" ng-if="pay==='0'">
+            <span layout="row" flex layout-align="center center" ng-click="checkSetPay()">去支付</span>
+        </div>
+        <div class="bottomPay" layout="column" ng-if="pay!='0'">
+            <span layout="row" flex layout-align="center center" ng-click="payment()">去支付</span>
+        </div>
+    </md-content>
+
+</div>

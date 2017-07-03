@@ -1,0 +1,226 @@
+//显示
+.actions-modal.modal-in {
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+//不显示
+.actions-modal {
+  position: absolute;
+  left: 0;
+  //定位于底部
+  bottom: 0;
+  z-index: 11000;
+  width: 100%;
+  //-webkit-transform: translate3d(0, 100%, 0);
+  //transform: translate3d(0, 100%, 0);
+
+  -webkit-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+}
+
+//指定打开的id
+//[id*="upmodal"]{}
+////显示
+[id*="upmodal"].modal.in .modal-dialog{
+  //.actions-modal.modal-in
+
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+
+  //transform: translate(0,0);
+
+
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
+
+
+  position: absolute;
+  left: 0;
+  //定位于底部
+  bottom: 0;
+  z-index: 11000;
+  width: 100%;
+
+  background-color: #fff;
+//控制距离顶部的高度,有50或者auto等值
+  top:auto;
+  //top: 50%;
+
+  -webkit-transition: -webkit-transform .3s linear;
+  -o-transition: -o-transform .3s linear;
+  transition: transform .3s linear;
+
+  .modal-content{
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 0;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+}
+
+//留影圆角
+[id*="upmodal"] .modal-content{
+  position: relative;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: none;
+  border-radius: 0;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+////不显示*
+[id*="upmodal"].modal.fade .modal-dialog{
+  //.actions-modal
+  //position: absolute;
+  //left: 0;
+  ////定位于底部
+  //bottom: 0;
+  //z-index: 11000;
+  //width: 100%;
+  //-webkit-transform: translate3d(0, 100%, 0);
+  //transform: translate3d(0, 100%, 0);
+  font-size: 18px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
+}
+[id*="upmodal"].modal .modal-dialog{
+  //.actions-modal
+  //position: absolute;
+  //left: 0;
+  ////定位于底部
+  //bottom: 0;
+  //z-index: 11000;
+  //width: 100%;
+  //-webkit-transform: translate3d(0, 100%, 0);
+  //transform: translate3d(0, 100%, 0);
+  font-size: 18px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
+}
+//
+//留影
+[id*="upmodal"] .modal-dialog{
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+
+}
+[id*="upmodal"].modal{
+  //.actions-modal
+  //position: absolute;
+  //left: 0;
+  //定位于底部
+  //top:auto;
+  //bottom: 0;
+  //z-index: 11000;
+  //width: 100%;
+  //-webkit-transform: translate3d(0, 100%, 0);
+  //transform: translate3d(0, 100%, 0);
+}
+//
+//
+//.modal-overlay, .preloader-indicator-overlay, .popup-overlay {
+//  position: absolute;
+//  left: 0;
+//  top: 0;
+//  width: 100%;
+//  height: 100%;
+//  background: rgba(0, 0, 0, 0.4);
+//  z-index: 10600;
+//  visibility: hidden;
+//  opacity: 0;
+//  -webkit-transition-duration: 400ms;
+//  transition-duration: 400ms;
+//}
+//
+//
+//
+//.modal-overlay.modal-overlay-visible, .preloader-indicator-overlay.modal-overlay-visible, .popup-overlay.modal-overlay-visible {
+//  visibility: visible;
+//  opacity: 1;
+//}
+
+
+//.fade {
+//  opacity: 0;
+//  /* -webkit-transition: opacity .15s linear; */
+//  -o-transition: opacity .15s linear;
+//  transition: opacity .15s linear;
+//}
+
+
+//weui,打开状态
+.weui_actionsheet_toggle {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.weui_actionsheet {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  -webkit-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 2;
+  width: 100%;
+  background-color: #EFEFF4;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+}
+//关闭状态
+
+.weui_actionsheet {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  -webkit-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 2;
+  width: 100%;
+  background-color: #EFEFF4;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+}
+
+//++++++++++++++++
+//开始上拉组件里的内容
+.testtutu{
+  width: 50px;
+  margin-top: -40px;
+  background-color: #eb5252;
+}
+.testtu2{
+  position: absolute;
+  top: -36px;
+  left: 40px;
+  background-color: #00aa00;
+
+}

@@ -1,0 +1,44 @@
+.qh {
+  //用户信息页面
+  .userinfo{
+    section{
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      padding-left: 1em;
+      list-style: none;
+      border-top: 1px solid @border-color2;
+      border-bottom: 1px solid @border-color2;
+
+      .row {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      & > li {
+        list-style: none;
+
+        overflow: hidden;
+        //padding: 1em 0.5em 1em 1em;
+        padding: 12px 0;
+        //padding: 1em 0 1em 0;
+      }
+      & > li+li{
+        border-top: 1px solid @border-color2;
+      }
+      //列中的名称
+      .list-name{
+        font-size: 15px;
+        color: #323232;
+      }
+      //列中的值
+      .list-value{
+        font-size: 13px;
+        color: #646464;
+      }
+    }
+  }
+}

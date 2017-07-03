@@ -1,0 +1,73 @@
+<div flex="" layout="column" class="md-whiteframe-z2 ks-main ks-topicDetail">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex><img flex ng-src="{{vm.imgUrl}}/{{vm.info.userAvatar}}?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}" img-holder/>
+            <span>{{vm.info.username}}</span>
+        </h1>
+        <div class="md-icon-button" flex="20">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-like-o" ng-if="!vm.info.hasVote" ng-click="vm.vote()"></md-icon>
+            <md-icon class="ks-icon hasVote" md-font-set="ks-icon" md-font-icon="ks-like" ng-if="vm.info.hasVote"></md-icon>
+        </div>
+    </md-toolbar>
+
+
+
+
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+            <div class="discuss">
+                <div class="title">{{vm.info.title}}</div>
+                <div class="time">{{vm.info.lastUpdated|date:"yyyy-MM-dd"}}</div>
+                <div class="layouts" ng-bind-html="vm.info.content" style="width: 100%">
+                </div>
+            </div>
+        </div>
+        <div class="diviline"></div>
+        <div class="comment">
+            <div class="headtitle">评论 <span>{{vm.cmList.totalCount}}条评论</span></div>
+            <div class="comBox" layout="row" ng-repeat="l in vm.cmList.recList" ng-if="vm.cmList.totalCount>0" >
+                <div class="pic" style="width: 50px">
+                    <img flex ng-src="{{vm.imgUrl}}/{{l.user.userAvatar}}?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}" img-holder/>
+                </div>
+                <div class="txt" flex>
+                    <div layout="row" class="title" layout-align="center center">
+                        <div class="name" flex>{{l.user.username}}</div>
+                        <div class="time" flex>{{l.user.commentDate|date:"yyyy-MM-dd"}}</div>
+                    </div>
+                    <div class="reply">{{l.user.content}}</div>
+                    <div class="answer" ng-if="l.reply"><span>{{vm.info.username}}:</span>{{l.reply.replyContent}}</div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-click="vm.getComment(vm.curPage)"
+                 ng-if="!vm.pageEnd">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    点击加载更多...
+                </md-button>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-if="vm.pageEnd">
+                <md-button class="ks-white md-raised" ng-if="vm.cmList.totalCount>10" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                没有更多评论了
+                </md-button>
+                <md-button class="ks-white" ng-if="vm.cmList.totalCount===0" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    暂无评论
+                </md-button>
+            </div>
+        </div>
+    </md-content>
+
+    <div class="area" layout="row">
+        <div class="ipt" flex="75">
+            <!--<md-icon md-font-set='ks-icon' md-font-icon='ks-edit-pencil'></md-icon>-->
+            <input type="text" placeholder="写评论" ng-model="vm.myComment.xt">
+        </div>
+        <div flex="25" >
+            <md-button class="iptbt" ng-click="vm.creatCm()">发送</md-button>
+        </div>
+    </div>
+</div>

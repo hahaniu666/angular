@@ -1,0 +1,67 @@
+//标签 label
+
+.ui-label{
+  display: inline-block;
+  position: relative;
+  line-height: 30px;
+  height: 30px;
+  padding: 0 15px;
+  .border-radius(#cacccd,15px,30px);
+  &:active{
+    background-color: #f3f2f2;
+  }
+}
+.ui-label-list{
+  margin: 0 10px;
+  .ui-label{
+    margin: 0 10px 10px 0;
+  }
+}
+.ui-label-s{
+  font-size: 11px;
+  line-height: 13px;
+  display: inline-block;
+  position: relative;
+  padding: 0 1px;
+  color: #ff7f0d;
+  .border-radius(#ff7f0d,2px,4px);
+  &:active{
+    background-color: #f3f2f2;
+  }
+  &:after{
+    content: "";
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+  }
+}
+
+//新的标签,激活状态加active
+.item-label{
+  display: inline-block;
+  text-align: center;
+  padding-left: 17px;
+  padding-right: 17px;
+  height: 24px;
+  line-height: 24px;
+  background-color: #f5f5f5;
+  color: #101010;
+  font-size: 12px;
+  margin-right: 10px;
+  font-weight: normal;
+  &:active{
+    background-color: #333333;
+    color: #ffffff;
+  }
+  &.active{
+    background-color: #333333;
+    color: #ffffff;
+  }
+
+}
+.item-label +.item-label{
+  //margin-right: 10px;
+}
+

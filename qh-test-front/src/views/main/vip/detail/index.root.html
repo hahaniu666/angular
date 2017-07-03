@@ -1,0 +1,90 @@
+<div flex="" layout="column" class="ks-vipDetail ks-main md-whiteframe-z2">
+
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex></h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex>
+        <ks-swiper-container direction="horizontal"
+                             initial-slide="0"
+                             effect="between"
+                             swiper="swiper"
+                             initial-slide="1"
+                             loop="false"
+                             show-nav-buttons="false"
+                             pagination-is-active="true"
+                             pagination-clickable="false"
+                             slides-per-view="1"
+                             space-between="5">
+            <ks-swiper-slide class="swiper-slide" ng-repeat="s in vm.data.imgs track by $index">
+                <img ng-src="{{vm.imgUrl}}{{s}}?imageView2/2/w/{{vm.itemImg.w}}/h/{{vm.itemImg.h}}"/>
+            </ks-swiper-slide>
+        </ks-swiper-container>
+        <div class="CommodityName">{{vm.data.title}}</div>
+        <div class="commodityPrice">{{vm.data.integral/100|num:1}}钱币
+            <span ng-if="vm.data.canCash"
+                  style="font-weight: normal">（￥{{vm.data.price/100.0|num:1}}&nbsp;）</span>
+        </div>
+        <div class="CommodityRemarks">
+            <span>活动时间</span>
+            <span>{{vm.data.startDate|date:"yyyy-MM-dd"}}</span>
+            <span>至</span>
+            <span>{{vm.data.endDate|date:"yyyy-MM-dd"}}</span>
+        </div>
+        <div class="salesSupport">
+            <div ng-if="!vm.data.level">兑换条件:用户等级无限制</div>
+            <div ng-if="vm.data.level">兑换条件:用户等级{{vm.data.level.name}}及以上</div>
+            <div>
+            <span>
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-r-selected"></md-icon>正品保证
+            </span>
+            <span>
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-r-selected"></md-icon>假一罚万
+            </span>
+            <span>
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-exclamation-circle"></md-icon>不支持退换货
+            </span>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="CommodityAttribute">
+            商品详情
+            <div class="CommodityReview"></div>
+        </div>
+        <div class="AttributeCourent">
+            <div class="AttributeCourentCenter" ng-bind-html="vm.data.detail">
+            </div>
+        </div>
+    </md-content>
+    <div class="fotter" layout="row">
+        <div class="fotterLeft" layout="column" flex="33" ui-sref="main.vip.exchangNotes">
+            <div layout="column" layout-align="center center">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-chat"></md-icon>
+                <div style="font-size: 12px">须知</div>
+            </div>
+        </div>
+        <div class="btn" ng-click="vm.exchange()" layout="column" flex
+             ng-if="vm.data.integralShop&&vm.data.levelShop&&vm.data.maxCount!=0&&vm.data.buyShop== true">
+            立即兑换
+        </div>
+        <div class="btns" layout="column" flex ng-if="!vm.data.integralShop&&vm.data.levelShop">
+            钱币不足
+        </div>
+        <div class="btns" layout="column" flex
+             ng-if="vm.data.integralShop&&vm.data.levelShop&&vm.data.maxCount==0&&vm.data.buyShop!=false">
+            已抢光
+        </div>
+        <div class="btns" layout="column" flex
+             ng-if="vm.data.integralShop&&vm.data.levelShop&&vm.data.buyShop== false">
+            <!-- 限购{{vm.data.limitCount}}件-->已兑换
+        </div>
+        <div class="btns" layout="column" flex ng-if="!vm.data.levelShop">
+            不满足兑换条件
+        </div>
+    </div>
+</div>

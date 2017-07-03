@@ -1,0 +1,166 @@
+<div flex="" layout="column" class="ks-main ks-vipOrderDetail md-whiteframe-z2">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>订单详情</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+
+    <md-content flex>
+        <div class="extract" flex layout="row" ng-if="vm.data.item.type==='SERVICE'">
+            <div class="condition" flex>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-drawer-arrow-up"
+                         ng-if="vm.data.status==='UNEXCHANGE'"></md-icon>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-carton" ng-if="vm.data.status==='SUCCESS'"></md-icon>
+                <span ng-if="vm.data.status==='UNEXCHANGE'">待提取</span>
+                <span ng-if="vm.data.status==='SUCCESS'">已提取</span>
+            </div>
+            <div class="findShop" flex ng-click="vm.searchShops()">
+                <span>|</span>
+                查看附近门店
+                <md-icon class="ks-icon"  md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+            </div>
+        </div>
+        <div class="orderDetailHeader" ng-if="vm.data.item.type==='ITEM'">
+            <div class="orderDetailHeaderTop" ng-if="vm.data.status==='UNSHIPPED'">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-drawer-arrow-up"></md-icon>
+                <div>待发货</div>
+            </div>
+            <div class="orderDetailHeaderTop" ng-if="vm.data.status==='UNRECEIVED'">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-delivery"></md-icon>
+                <div>待收货</div>
+            </div>
+            <div class="orderDetailHeaderTop" ng-if="vm.data.status==='SUCCESS'">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-done"></md-icon>
+                <div>已完成</div>
+            </div>
+            <div class="orderDetailHeaderBottom">
+                <div class="bottomList">
+                    <div class="circle">
+                        <div class="circleIn active" ng-class="{active:classActive.css[0]}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:classActive.css[0]}">提交订单</div>
+                </div>
+                <div class="bottomList">
+                    <div class="circle ">
+                        <div class="circleIn" ng-class="{active:classActive.css[1]}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:classActive.css[1]}">已支付</div>
+                </div>
+                <div class="bottomList">
+                    <div class="circle">
+                        <div class="circleIn" ng-class="{active:classActive.css[2]}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:classActive.css[2]}">已发货</div>
+                </div>
+
+                <div class="bottomList">
+                    <div class="circle">
+                        <div class="circleIn" ng-class="{active:classActive.css[3]}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:classActive.css[3]}">已收货</div>
+                </div>
+                <br style="clear: both">
+                <div class="line"></div>
+            </div>
+
+        </div>
+        <div class="order-detail">
+            <!-- 收货地址 -->
+            <div class="block">
+                <div class="title-row" layout-align="center center" layout="" ng-click="vm.updateAddress()">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">订单信息</div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div class="content-row" layout="column">
+                    <div class="seqNum">订单号:{{vm.data.seq}}</div>
+                    <div ng-if="vm.data.item.type==='SERVICE'">截至兑换时间:
+                        <span ng-if="!vm.data.usableDate">永久有效</span>
+                        <span ng-if="vm.data.usableDate">{{vm.data.usableDate|date:'yyyy-MM-dd'}}</span>
+                    </div>
+                    <div>创建时间:{{vm.data.date|date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <!-- 配送 只在商品显示 -->
+            <div class="block" ng-if="vm.data.item.type==='ITEM'">
+                <div class="title-row" layout-align="center center" layout="" ng-click="vm.updateAddress()">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">配送</div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div class="content-row" layout="column">
+                    <div>{{vm.data.address.receiver}} {{vm.data.address.phone}}<br>
+                        {{vm.data.address.addr}}/{{vm.data.address.street}}
+                    </div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+
+            <!-- 商品清单 -->
+            <div class="block">
+
+                <div class="title-row" layout-align="center center" layout="">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">商品清单</div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div ui-sref="main.vip.detail({id:vm.data.item.id})">
+                    <div layout="row"
+                         class="item-row"
+                         layout-align="center center">
+
+                        <div class="item-img">
+                            <img img-holder
+                                 ng-src="{{vm.imgUrl}}{{vm.data.item.img}}?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}"/>
+                            <!--<div class="ribbon" ng-if="$last">赠品</div>-->
+                        </div>
+
+                        <div flex layout="column" class="item-desp" layout-align="space-between none">
+                            <div class="item-title">{{vm.data.item.title}}
+                            </div>
+                            <div layout="row" class="price-row" layout-align="space-between none">
+                                <div flex class="item-price">{{vm.data.item.integral/100|num:1}}钱币&nbsp;<span
+                                        ng-if="vm.data.item.price>0">(￥{{vm.data.item.price/100|num:1}})</span></div>
+                                <div class="count-show">
+                                    x 1
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <!--支付方式-->
+            <div class="block">
+                <div class="title-row" layout-align="center center" layout="">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">支付方式</div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div class="content-row" layout="column">
+                    <div ng-if="vm.data.payType==='JF_PAY'">钱币支付</div>
+                    <div ng-if="vm.data.payType==='QH_PAY'">现金支付</div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+
+            <!-- 订单总额，优惠金额 -->
+            <div class="block summary" layout="column" layout-align="center center">
+                <div ng-if="vm.data.payType==='JF_PAY'">实付金额： {{vm.data.item.integral/100|num:1}}钱币</div>
+                <div ng-if="vm.data.payType==='QH_PAY'">实付金额： ￥{{vm.data.item.price/100|num:1}}</div>
+            </div>
+
+        </div>
+
+    </md-content>
+    <!--这里就商品有确认订单按钮-->
+    <div class="submit-btn" layout="row" layout-align="center center"
+         ng-if="vm.data.item.type==='ITEM'&&vm.data.status==='UNRECEIVED'">
+        <md-button class="md-primary md-raised" flex="90" ng-click="vm.confirm()">确认收货</md-button>
+    </div>
+</div>

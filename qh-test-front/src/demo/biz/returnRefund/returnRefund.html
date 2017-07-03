@@ -1,0 +1,107 @@
+<!--除了此页有新加代码之外，其他退货退款页面没有css改动，可以复用，但是头部ks-这块不一样-->
+<div flex="" layout="column" class="ks-returnRefund ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="">
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_left</md-icon>
+            </md-button>
+            <h1 flex>退货退款</h1>
+            <span flex="10"></span>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+
+    <md-content>
+        <!--选择框-->
+        <div class="choose">
+            <div class="chooseContent" layout="row">
+                <span>申请服务：</span>
+                <div class="sel" flex>
+                    <select flex>
+                        <option>退货退款</option>
+                        <option>仅退款</option>
+                        <option>仅退款</option>
+                        <option>仅退款</option>
+                    </select>
+                </div>
+
+                <div class="txt" flex="10" layout="row">
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_down</md-icon>
+                </div>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span>退货原因：</span>
+                <div class="sel" flex>
+                    <select flex>
+                        <option>退货退款</option>
+                        <option>仅退款</option>
+                        <option>仅退款</option>
+                        <option>仅退款</option>
+                    </select>
+                </div>
+                <div class="txt" flex="10" layout="row">
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_down</md-icon>
+                </div>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span>退款金额：</span>
+                <span>￥<span style="color: red;margin-left: 2px">173</span></span>
+            </div>
+            <!--此段说明代码是新加的，也加了css样式-->
+            <div class="chooseTxt">
+                <span>(最多￥173,含邮费￥0)</span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span>退货说明：</span>
+                <input flex type="text" placeholder="填写单号">
+                <!--style=’ resize: none;’-->
+            </div>
+        </div>
+        <div class="voucher">
+            <div class="voucherTxt">
+                <div class="voucherPhoto">
+                    <div class="img">
+                        <img src="http://placehold.it/600x600">
+                    </div>
+                    <div class="txtWarp">
+                        <textarea maxlength="10" style="resize: none">最多10个字最多10个字</textarea>
+                    </div>
+                    <div class="delete">
+                        <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">delete</md-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="voucherTxt">
+                <div class="voucherPhoto">
+                    <div class="img">
+                        <img src="http://placehold.it/600x600">
+                    </div>
+                    <div class="txtWarp">
+                        <textarea maxlength="10" style="resize: none" placeholder="输入说明"></textarea>
+                    </div>
+                    <div class="delete">
+                        <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">delete</md-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add">
+            <div class="font">
+                <div class="fontWrap">
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">plus</md-icon>
+                </div>
+                <span>
+                    <span>上传凭证</span>
+                    <p>(最多三张)</p>
+                </span>
+            </div>
+        </div>
+
+    </md-content>
+    <div class="fixed">
+        <div>
+            <span>提交申请</span>
+        </div>
+
+    </div>
+</div>

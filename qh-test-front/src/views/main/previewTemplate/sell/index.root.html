@@ -1,0 +1,36 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-previewTemplate">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>今日特卖</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex>
+        <!--今日特卖-->
+        <div class="pinpai" style="margin-top: 0">
+            <!--对应图片-->
+            <div class="pinpai-img-wrap"
+                 ng-repeat="limit in limitList.recList track by $index ">
+                <!--<img img-holder src="https://o96iiewkd.qnssl.com/FolNZxWm9w4NFw6x-niVdwjzTO-0"/>-->
+                <img img-holder
+                     ui-sref="main.item({itemId:limit.skus[0].itemId,skuId:limit.skus[0].skuId})"
+                     ng-src="{{imgUrl}}{{limit.img}}?imageView2/2/w/{{slideImg.w}}/h/{{slideImg.h}}"/>
+
+                <div class="dis-wrap" layout="column" layout-align="center start"
+                     ui-sref="main.item({itemId:limit.skus[0].itemId,skuId:limit.skus[0].skuId})">
+                    <div class="time">
+                        剩余{{limitList.recList[$index].activityCheck.day}}天{{limitList.recList[$index].activityCheck.hour}}小时
+                    </div>
+                    <div class="title">{{limit.name}}</div>
+                    <div class="discribe">{{limit.memo}}</div>
+                    <div class="price">
+                        <span class="price-num">￥{{limit.skus[0].activityPrice/100|num:0}}</span>起
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>

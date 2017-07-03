@@ -1,0 +1,113 @@
+<div flex="" layout="column" class="md-whiteframe-z2 ks-main ks-appSearchReturn">
+    <md-toolbar class="ks-header ks-allCommodity-header ks-search-header">
+        <div layout="row" class="ks-header-divWrap">
+            <div class="divTop" flex layout="row">
+                <!-- <md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <div class="chevron_left_Wrap" ng-click="vm.fallbackPage()">
+                    <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"></md-icon>
+                </div>
+                <!--显示全部商品-->
+                <div flex layout="row" class="searchReturnBox" layout-align="center center" ng-if="vm.commodity.all">
+                    <span class="regSpan">{{vm.commodity.title}}</span>
+                </div>
+                <div class="rightDiv" style="width: 28px" ng-click="vm.search()" ng-if="vm.commodity.all"></div>
+                <!--显示搜索商品-->
+                <div class="searchInputWrap" flex ng-if="!vm.commodity.all">
+                    <input type="search" class="searchInput" ng-model="vm.commodity.search" placeholder="搜索： 商品"/>
+                    <md-icon md-font-set="ks-icon" class="searchIcon" md-font-icon="ks-search"></md-icon>
+                </div>
+                <div class="rightDiv" ng-click="vm.search()" ng-if="!vm.commodity.all">
+                    <span class="spanSearch">搜索</span>
+                </div>
+
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="towNav" layout="row">
+            <div flex layout="row" layout-align="center center" ng-click="vm.showScreen($event,1)">
+
+                <span class="zh">{{vm.commodity.overAll}}</span>
+                <md-icon class="UpDn" ng-if="vm.commodity.upDn==2" md-font-set="ks-icon" class="chevron_left"
+                         md-font-icon="ks-sort-asc"></md-icon>
+                <md-icon class="UpDn" ng-if="vm.commodity.upDn==3" md-font-set="ks-icon" class="chevron_left"
+                         md-font-icon="ks-sort-desc"></md-icon>
+            </div>
+            <div flex layout="row" layout-align="center center" ng-click="vm.showScreen($event,2)">分类</div>
+            <div flex layout="row" layout-align="center center" ng-click="vm.showScreen($event,3)">筛选</div>
+        </div>
+    </md-toolbar>
+    <md-content flex="" id="content" style="overflow: visible">
+        <div class="content-divWrap">
+            <div class="notCommodity" style="" ng-if="vm.items.items.length==0">
+                <md-icon class="ks-handbag md-font ks-icon" md-font-icon="ks-hand-bag" md-font-set="ks-icon"
+                         aria-hidden="true"></md-icon>
+                <p>抱歉，没有搜索到相关商品</p>
+            </div>
+            <div class="contentCommodity contentCommodityLeft">
+
+                <div class="layoutWrap ">
+                    <div infinite-scroll='vm.reddit.nextPage()' infinite-scroll-disabled='vm.reddit.busy'
+                         infinite-scroll-distance='1'>
+                        <div class="commodity commodityTitle" ng-if="vm.items.items.length!=0">
+                            {{vm.commodity.title}}
+                        </div><!--ng-repeat="item in vm.items.items"-->
+                        <div class="commodityList" ng-click="vm.queryItem(item)" ng-repeat="item in vm.items.items"
+                             ng-if="$odd">
+                            <div class="commodity ">
+                                <div class="afters" ng-if="item.activity">
+                                    <span>限时</span>
+                                    <div class="topd"></div>
+                                    <div class="bottomd"></div>
+                                </div>
+                                <div class="commodityImg"></div>
+                                <img ng-src="{{vm.imgUrl}}{{item.img}}?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}"
+                                     img-holder
+                                     title="商品图片">
+                            </div>
+                            <div class="paremsTtitle">{{item.title}}</div>
+                            <div class="paremsPrice">￥{{item.price/100.0|num:1}}</div>
+                        </div>
+                        <div class="commodityList" ng-click="vm.queryItem(item)" ng-repeat="item in vm.items.items"
+                             ng-if="$even">
+                            <div class="commodity ">
+                                <!--限时活动标签-->
+                                <!--这个限时抢购只是活动商品有这个字样
+                                租赁商品都没有  然后在item下面的index有个限时抢购字样也是根据这个限时同时出现的-->
+                                <div class="afters" ng-if="item.activity">
+                                    <span>限时</span>
+                                    <div class="topd"></div>
+                                    <div class="bottomd"></div>
+                                </div>
+                                <div class="commodityImg"></div>
+                                <img ng-src="{{vm.imgUrl}}{{item.img}}?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}"
+                                     img-holder
+                                     title="商品图片">
+
+                            </div>
+                            <div class="paremsTtitle">{{item.title}}</div>
+                            <div class="paremsPrice">￥{{item.price/100.0|num:1}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div ng-if="vm.reddit.busy">ssssssssss</div>-->
+        <!--  <div layout="row" layout-align="center center" style="padding: 10px;margin-top: -15px"
+               ng-click="vm.pageChanged()"
+               ng-if="!vm.items.pageEnd">
+              <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                  &lt;!&ndash;<md-icon style="color: #999;margin-right: 10px" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>&ndash;&gt;
+                  <span>点击加载更多...</span>
+              </md-button>
+          </div>
+          <div layout="row" layout-align="center center" style="padding: 10px"
+               ng-if="vm.items.pageEnd && vm.items.curPage>1">
+              <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                  &lt;!&ndash;<md-icon style="color: #999;margin-right: 10px" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>&ndash;&gt;
+                  <span>没有更多商品了</span>
+              </md-button>
+          </div>-->
+    </md-content>
+
+</div>
+

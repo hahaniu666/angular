@@ -1,0 +1,194 @@
+.ks-appSearchReturn.ks-main {
+  .ks-header {
+    background: #fff;
+    height: 44px;
+    font-size: 16px;
+    color: #333;
+    min-height: 44px;
+    .ks-icon {
+      font-size: 16px;
+      margin-left: 13px;
+      color: #333;
+      line-height: 20px;
+      width: 40px;
+      margin-top: 3px;
+    }
+    .md-icon-button {
+      width: 40px;
+      margin-top: 3px;
+      font-size: 14px;
+      color: #fff;
+      line-height: 44px;
+    }
+
+    .md-icon-button:last-child {
+      width: auto;
+    }
+    h1 {
+      font-size: 20px;
+      color: #333;
+      text-align: center;
+      height: 44px;
+      line-height: 44px;
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+  //header开始
+  .ks-header._md.ks-search-header {
+    height: 44px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 2px;
+        margin-bottom: 7px;
+        .chevron_left_Wrap {
+          padding-right: 34px;
+          width: 20px;
+          .chevron_left {
+            color: #101010;
+            line-height: 24px;
+            font-size: 16px;
+            margin-top: 2px;
+          }
+        }
+        .searchInputWrap {
+
+          position: relative;
+          height: 30px;
+          background: #f0f0f0;
+          display: inline-block;
+          .searchIcon {
+            position: absolute;
+            left: 5px;
+            top: 3px;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+          }
+          .searchInput {
+            color: #101010;
+            height: 14px;
+            line-height: 14px;
+            font-size: 12px;
+            width: 100%;
+            text-indent: 30px;
+            background: transparent;
+            border: none;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            position: absolute;
+            left: 0px;
+            top: 7px;
+          }
+        }
+        .rightDiv {
+          line-height: 26px;
+          float: right;
+          padding-left: 10px;
+          text-align: right;
+          .spanSearch {
+            font-size: 14px;
+            color: #101010;
+          }
+        }
+
+      }
+    }
+  }
+
+  //主体内容开始
+  .content-divWrap {
+    //全部商品
+    .notCommodity {
+      left: 50%;
+      margin-left: -74px;
+      margin-top: -52px;
+      position: absolute;
+      top: 50%;
+      .ks-handbag {
+        width: 60px;
+        height: 60px;
+        font-size: 60px;
+        text-align: center;
+        line-height: 60px;
+        display: block;
+        margin: 0 auto;
+        color: #ccc;
+        background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e6e6e6), to(#f5f5f5));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    .towNav {
+      margin: 5px 10px;
+      height: 44px;
+      div {
+        border-bottom: 2px solid #000;
+      }
+    }
+    .solidDiver {
+      border-top: 1px solid #d5d5d5;
+    }
+
+  }
+
+  ._md.ks-header.ks-allCommodity-header {
+    background: transparent;
+    height: 87px;
+    .ks-header-divWrap {
+      height: 35px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+
+      div.leftIcon {
+        position: absolute;
+        font-size: 16px;
+        height: 35px;
+        line-height: 35px;
+        width: 34px;
+        .chevron_left {
+          font-size: 16px;
+          color: #101010;
+          line-height: 24px;
+          text-align: center;
+        }
+      }
+      div.searchReturnBox {
+        line-height: 35px;
+        height: 35px;
+      }
+    }
+    .towNav {
+      margin: 0px 10px;
+      height: 44px;
+      div {
+        height: 44px;
+        border-bottom: 4px solid #000;
+        color: #000;
+        font-size: 14px;
+        .zh {
+          margin: 0 0 0 0;
+        }
+        .UpDn {
+          font-size: 12px;
+          color: #999;
+          margin: 2px 0 0 0;
+          text-align: center;
+          line-height: 24px;
+        }
+      }
+    }
+
+  }
+}

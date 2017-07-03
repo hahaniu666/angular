@@ -1,0 +1,104 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-group" style="position: relative">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20"
+             ui-sref="main.groupOrder.groupOrderStatus({groupOrderId:vm.groupOrders.groupOrderId,orgId: vm.orgId})">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>拼团详情</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex layout="column" style="overflow-x: hidden">
+        <div class="item-detail">
+            <!--多加一层方便布局-->
+            <div class="detail-wrap" layout="column" layout="center">
+                <div class="detail-txt">
+                    <span ng-if="vm.groupOrders.groupNum - vm.groupOrders.curSize>0">还差{{vm.groupOrders.groupNum - vm.groupOrders.curSize }}人，赶紧参团吧</span>
+                </div>
+                <div class="img-header" layout="row" layout-align="center center">
+                    <div class="img-wrap" ng-repeat="ss in vm.groupImg.groupOrders">
+                        <img ng-if="ss.imgType !='URLIMG'" ng-src="{{vm.imgUrl}}{{ss.img}}" width="44px" height="44px"
+                             alt="">
+
+                        <img ng-if="ss.imgType =='URLIMG'" src="{{ss.img}}" width="44px" height="44px"
+                             alt="">
+                        <div class="tuanzhang" ng-if="ss.isLeader">团长</div>
+                    </div>
+                    <div class="img-wrap" ng-repeat="comment in vm.comments track by $index">
+                        <img src="https://img.kingsilk.net/Fi7EqWqwTZtoQQxDNOx3fp3Prjcq" width="44px" height="44px"
+                             alt="">
+                    </div>
+                </div>
+                <div class="time" style="margin-bottom: 30px"
+                     ng-if="vm.groupOrders.groupNum - vm.groupOrders.curSize>0">
+                    剩余<span style="margin-left: 10px" ng-if=" vm.groupOrders.activityCheck.hour">{{ vm.groupOrders.activityCheck.hour}}</span><span
+                        style="margin-left: 10px"
+                        ng-if="! vm.groupOrders.activityCheck.hour">00</span>
+                    : <span
+                        ng-if="vm.groupOrders.activityCheck.minute">{{vm.groupOrders.activityCheck.minute}}</span><span
+                        ng-if="!vm.groupOrders.activityCheck.minute">00</span> : <span
+                        style="margin-right: 10px" ng-if=" vm.groupOrders.activityCheck.second ">{{ vm.groupOrders.activityCheck.second }}</span><span
+                        style="margin-right: 10px" ng-if="! vm.groupOrders.activityCheck.second ">00</span>结束
+                </div>
+                <div class="time" style="margin-bottom: 30px"
+                     ng-if="vm.groupOrders.groupNum - vm.groupOrders.curSize<=0">已成团
+                </div>
+            </div>
+            <md-divider></md-divider>
+            <div class="det-wrap" layout="row" layout-align="space-between center">
+                <div class="det-left">商品名称</div>
+                <div class="det-order-right">{{vm.groupOrders.sku.title}}</div>
+            </div>
+            <md-divider></md-divider>
+            <div class="det-wrap" layout="row" layout-align="space-between center">
+                <div class="det-left">参团时间</div>
+                <div class="det-time-right">{{vm.groupOrders.payTime|date:"yyyy-MM-dd"}}</div>
+            </div>
+            <md-divider></md-divider>
+            <div class="need-know" layout="column">
+                <div class="need-txt">拼团须知：</div>
+                <div class="icon-wrap" layout="row" layout-align="start center">
+                    <div class="icon-txt" layout="row" layout-align="center center">
+                        <span class="circle"></span>
+                        <span>邀请好友</span>
+                    </div>
+                    <div class="icon-txt" layout="row" layout-align="center center">
+                        <span class="circle"></span>
+                        <span>人满发货</span>
+                    </div>
+                    <div class="icon-txt" layout="row" layout-align="center center">
+                        <span class="circle"></span>
+                        <span>人不满退款</span>
+                    </div>
+                </div>
+            </div>
+            <md-divider></md-divider>
+        </div>
+    </md-content>
+    <div class="group-fotter" layout="row">
+        <div flex class="single" layout="column" layout-align="center center"
+             ui-sref="main.groupOrder.groupOrderStatus({groupOrderId:vm.groupOrders.groupOrderId,orgId: vm.orgId})">
+            <span>查看订单</span>
+        </div>
+        <div ng-if="vm.groupOrders.groupNum - vm.groupOrders.curSize<=0" flex class="group" layout="column"
+             layout-align="center center"
+             ui-sref="main.groupOrder.groupOrderDetail({id:vm.id,skuId:vm.groupOrders.sku.id,orgId: vm.orgId })">
+            <span>重新开团</span>
+        </div>
+        <div ng-if="vm.groupOrders.groupNum - vm.groupOrders.curSize>0" flex class="group" layout="column"
+             layout-align="center center">
+            <span ng-if="vm.isLeader" ng-click="vm.maskShow()">邀请好友</span>
+            <span ng-if="!vm.isLeader"
+                  ui-sref="main.groupOrder.group({unionGroupOrderId:vm.groupOrders.unionGroupOrderId,payId:vm.payId,id:vm.id,orgId: vm.orgId })">去参团</span>
+        </div>
+    </div>
+    <!--遮罩-->
+    <div class="mask" ng-if="vm.mask" style="position: absolute">
+        <div class="maskButton1">
+            <div class="shareKnow" ng-click="vm.maskHide()" md-font-icon="ks-arrow_left"></div>
+        </div>
+    </div>
+</div>
+
+

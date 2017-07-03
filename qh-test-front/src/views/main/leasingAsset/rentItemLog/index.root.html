@@ -1,0 +1,45 @@
+<div flex="" layout="column" class="ks-rentItemLog ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left"
+                         ng-click="vm.fallbackPage()" md-font-icon="ks-arrow_left">
+                </md-icon>
+                <span class="regSpan">变更记录</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex>
+        <!-- ======================================== 内容 -->
+        <div class="contentList" ng-repeat="log in vm.logList track by $index">
+            <div class="contentListThree" layout="row" ng-click="goDetails(order.id)">
+                <div class="contentListThreeRight" flex layout="column" layout-align="start">
+                    <div class="right1" ng-if="log.count>0">变更记录:新增被子<span style="font-size: 16px;float: right">{{log.count}}条</span></div>
+                    <div class="right1" ng-if="log.count<0">变更记录:退租被子<span style="font-size: 16px;float: right">{{log.count}}条</span></div>
+                    <div layout="row" layout-align="end" style="margin-bottom: -3px;color:#999">
+                        <span layout="row" flex layout-align="start">{{log.lastUpdated|date:'yyyy-MM-dd'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+    <md-content flex layout="column" class="empty" ng-if="vm.logList.length<1">
+        <div flex layout="column" layout-align="center center">
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-order" class="icon"></md-icon>
+            <div class="txt">啊哦，没有变更记录～</div>
+        </div>
+    </md-content>
+</div>
+
+<style>
+    .empty .icon {
+        font-size: 60px;
+        line-height: 60px;
+        margin: 0 0 15px;
+    }
+
+    .empty .txt {
+        color: #999;
+    }
+</style>

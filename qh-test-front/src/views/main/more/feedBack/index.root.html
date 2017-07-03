@@ -1,0 +1,75 @@
+<div flex="" layout="column" class="ks-feedBack ks-main md-whiteframe-z2 ">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+            <div class="divTop" flex class>
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"
+                         ng-click="fallbackPage()"></md-icon>
+                <span class="regSpan">意见反馈</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content>
+        <form name="feedBackForm" novalidate>
+            <div class="evaluationCont">
+                <div class="contTop" layout="collumn">
+                <textarea flex style="resize: none" data-ng-model="memo" ng-change="checkText()"
+                          placeholder=" 尽情吐槽吧！"></textarea>
+                </div>
+                <div class="msg" ng-model="numWords">剩余{{numWords}}字</div>
+
+                <div class="voucher">
+                    <div class="voucherTxt" ng-repeat="img in imgs">
+                        <div class="voucherPhoto">
+                            <div class="img">
+                                <div class="imgTop"></div>
+                                <img ng-src="{{imgUrl}}{{img.avatar}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}"
+                                     alt="Picture" ng-click="imgPreviewReply(imgs,img.avatar)">
+                            </div>
+                            <div class="txtWarp">
+                                <textarea maxlength="10" style="resize: none" placeholder="输入说明"></textarea>
+                            </div>
+                            <div class="delete">
+                                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon"
+                                         ng-click="removeOneImg(img.id)">
+                                    delete
+                                </md-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add" ng-if="imgs.length<3">
+                        <div class="font">
+                            <div class="fontWrap">
+                                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon" ng-click="uploaderFiles()">
+                                    plus
+                                </md-icon>
+                                <input type="file" nv-file-select uploader="uploader" style="display: none"
+                                       id="uploaderFile"/>
+                            </div>
+                            <span>
+                                上传凭证
+                                <br>
+                                <span style="font-size: 13px">(最多三张)</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="phoneNum" layout="row">
+                <input flex="100" type="text" ng-change="checkPhone()" required ng-model="phoneNum">
+            </div>
+            <div class="phoneMsg">
+                <span>小皇叔承诺, 绝不会泄露您的信息</span>
+            </div>
+
+        </form>
+    </md-content>
+    <div class="fotter" layout="row">
+        <md-button flex="100" class="ks-black btn" ng-click="submit()"
+                   ng-disabled="feedBackForm.$invalid">提交
+        </md-button>
+    </div>
+</div>
+

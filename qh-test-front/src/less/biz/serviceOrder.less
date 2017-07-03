@@ -1,0 +1,391 @@
+// 服务订单相关专用的class
+.service-order-tabs {
+
+  // 小于 320 像素时，高度100%，固定宽度320px，
+  background-color: #FFF;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: outside none none;
+  width: 100%;
+  //取消box阴影效果
+  //box-shadow: 0 4px 2px -2px gray;
+
+  &.affix {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 320px;
+
+    @media (min-width: @qh-min-width) {
+      width: 100%;
+    }
+
+    @media (min-width: @qh-max-width) {
+      left: 50%;
+      margin-left: -320px;
+      width: @qh-max-width;
+    }
+  }
+
+  a {
+    position: relative;
+    display: block;
+    color: inherit;
+    padding: 10px 0;
+
+   &:active {
+      text-decoration: none;
+      color: @red-color;
+    }
+  }
+  > li {
+    position: relative;
+    display: table-cell;
+    width: 1%;
+    text-align: center;
+
+    &.active {
+      border-bottom: 2px solid @red-color;
+      color: @red-color;
+    }
+  }
+  > li + li {
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 50%;
+      top: 10px;
+      background: #dadada;
+      width: 1px;
+      line-height: 20px;
+    }
+  }
+}
+//全部商品页面的滚动条
+.service-order-tabs2 {
+
+  // 小于 320 像素时，高度100%，固定宽度320px，
+  background-color: #FFF;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: outside none none;
+  width: 100%;
+  //取消box阴影效果
+  //box-shadow: 0 4px 2px -2px gray;
+
+  &.affix {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 320px;
+
+    @media (min-width: @qh-min-width) {
+      width: 100%;
+    }
+
+    @media (min-width: @qh-max-width) {
+      left: 50%;
+      margin-left: -320px;
+      width: @qh-max-width;
+    }
+  }
+
+  a {
+    position: relative;
+    display: block;
+    color: inherit;
+    padding: 10px 0;
+
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+  > li {
+    position: relative;
+    //display: table-cell;
+    //width: 1%;
+    text-align: center;
+    max-width: 25%;
+
+    &.active {
+      border-bottom: 2px solid @red-color;
+      color: @red-color;
+    }
+  }
+  //首节点最大宽
+  >li:first-child{
+    //max-width: 25%;
+  }
+  > li + li {
+
+    //&:before {
+    //  content: "";
+    //  display: block;
+    //  position: absolute;
+    //  height: 50%;
+    //  top: 10px;
+    //  background: #dadada;
+    //  width: 1px;
+    //  line-height: 20px;
+    //}
+  }
+}
+
+
+
+//++++++++++++++++++++++++++++++++++++++++
+//我的订单
+.ordermenu {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  height: 40px;
+  background: #fff;
+  border-bottom: 2px solid #d8d8d8;
+}
+
+.ordermenu > div {
+  box-flex: 1;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: -2px;
+}
+
+.ordermenu>div:active{
+  border-bottom: solid 2px #ee4566;
+  color: #ee4566;
+}
+.ordermenu > div + div:before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 20px;
+  background: #dadada;
+  //background: red;
+  position: absolute;
+  left: -1px;
+  top: 9px;
+}
+//+++++++++++++++++++++++++++++++++++++++++++
+
+//买买买分类菜单
+.ordermenu2 .swiper-wrapper{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  height: 40px;
+  //background: #fff;
+  //border-bottom: 2px solid #d8d8d8;
+  .swiper-slide{
+
+  }
+}
+
+.ordermenu2 {
+  //距离下一个容器的距离
+  .swiper-container{
+    margin-bottom: 12px;
+  }
+}
+
+
+.ordermenu2 .swiper-wrapper> div {
+  //box-flex: 1;
+  //-webkit-box-flex: 1;
+  //-moz-box-flex: 1;
+  //-ms-box-flex: 1;
+  //-webkit-flex: 1;
+  //flex: 1;
+
+
+  -webkit-flex-shrink: 0;
+  -ms-flex: 0 0 auto;
+  flex-shrink: 0;
+
+  line-height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: -2px;
+}
+
+.ordermenu2 .swiper-wrapper>div:active{
+  border-bottom: solid 2px @red-color;
+  color: @red-color;
+  a{
+    color: @red-color;
+  }
+}
+.ordermenu2 .swiper-wrapper>div.active{
+  border-bottom: solid 2px @red-color;
+  color: @red-color;
+  a{
+    color: @red-color;
+  }
+}
+.ordermenu2 .swiper-wrapper>div{
+  background: #fff;
+  border-bottom: solid 2px #d8d8d8;
+  color: #ee4566;
+}
+//取消竖线
+.ordermenu2 .swiper-wrapper > div + div:before {
+  //content: "";
+  //display: block;
+  //width: 2px;
+  //height: 20px;
+  //background: #dadada;
+  ////background: red;
+  //position: absolute;
+  //left: -1px;
+  //top: 9px;
+}
+
+.qh{
+  .order-icon{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+  }
+  .order-icon-new{
+    background-color: #c78b4d;
+    .iconfont{
+      display: inline-block;
+      font-size: 18px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+
+      color: #c78b4d;
+      background-color: #fff;
+
+    }
+
+  }
+  .order-icon-new1{
+    background-color: #c78b4d;
+    .iconfont.icon-new1{
+      display: inline-block;
+      font-size: 30px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+
+      color: #fff;
+      background-color: #c78b4d;
+
+    }
+
+  }
+  //蚕丝添补
+  .order-icon-fillFee{
+    background-color: #c78b4d;
+    .iconfont{
+      display: inline-block;
+      font-size: 36px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+
+      color: #fff;
+      background-color: #c78b4d;
+
+    }
+
+  }
+  //胎套清洗
+  .order-icon-quiltCleanFee{
+    background-color: #d5a670;
+    .iconfont{
+      display: inline-block;
+      font-size: 36px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      color: #fff;
+      background-color: #d5a670;
+    }
+  }
+  //更换胎套
+  .order-icon-changeQuiltFee{
+    background-color: #d5a670;
+    .iconfont{
+      display: inline-block;
+      font-size: 36px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      color: #fff;
+      background-color: #d5a670;
+    }
+  }
+  //蚕丝消毒
+  .order-icon-cleanFee{
+    background-color: #c78b4d;
+    .iconfont{
+      display: inline-block;
+      font-size: 36px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      color: #fff;
+      background-color: #c78b4d;
+    }
+  }
+  //翻新
+  .order-icon-newFee{
+    background-color: #c78b4d;
+    .iconfont{
+      display: inline-block;
+      font-size: 36px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      color: #fff;
+      background-color: #c78b4d;
+    }
+  }
+}

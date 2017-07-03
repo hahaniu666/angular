@@ -1,0 +1,72 @@
+<div flex="" layout="column" class="ks-orderTrack ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="">
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_left</md-icon>
+            </md-button>
+            <h1 flex>订单跟踪</h1>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <!--订单内容-->
+    <md-content>
+        <div class="trackMessage" layout="row">
+            <div class="messageLeft">
+                <div class="leftCircle">
+                    <div class="leftCircleIn"></div>
+                </div>
+            </div>
+            <div class="messageRight" flex>
+                <div class="msRight">
+                    <span>您的订单待出库，交付中通快递，运单号为125456654555</span>
+                    <div>12-08 16:23</div>
+                </div>
+            </div>
+        </div>
+        <div class="trackMessageNext" layout="row">
+            <div class="messageLeft">
+                <div class="leftCircle">
+                    <div class="leftCircleIn"></div>
+                </div>
+                <div class="line1"></div>
+            </div>
+            <div class="messageRight" flex>
+                <div class="msRight">
+                    <span style="color: #999999">您的订单待出库，交付中通快递</span>
+                    <div style="color: #999999">12-08 16:23</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="trackMessageNext" layout="row">
+            <div class="messageLeft">
+                <div class="leftCircle">
+                    <div class="leftCircleIn"></div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="messageRight" flex>
+                <div class="msRight">
+                    <span style="color: #999999">您的订单待出库，交付中通快递</span>
+                    <div style="color: #999999">12-08 16:23</div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+
+    <!--此段是快递信息，如果订单跟踪没有此信息，可以删除-->
+    <div class="fotterFixed">
+        <div class="txt" layout="row">
+            <span>承运来源:</span>
+            <div flex>中通快递</div>
+        </div>
+        <div class="txt" layout="row">
+            <span>运单编号:</span>
+            <div flex style="margin-top: 2px">1058670157341</div>
+        </div>
+        <div class="txt" layout="row">
+            <span>官方电话:</span>
+            <div flex class="num" style="margin-top: 2px" ng-click="showTelephone($event)">0571-89700213</div>
+        </div>
+    </div>
+</div>

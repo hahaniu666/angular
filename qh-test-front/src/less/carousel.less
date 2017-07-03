@@ -1,0 +1,159 @@
+/*
+ 轮播图
+ 最开始使用 angular-ui/ui-bootstrap 中的 carousel 指令，但是不好支持touch相关事件。
+ 现在暂时不用。
+*/
+.qh {
+
+  /*
+    <div class="index-carousel-container">
+        <div class="dummy"></div>
+        <carousel ng-cloak interval="0">
+            <slide ng-repeat="slide in indexData.topInfos" active="slide.active" index="$index">
+                <div class="navimg">
+                    <a href="{{slide.url}}">
+                        <img ng-src="{{imgUrl}}{{slide.img}}?imageView2/1/w/{{slideImg.w}}/h/{{slideImg.h}}"/>
+                    </a>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+  */
+  // 主页轮播图
+  .index-flexslider-container{
+    //增加下边距,显示背景灰色
+    //margin-bottom: 12px;
+  }
+  .flex-control-paging li a {
+    //width: 11px;
+    //height: 11px;
+    display: block;
+    //background: rgba(255,255, 255, 0.5);
+    background-color: #fff;
+    cursor: pointer;
+    text-indent: -9999px;
+    //-webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    //-moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    //-o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    //box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+  }
+
+
+  .index-carousel-container {
+    position: relative;
+    width: 100%;
+
+
+    .dummy {
+      padding-top: 66.6666%;
+    }
+
+    .carousel {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+
+      .carousel-control {
+        background-image: none;
+      }
+
+      .carousel-indicators {
+
+        li {
+          width: 12px;
+          height: 12px;
+          background-color: #fff;
+          border: 1px solid #ee124b;
+          margin: 0 0 0 20px;
+        }
+
+        .active {
+          background-color: #ee124b;
+        }
+      }
+    }
+  }
+
+  // 商品详情页轮播图
+  .item-carousel-container {
+
+    .index-carousel-container;
+
+    .dummy {
+      padding-top: 100%;
+    }
+  }
+}
+
+/*
+html .carousel-control:hover,
+html .carousel-control:focus {
+  //color: #ee124b;
+  color: #fff;
+  text-decoration: none;
+  filter: alpha(opacity=90);
+  outline: 0;
+  opacity: .9;
+}
+html .carousel-indicators li {
+  display: inline-block;
+  width: 12px !important;
+  height: 12px !important;
+  //margin: 1px;
+  margin: 0;
+  text-indent: -999px;
+  cursor: pointer;
+  //background-color: transparent;
+  background-color: #aaa;
+  //border: 1px solid #FFF;
+  border: none;
+  border-radius: 12px !important;
+}
+.carousel-indicators li+li{
+  margin-left: 20px;
+}
+.carousel-indicators li+li.active{
+  margin-left: 20px;
+}
+.carousel-indicators .active {
+  width: 12px;
+  height: 12px;
+  margin: 0px;
+  background-color: #ee124b;
+}
+
+
+
+// 轮播图动画
+.carousel-inner > .item{
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+
+//轮播图调整取消阴影
+.carousel-control.left {
+  //display: none;
+  background-image: none !important;
+}
+
+.carousel-control.right {
+  //display: none;
+  background-image: none !important;
+}
+
+
+*/

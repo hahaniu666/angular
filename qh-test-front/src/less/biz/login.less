@@ -1,0 +1,113 @@
+.qh {
+  //登录和注册页面
+  .login {
+    margin-top: 12px;
+    input{
+      padding: 0 !important;
+      border: 0 !important;
+    }
+    //消除chrome浏览器表单黄色背景,主要是高度行高和内阴影
+    input:-webkit-autofill{
+      background-color: white !important;
+      height: 34px !important;
+      line-height: 34px  !important;
+      -webkit-box-shadow: 0 0 0px 1000px white inset;
+      display: inline-block !important;
+      vertical-align: middle !important;
+    }
+    ol{
+      li{
+        height: 44px;
+        line-height: 44px;
+        background-color: #fff;
+        border-bottom: 1px solid @border-color2;
+
+        span{
+          display: inline-block;
+          vertical-align: middle;
+          width: 46px;
+          height: 44px;
+          line-height: 44px;
+          padding-left: 15px;
+          padding-right: 12px;
+          .iconfont{
+            height: 44px;
+            line-height: 44px;
+            font-size: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            //暂时加上负边距
+            margin-top: -4px;
+          }
+
+        }
+
+        .loginleft{
+          width: 70%;
+          display: inline-block;
+        }
+        .loginright{
+          width: 30%;
+          display: inline-block;
+          border-left: 1px solid @border-color2;
+        }
+        label{
+          display: inline-block;
+          vertical-align: middle;
+          padding: 0;
+          background-color: transparent !important;
+          width: 62%;
+          input[type="text"],input[type="password"]{
+            width: 100%;
+            border: 0;
+            outline: 0 !important;
+            background-color: transparent !important;
+            -webkit-appearance: none;
+            padding: 0;
+
+          }
+
+        }
+      }
+    }
+
+    .weixin-wrap{
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      margin-top: 20px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background-color: #fafafa;
+
+      .icon-weixin{
+        display: inline-block;
+        font-size: 30px;
+        color: #2bb593 !important;
+        margin-top: -2px;
+      }
+    }
+
+  }
+
+}
+.qh .footbar-login {
+  text-align: center;
+  height: 50px;
+  //width: 100%;
+  //position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  bottom: 20px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input:-webkit-autofill{
+  background-color: transparent;
+  //background-color: red !important;
+
+}

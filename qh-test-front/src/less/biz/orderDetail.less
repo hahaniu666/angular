@@ -1,0 +1,296 @@
+.qh {
+  .maximg img {
+    max-width: 100%;
+    height: auto;
+  }
+  .order-detail {
+    position: relative;
+    min-width: 320px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+
+    line-height: 1.2;
+    .order-detailye {
+      margin-top: 0;
+      padding-left: 34px;
+      .after-line + div {
+        //border-top: 1px solid @border-color;
+      }
+    }
+    //物流信息
+    //赠品样式
+    .express-main {
+      margin-right: 2em;
+      .miniature {
+        //overflow: hidden;
+        //height: 1.2em;
+      }
+      .order-detailye1 {
+        padding-left: 20px;
+        margin-bottom: 7px
+      }
+      .order-detailye2 {
+        color: #1fac7f;
+        .order-detailye21 {
+          float: left
+        }
+        .order-detailye221 {
+          padding-left: 20px
+        }
+        .order-detailye222 {
+          padding-left: 12px;
+          margin-left: 7px;
+          border-left: 1px solid;
+        }
+      }
+    }
+    .express-mainye {
+      position: absolute;
+      top: 40%;
+      right: 1em
+    }
+    //字体图标
+    .express-icon {
+
+    }
+    .gift-wrap {
+      overflow: hidden;
+      position: relative;
+      font-size: 14px;
+      > div {
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+    }
+    .gift {
+      font-size: 14px;
+      color: #fff;
+      background-color: @red-color;
+      position: absolute;
+      left: -18px;
+      top: 6px;
+      width: 5em;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      transform: rotate(-45deg)
+    }
+    > section {
+      margin-top: 12px;
+      margin-bottom: 12px;
+      padding-left: 1em;
+      padding-right: 1em;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e5e5e5;
+      background-color: #fff;
+      //规格清单
+      &.spec-list {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        li {
+          border-bottom: 1px solid @border-color;
+          padding: 10px 0;
+        }
+        //li:only-child{
+        //  border: none;
+        //}
+        li > div {
+          //margin-left: 1em;
+          //margin-right: 1em;
+          padding-left: 1em;
+          padding-right: 1em;
+        }
+        .words {
+          height: 30px;
+          line-height: 30px;
+        }
+        dl {
+          line-height: 1.2;
+          overflow: hidden;
+          margin-top: 6px;
+          margin-bottom: 6px;
+        }
+        dt {
+          line-height: 1.2;
+          float: left;
+          width: 84px;
+          margin-right: 5px;
+        }
+        dd {
+          line-height: 1.2;
+          //margin-left: 69px;
+          overflow: hidden;
+          div {
+            white-space: pre-wrap;
+          }
+        }
+      }
+      //收货信息
+      &.receiving {
+        dl {
+          overflow: hidden;
+          margin-top: 6px;
+          margin-bottom: 6px;
+        }
+        dt {
+          float: left;
+          width: 5em;
+          font-size: 13px;
+          color: #646464
+        }
+        dd {
+          overflow: hidden;
+          color: #323232;
+          //text-align: right
+        }
+      }
+
+      //费用
+      &.cost {
+
+        dl {
+          overflow: hidden;
+          margin-top: 6px;
+          margin-bottom: 6px;
+        }
+        dt {
+          display: inline-block;
+          color: #323232;
+        }
+        dd {
+          float: right;
+          color: #323232;
+        }
+      }
+    }
+
+  }
+
+  .order-detail.refunddetail {
+    line-height: 1.5;
+    section {
+      margin-top: 12px;
+      margin-bottom: 12px;
+      padding-left: 22px;
+      padding-right: 22px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      border-bottom: none;
+      background-color: #efebec;
+      .left {
+        font-size: 13px;
+        color: #646464;
+        line-height: 1.5;
+      }
+      .right {
+        font-size: 13px;
+        color: #646464;
+        line-height: 1.5;
+        &.red {
+          color: @red-color;
+        }
+      }
+
+      dl {
+        overflow: hidden;
+        margin-top: 6px;
+        margin-bottom: 6px;
+      }
+      dt {
+        float: left;
+        width: 5em;
+        font-size: 13px;
+        color: #646464;
+        line-height: 1.5;
+      }
+      dd {
+        overflow: hidden;
+        font-size: 13px;
+        color: #646464;
+        line-height: 1.5;
+      }
+      .refund-img {
+        margin-left: -2px;
+        margin-right: -9px;
+        span {
+          display: inline-block;
+          vertical-align: middle;
+          width: 64px;
+          height: 64px;
+          margin-right: 7px;
+          margin-bottom: 7px;
+          img {
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+            height: 100%;
+
+          }
+        }
+
+      }
+
+    }
+  }
+  //不予处理原因
+  .reason {
+    dl {
+      overflow: hidden;
+      margin-top: 12px;
+      dt {
+        float: left;
+        margin-right: 8px;
+
+      }
+      dd {
+        //overflow: hidden;
+        padding: 12px;
+        background-color: #fff;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        margin-left: 70px;
+
+        margin-right: 8px;
+      }
+    }
+
+  }
+}
+
+.triangle-left2 {
+  //width: 100px;
+  //height: 60px;
+  /*margin-left: 200px;*/
+  //background-color: red;
+  position: relative;
+}
+
+.triangle-left2:after {
+  border: solid transparent;
+  border-right-color: #fff;
+  border-width: 10px;
+  content: " "; /* blank space */
+  height: 0;
+  left: -19px; /* centers it */
+  margin-left: 0px;
+  position: absolute;
+  top: 30px; /* makes it appear below bubble */
+  width: 0;
+}
+
+.plr1emye {
+  padding: 15px 0;
+  .plr1emye1 {
+    margin-left: 14px;
+    font-size: 13px;
+    color: #646464
+  }
+  .plr1emye2 {
+    text-align: right;
+    color: #323232
+  }
+}

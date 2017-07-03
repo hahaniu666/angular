@@ -1,0 +1,235 @@
+
+
+  //帅选分类背景透明
+  md-dialog.md-dialog-fullscreen{
+    background: transparent;
+    /*  transform: none;
+      transition: none;*/
+    @include transform(none);
+    @include transition(none);
+  }
+
+  .screenWrapMT.ks-screen{
+    background: transparent ;
+    border: none;
+    .screenWrap{
+      margin:0 10px ;
+      .close{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #fff;
+        margin-top:8px;
+        margin-bottom: 7px;
+        text-align: center;
+        md-icon{
+          font-size: 13px;
+          color: #101010;
+          line-height: 30px;
+        }
+      }
+      .screenBox{
+        background: #fff;
+        margin-bottom: 10px;
+        min-height: 85vh;
+        position: relative;
+        .screenBoxTop{
+          height: 44px;
+          font-size: 14px;
+          /*   line-height: 44px;
+             text-align: center;*/
+          div{
+            border-bottom: 4px solid #101010;
+          }
+          div.cur{
+            color: #ba9f6e;
+            border-bottom: 4px solid #ba9f6e;
+          }
+        }
+        .screenBoxBody{
+          margin: 0 20px;
+          //综合模块
+          .zonghe{
+            .row{
+              height: 44px;
+              line-height: 44px;
+              border-bottom: 1px solid #d5d5d5;
+              span{
+                font-size: 14px;
+                color: #808080;
+              }
+              md-icon{
+                font-size: 13px;
+                color: #808080;
+                margin-left: 10px;
+              }
+            }
+            .row.cur{
+              color:#ba9f6e;
+              span{
+                color: #ba9f6e;
+              }
+              md-icon{
+                color: #ba9f6e;
+              }
+            }
+          }
+          //分类模块
+          .fenlei{
+            .fenleiBox{
+              border-bottom: 1px solid #d5d5d5;
+              .fenleiTop{
+                margin:15px 0 15px 0px;
+                span{
+                  font-size: 14px;
+                  color: #101010;
+                }
+              }
+              .fenleiBody{
+                font-size: 14px;
+                color: #808080;
+                div{
+                  text-align: center;
+                  margin-bottom: 15px;
+                  padding: 0 20px;
+                }
+                div.cur{
+                  color: #ba9f6e;
+                  md-icon{
+                    font-size:13px;
+                    color: #ba9f6e;
+                  }
+                }
+              }
+            }
+          }
+          //筛选模块
+          .shaixuan{
+            .shaixuanBox{
+              border-bottom: 1px solid #d5d5d5;
+              .shaixuanTop{
+                margin:15px 0 15px 0px;
+                span{
+                  font-size: 14px;
+                  color: #101010;
+                }
+              }
+              .price{
+                line-height: 35px;
+                span{
+                  color: #808080;
+                }
+                span.right{
+                  float: right;
+                }
+              }
+              .shaixuanBody{
+                .priceInputWrap{
+                  background: #f0f0f0 ;
+                  overflow: hidden;
+                  height: 30px;
+                  background: #f0f0f0;
+                  input{
+                    padding: 0;
+                    margin: 0;
+                    background: transparent;
+                    width: 100%;
+                    border: none;
+                    height: 100%;
+
+                    text-align: center;
+                    line-height: 14px;
+                    line-height: 14px;
+                    border-radius: 0px;
+                  }
+                }
+                .linerowWrap{
+
+                  .linerow{
+                    padding: 0;
+                    width: 12px;
+                    height: 2px;
+                    background: #999;
+                    margin: 14px  0 0 -6px;
+                  }
+                }
+                font-size: 14px;
+                color: #808080;
+                div{
+                  text-align: center;
+                  margin-bottom: 15px;
+                  padding: 0 20px;
+                }
+                div.cur{
+                  color: #ba9f6e;
+                  md-icon{
+                    font-size:13px;
+                    color: #ba9f6e;
+                  }
+                }
+              }
+              .controllers{
+                position: relative;
+                height: 25px;
+                margin-bottom: 15px;
+                .rowline{
+                  position: absolute;
+                  height: 8px;
+                  border:1px solid #d5d5d5;
+                  width: 100%;
+                  z-index: 2;
+                  top:50%;
+                  margin-top: -4px;
+                }
+                .ctrlLeft,.ctrlRight{
+                  position: absolute;
+                  z-index: 10;
+                  width: 10px;
+                  height: 25px;
+                  background: #ba9f6e;
+                  top:0;
+                }
+                .ctrlLeft{
+                  left:10px;
+                }
+                .ctrlRight{
+                  right:10px;
+                }
+              }
+            }
+
+          }
+        }
+        .butWrapBox{
+          .butWrap{
+            left: 10px;
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
+            .leftBut,.rightBut{
+              width: 43%;
+              height: 40px;
+              button{
+                width: 100%;
+                height: 100%;
+                background: #333;
+                border:none;
+                color: #fff;
+                font-size: 15px;
+              }
+            }
+            .leftBut{
+              float: left;
+            }
+            .rightBut{
+              float: right;
+              margin-right:20px;
+            }
+          }
+        }
+
+      }
+
+    }
+  }
+

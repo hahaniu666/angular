@@ -1,0 +1,151 @@
+<div flex="" layout="column" class="md-whiteframe-z2 ks-main ks-address">
+   <!-- <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+
+            <div class="divTop" flex class>
+                &lt;!&ndash;<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>&ndash;&gt;
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="vm.cancel()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">{{vm.addrTitle}}</span>
+            </div>
+        </div>
+    </md-toolbar>-->
+
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.cancel()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>{{vm.addrTitle}}</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+            <div class="loginPassRow">
+                <input class="form-control" type="text"
+                       data-ng-model="vm.address.contact"
+                       ng-blur="vm.addressContact()" placeholder="姓名"/>
+            </div>
+            <div class="loginPassRow">
+                <input class="form-control" type="text"
+                       data-ng-model="vm.address.phone" ng-blur="vm.addressPhone()" placeholder="联系电话"/>
+            </div>
+            <div class="loginPassRow">
+                <select class="select3" style=""
+                        ng-change="vm.queryAddress(vm.provinceId,1)"
+                        data-ng-model="vm.provinceId" ng-show="vm.provinces[0].id">
+                    <option value="">请选择</option>
+                    <option ng-repeat="province in vm.provinces" value="{{province.id}}">{{province.name}}</option>
+                </select>
+                <select class="select3" style=" border: none; margin-top: 10px;"
+                        ng-show="vm.citys[0].id" ng-change="vm.queryAddress(vm.cityId,2)"
+                        data-ng-model="vm.cityId">
+                    <option value="">请选择</option>
+                    <option ng-repeat="city in vm.citys" value="{{city.id}}">{{city.name}}</option>
+                </select>
+                <select class="select3" style="border: none; margin-top: 10px;"
+                        ng-show="vm.areas[0].id" data-ng-model="vm.areaId">
+                    <option value="">请选择</option>
+                    <option ng-repeat="area in vm.areas" value="{{area.id}}">{{area.name}}</option>
+                </select>
+
+                <!--<md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_right" class="arrow_right"/>-->
+            </div>
+            <div class="loginPassRow">
+                <input class="form-control" type="text"
+                       data-ng-model="vm.address.street"
+                       ng-blur="vm.addressStreet()" placeholder="小区、街道、门牌等详细信息">
+            </div>
+            <div class="loginPassRow" style="border: none;" ng-if="vm.newadd != 1"><!-- 编辑时不可修改默认地址 -->
+                <div layout="" class="set-default-row">
+                    <div flex>设置为默认地址</div>
+
+                    <md-switch class="ks-gold" ng-model="vm.address.default" ng-disabled="switchDisable"></md-switch>
+                </div>
+            </div>
+
+        </div>
+
+        <!--成功框-->
+        <!--  <div class="successBox" style="display: none">
+              <div class="bg-color"></div>
+              <div class="successWrap">
+                  <md-icon md-font-set="ks-icon" md-font-icon=" ks-success" class="success"/>
+              </div>
+              <p>添加地址成功！</p>
+          </div>-->
+        <!--失败框-->
+        <!-- <div class="successBox" style="display: block">
+             <div class="bg-color"></div>
+             <div class="successWrap">
+                 <md-icon md-font-set="ks-icon" md-font-icon=" ks-cancle" class="success"/>
+             </div>
+             <p>添加地址失败！</p>
+         </div>-->
+
+        <div class="address">
+            <button class="but" ng-click="vm.updateOrInsertAddress()">确定</button>
+        </div>
+    </md-content>
+</div>
+<!--
+
+
+<div class="modal-header">
+    <div style="width: 100%"><span class="iconfont icon-close" style="float: right;color: #e3e3e3"
+                                   ng-click="cancel()"></span></div>
+    <div class="modal-title">{{addrTitle}}</div>
+</div>
+<span class="clear"></span>
+<div class="modal-body">
+    <div class="cmd_box addressWindow">
+        <div class="cmd_box addressWindow constant">
+            <dl>
+                <div style="text-align: left">收货人:</div>
+                <dd ng-class="{'has-error':contactRed}"><input class="form-control" type="text"
+                                                               data-ng-model="address.contact"
+                                                               ng-blur="addressContact()"/></dd>
+            </dl>
+            <dl>
+                <div style="text-align: left">手机号:</div>
+                <dd ng-class="{'has-error':phoneRed}"><input class="form-control" type="text"
+                                                             data-ng-model="address.phone" ng-blur="addressPhone()"/>
+                </dd>
+            </dl>
+            <dl>
+                <div style="text-align: left">地址：</div>
+                <dd>
+                    <select style="width: 33%;height: 34px;border-radius: 4px;float: left;background-color: #fff;border-color: #ccc;"
+                            ng-change="queryAddress(provinceId,1)"
+                            data-ng-model="provinceId" ng-show="provinces[0].id">
+
+                        <option ng-repeat="province in provinces" value="{{province.id}}">{{province.name}}</option>
+                    </select>
+                    <select style="width: 33%;margin-left: 0.5%;height: 34px;border-radius: 4px;float: left;background-color: #fff;border-color: #ccc;"
+                            ng-show="citys[0].id" ng-change="queryAddress(cityId,2)"
+                            data-ng-model="cityId">
+                        <option ng-repeat="city in citys" value="{{city.id}}">{{city.name}}</option>
+                    </select>
+                    <select style="width: 33%;margin-left: 0.5%;height: 34px;border-radius: 4px;float: left;background-color: #fff;border-color: #ccc;"
+                            ng-show="areas[0].id" data-ng-model="areaId">
+                        <option ng-repeat="area in areas" value="{{area.id}}">{{area.name}}</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <div style="text-align: left">详细地址：</div>
+                <dd ng-class="{'has-error':streetRed}"><input class="form-control" type="text"
+                                                              data-ng-model="address.street"
+                                                              ng-blur="vm.addressStreet()"/>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default1" style="width: 100%"
+            ng-class="{disabled:!vm.address.contact||!vm.address.phone||!vm.provinceId||!vm.address.street}"
+            ng-click="vm.updateOrInsertAddress()">提交
+    </button>
+</div>-->

@@ -1,0 +1,346 @@
+.ks-vipOrder {
+  //header开始
+  .ks-header {
+    background: #fff;
+    height: 44px;
+    font-size: 16px;
+    color: #101010;
+    min-height: 44px;
+    .ks-icon {
+      font-size: 16px;
+      margin-left: 13px;
+      color: #101010;
+      line-height: 20px;
+      width: 40px;
+      margin-top: 3px;
+    }
+    .md-icon-button {
+      width: 40px;
+      margin-top: 3px;
+      font-size: 14px;
+      color: #fff;
+      line-height: 44px;
+    }
+
+    .md-icon-button:last-child {
+      width: auto;
+    }
+    h1 {
+      font-size: 20px;
+      color: #101010;
+      text-align: center;
+      height: 44px;
+      line-height: 44px;
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+
+  // 有padding
+  .order-detail {
+    background-color: #fff;
+    padding: 0 10px;
+
+    // 内容块
+    .block {
+      // 标题行
+      .title-row {
+        margin-top: -1px;
+        .color-block {
+          margin: 0 10px;
+          background-color: #ba9f6e;
+          display: inline-block;
+          height: 16px;
+          width: 8px;
+        }
+
+        color: #101010;
+        height: 44px;
+
+        .select-left {
+          color: #999;
+          margin-left: 10px;
+          margin-top: 3px;
+          md-icon {
+            line-height: 22px;
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+          }
+          /*//控制switch样式
+          md-switch ._md-bar {
+            left: 0px;
+            width: 34px;
+            top: 1px;
+            height: 22px;
+            border-radius: 15px;
+            position: absolute;
+          }
+          //switch底部背景
+          md-switch.ks-gold:not([disabled]).md-checked ._md-bar {
+            background-color: lightgreen;
+          }
+          //switch上面的滑块
+          md-switch.ks-gold:not([disabled]).md-checked ._md-thumb {
+            background: #fff;
+          }*/
+        }
+      }
+
+      // 标题行下面的虚线
+      md-divider.dashed {
+        margin-left: 10px;
+      }
+
+      // 内容行
+      .content-row {
+        color: #999;
+        margin: 10px 0px 10px 28px;
+
+        &.no-right {
+          margin-right: 0;
+          margin-bottom: 8px;
+        }
+
+        md-icon.ks-trash-can-o {
+          color: #999;
+          font-size: 14px;
+          text-align: center;
+        }
+        .content-row-txt {
+          margin-top: 3px;
+        }
+        .igToshop {
+          color: #ba9f6e;
+        }
+      }
+
+      // 商品清单中的每一行商品
+      .item-row {
+        background-color: #fff;
+        height: 100px;
+        // margin-bottom: 10px;
+        margin-left: 10px;
+
+        // 商品图片
+        .item-img {
+          width: 70px;
+          position: relative;
+          &:before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+          }
+          img {
+            position: absolute;
+            top: 0;
+            padding: 0;
+            width: 100%;
+          }
+
+          // “赠品” 等飘带角标
+          .ribbon {
+            background-color: #ba9f6e;
+            height: 16px;
+            width: 32px;
+            font-size: 12px;
+            line-height: 16px;
+            position: absolute;
+            top: 6px;
+            left: -6px;
+            padding-left: 8px;
+
+            &::before, &::after {
+              display: inline-block;
+              box-sizing: border-box;
+              width: 8px;
+              height: 8px;
+              content: '';
+              border: 4px solid;
+              position: absolute;
+            }
+
+            // 角标
+            &::before {
+              border-color: #ba9f6e transparent transparent #ba9f6e;
+              top: 0;
+              right: -8px;
+            }
+            &::after {
+              border-color: transparent transparent #ba9f6e #ba9f6e;
+              bottom: 0;
+              right: -8px;
+            }
+          }
+        }
+
+        .item-desp {
+          padding-left: 10px;
+          padding-right: 10px;
+          height: 80px;
+
+          // 商品标题
+          .item-title {
+            font-size: 13px;
+            color: #333;
+            height: 20px;
+            min-height: 20px;
+            @include text-overflow();
+          }
+
+          // 规格
+          .item-specs {
+            font-size: 12px;
+            color: #999;
+            margin: 7px 0;
+            height: 35px;
+            line-height: 1.3;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            word-break: break-all;
+            word-wrap: break-word;
+          }
+
+          .price-row {
+
+            height: 25px;
+            line-height: 25px;
+            // 价格
+            .item-price {
+              font-size: 13px;
+              color: #101010;
+              &.free {
+                text-decoration: line-through;
+              }
+            }
+
+            //https://github.com/angular/material/issues/2907#ref-commit-6a9d738
+            // 数值 - 显示
+            .count-show {
+              font-size: 13px;
+              color: #101010;
+            }
+
+          }
+        }
+      }
+
+      // 汇总
+      &.summary {
+        color: #999;
+        padding: 10px 0;
+      }
+    }
+  }
+
+  // 买家备注
+  /*  .buyer-memo {
+      position: relative;
+      background-color: #fff;
+      padding: 10px 20px;
+      textarea {
+        border: 1px solid #d5d5d5;
+        !*padding: 6px;*!
+        width: 100%;
+        font-size: 14px;
+        background: none;
+        border-radius: 0;
+        color: #101010;
+        resize: none;
+        height: 70px;
+      }
+    }*/
+  .buyer-memo {
+    background: #fff;
+    padding: 15px 20px;
+    /* .message {
+       height: 80px;
+       padding: 10px 0 0 15px;
+       border: 1px solid #d5d5d5;
+       font-size: 14px;
+       color: #101010;
+     }*/
+    textarea {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      /*-webkit-line-clamp: 2;*/
+      -webkit-box-orient: vertical;
+      font-size: 14px;
+      background: none;
+      color: #101010;
+      border: 1px solid #d5d5d5;
+      padding: 10px 0 0 15px;
+      height: 80px;
+      -webkit-appearance: none;
+      border-radius: 0;
+      resize: none;
+      box-shadow: 0 0 0 #fff;
+    }
+  }
+  .agreement {
+    padding: 10px 8px;
+    background: #fff;
+    border-top: 1px solid #d5d5d5;
+    .ks-icon {
+      color: #ba9f6e;
+      text-align: center;
+      font-size: 18px;
+    }
+    .agreetxt {
+      padding-left: 8px;
+      line-height: 24px;
+      font-size: 13px;
+      color: #101010;
+    }
+    .info {
+      color: #ba9f6e;
+      font-style: normal;
+      font-size: 13px;
+    }
+  }
+
+  // 应付金额
+  .pay-amount {
+    @include flex-shrink(0);
+    height: 50px;
+    margin-bottom: 5px;
+    background-color: transparent;
+    color: #101010;
+    font-size: 16px;
+    border-top: 1px solid #d5d5d5;
+  }
+
+  // 提交按钮
+  .submit-btn {
+    margin-bottom: 10px;
+    @include flex-shrink(0);
+    height: 40px;
+    background-color: transparent;
+    .md-button {
+      max-width: 95%;
+      border-radius: 0;
+      margin: 5px 0 15px 0;
+      height: 40px;
+      color: #fff;
+      font-size: 15px;
+      background-color: #333;
+    }
+  }
+  .md-button:hover:not([disabled]) {
+    background: #333 !important;
+  }
+
+  .cmsContent {
+    padding: 0 20px;
+    img {
+      display: block;
+      margin: 0;
+      width: 100%;
+    }
+  }
+}

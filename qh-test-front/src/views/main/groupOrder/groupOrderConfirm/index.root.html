@@ -1,0 +1,154 @@
+<div flex layout="column" class="ks-main ks-groupOrderConfirm-order ">
+    <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()"
+                         md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">确认订单</span>
+            </div>
+        </div>
+
+    </md-toolbar>
+
+    <md-divider></md-divider>
+    <md-content flex>
+        <div style="font-size: 1px; background: #fff;visibility: hidden"> ssa</div>
+        <!-- 有 padding 的 -->
+        <div class="order-detail">
+            <div class="block">
+                <div class="title-row" layout-align="center center" layout=""
+                     ui-sref="main.address({s:'group',orderId:vm.groupOrder.id,orgId:vm.orgId})">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">收货地址</div>
+                    <div layout="" layout-align="center" class="select-left">
+                        <div style="line-height: 24px">选择收货地址</div>
+                        <md-icon style="line-height: 24px;min-width:17px;text-align: right" md-font-set="ks-icon"
+                                 md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+                <md-divider class="dashed" ng-if="vm.address.contact"></md-divider>
+                <div class="content-row" layout="column" ng-if="vm.address.contact">
+                    <div ng-if="vm.address.province">{{vm.address.contact}} {{vm.address.phone}}<br>
+                        {{vm.address.province}}/{{vm.address.city}}/{{vm.address.area}}/{{vm.address.street}}
+                    </div>
+                    <!-- 直辖市没有省一级 -->
+                    <div ng-if="!vm.address.province">{{vm.address.contact}} {{vm.address.phone}}<br>
+                        {{vm.address.city}}/{{vm.address.area}}/{{vm.address.street}}
+                    </div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+
+
+            <!-- 商品清单 -->
+            <div class="block">
+                <div class="title-row" layout-align="center center" layout="">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">商品清单</div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+
+                <div>
+                    <div layout="row"
+                         class="item-row"
+                         layout-align="center center">
+                        <div class="item-img">
+                            <img img-holder
+                                 ng-src="{{vm.imgUrl}}{{vm.itemSku.imgs[0].key}}"/>
+                        </div>
+                        <div flex layout="column" layout-align="start" class="item-desp">
+                            <div class="item-title" style="margin-top: 3px"> {{vm.itemSku.title}}
+                            </div>
+                            <div layout-align="start start" flex class="item-specs">
+                                <span ng-repeat="spec in vm.itemSku.specs">
+                                    {{spec.name}}:{{spec.value}}&nbsp;&nbsp;
+                                   </span>
+                            </div>
+                            <div layout="row" layout-align="end" style="margin-bottom: 1px">
+                                <div style="font-size: 13px" flex class="item-price">￥&nbsp;{{vm.itemSku.price/100.0|num:1}}&nbsp;</div>
+                                <div class="count-show" style="font-size: 13px">
+                                    x{{vm.groupOrder.num}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<md-divider class="dashed" ng-if="!$last"></md-divider>-->
+                    <md-divider></md-divider>
+                </div>
+            </div>
+            <!-- 配送方式 -->
+            <div class="block">
+                <div class="title-row" layout-align="center center" layout="">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">配送方式</div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div class="content-row" layout="column">
+                    <div>快递 包邮</div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+
+
+            <!-- 优惠券 -->
+            <!--<div class="block" ng-if="showCoupon || order.coupon">-->
+            <!--<div class="title-row" layout-align="center center" layout="" ng-click="updateCoupon()">-->
+            <!--<div class="color-block"></div>-->
+            <!--<div flex layout="" layout-align="start center">优惠券</div>-->
+            <!--<div layout="" layout-align="center" class="select-left">-->
+            <!--<div ng-if="!order.coupon">选择</div>-->
+            <!--<md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<md-divider class="dashed" ng-if="order.coupon"></md-divider>-->
+            <!--<div class="content-row no-right" layout="row" ng-if="order.coupon">-->
+            <!--<span flex="" ng-if="order.coupon.type==='ORDER'">{{order.coupon.name}}</span>-->
+            <!--<span flex="" ng-if="order.coupon.type==='DISCOUNT'">{{order.coupon.name}}</span>-->
+            <!--<md-icon md-font-set="ks-icon" md-font-icon="ks-trash-can-o"-->
+            <!--ng-click="removeCoupon()"></md-icon>-->
+            <!--</div>-->
+            <!--<md-divider></md-divider>-->
+            <!--</div>-->
+
+
+            <!-- 订单总额，优惠金额 -->
+            <div class="block summary" layout="column" layout-align="center center">
+                <div>
+                    商品金额： ￥{{vm.groupOrder.totalPrice/100.0|num:1}}
+                </div>
+                <div ng-if="order.coupon">
+                    <div ng-if="order.coupon.type==='ORDER'">优惠券：- ￥{{order.coupon.reduceMoney/100.0|num:1}}</div>
+                    <div ng-if="order.coupon.type==='DISCOUNT'">优惠券：- ￥{{order.coupon.reduceMoney/100.0|num:1}}
+                    </div>
+                </div>
+                <div ng-if="order.orderList&&minusPrice>0">指定满减活动：-
+                    ￥{{minusPrice/100.0|num:0}}
+                </div>
+                <div ng-if="order.serviceList&&minusPrice>0">指定满减活动：-
+                    ￥{{minusPrice/100.0|num:1}}
+                </div>
+                <div ng-if="order.activitys.length>0">{{order.activitys[0].name}}：-
+                    ￥{{order.activitys[0].price/100.0|num:1}}
+                </div>
+                <div ng-if="!order.coupon">不使用优惠券</div>
+                <div>
+                    购买此商品可获得{{vm.groupOrder.totalPrice/100}}钱币
+                </div>
+            </div>
+            <!--<md-divider></md-divider>-->
+            <div class="buyer-memo" layout="column">
+                <textarea data-ng-model="vm.memo" flex="" placeholder="补充说明..."
+                          ng-change="checkText()"></textarea>
+            </div>
+        </div>
+
+    </md-content>
+    <md-divider></md-divider>
+    <div class="pay-amount" layout="column" layout-align="center center">
+        应付金额： ￥{{vm.groupOrder.totalPrice/100.0|num:1}}
+    </div>
+    <div class="submit-btn" layout="row" layout-align="center center">
+        <md-button class="ks-black " flex="90" ng-click="createOrder()">提交订单</md-button>
+    </div>
+
+</div>

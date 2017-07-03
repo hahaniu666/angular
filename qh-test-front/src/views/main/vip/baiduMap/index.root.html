@@ -1,0 +1,31 @@
+<div flex="" layout="column" class="ks-vipMap ks-main md-whiteframe-z2 ">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>地图列表</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <div style="height: 300px" id="allmap">
+    </div>
+    <md-content>
+        <div>
+            <div ng-repeat="org in vm.data">
+                <div class="Navigation" layout="row" layout-align="center center">
+                    <span class="location">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-location"></md-icon>
+                    </span>
+                    <div flex>
+                        <div style="font-size: 16px;font-weight: bold">{{org.title}}</div>
+                        <div>{{org.province}}-{{org.city}}-{{org.area}}-{{org.street}}</div>
+                        <a href="tel:{{org.phone}}" class="myTel">电话:<span>{{org.phone}}</span></a>
+                    </div>
+                    <div class="btnMap" ng-click="vm.clickCenter(org)">详情</div>
+                    <!--<div class="btnMap" ng-click="vm.navigation(org)">导航</div>-->
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>

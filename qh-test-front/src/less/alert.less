@@ -1,0 +1,38 @@
+/*
+主要用于 errorService 中弹出的错误消息。其使用了 bootstrap-notify。
+参考：
+https://github.com/mouse0270/bootstrap-notify
+*/
+.alert {
+  &.alert-error {
+    text-align: center;
+    color: #fff;
+    background-color: #333;
+    //border-color: #bce8f1;
+    padding: 6px 12px;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    width: 91.6667%;
+    min-width: 293px;
+    position: fixed !important;
+    top: 45px !important;
+
+    @media (min-width: @qh-min-width) {
+    }
+
+    @media (min-width: @qh-max-width) {
+      // 640 * 91.6667%
+      max-width: 587px;
+    }
+
+    hr {
+      border-top-color: #a6e1ec;
+    }
+
+    .alert-link {
+      color: #245269;
+    }
+
+  }
+}
+

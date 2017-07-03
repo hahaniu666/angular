@@ -1,0 +1,40 @@
+<div flex="" layout="column" class="ks-leaseApplication ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">租赁申请</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-content flex layout="column" class="top-border empty">
+        <div flex layout="column" layout-align="center center">
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-folder" class="icon"></md-icon>
+            <div class="txt">如果需要租赁服务，请提交相应申请资料</div>
+        </div>
+        <!--<div layout="row" layout-align="center center" class="add-row">
+            <md-button class="ks-black md-raised" flex style="border-radius: 0" ui-sref="main.leaseApplication()">去申请</md-button>
+        </div>-->
+    </md-content>
+    <div class="fixed">
+        <div ui-sref="main.leaseApplication()">
+            <span ui-sref="main.leaseApplication()">去申请</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    .empty .icon {
+        font-size: 60px;
+        line-height: 60px;
+        margin: 0 0 15px;
+        background: linear-gradient(to bottom, #e6e6e6, #f5f5f5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .empty .txt {
+        color: #999;
+    }
+
+</style>

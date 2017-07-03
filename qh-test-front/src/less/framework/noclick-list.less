@@ -1,0 +1,39 @@
+//不可点击列表样式
+.noclick-list{
+  background-color: #fff9eb;
+  ul {
+    border-top: 1px solid @border-color2;
+    border-bottom: 1px solid @border-color2;
+    li{
+      min-height: 40px;
+      line-height: 40px;
+      margin-left: 15px;
+
+    }
+    .item1{
+      font-size: 14px;
+      color: #808080;
+
+    }
+    .item2{
+      .item2-child{
+        display: inline-block;
+        margin-right: 16px;
+        font-size: 12px;
+        color: #808080;
+        .icon-checked-circle-invert:before {
+          color: #4c4c4c;
+          font-size: 15px;
+        }
+
+      }
+    }
+    li+li{
+      border-top: 1px dashed @border-color3;
+    }
+    //点击行后的背景色
+    //li:active{
+    //  background-color: @list-bgcolor;
+    //}
+  }
+}

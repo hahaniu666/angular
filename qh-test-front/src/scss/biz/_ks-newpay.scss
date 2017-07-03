@@ -1,0 +1,319 @@
+.ks-newpay {
+  //header开始
+  .ks-header._md {
+    height: 30px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+    }
+  }
+  .top{
+    height: 56px;
+    line-height: 56px;
+    margin: 0 20px;
+    .Information{
+      font-size: 18px;
+    }
+    .floatRight{
+      text-align: right;
+      .redTxt{
+        font-size: 16px;
+        color: #999;
+      }
+      .jine{
+        font-size: 16px;
+        color: #dd191d;
+      }
+    }
+  }
+  .diliver{
+    height: 10px;
+    background-color: #f5f5f5;
+    width: 100%;
+  }
+  .payStyleNext {
+    .weixin {
+      height: 44px;
+      .weixinCont {
+        display: inline-block;
+        margin: 8px 10px;
+        width: 25px;
+        height: 25px;
+        background: #62b566;
+        .ks-icon {
+          text-align: center;
+          font-size: 15px;
+          line-height: 24px;
+          color: #fff;
+        }
+      }
+      .weixinRight {
+        margin-right: 10px;
+        display: inline-block;
+        border-bottom: 1px dashed #d5d5d5;
+        span {
+
+          line-height: 44px;
+          font-size: 14px;
+          color: #101010;
+        }
+        .ks-icon {
+          float: right;
+          line-height: 44px;
+          font-size: 18px;
+          color: #ba9f6e;
+          text-align: right;
+        }
+      }
+    }
+    .alipay {
+      height: 54px;
+
+      .alipayCont {
+        display: inline-block;
+        margin: 14px 10px;
+        width: 25px;
+        height: 25px;
+        .ks-icon {
+          text-align: center;
+          font-size: 15px;
+          color: #fff;
+          line-height: 24px;
+        }
+      }
+      .alipayRight {
+        border-bottom: 1px dashed #d5d5d5;
+        margin-right: 20px;
+        display: inline-block;
+        span {
+          line-height: 54px;
+          font-size: 16px;
+          color: #101010;
+        }
+        .ks-icon {
+          text-align: right;
+          float: right;
+          line-height: 54px;
+          font-size: 18px;
+          color: #999;
+        }
+        .kuaijie {
+          color: #ccc;
+          font-size: 14px;
+          float: right;
+        }
+        .ks-icon.jfNotEnough {
+          color: #d5d5d5;
+        }
+
+      }
+
+      //阿里
+      .ks-alipay {
+        background: #1faeff;
+      }
+      .ks-alicode {
+        background: #1faeff;
+      }
+      //阿里
+      .ks-sign-circular {
+        background: #0eb83a;
+      }
+      //微信
+      .ks-weixin {
+        background: #0eb83a;
+      }
+      .ks-wxcode {
+        background: #0eb83a;
+      }
+      //余额颜色
+      .ks-rmb-symbol {
+        background: #ebbd34;
+      }
+      //招商颜色
+      .ks-bank-logo-cmbchina {
+        background: #b02509;
+      }
+      //天津颜色
+      .ks-bank-logo-tccb {
+        background: #1162a8;
+      }
+    }
+    .alipay:last-child {
+      .alipayRight {
+        border-bottom: none;
+      }
+    }
+    .notEnough {
+      .alipayCont {
+        .ks-sign-circular {
+          background: #d5d5d5 !important;
+        }
+      }
+      span {
+        color: #d5d5d5 !important;
+      }
+    }
+    .noline {
+      border-bottom: none !important;
+    }
+
+  }
+
+
+  .content-divWrap .InformationBox .IfmRow .floatRight .rightChildren {
+    display: inline-block;
+    font-size: 14px;
+    color: #999;
+    margin-right: 10px;
+  }
+  .content-divWrap .InformationBox .IfmRow .floatRight .rightChildren span {
+    color: #999;
+  }
+  .content-divWrap .InformationBox .IfmRow .floatRight .rightChildren span.redTxt {
+    color: #dd191d;
+  }
+  .InformationBox {
+    margin: 0 0 0 10px;
+    .IfmRow {
+      height: 56px;
+      font-size: 18px;
+      margin: 0 20px 0 10px;
+      border-bottom: 1px solid #d5d5d5;
+      .Information {
+        color: #101010;
+        font-size: 18px;
+        line-height: 56px;
+      }
+      .floatRight {
+        float: right;
+        line-height: 44px;
+        .rightChildren {
+          display: inline-block;
+          font-size: 14px;
+          .md-font {
+            font-size: 14px;
+            text-align: right;
+            color: #999999;
+          }
+          span {
+            color: #101010;
+          }
+        }
+        .chevron_right {
+          margin: 0 10px 0 0px;
+          font-size: 12px;
+          color: #999;
+          line-height: 24px;
+          text-align: right;
+        }
+        .chevron_right.md-font.ks-arrow_right.ks-icon.ks-diy {
+          margin: 0 0 0 10px;
+        }
+      }
+    }
+    .showmore{
+      text-align: center;
+      color: #999;
+      margin: 0 20px 0 10px;
+      padding-top: 15px;
+      border-top: 1px solid #d5d5d5;
+      .ks-icon{
+        font-size: 14px;
+        color: #999;
+      }
+    }
+  }
+  .botTxt {
+    text-align: center;
+    margin: 15px auto 30px auto;
+    color: #999;
+    font-size: 14px;
+  }
+  .weixin {
+    .mdWrap {
+      background: #62b566;
+    }
+  }
+  .zhifu {
+    .mdWrap {
+      background: #4fa5db;
+    }
+  }
+  .weixin, .zhifu {
+    width: 50%;
+    float: left;
+    .mdWrap {
+      width: 25px;
+      height: 25px;
+      display: block;
+      float: left;
+      margin: 9px 10px 0 0;
+      md-icon {
+        line-height: 25px;
+        text-align: center;
+        font-size: 15px;
+        color: #fff;
+      }
+    }
+  }
+  .content-divWrap {
+    .changeTxtEmailBox {
+      height: 160px;
+      background: #333;
+      .txtEmailBox {
+        margin-top: 50px;
+        color: #fff;
+        font-size: 15px;
+        .bindEmailTxt {
+          md-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
+            line-height: 40px;
+            color: #ba9f6e;
+          }
+          .emailCode {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 15px;
+            color: #fff;
+          }
+        }
+
+      }
+    }
+
+    .butWrap {
+      margin: 20px 20px 10px 20px;
+      .but {
+        width: 100%;
+        height: 40px;
+        background: #333;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+

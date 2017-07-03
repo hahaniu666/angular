@@ -1,0 +1,72 @@
+<div flex="" layout="column" class="md-whiteframe-z2 ks-main ks-invoice-list">
+
+    <md-toolbar class="md-menu-toolbar ks-header ks-invoice-header">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="fallbackPage()">
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_left" class="chevron_left"></md-icon>
+            </md-button>
+            <h1 flex>发票抬头</h1>
+            <div class="icon-placeholder-right"></div>
+        </div>
+    </md-toolbar>
+
+    <md-content flex class="top-border not-empty" ng-if="invoice.invoices[0]">
+
+        <div class="invoice-row"
+             layout="column"
+             ng-repeat="invoices in invoice.invoices track by $index">
+            <div class="line" ng-if="$index!=0"></div>
+            <div class="invoice" layout="column" ng-click="orderUpdateInvoice(invoices)">
+                <div layout="row">
+                    <div class="label">发票类型:</div>
+                    <div class="content" ng-show="invoices.type=='PERSONAL'">个人</div>
+                    <div class="content" ng-show="invoices.type=='COMPANY'">公司</div>
+                </div>
+                <div layout="row">
+                    <div class="label">发票抬头:</div>
+                    <div class="content">{{invoices.title}}</div>
+                </div>
+            </div>
+            <md-divider></md-divider>
+
+            <div class="actions"
+                 layout
+                 layout-align="start center">
+                <div class="primary" >
+                    <md-icon class="primaryFont kds" md-font-set="ks-icon" md-font-icon="ks-r-selected" ng-if="invoices.default"></md-icon>
+                    <md-icon class="primaryFont" md-font-set="ks-icon" md-font-icon="ks-r-unselected" ng-if="!invoices.default" ng-click="setDefault(invoices,$index)"></md-icon>
+                    <span ng-if="invoices.default" style="color: #ba9f6e;margin-left:4px">默认发票</span>
+                    <span ng-if="!invoices.default" class="font-defualt">设为默认</span>
+                </div>
+                <div flex=""></div>
+                <div class="secondary" md-ink-ripple ng-click="openinvdialog(false,invoices)">
+                    <md-icon md-font-set="ks-icon" md-font-icon="ks-edit-o"></md-icon>
+                    编辑
+                </div>
+                <div class="secondary drop" md-ink-ripple ng-click="deleteInvoice(invoices)">
+                    <md-icon md-font-set="ks-icon" md-font-icon="ks-trash-can-o"></md-icon>
+                    删除
+                </div>
+            </div>
+
+        </div>
+        <div class="line-divi"></div>
+        <div layout="row" layout-align="center center" class="add-row">
+            <md-button class="invoiceBtn ks-black" flex ng-click="openinvdialog(true,invoices)"> + 添加新发票抬头</md-button>
+        </div>
+    </md-content>
+
+
+    <!-- 发票抬头列表为空 -->
+    <md-content flex layout="column" class="top-border empty" class="empty" ng-if="!invoice.invoices[0]">
+
+        <div flex layout="column" layout-align="center center">
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-invoice" class="icon"></md-icon>
+            <div class="txt">您还没有发票抬头，快来创建吧～</div>
+        </div>
+
+        <div layout="row" layout-align="center center" class="add-row">
+            <md-button class="ks-black md-raised " flex ng-click="openinvdialog(true,invoices)" style="border-radius: 0;"> + 添加新发票抬头</md-button>
+        </div>
+    </md-content>
+</div>

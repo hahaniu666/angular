@@ -1,0 +1,412 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 newIndex">
+    <!--主体部分-->
+
+    <!--金银粉轮播图-->
+    <div class="swiper-bg">
+        <div class="swiper-container1">
+            <div class="my-wrapper1">
+                <div class="my-slide1" ng-class="{active:act == '1'}" ng-click="btnClick('1')">
+                    <span>首页</span>
+                </div>
+                <div class="my-slide1" ng-class="{active:act == '2'}" ng-click="btnClick('2')">
+                    <span>每日必团</span>
+                </div>
+                <div class="my-slide1" ng-class="{active:act == '3'}" ng-click="btnClick('3')">
+                    <span>蚕丝养护</span>
+                </div>
+                <div class="my-slide1" ng-class="{active:act == '4'}" ng-click="btnClick('4')">
+                    <span>品牌故事</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <md-content flex ng-if="act == '1'">
+
+        <!--轮播图  注意swiper="swiper"  若是有两个要用不同的名称-->
+        <div class="swiper-wrap">
+            <ks-swiper-container direction="horizontal"
+                                 initial-slide="0"
+                                 effect="between"
+                                 swiper="swiper1"
+                                 initial-slide="1"
+                                 loop="false"
+                                 autoplay="3000"
+                                 show-nav-buttons="false"
+                                 pagination-is-active="true"
+                                 pagination-clickable="false"
+                                 slides-per-view="1"
+                                 space-between="5">
+                <ks-swiper-slide class="swiper-slide" ui-sref="main.item({itemId:'59369996c4f8143da3b826e8',skuId:'59369996c4f8143da3b826e9'})">
+                    <img src="https://img.kingsilk.net/FhoiNbNqXZnVky_7YMBdzumZclB4"/>
+                </ks-swiper-slide>
+                <!--<ks-swiper-slide class="swiper-slide">-->
+                    <!--<img src="https://o96iiewkd.qnssl.com/FmkThhbJtK4AzxCXRP_unuOm4dot"/>-->
+                <!--</ks-swiper-slide>-->
+                <!--<ks-swiper-slide class="swiper-slide">-->
+                    <!--<img src="https://o96iiewkd.qnssl.com/FvGu6YV_aLJlLrdzT8QmyOK72pIQ"/>-->
+                <!--</ks-swiper-slide>-->
+            </ks-swiper-container>
+        </div>
+
+        <!--下面的图标按钮-->
+        <div class="parent-warp" layout="column">
+            <div class="icon-wrap" layout="row" layout-align="space-around center">
+                <div class="con-wrap" layout="column" ui-sref="main.item({itemId:hotItemId,skuId:hotSkuId})">
+                    <div class="con-img">
+                        <img src="./assets/jngy/btnChun.png"/>
+                    </div>
+                    <div class="con-txt">聚划算</div>
+                </div>
+                <div class="con-wrap" layout="column" ng-click="goState('ANCIENT')">
+                    <div class="con-img">
+                        <img src="./assets/jngy/btnJiang.png"/>
+                    </div>
+                    <div class="con-txt">古法工艺</div>
+                </div>
+                <div class="con-wrap" layout="column" ui-sref="main.previewTemplate.directSeeding">
+                    <div class="con-img">
+                        <img src="./assets/jngy/btnShang.png"/>
+                    </div>
+                    <div class="con-txt">边看边买</div>
+                </div>
+                <div class="con-wrap" layout="column" ui-sref="main.newVip()">
+                    <div class="con-img">
+                        <img src="./assets/jngy/btnShi.png"/>
+                    </div>
+                    <div class="con-txt">积分商城</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--钱皇快报-->
+        <div class="news" layout="row">
+            <div class="news-title">
+                <img src="./assets/jngy/jnHeader.png" width="38" height="38">
+            </div>
+            <div class="ling"></div>
+            <!--上下滚动-->
+            <div class="swiper-container2">
+                <div class="my-wrapper2">
+                    <div class="my-slide2" ng-repeat="new in news.result track by $index" ng-click="clickUrl(new.url)">
+                        <div class="top">
+                            <span class="view-btn" ng-if="!$odd">热评</span>
+                            <span class="view-btn color" ng-if="$odd">热议</span>
+                            {{new.title}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--限时抢购-->
+        <div class="limit-time" style="overflow: hidden">
+            <div class="limit-top">
+            </div>
+            <div class="limit-wrap" layout="row" layout-align="center center">
+                <div flex class="limit-item" ng-repeat="limit in limitList.recList |limitTo:2 ">
+                    <div class="limit-dis">
+                        <div class="dis-img">
+                            <img img-holder
+                                 ui-sref="main.item({itemId:limit.skus[0].itemId,skuId:limit.skus[0].skuId})"
+                                 ng-src="{{imgUrl}}{{limit.img}}?imageView2/2/w/{{slideImg.w}}/h/{{slideImg.h}}"/>
+                            <div class="dis-header" layout="row" layout-align="space-between center">
+                                <div class="header-img"></div>
+                                <div flex class="header-time">
+                                    <!--<span class="live">剩余</span>-->
+                                    <span class="time">{{limitList.recList[$index].activityCheck.day}}<span
+                                            class="live">天</span>{{limitList.recList[$index].activityCheck.hour}}<span
+                                            class="live">时</span>{{limitList.recList[$index].activityCheck.minute}}<span
+                                            class="live">分</span>{{limitList.recList[$index].activityCheck.second}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dis-price" layout="row" layout-align="space-between center">
+                            <div class="price-title">{{limit.name}}</div>
+                            <div class="price-right">￥{{limit.skus[0].activityPrice/100|num:0}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="limit-center">
+            </div>
+            <div class="today-must">
+                <div class="img-wrap">
+                    <!--<img img-holder-->
+                         <!--ui-sref="main.item({itemId:purchaseId,skuId:purchaseSkuId})"-->
+                         <!--ng-src="{{imgUrl}}{{purchaseImg}}"/>-->
+
+                    <img ui-sref="main.item({itemId:purchaseId,skuId:purchaseSkuId})" src="https://img.kingsilk.net/FhoiNbNqXZnVky_7YMBdzumZclB4?imageView2/2/w/{{imgService.indexBelowImg.w}}/h/{{imgService.indexBelowImg.h}}"/>
+                    <div class="img-left"></div>
+                </div>
+            </div>
+            <div class="blank"></div>
+        </div>
+
+
+        <!--今日必抢轮播图-->
+        <div class="swiper-mustBuy">
+            <div class="swiper-container3">
+                <div class="my-wrapper3">
+                    <div class="my-slide3" ng-repeat="carousel in carouselDate[0] track by $index">
+                        <div class="img-swiper" layout="column"
+                             ui-sref="main.item({itemId:carousel.itemId,skuId:carousel.skuId})">
+                            <div class="img-wrap">
+                                <img img-holder
+                                     ng-src="{{imgUrl}}{{carousel.itemImg}}"/>
+                            </div>
+                            <div class="dis" layout="row" layout-align="center center">
+                                <div layout="column" layout-align="center center">
+                                    <div class="dis-title">{{carousel.itemTitle}}</div>
+                                    <div class="dis-price"><span>￥</span>{{carousel.skuPrice}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--人气好货-->
+        <div class="goods">
+            <div>
+                <div class="goods-head" layout="row" layout-align="start center">
+                    <md-icon class="goods-icon" md-font-set="ks-icon"
+                             md-font-icon="ks-r-unselected"></md-icon>
+                    <div flex class="head-txt">人气好货</div>
+                </div>
+                <div class="goods-img" ui-sref="main.item({itemId:goodsId,skuId:skuId})">
+                    <!--<img img-holder ng-src="{{imgUrl}}{{goodsImg}}"/>-->
+                    <!--<img src="https://img.kingsilk.net/FhoiNbNqXZnVky_7YMBdzumZclB4?imageView2/2/w/{{imgService.indexBelowImg.w}}/h/{{imgService.indexBelowImg.h}}"/>-->
+                    <img src="https://img.kingsilk.net/FiYENJP1f4YkhHNe5djqYv-Pcw2L"/>
+
+                </div>
+            </div>
+        </div>
+
+        <!--热门话题-->
+        <div class="topic">
+            <div class="goods-head" layout="row" layout-align="space-between center">
+                <div layout="row">
+                    <md-icon class="goods-icon" md-font-set="ks-icon"
+                             md-font-icon="ks-r-unselected"></md-icon>
+                    <div flex class="head-txt">热门话题</div>
+                </div>
+                <div class="head-more" ui-sref="main.topic()">更多</div>
+            </div>
+            <div class="goods-brand">
+                <ks-swiper-container direction="horizontal"
+                                     initial-slide="0"
+                                     effect="between"
+                                     swiper="swiper2"
+                                     initial-slide="1"
+                                     loop="false"
+                                     show-nav-buttons="false"
+                                     pagination-is-active="false"
+                                     pagination-clickable="false"
+                                     slides-per-view="1.369"
+                                     space-between="10"
+                                     on-ready="getHotDiscuss(swiper)">
+                    <ks-swiper-slide class="swiper-slide" ng-repeat="title in hotList.recList track by $index">
+                        <a ui-sref="main.topic.topicdetail({id:title.id})">
+                            <img ng-src="{{imgUrl}}{{title.img}}?imageView2/2/w/{{slideImg.w}}/h/{{slideImg.h}}"></a>
+                    </ks-swiper-slide>
+                </ks-swiper-container>
+                <br style="clear: both">
+            </div>
+        </div>
+        <div class="diff-line"></div>
+        <!--水墨-->
+        <div class="guess">
+            <div class="guess-title1" layout="column" layout-align="center center">
+                <img src="./assets/jngy/series1.png">
+            </div>
+            <div class="guess-item" layout="column" layout-align="center center" ui-sref="main.item({itemId:smjn1Id,skuId:smjn1SkuId})">
+                <img src="https://img.kingsilk.net/FriBySYr92eeO4db0tCK9Yhv1R9n">
+            </div>
+            <div layout="row" layout-wrap>
+                <div flex="50" layout="column" class="rec-item"
+                     ng-repeat="smjn in smjnData[0] | limitTo:2" ui-sref="main.item({itemId:smjn.itemId})">
+
+
+                    <div flex layout="column" style="position: relative">
+                        <!-- 多追加一层div，方便使用  layout-wrap 和 ng-repeat 。 需要CSS特殊处理  -->
+                        <div class="item-img">
+                            <img ng-src="{{imgUrl}}/{{smjn.itemImg}}" img-holder/>
+                        </div>
+                        <div class="dis-price" layout="row" layout-align="space-between center">
+                            <div class="price-title">{{smjn.itemTitle}}</div>
+                            <div class="price-right"><span>￥</span>{{smjn.skuPrice}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="loadMore" layout="row"
+                 layout-align="center center" ui-sref="main.jnCategory({status:'smjnList'})">
+                <div flex></div>
+                <div class="loadMoreBg">加载更多</div>
+                <div flex></div>
+            </div>
+        </div>
+        <div class="diff-line"></div>
+
+        <!--诗画江南-->
+        <div class="guess" style="background: url(./assets/jngy/jnShihua.png)">
+            <div class="guess-title2" layout="column"
+                 layout-align="center center">
+                <img src="./assets/jngy/series2.png">
+            </div>
+            <div class="guess-item" layout="column" layout-align="center center"  ui-sref="main.item({itemId:shjn1Id,skuId:shjn1SkuId})">
+                <img src="https://img.kingsilk.net/FmQDkSB0w7yrJYy0g8XQGQXz63g7">
+            </div>
+            <div layout="row" layout-wrap>
+                <div flex="50" layout="column" class="rec-item"
+                     ng-repeat="shjn in shjnData[0] | limitTo:2" ui-sref="main.item({itemId:shjn.itemId})">
+                    <div flex layout="column" style="position: relative">
+                        <!-- 多追加一层div，方便使用  layout-wrap 和 ng-repeat 。 需要CSS特殊处理  -->
+                        <div class="item-img">
+                            <img ng-src="{{imgUrl}}/{{shjn.itemImg}}" img-holder/>
+                        </div>
+                        <div class="dis-price" layout="row" layout-align="space-between center">
+                            <div class="price-title">{{shjn.itemTitle}}</div>
+                            <div class="price-right"><span>￥</span>{{shjn.skuPrice}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="loadMore" layout="row"
+                 layout-align="center center" ui-sref="main.jnCategory({status:'shjnList'})">
+                <div flex></div>
+                <div class="loadMoreBg">加载更多</div>
+                <div flex></div>
+            </div>
+        </div>
+        <div class="diff-line"></div>
+        <!--锦绣江南-->
+        <div class="guess" style="background: url(./assets/jngy/jn.png)">
+            <div class="guess-title" layout="column"
+                 layout-align="center center">
+                <img src="./assets/jngy/series3.png">
+            </div>
+            <div class="guess-item" layout="column" layout-align="center center" ui-sref="main.item({itemId:jxjn1Id,skuId:jxjn1SkuId})">
+                <img src="https://img.kingsilk.net/FiYENJP1f4YkhHNe5djqYv-Pcw2L">
+            </div>
+            <div layout="row" layout-wrap>
+                <div flex="50" layout="column" class="rec-item"
+                     ng-repeat="jxjn in jxjnData[0] | limitTo:2" ui-sref="main.item({itemId:jxjn.itemId})">
+
+                    <div flex layout="column" style="position: relative">
+                        <!-- 多追加一层div，方便使用  layout-wrap 和 ng-repeat 。 需要CSS特殊处理  -->
+                        <div class="item-img">
+                            <img ng-src="{{imgUrl}}/{{jxjn.itemImg}}" img-holder/>
+                        </div>
+                        <div class="dis-price" layout="row" layout-align="space-between center">
+                            <div class="price-title">{{jxjn.itemTitle}}</div>
+                            <div class="price-right"><span>￥</span>{{jxjn.skuPrice}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="loadMore" layout="row"
+                 layout-align="center center" ui-sref="main.jnCategory({status:'jxjnList'})">
+                <div flex></div>
+                <div class="loadMoreBg">加载更多</div>
+                <div flex></div>
+            </div>
+        </div>
+        <div class="fotter-index" layout="row" layout-align="center center">
+            <div class="icon-btn-wrap">
+                <div class="icon-parent">
+                    <md-icon class="ks-icon" style="font-size: 16px" md-font-set="ks-icon"
+                             md-font-icon="ks-chat"
+                             ui-sref="main.item.help"
+                    ></md-icon>
+                    <md-icon ui-sref="main.more.aboutUs" style="font-size: 18px;margin-left: 10px;margin-right: 0"
+                             class="ks-icon"
+                             md-font-set="ks-icon"
+                             md-font-icon="ks-about"></md-icon>
+                </div>
+                <div class="qianhuang" style="color: #333">
+                    © 2017 杭州钱皇网络技术有限公司
+                </div>
+            </div>
+        </div>
+    </md-content>
+    <md-content flex style="background:#fff;" ng-if="act == '2'">
+        <div class="pintuan-box" ng-repeat="group in orderList.recList"
+             ui-sref="main.groupOrder.groupOrderDetail({id:group.id,skuId:group.skus[0].skuId,orgId: vm.orgId,lastStap:'mainIndex'})">
+            <div class="pintuan-img">
+                <!--?imageView2/2/w/{{slideImg.w}}/h/{{slideImg.h}}-->
+                <img img-holder ng-src="{{imgUrl}}{{group.img}}"></a>
+                <!--<img src="https://o96iiewkd.qnssl.com/FmkThhbJtK4AzxCXRP_unuOm4dot"/>-->
+            </div>
+            <div class="pintuan-txt">
+                <div class="pintuan-title">{{group.name}}</div>
+                <div class="pintuan-con" layout="row" layout-align="space-between center">
+                    <div class="pintuan-price">
+                        <span class="price">￥{{group.skus[0].activityPrice/100|num:0}}</span>
+                        <span class="num">已团{{group.groupCount}}人</span>
+                    </div>
+                    <div class="pintuan-btn"
+                    >去开团
+                    </div>
+                </div>
+            </div>
+            <div class="pintuan-line">
+            </div>
+        </div>
+    </md-content>
+    <md-content flex style="background:#fff;" ng-if="act == '3'">
+        <!--床品养护-->
+        <div class="sample" layout="row" layout-align="center center">
+            <div class="sample-wrap" layout="row">
+                <div class="sample-dis" flex ng-repeat="l in categoryList track by $index"
+                     ng-class="{sampleActive:categoryList[$index].check}"
+                     ng-click="changeType(l.code,l.code)"> {{l.name}}
+                </div>
+            </div>
+        </div>
+        <md-content flex="" style="background: #f5f5f5;" id="content" ng-repeat="l in categoryList" ng-if="l.shows">
+            <div class="myClean">
+                <div class="cleanling" layout="row" layout-wrap>
+                    <div class="cl_item" ng-repeat="cl in l.service_item track by $index"
+                         ng-click="getItem(cl)" ng-if="!cl.delete">
+                        <img ng-src="{{imgUrl}}{{cl.img}}?imageView2/2/w/640/h/640"
+                             alt="{{cl.title}}">
+                        <div class="cl_pri">
+                            <span class="n_pri">￥{{cl.sku[0].price/100|num:0}}</span>
+                            <span class="y_pri" ng-if="cl.sku[0].price<cl.sku[0].marketPrice"
+                                  style="text-decoration: line-through;padding-left: 5px">原价￥{{cl.sku[0].marketPrice/100|num:0}}</span>
+                            <span class="y_pri" ng-if="cl.sku[0].itemUnit" style="padding-left: 5px">{{cl.sku[0].itemUnit}}</span>
+                            <div class="getsku">
+                                查看详情
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--</div>-->
+        </md-content>
+
+    </md-content>
+    <md-content flex style="background: #fff;" ng-if="act == '4'">
+        <img src="./assets/ppgs/ppgs_01.jpg" width="100%"/>
+        <img src="./assets/ppgs/ppgs_02.jpg" width="100%"/>
+        <img src="./assets/ppgs/ppgs_03.jpg" width="100%"/>
+        <img src="./assets/ppgs/ppgs_04.jpg" width="100%"/>
+        <img src="./assets/ppgs/ppgs_05.jpg" width="100%"/>
+        <img src="./assets/ppgs/ppgs_06.jpg" width="100%"/>
+    </md-content>
+    <!--<md-content flex></md-content>-->
+    <!--底部-->
+    <ks-footer-menu cur="'index'"></ks-footer-menu>
+</div>
+
+<style>
+
+    img {
+        vertical-align: bottom;
+    }
+</style>

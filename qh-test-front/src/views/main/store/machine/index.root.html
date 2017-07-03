@@ -1,0 +1,53 @@
+<div flex="" layout="column" class=" ks-main ks-machine md-whiteframe-z2">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+            <div class="divTop" flex class>
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"
+                         ng-click="vm.fallbackPage()"></md-icon>
+                <span class="regSpan">消毒柜</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="timer" layout="column" layout-align="center">
+            <div class="getTime">
+                剩余时间 <span ng-if="!vm.mac.device">--:--</span>
+                <span ng-if="vm.mac.device&&vm.mac.status!=='FINISHED'">{{vm.mac.device.totalLeaveTime}}</span>
+            </div>
+            <!--<div class="states" ng-if="vm.mac.status==='SERVICEING'">服务中</div>
+            &lt;!&ndash;&&vm.mac.status!=='FINISHED'&ndash;&gt;
+            <div class="states" ng-if="vm.mac.status!=='SERVICEING'">未开启</div>
+            <div class="states" ng-if="vm.mac.status==='FINISHED'">已完成</div>-->
+            <div class="states" ng-if="vm.mac.device">{{vm.mac.device.statusDesp}}</div>
+            <div class="states" ng-if="!vm.mac.device">未开启</div>
+
+        </div>
+        <div class="kind">
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-category"></md-icon>
+            <span>{{vm.mac.order.cleanItem.title}}</span>
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-money"></md-icon>
+            <span>{{vm.mac.order.paymentAmount/100|num:0}}</span>
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-time-o"></md-icon>
+            <span>{{vm.allTime}}分钟</span>
+        </div>
+        <div class="modes">
+            <div class="getMode" layout="row">
+                <div flex ng-repeat="s in vm.list">
+                    <div class="eachMode" ng-if="!s.sel">
+                        <img ng-src="{{vm.appConfig.imgUrl}}/{{s.img}}?imageView2/2/w/{{vm.imgService.indexBelowImg.w}}/h/{{vm.imgService.indexBelowImg.h}}"
+                             class="serviceImg"/>
+                    </div>
+                    <div class="select" ng-if="s.sel">
+                        <img ng-src="{{vm.appConfig.imgUrl}}/{{s.selectImg}}?imageView2/2/w/{{vm.imgService.indexBelowImg.w}}/h/{{vm.imgService.indexBelowImg.h}}"
+                             class="serviceImg"/>
+                    </div>
+                    <div class="name" ng-class="{selName:s.sel}">{{s.title}}</div>
+                </div>
+            </div>
+            <div class="info">关注公众号实时接收消毒柜进度</div>
+        </div>
+    </md-content>
+</div>
+
+

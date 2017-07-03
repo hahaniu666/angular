@@ -1,0 +1,80 @@
+//数量＋－框
+
+//加减的分栏线样式span
+.add {
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #323232;
+  //float: left;
+}
+
+.add span, .add p {
+  display: inline-block;
+  padding: 2px 10px;
+  background-color: #fff;
+  font-size: 14px !important;
+}
+
+.add > span:first-child, .add > div:first-child, .add li:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.add > span:last-child, .add > div:last-child, .add li:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.add span + span, .add li + li {
+  border-left: solid 1px #ccc;
+}
+
+
+.cart-num{
+  display: inline-block;
+  white-space: nowrap;
+  .add-left{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f5f5f5;
+    background-image: url(../../assets/bg-img/jian.png);
+    background-repeat:no-repeat;
+    background-size: 100%;
+
+    width: 30px;
+    height: 24px;
+    line-height: 24px;
+
+
+  }
+  .add-right{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f5f5f5;
+
+    background-image: url(../../assets/bg-img/jia.png);
+    background-repeat:no-repeat;
+    background-size: 100%;
+
+    width: 30px;
+    height: 24px;
+    line-height: 24px;
+
+
+  }
+  .add-center{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    color: #101010;
+    background-color: #d5d5d5;
+
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+
+  }
+}

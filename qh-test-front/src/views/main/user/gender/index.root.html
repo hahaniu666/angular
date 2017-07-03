@@ -1,0 +1,39 @@
+<div flex="" layout="column" class=" ks-main md-whiteframe-z2 ks-sex">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+
+            <div class="divTop" flex >
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">性别</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+            <div class="loginPassRow" ng-click="sexCheck('MALE')">
+                <span class="sexTxt">男</span>
+                <md-icon md-font-set="ks-icon"  md-font-icon="ks-r-selected" class="xz ckd" ng-if="sex==='MALE'"></md-icon>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-unselected" class="xz" ng-if="sex!='MALE'"></md-icon>
+            </div>
+            <div class="loginPassRow" ng-click="sexCheck('FEMALE')">
+                <span class="sexTxt">女</span>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-selected" class="xz ckd"
+                         ng-if="sex==='FEMALE'"></md-icon>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-unselected" class="xz" ng-if="sex!='FEMALE'"></md-icon>
+            </div>
+            <div class="loginPassRow" ng-click="sexCheck('SECRET')">
+                <span class="sexTxt">保密</span>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-selected" class="xz ckd"
+                         ng-if="sex==='SECRET'"></md-icon>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-unselected" class="xz"
+                         ng-if="sex==='FEMALE'||sex==='MALE'||!sex"></md-icon>
+            </div>
+
+            <div class="butWrap">
+                <button class="but" ng-click="genderfinish()">提交</button>
+            </div>
+        </div>
+    </md-content>
+</div>

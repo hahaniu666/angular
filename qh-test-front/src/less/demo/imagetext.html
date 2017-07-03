@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet/less" type="text/css" href="../../lib/lib.less"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../lib/lib-min-c3b72ccd7b.css"/>-->
+    <link rel="stylesheet/less" type="text/css" href="../../less/index.less"/>
+    <script src="../../lib/less/less.min.js" data-relative-urls="true"></script>
+</head>
+<body>
+图文混排范例
+1左中右
+.ui0>(.fl+.fr+.ui0)
+.ui0>(.fl.flimg+.fr.frimg+.ui0)
+
+.ui0>((.fl.flimg>img)+(.fr.frimg>img)+.ui0)
+.ui0>((.fl.flimg>img)+(.fr.frimg>img)+.ui0.flimgtext)
+<div class="ui0">
+    <div class="fl flimg"><img src="../../assets/img/zfb.png" alt=""></div>
+    <div class="fr frimg"><img src="../../assets/img/zfb.png" alt=""></div>
+    <div class="ui0">text</div>
+</div>
+
+
+
+2左图加文本,flimg1定义图片宽度以及边距
+.ui0>(.fl.flimg1+.ui0)
+.ui0>((.fl.flimg1>img)+.ui0)
+.ui0>((.fl.flimg1>img)+.ui0.flimg1text)
+<div class="ui0">
+    <div class="fl flimg1"><img src="../../assets/img/zfb.png" alt=""></div>
+    <div class="ui0 flimg1text">
+        text
+    </div>
+</div>
+
+3左图加文本,frimg1定义图片宽度以及边距
+.ui0>(.fr.frimg1+.ui0)
+.ui0>((.fr.frimg1>img)+.ui0)
+.ui0>((.fr.frimg1>img)+.ui0.flimg1text)
+<div class="ui0">
+    <div class="fr flimg1"><img src="../../assets/img/zfb.png" alt="">
+    </div>
+    <div class="ui0">
+        tesxt
+    </div>
+</div>
+
+4图文环绕左图右文
+.ui0>(.fl.flimg2>img)+{text}
+.ui0>(.fl.flimg2>img)+span.flimg2text{text}
+<div class="ui0">
+    <div class="fl flimg2"><img src="../../assets/img/zfb.png" alt=""></div>
+
+    2013年9月的一天，张某在坐公交车时感觉一女子很有气质，便主动上前搭讪，还要了该女子的手机号。下车后，张某给张女士打电话，但对方没接。张某又给她发了短信，告诉她自己就是在公交车上遇见的男子，“想约她出来做男女朋友，但她没有同意。”
+
+</div>
+next
+<div class="ui0">
+    <div class="fl flimg2"><img src="../../assets/img/zfb.png" alt=""></div>
+
+<span class="flimg2text">
+        2013年9月的一天，张某在坐公交车时感觉一女子很有气质，便主动上前搭讪，还要了该女子的手机号。下车后，张某给张女士打电话，但对方没接。张某又给她发了短信，告诉她自己就是在公交车上遇见的男子，“想约她出来做男女朋友，但她没有同意。”
+</span>
+</div>
+
+5图文环绕右图左文
+.ui0>(.fr.frimg2>img)+{text}
+<div class="ui0">
+    <div class="fr frimg2"><img src="../../assets/img/zfb.png" alt=""></div>
+
+
+    2013年9月的一天，张某在坐公交车时感觉一女子很有气质，便主动上前搭讪，还要了该女子的手机号。下车后，张某给张女士打电话，但对方没接。张某又给她发了短信，告诉她自己就是在公交车上遇见的男子，“想约她出来做男女朋友，但她没有同意。”
+
+</div>
+
+绝对定位方式的图文混排,用于评论等模块
+.abs-imgtext
+.abs-imgtext>((.divimg>img)+.title+.more+.footer)
+.abs-imgtext>((.divimg>img)+.body>(.title+.more+.footer))
+
+<div class="abs-imgtext1">
+    <div class="divimg"><img src="../../assets/img/zfb.png" alt=""></div>
+    <div class="body">
+        <div class="title">
+            title
+        </div>
+        <div class="more">
+            more
+        </div>
+        <div class="footer">
+            foot
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<div flex="" layout="column" class="ks-orderDetail ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">订单详情</span>
+            </div>
+        </div>
+            <span class="cancleBtn"
+                  ng-click="orderCancel($event)"
+                  ng-if="order.status==='UNPAYED'">取消订单</span>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex>
+        <div class="orderDetailHeader" ng-if="classActive.view">
+            <div class="orderDetailHeaderTop">
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.status=='UNPAYED'">card</md-icon>
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.status=='UNRECEIVED'">delivery</md-icon>
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.status=='UNCOMMENTED'">edit</md-icon>
+
+
+                <md-icon class="ks-icon" md-font-set="ks-icon"
+                         ng-if="order.status=='UNSHIPPED'">
+                    ks-drawer-arrow-up
+                </md-icon>
+
+                <md-icon class="ks-icon" md-font-set="ks-icon"
+                         ng-if="order.status == 'UNCONFIRMED'">
+                    timing
+                </md-icon>
+
+                <md-icon class="ks-icon" md-font-set="ks-icon"
+                         ng-if="order.status == 'CANCELING'">
+                    timing
+                </md-icon>
+
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.status=='FINISHED'">done</md-icon>
+                <div ng-if="order.status==='UNCONFIRMED'">待确认</div>
+                <div ng-if="order.status!=='UNCONFIRMED'">{{order.statusName}}</div>
+            </div>
+            <div class="orderDetailHeaderBottom">
+                <div class="bottomList">
+                    <div class="circle">
+                        <div class="circleIn" ng-class="{active:classActive.css[0]}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:classActive.css[0]}">提交订单</div>
+                </div>
+                <div class="bottomList">
+                    <div class="circle ">
+                        <div class="circleIn" ng-class="{active:classActive.css[1]}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:classActive.css[1]}">已支付</div>
+                </div>
+                <div class="bottomList">
+                    <div class="circle">
+                        <div class="circleIn" ng-class="{active:classActive.css[2]}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:classActive.css[2]}">已确认</div>
+                </div>
+                <div class="bottomList">
+                    <div class="circle">
+                        <div class="circleIn" ng-class="{active:classActive.css[3]}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:classActive.css[3]}">已收货</div>
+                </div>
+
+                <div class="bottomList">
+                    <div class="circle">
+                        <div class="circleIn" ng-class="{active:classActive.css[4]}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:classActive.css[4]}">已评价</div>
+                </div>
+                <br style="clear: both">
+                <div class="line"></div>
+            </div>
+
+        </div>
+        <div class="orderMessage" ng-if="!classActive.view">
+            <div class="orderMessageTop">
+                <div class="leftBlock"></div>
+                <span>订单信息</span>
+            </div>
+            <div class="orderMessageWrap">
+                <div class="wrapChild">
+                    <div class="txtMessage">订单编号：</div>
+                    <span>{{order.seq}}</span>
+                </div>
+                <div class="wrapChild">
+                    <div class="txtMessage">下单时间：</div>
+                    <span>{{order.dateCreated|date:"yyyy-MM-dd HH:mm"}}</span>
+                </div>
+                <div class="wrapChild">
+                    <div class="txtMessage">订单状态：</div>
+                    <span>{{order.statusName}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="partLine"></div>
+        <div class="orderMessage" ng-if="classActive.view">
+            <div class="orderMessageTop">
+                <div class="leftBlock"></div>
+                <span>订单信息</span>
+            </div>
+            <div class="orderMessageWrap">
+                <div class="wrapChild">
+                    <div class="txtMessage">订单编号：</div>
+                    <span>{{order.seq}}</span>
+                </div>
+                <div class="wrapChild">
+                    <div class="txtMessage">下单时间：</div>
+                    <span>{{order.dateCreated|date:"yyyy-MM-dd HH:mm"}}</span>
+                </div>
+
+            </div>
+            <md-divider></md-divider>
+        </div>
+        <div class="distribution">
+            <div class="distributionHeader">
+                <div class="leftBlock"></div>
+                <span>配送</span>
+            </div>
+            <!--     <div class="distributionContent">
+                     <div class="contentleft">
+                         <p>订单跟踪:</p>
+                         <div ng-if="classActive.status===1">您的订单已经提交，等待您支付订单</div>
+                         <div ng-if="classActive.status===2">您的订单已经支付，等待商家确认订单</div>
+                         <div ng-if="classActive.status>2">订单已经在运送中,配送员:{{}}</div>
+                     </div>
+                     <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_right</md-icon>
+                     <br style="clear: both">
+                 </div>-->
+            <div class="txtWrap" layout="row">
+                <div class="txt" style="font-size: 14px; text-indent: 18px;  width: 85px;">订单跟踪:</div>
+                <div class="txt" flex style="margin-left: 5px" layout="row" ng-click="queryLogistics()">
+                    {{logistics.trackInfo[0].content}}
+                </div>
+                <div class="txt" flex="8" layout="row">
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_right</md-icon>
+                </div>
+            </div>
+            <!--        <div class="distributionMode">
+                        <div class="txt" style="font-size: 14px; text-indent: 18px;  width: 85px;">配送方式:</div>
+                        <span>自送物流</span>
+                    </div>-->
+            <div class="distributionMode">
+                <div class="txt" style="font-size: 14px; text-indent: 18px;  width: 85px;">配送方式:</div>
+                <span>快递 包邮</span>
+            </div>
+            <div class="address" layout="column">
+                <div class="addressTxt">{{order.address.contact}} {{order.address.phone}}</div>
+                <div class="addressTxt" flex layout="row">
+                    {{order.address.province}}/{{order.address.city}}/
+                    {{order.address.area}}/{{order.address.street}}
+                </div>
+            </div>
+        </div>
+        <div class="commodityList">
+            <div class="commodityListHeader">
+                <div class="leftBlock"></div>
+                <span>商品清单</span>
+            </div>
+        </div>
+        <div class="commodityListContent" ng-repeat="orderItem in order.rentList">
+            <md-divider class="dashed"></md-divider>
+            <img class="contentListImg"
+                 ng-src="{{imgUrl}}{{orderItem.img}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}">
+            <div class="contentListRight" ng-click="itemDetail(orderItem)">
+                <div class="right1">{{orderItem.title}}</div>
+                <!--<span class="text-spec" ng-repeat="spec in orderItem.specs">
+                                        {{spec.name}}：{{spec.value}}；
+                                    </span>-->
+                <div class="item-specs">
+                    <span>租期:{{orderItem.day}}天</span>
+                    <span ng-repeat="spec in orderItem.specs">
+                        {{spec.name}}：{{spec.value}}；
+                    </span>
+                </div>
+                <div class="num1">￥{{orderItem.price/100.0|num:1}}</div>
+                <div class="num2">x{{orderItem.num}}</div>
+                <br style="clear: both">
+            </div>
+            <div class="ib" layout="row"
+                 ng-if="order.typ!='SERVICE'&&(order.status=='UNCOMMENTED'||order.status=='FINISHED' || order.status=='UNRECEIVED')">
+                <span flex></span>
+                <span class="ibButton" ng-if="orderItem.refund" layout="row">
+                    <i flex></i>
+                     <md-button class="ks-white ibBtn refundOnlyText">
+                         {{orderItem.refund.name}}
+                     </md-button>
+                </span>
+                <span class="ibButton" ng-if="!orderItem.refund && order.status!='UNRECEIVED'" layout="row">
+                    <i flex></i>
+                     <md-button class="ks-white ibBtn" ng-click="orderRefund(orderItem)">退货
+                     </md-button>
+                    <i flex="5"></i>
+                </span>
+                <span class="ibButton" ng-if="order.status=='UNRECEIVED'" layout="row">
+                    <i flex></i>
+                     <a href="tel:0571-86064050" class="call"><md-button class="ks-white ibBtn">退租联系客服
+                     </md-button></a>
+                     <i flex="5"></i>
+                </span>
+            </div>
+            <br style="clear: both">
+        </div>
+        <div class="discount">
+            <md-divider ng-if="userService.curUser.data.userInfo.org == 'HOTEL'"></md-divider>
+            <div class="discountHeader" ng-if="userService.curUser.data.userInfo.org == 'HOTEL'">
+                <div class="leftBlock"></div>
+                <span>优惠券</span>
+                <p ng-if="!order.coupon"
+                   style="font-size: 14px;height:0px;color: #999;float: right; margin-right: 7px;display: inline">
+                    未选择</p>
+                <br style="clear: both">
+            </div>
+            <md-divider ng-if="!order.coupon" style="clear: both"></md-divider>
+            <md-divider ng-if="order.coupon" class="dashed" style="clear: both;margin-left: 12px"></md-divider>
+            <div class="discountbottom" ng-if="order.coupon">
+                {{order.coupon.name}}-￥{{order.coupon.reduceMoney/100.0|num:1}}
+            </div>
+        </div>
+        <div class="invoice">
+            <div class="invoiceHeader">
+                <div class="leftBlock"></div>
+                <span>发票信息</span>
+                <p ng-if="!order.invoiceTitle"
+                   style="font-size: 14px;height:0px;color: #999;float: right; margin-right: 7px;display: inline">
+                    未选择</p>
+                <br style="clear: both">
+            </div>
+            <md-divider ng-if="!order.invoiceTitle" style="clear: both"></md-divider>
+            <md-divider ng-if="order.invoiceTitle" class="dashed" style="clear: both;margin-left: 12px"></md-divider>
+            <div class="invoiceMode" ng-if="order.invoiceTitle">
+                <div class="txt" style="font-size: 14px; text-indent: 30px;  width: 95px;">发票抬头:</div>
+                <span>{{order.invoiceTitle}}</span>
+            </div>
+        </div>
+        <!--礼品卡-->
+        <div class="invoice">
+            <div class="invoiceHeader">
+                <div class="leftBlock"></div>
+                <span>使用礼品卡抵用￥{{order.useGiftAmount/100|num:1}}</span>
+                <!--<md-switch style="float: right;display: inline;margin: 10px 0 0 0 " class="ks-gold"></md-switch>-->
+            </div>
+            <md-divider style="clear: both;padding-top: -10px"></md-divider>
+        </div>
+        <div class="cash">
+            <!--<div class="csahTxt">商品金额：￥{{(order.totalPrice)/100.0|num:2}}</div>
+            <div class="csahTxt" ng-if="order.coupon">{{order.coupon.name}}：-￥{{order.coupon.reduceMoney/100.0|num:2}}
+            </div>-->
+            <div class="csahTxt">商品金额：￥{{(order.orderPrice)/100.0|num:1}}</div>
+            <div class="csahTxt" ng-if="order.coupon">优惠券：-￥{{order.coupon.reduceMoney/100.0|num:1}}</div>
+            <div class="csahTxt" ng-if="order.rentList&&minusPrice>0">
+                指定满减活动：- ￥{{minusPrice/100.0|num:1}}
+            </div>
+            <div class="csahTxt" ng-if="order.activitys.length>0">
+                {{order.activitys[0].name}}：- ￥{{order.activitys[0].price/100.0|num:1}}
+            </div>
+            <div class="csahTxt" ng-if="order.useGiftAmount > 0">
+                使用礼品卡:- ￥{{order.useGiftAmount/100|num:1}}
+            </div>
+            <!--<div class="csahTxt" style="color: #101010">应付金额：￥{{(order.paymentAmount)/100.0|num:2}}</div>-->
+            <div class="csahTxt" style="color: #101010" ng-if="order.status!='UNPAYED'">
+                应付金额：￥{{(order.paymentAmount)/100.0|num:1}}
+            </div>
+            <!--<div class="csahTxt" style="margin-left: 0; text-align: center">此订单您使用的优惠券将返还给您</div>-->
+        </div>
+        <div class="textArea">
+            <div class="message">{{order.buyerMemo}}</div>
+            <!-- <textarea flex style="resize: none"
+                       placeholder="买家备注"></textarea>-->
+        </div>
+        <div class="agreement" ng-if="order.status=='UNPAYED'">
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-r-selected"></md-icon>
+            <span class="agreetxt">已阅读并同意以下协议</span>
+            <i class="info" ng-click="goRentPage()">《租赁协议》</i>
+        </div>
+    </md-content>
+
+    <md-divider ng-if="order.status!='CANCELING'&&order.status=='UNPAYED'"></md-divider>
+    <div class="pay-amount" layout="column" layout-align="center center"
+         ng-if="order.status=='UNPAYED'">
+        应付金额：￥{{(order.paymentAmount)/100.0|num:1}}
+    </div>
+    <div class="submit-btn" layout="row" layout-align="center center"
+         ng-if="order.status=='UNPAYED'">
+        <md-button class="ks-black md-raised" flex="90" ng-click="orderPay()"> 去支付</md-button>
+    </div>
+
+
+    <div class="fotterFixed" layout="column" ng-if="order.status!='UNPAYED'"
+         ng-class="{'disclear':order.status==='CANCELING'}">
+        <div ng-if="order.status=='CANCELED'" layout="row">
+            <div class="fotterFixedBottom" layout="column" flex layout-align="center center"
+                 ng-click="deleteOrder()">删除订单
+            </div>
+            <div class="fotterFixedBottom" layout="column" flex layout-align="center center"
+                 ng-click="againOrder()" style="background: #ba9f6e">再次下单
+            </div>
+        </div>
+
+        <div ng-if="order.status=='UNRECEIVED'">
+            <!--<span ng-if="order.logistics" ng-click="queryLogistics(order.id)">查看物流</span>-->
+            <div class="fotterFixedBottom" layout="column" layout-align="center center"
+                 style="background: #ba9f6e"
+                 ng-click="orderConfirm($event)">{{classActive.confirm}}
+            </div>
+        </div>
+
+        <div ng-if="order.status=='UNCONFIRMED'||order.status=='UNSHIPPED'">
+            <div class="fotterFixedBottom" layout="row" layout-align="center center"
+                 ng-click="orderCancel($event)">取消订单(退款)
+            </div>
+        </div>
+
+        <div ng-if="order.status=='UNCOMMENTED'" layout="row">
+            <div class="fotterFixedBottom" layout="column" flex layout-align="center center"
+                 ng-click="orderComment()">评价晒单</span>
+            </div>
+            <div class="fotterFixedBottom" layout="column" flex layout-align="center center"
+                 ng-click="againOrder()" style="background: #ba9f6e">再次下单</span>
+            </div>
+        </div>
+
+        <div ng-if="order.status=='FINISHED'" layout="row">
+            <div class="fotterFixedBottom" layout="column" flex layout-align="center center"
+                 ng-click="commentDetail()">查看评价
+            </div>
+            <div class="fotterFixedBottom" layout="column" flex layout-align="center center"
+                 ng-click="againOrder()" style="background: #ba9f6e">再次下单
+            </div>
+        </div>
+    </div>
+</div>

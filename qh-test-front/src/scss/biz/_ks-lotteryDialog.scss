@@ -1,0 +1,85 @@
+.ks-lotteryDialog{
+  width: 276px;
+  height: 410px;
+  box-shadow: 0 0 0;
+  background: url("../assets/img/lottery/dialog.png");
+background-size: 100% 100%;
+  .ks-lotteryDialog-main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    //color: red;
+    .ks-lotteryDialog-cancel{
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      right: 0;
+    }
+    .ks-lotteryDialog-label{
+      position: absolute;
+      text-align: center;
+      font-size: 17px;
+      width: 100%;
+      top: 32%;
+    }
+    .ks-lotteryDialog-img{
+      position: absolute;
+      height: 100px;
+      width: 120px;
+      left: 50%;
+      margin-left: -60px;
+      //width: 100%;
+      top: 40%;
+    }
+    .ks-lotteryDialog-checked{
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      height: 10%;
+      bottom:7%;
+      line-height: 300%;
+      color: #FFFFFF;
+      label{
+
+      }
+    }
+  }
+}
+.ks-lotteryRules{
+   width: 276px;
+   height: 410px;
+   box-shadow: 0 0 0;
+   .ks-lotteryRules-main{
+     width: 100%;
+     height: 100%;
+     position: relative;
+     .ks-lotteryRules-title{
+
+       background: -webkit-linear-gradient(left,rgba(255,86,192,1),rgba(255,169,85,1)); /* Safari 5.1 - 6 */
+       background: -o-linear-gradient(right,rgba(255,86,192,1),rgba(255,169,85,1)); /* Opera 11.1 - 12*/
+       background: -moz-linear-gradient(right,rgba(255,86,192,1),rgba(255,169,85,1)); /* Firefox 3.6 - 15*/
+       background: linear-gradient(to right, rgba(255,86,192,1), rgba(255,169,85,1)); /* 标准的语法 */
+
+
+
+       position: relative;
+       width: 100%;
+       height: 50px;
+       size: 20px;
+       text-align: center;
+       line-height: 50px;
+       color: #ffffff;
+       .ks-lotteryRules-cancel{
+         position: absolute;
+         right: 0;
+         top: 0;
+         width: 20%;
+         height: 100%;
+         md-icon{
+           font-size: 10px;
+           text-align: right;
+         }
+       }
+     }
+   }
+ }

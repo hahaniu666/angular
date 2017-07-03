@@ -1,0 +1,177 @@
+.qh {
+  .item-detail {
+    ///
+    min-height: 600px;
+    img {
+      width: 100%;
+    }
+
+  }
+  //加入购物车和立即购买固定导航
+  .nav-fixed-btn.nav-goumai {
+    background-color: transparent;
+  }
+  .nav-goumai {
+    table {
+      width: 100%;
+      table-layout: fixed;
+      border-spacing: 0;
+      background-color: transparent;
+      th {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        font-weight: normal;
+
+        a {
+          width: 100%;
+          height: 100%;
+          display: block;
+          color: #fff;
+          background-color: transparent;
+          position: relative;
+        }
+        i {
+          position: relative;
+          &.iconfont {
+            color: #fff;
+            font-size: 20px !important;
+          }
+          //购物车小圆圈
+          .itemNub {
+            display: inline-block;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            min-width: 16px;
+            line-height: 16px;
+            height: 16px;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #eb5252;
+            text-align: center;
+            font-size: 12px;
+          }
+        }
+        //购物车小圆圈
+        .order-numbers {
+          display: inline-block;
+          position: absolute;
+          top: -5px;
+          background-color: white;
+          line-height: 12px;
+          font-style: normal;
+          border-radius: 8px;
+          padding: 0 5px;
+          font-size: 8px;
+          color: #f15353;
+          right: -10px;
+        }
+
+      }
+      th#zixun{
+        width: 6em;
+        background-color: #646464;
+        a{
+          font-size: 14px;
+        }
+      }
+      td {
+        width: 50%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        a {
+          width: 100%;
+          height: 100%;
+          display: block;
+          color: #fff;
+          font-size: 16px;
+        }
+      }
+      td:first-of-type {
+        background-color: #ebac2f;
+
+      }
+      td:last-child {
+        background-color: #eb5252;
+      }
+    }
+  }
+  .product-detail {
+    width: 100%;
+  }
+
+  .product-detail td.attribute {
+    width: 6em;
+    float: none;
+    text-align: left;
+    line-height: 2;
+    font-size: 14px;
+    color: #646464;
+  }
+
+  .product-detail td.value {
+    width: auto;
+    text-align: left;
+    float: none;
+    padding-left: 1em;
+    line-height: 2;
+    font-size: 14px;
+    color: #323232;
+  }
+
+  .product-detail td {
+    vertical-align: top;
+  }
+
+}
+
+.itemye1 {
+  float: left;
+  padding-left: 0;
+  padding-right: 0.5em;
+  .itemye11 {
+    position: relative;
+    .itemye111 {
+      background-size: cover;
+      background-position: 50%;
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      display: inline-block;
+      background-color: #e5e5e5;
+      text-align: center;
+      img {
+        width: 34px;
+        height: 34px;
+      }
+      i {
+        //line-height: 50px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.itemye2 {
+  overflow: hidden;
+  .itemye21 {
+    font-size: 13px;
+  }
+  .itemye22 {
+    width: 64px;
+    height: 64px
+  }
+  .itemye31 {
+    font-size: 12px;
+    color: #909090;
+  }
+}
+.itemcolorye64{
+  color: #646464;
+}
+.itemsizeye12{
+  font-size: 12px
+}

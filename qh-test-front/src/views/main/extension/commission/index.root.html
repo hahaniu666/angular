@@ -1,0 +1,129 @@
+<div flex="" layout="column" class="ks-commission ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="fallbackPage()">
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+            </md-button>
+            <h1 flex ui-sref-opts="{reload: true}" ui-sref="main.index">佣金</h1>
+            <span flex="10"></span>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <div class="sample" layout="column" ng-cloak>
+        <md-tabs md-selected="vm.tableIndex"
+                 md-border-bottom
+                 md-center-tabs
+                 md-swipe-content="true"
+                 md-dynamic-height
+                 md-stretch-tabs="always">
+            <md-tab label="冻结中" ng-click="viewStatus(1)"></md-tab>
+            <md-tab label="已获得" ng-click="viewStatus(2)"></md-tab>
+            <md-tab label="被退款" ng-click="viewStatus(3)"></md-tab>
+            <!--ng-class="{active:classStatus[0]}" ui-sref="main.unionOrder({status:1})"-->
+        </md-tabs>
+    </div>
+    <md-content flex>
+
+        <div class="commissionContent" layout="row" layout-align="center center"
+             ng-if="frozen.commission[0]||available.commission[0]||fail.commission[0]">
+            <div class="contentWord jiu" flex layout="row" layout-align="center center">时间</div>
+            <div class="contentWord jiu" flex layout="row" layout-align="center center">用户</div>
+            <div class="contentWord jiu" flex layout="row" layout-align="center center">消费</div>
+            <div class="contentWord jiu" flex layout="row" layout-align="center center">佣金</div>
+        </div>
+        <div class="commissionContent" ng-repeat="tmp in frozen.commission" layout="row" layout-align="center center"
+             ng-if="view.frozen">
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.date|date:'yy-MM-dd'}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.phone}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.payment/100.0|num:1}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.price/100.0|num:1}}</div>
+        </div>
+
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.frozen && !pageEnd.frozen&&frozen.commission[0]" ng-click="queryFrozen(curPage.frozen)">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                点击加载更多...
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.frozen && pageEnd.frozen && curPage.frozen!=1">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                没有更多记录了...
+            </md-button>
+        </div>
+
+        <div flex layout="column" layout-align="center center" ng-if="view.frozen&&!frozen.commission[0]" style="min-height: 400px">
+            <md-icon md-font-set="ks-icon" class="icon">dollar-symbol</md-icon>
+            <div class="txt">0佣金</div>
+        </div>
+        <div class=" commissionContent" ng-repeat="tmp in available.commission" layout="row"
+             layout-align="center center" ng-if="view.available">
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.date|date:'yy-MM-dd'}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.phone}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.payment/100.0|num:1}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.price/100.0|num:1}}</div>
+        </div>
+
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.available && !pageEnd.available&&available.commission[0]"
+             ng-click="queryAvailable(curPage.available)">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                点击加载更多...
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.available && pageEnd.available && curPage.available!=1">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                没有更多记录了...
+            </md-button>
+        </div>
+
+        <div flex layout="column" layout-align="center center" ng-if="view.available&&!available.commission[0]"
+             style="min-height: 400px">
+            <md-icon md-font-set="ks-icon" class="icon">dollar-symbol</md-icon>
+            <div class="txt">0佣金</div>
+        </div>
+        <div class=" commissionContent" ng-repeat="tmp in fail.commission" layout="row" layout-align="center center"
+             ng-if="view.fail">
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.date|date:'yy-MM-dd'}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.phone}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.payment/100.0|num:1}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.price/100.0|num:1}}</div>
+        </div>
+
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.fail && !pageEnd.fail&&fail.commission[0]" ng-click="queryFail(curPage.fail)">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                点击加载更多...
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.fail && pageEnd.fail && curPage.fail!=1">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                没有更多记录了...
+            </md-button>
+        </div>
+
+        <div flex layout="column" layout-align="center center" ng-if="view.fail&&!fail.commission[0]" style="min-height: 400px">
+            <md-icon md-font-set="ks-icon" class="icon">dollar-symbol</md-icon>
+            <div class="txt">0佣金</div>
+        </div>
+    </md-content>
+    <!--<md-content flex layout="column" class="empty" ng-if="!counts.sort[0]">-->
+
+
+    <!--</md-content>-->
+    <!--  <div class="fixed" ng-if="view.frozen">
+          <div>
+              <span>累计获得佣金：</span>
+              <span>￥19990</span>
+          </div>
+      </div>
+      <div class="fixed" ng-if="view.available">
+          <div>
+              <span>累计获得佣金：</span>
+              <span>￥19990</span>
+          </div>
+      </div>-->
+</div>
+

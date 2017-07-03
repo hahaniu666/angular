@@ -1,0 +1,19 @@
+<md-toolbar layout="row"
+            layout-align="center stretch">
+    <div ng-repeat="menu in footerCtrl.menus"
+         flex
+         layout="column"
+         layout-align="center center"
+         md-ink-ripple
+         class="menu-item"
+         ng-class="{cur:menu.name == cur}"
+         ui-sref="{{menu.state}}">
+        <div layout="column">
+            <md-icon md-font-set="ks-icon" md-font-icon="{{menu.iconClass}}"></md-icon>
+            <!--2.2版本暂定无文字，只留图标,,,,可以动态设置-->
+            <!--ng-if="footerCtrl.showMenu == 'true'"  暂时先去掉-->
+            <div class="md-grid-text">{{menu.text}}</div>
+        </div>
+    </div>
+
+</md-toolbar>

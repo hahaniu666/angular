@@ -1,0 +1,152 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-itemManage" style="background: #f5f5f5">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>商品管理</h1>
+        <div class="md-icon-button" flex="20" ui-sref="main.hotelManage.hotelCart({userOrg:vm.data.userOrg,s:vm.tab})">
+            <md-icon style="text-align: right;" class="ks-icon" md-font-set="ks-icon"
+                     md-font-icon="ks-fileboard-down-o"></md-icon>
+        </div>
+    </md-toolbar>
+    <div class="nav-wrap" layout="row" layout-align="center center">
+        <div class="nav-msg" flex layout="column">
+            <div class="num">{{vm.nums.on_all}}</div>
+            <div class="txt">全部商品</div>
+        </div>
+        <div class="nav-msg" flex layout="column">
+            <div class="num">{{vm.nums.on_sale}}</div>
+            <div class="txt">上架中</div>
+        </div>
+        <div class="nav-msg" flex layout="column">
+            <div class="num">{{vm.nums.on_own}}</div>
+            <div class="txt">已进货</div>
+        </div>
+    </div>
+    <div class="tab-wrap">
+        <md-tabs md-selected="vm.tableIndex"
+                 md-border-bottom
+                 md-center-tabs
+                 md-swipe-content="true"
+                 md-dynamic-height
+                 md-stretch-tabs="always">
+            <md-tab label="全部" ng-class="{active:classStatus[0]}" ng-click="vm.statusQueryAll(1)"></md-tab>
+            <md-tab label="上架中" ng-class="{active:classStatus[2]}" ng-click="vm.statusQueryAll(2)"></md-tab>
+            <md-tab label="已下架" ng-class="{active:classStatus[3]}" ng-click="vm.statusQueryAll(3)"></md-tab>
+            <md-tab label="已进货" ng-class="{active:classStatus[1]}" ng-click="vm.statusQueryAll(4)"></md-tab>
+
+        </md-tabs>
+
+    </div>
+    <md-content flex style="overflow-x: hidden" ng-if="vm.data.items[0]">
+        <!--用于ng-repeat -->
+        <!--上部line，不要动-->
+        <div class="top-line"></div>
+        <div class="order-wrap" ng-repeat="item in vm.data.items track by $index">
+            <!--中间部分样式-->
+            <div layout="row"
+                 class="cart-item"
+                 layout-align="center center">
+                <div layout="" layout-align="end center">
+                    <md-checkbox class="ks-gold goes" ng-checked="vm.exists(item.itemId)"
+                                 ng-click="vm.toggle(item.itemId)"></md-checkbox>
+                </div>
+                <div class="item-img"
+                     ui-sref="main.hotelManage.manageItemDetail({orgItem:item.orgItem,itemId:item.itemId,skuId:item.skuId,userOrg:vm.data.parentUserOrg,s:vm.tab})">
+                    <img ng-src="{{vm.imgUrl}}/{{item.img}}?imageView2/1/w/92/h/92"
+                         width="92px" height="92px"/>
+
+                    <!--此标签做一下判断，是否为现货-->
+                    <div class="tags" ng-show="item.has">
+                        <span>现货</span>
+                    </div>
+                </div>
+                <div ui-sref="main.hotelManage.manageItemDetail({orgItem:item.orgItem,itemId:item.itemId,skuId:item.skuId,userOrg:vm.data.parentUserOrg,s:vm.tab})"
+                     flex layout="column" class="item-desp" layout-align="space-between start">
+                    <div class="item-title">{{item.title}}
+                    </div>
+
+                    <div layout="row" layout-align="space-between center" class="price-row">
+                        <div flex class="item-price">
+                            ￥{{item.price/100|num:2}}
+                        </div>
+                        <div layout="row" class="count">
+                            <!--库存数量x{{item.storage}}-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <md-divider></md-divider>
+            <!--底部按钮样式-->
+            <div class="bottom-btn-wrap" layout="row" layout-align="end center">
+                <div class="bot-btn buy"
+                     ng-if="vm.type=='ALL'"
+                     ui-sref="main.hotelManage.manageItemDetail({orgItem:item.orgItem,itemId:item.itemId,skuId:item.skuId,userOrg:vm.data.parentUserOrg,s:vm.tab})">
+                    进货
+                </div>
+                <div class="bot-btn up" ng-click="vm.shopSaleOn(item.itemId)"
+                     ng-show="(item.has&&item.originStatus=='SALE_OFF')|| !item.has">上架
+                </div>
+                <div class="bot-btn down" ng-click="vm.shopSaleOff(item.itemId)"
+                     ng-show="item.has&&item.originStatus=='NORMAL'">下架
+                </div>
+            </div>
+
+            <!--上部line，不要动-->
+            <div class="top-line"></div>
+        </div>
+
+        <!--分页-->
+        <div layout="row" layout-align="center center" style="padding: 10px">
+            <md-button class="ks-white md-raised ks-white-noBorder" flex
+                       style="color: #999;box-shadow: 0 0 0 0 #fff"
+                       ng-click="vm.getInfo()"
+                       ng-show="!vm.pageEnd && vm.data.totalCount>10">
+                点击加载更多...
+            </md-button>
+
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                       ng-click="vm.getInfo()"
+                       ng-show="vm.pageEnd&& vm.data.totalCount>10">
+                没有更多商品了
+            </md-button>
+        </div>
+
+        <!--固定按钮-->
+        <!--<div class="fotter-wrap"
+             ng-class="{fotterChange:vm.data.items.length>0 && vm.orgItemIds.length>0}"
+             layout="row" layout-align="center stretch">
+            <div class="btn" flex ng-click="vm.shopSaleOff()">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-sort-desc"></md-icon>
+                <span>批量下架</span>
+            </div>
+            <div class="btn" flex ng-click="vm.shopSaleOn()">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-sort-asc"></md-icon>
+                <span>批量上架</span>
+            </div>
+        </div>-->
+    </md-content>
+    <md-content layout="column" flex class="empty" ng-if="!vm.data.items[0]" style="overflow-x: hidden">
+        <div class="top-line"></div>
+        <div flex layout="column" layout-align="center center">
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-order-manage" class="icon"></md-icon>
+            <div class="txt">暂无数据～</div>
+        </div>
+    </md-content>
+    <!--固定按钮-->
+    <div class="fotter-wrap"
+         ng-if="vm.data.items[0]"
+         ng-class="{fotterChange:vm.data.items.length>0 && vm.orgItemIds.length>0}"
+         layout="row" layout-align="center stretch">
+        <div class="btn" flex ng-click="vm.shopSaleOff()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-sort-desc"></md-icon>
+            <span>批量下架</span>
+        </div>
+        <div class="btn" flex ng-click="vm.shopSaleOn()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-sort-asc"></md-icon>
+            <span>批量上架</span>
+        </div>
+    </div>
+
+</div>

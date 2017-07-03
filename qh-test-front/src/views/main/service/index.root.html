@@ -1,0 +1,57 @@
+<!--网点信息-->
+<header class="header">
+    <div class="left">
+        <a class="square" ng-click="fallbackPage()">
+            <span class="iconfont icon-arrow icon"></span></a></div>
+    <div class="center">
+        <div class="title">网点信息</div>
+    </div>
+    <!--<div class="right"><a class="square"  ui-sref-opts="{reload: true}" ui-sref="main.index"><span class="iconfont icon-home2 icon"></span></a></a>-->
+    <!--</div>-->
+</header>
+
+<!--<div class="header line">-->
+<!--<div class="title_top_left"><span class="glyphicon glyphicon-menu-left bt_cursor" ui-sref-opts="{reload: true}" ui-sref="main.index"></span></div>-->
+<!--<div class="navbar-brand navbar-brand-center">网点信息</div>-->
+<!--<div class="title_top_right"><span class="glyphicon glyphicon-home bt_cursor" ui-sref-opts="{reload: true}" ui-sref="main.index"></span> </div>-->
+<!--</div>-->
+
+<div class="container-fluid mtb1em info icon_lists">
+    <ul>
+        <!--<li ui-sref=".security">-->
+        <!--<div class="rowclear" >-->
+        <!--<div class="fl"><i class="iconfont">&#xe608;</i><span class="pl1em">防伪溯源</span></div>-->
+        <!--<div class="ui">-->
+        <!--<span class="pull-right iconfont icon-right1"></span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <li ui-sref-opts="{reload: true}" ui-sref=".soles({type:'SALE'})">
+            <div class="rowclear">
+                <div class="fl"><i class="iconfont icon-salesnetwork"></i><span class="pl1em">销售网点</span></div>
+
+                <div class="ui">
+                    <span class="pull-right iconfont icon-right1"></span>
+                </div>
+            </div>
+        </li>
+        <li ui-sref-opts="{reload: true}" ui-sref=".soles({type:'SERVICE'})">
+            <div class="rowclear">
+                <div class="fl"><i class="iconfont icon-house1"></i><span class="pl1em">服务网点</span></div>
+                <div class="ui">
+                    <span class="pull-right iconfont icon-right1"></span>
+                </div>
+            </div>
+        </li>
+        <li ui-sref-opts="{reload: true}" ui-sref=".soles({type:'QUILTEXPERIENCE'})">
+            <div class="rowclear">
+                <div class="fl"><i class="iconfont icon-roadhouse"></i><span class="pl1em">蚕丝被体验网点</span></div>
+                <div class="ui">
+                    <span class="pull-right iconfont icon-right1"></span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<!--置顶按钮-->
+<div to-top=""></div>

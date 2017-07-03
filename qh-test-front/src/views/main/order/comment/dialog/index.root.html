@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <span class="iconfont icon-close" style="color: #e3e3e3;float: right" ng-click="cancel()"></span>
+    <span class="clear"></span>
+    <section class="goods-sku" style="visibility: visible;">
+        热门评价标签
+    </section>
+</div>
+<div class="modal-body">
+    <section class="goods-sku" style="visibility: visible;">
+        <div class="content">
+
+            <div class="sku-list">
+                <dl class="size" style="margin-bottom: 0;">
+                    <dd>
+                        <ol class="s3 J_StyleList style-list clearfix" style="text-align: left">
+                            <li ng-repeat="tag in comment.commentTag  track by $index" ng-class="{c:checkTags[$index]}" style="disabled:true" ng-click="tagChecked($index)">
+                                {{tag.name}}
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="modal-footer" style="cursor:default">
+    <section class="goods-sku text-center" style="visibility: visible;">
+        <button class="btn btn-default1" ng-click="tagOrderItemInsert()">提交</button>
+    </section>
+</div>

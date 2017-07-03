@@ -1,0 +1,71 @@
+.ks-collect {
+  .md-toolbar-tools {
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    .nav-left {
+      font-size: 14px;
+      color: white;
+    }
+    .md-icon-button {
+      width: 22px;
+    }
+    span {
+      color: #808080;
+      font-size: 14px;
+    }
+  }
+  .collectTxt {
+    padding: 15px 10px 15px 10px;
+    border-bottom: 1px solid #d5d5d5;
+    .TxtLeft {
+      .leftTop {
+        .topIcon {
+          margin: 0 10px 6px 10px;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: #e6e6e6;
+          text-align: center;
+          .ks-icon {
+            font-size: 20px;
+            color: #101010;
+            margin-top: 4px;
+          }
+        }
+        span {
+          font-size: 16px;
+          color: #101010;
+        }
+      }
+      .leftBto {
+        span{
+          margin-left: 10px;
+          font-size: 14px;
+          color: #999;
+          margin-top: 10px;
+        }
+        .leftBtoIcon{
+          box-sizing: border-box;
+          width: 14px;
+          height: 14px;
+          .ks-icon{
+            margin-left: 17px;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #e84e40;
+          }
+        }
+      }
+    }
+    .txtRight{
+      text-align: center;
+      margin-top: 20px;
+      .ks-icon{
+        font-size: 16px;
+        color: #999;
+      }
+    }
+  }
+
+}

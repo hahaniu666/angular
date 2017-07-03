@@ -1,0 +1,173 @@
+.ks-earnMoney {
+
+  .ks-header {
+    background: #fff;
+    height: 44px;
+    font-size: 16px;
+    color: #333;
+    min-height: 44px;
+    .ks-icon {
+      font-size: 16px;
+      margin-left: 13px;
+      color: #333;
+      line-height: 20px;
+      width: 40px;
+      margin-top: 3px;
+    }
+    .md-icon-button {
+      width: 40px;
+      margin-top: 3px;
+      font-size: 14px;
+      color: #fff;
+      line-height: 44px;
+    }
+
+    .md-icon-button:last-child {
+      width: auto;
+    }
+    h1 {
+      font-size: 20px;
+      color: #333;
+      text-align: center;
+      height: 44px;
+      line-height: 44px;
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+
+  md-divider{
+    height: 1px;
+    -webkit-transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    overflow: hidden;
+  }
+  md-content{
+    .earnMoney-Title{
+      width: 100%;
+      height: 100px;
+      background: #fff9ed;
+      font-size: 18px;
+      font-family: PingFang-SC-Bold;
+      position: relative;
+      .title-img{
+        //height: 100%;
+        width: 66px;
+        height: 66px;
+        margin: 0 40px;
+        //background: red;
+        md-icon{
+          width: 100%;
+          height: 100%;
+          color: #d0af73;
+          font-size: 66px;
+          line-height: 66px;
+        }
+      }
+      .title-content{
+        //position: absolute;
+        //top:0;
+        //left: 146px;
+        .title-1{
+          font-size: 18px;
+          color: #818da0;
+          span{
+            color: #d0af73;
+          }
+        }
+        .title-2{
+          font-size: 14px;
+          color: #8995a7;
+        }
+      }
+    }
+  }
+  .list{
+    width: 100%;
+    height: 77px;
+    .list-left{
+      .leftIcon{
+        width: 36px;
+        height: 36px;
+        border: 1px solid #d0af73;
+        border-radius: 18px;
+        margin-right: 10px;
+
+        md-icon{
+          width: 20px;
+          color: #ba9f6e;
+          height: 20px;
+          font-size: 20px;
+          text-align: center;
+        }
+      }
+      .list-leftTitle{
+        font-size: 16px;
+        color: #333333;
+        font-family: PingFang-SC-Regular;
+      }
+      .list-leftContent{
+        font-size: 14px;
+        color: #999999;
+        font-family: PingFang-SC-Regular;
+        margin-top: 6px;
+      }
+    }
+    .sign{
+      width: 90px;
+      height: 32px;
+      color: #ffffff;
+      font-family: PingFang-SC-Bold;
+      font-size: 14px;
+      border-radius: 16px;
+      background: -webkit-linear-gradient(right, #fcc0a5, #fa9a9a); /* Safari 5.1 - 6 */
+      background: -o-linear-gradient(right, #fcc0a5, #fa9a9a); /* Opera 11.1 - 12*/
+      background: -moz-linear-gradient(right, #fcc0a5, #fa9a9a); /* Firefox 3.6 - 15*/
+      background: linear-gradient(to right, #fcc0a5, #fa9a9a); /* 标准的语法 */
+      text-align: center;
+      line-height: 32px;
+    }
+    .signed{
+      width: 90px;
+      height: 32px;
+      color: #ffffff;
+      font-family: PingFang-SC-Bold;
+      font-size: 14px;
+      border-radius: 16px;
+      background: #d5d5d5;
+      text-align: center;
+      line-height: 32px;
+    }
+
+
+    .list-right{
+      span{
+        font-size: 14px;
+        color: #d15976;
+        font-family: PingFang-SC-Regular;
+        margin-right: 10px;
+      }
+      md-icon{
+        font-size: 14px;
+        min-width: 14px;
+        color: #d5d5d5;
+      }
+      .list-right2{
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        background: #ace29c;
+        margin-right: 18px;
+        md-icon{
+          text-align: center;
+          color: #ffffff;
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+        }
+      }
+    }
+
+
+  }
+}

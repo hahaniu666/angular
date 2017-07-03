@@ -1,0 +1,251 @@
+.ks-RequestOf{
+  //header开始
+  .ks-header._md {
+    height: 30px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+
+    }
+  }
+  .sqtz{
+    font-size: 18px;
+  }
+  background: #fff;
+  .topToolbar {
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+        .top-but {
+          position: absolute;
+          font-size: 14px;
+          line-height: 40px;
+          right: 0;
+          color: #101010;
+        }
+      }
+    }
+    .cancleBtn {
+      width: 61px;
+      position: absolute;
+      right: 5px;
+      line-height: 44px;
+      top: 0;
+      color: #808080;
+      font-size: 14px;
+    }
+  }
+  .choose {
+
+    padding: 0 10px;
+    .chooseContent {
+      b{
+        color: red;
+        font-weight: normal;
+        line-height: 14px;
+        float: left;
+        margin: 15px 0px 0 5px;
+      }
+      margin: 10px 0;
+      background: #f5f5f5;
+      height: 40px;
+      span {
+        text-align: right;
+        width: 82px;
+        font-size: 14px;
+        color: #999;
+        line-height: 40px;
+      }
+      .sel {
+        overflow: hidden;
+        margin: 10px 0;
+        background: #f5f5f5;
+        height: 20px;
+        select {
+          outline: none;
+          -webkit-appearance: none;
+          appearance: none;
+          width: 100%;
+          margin-left: 10px;
+          border: none;
+          background: none;
+        }
+      }
+      input {
+        margin-left: 12px;
+        border: none;
+        background: none;
+      }
+      input::-webkit-input-placeholder { /* WebKit browsers */
+        font-size: 14px;
+        color: #ccc;
+      }
+
+      input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        font-size: 14px;
+        color: #ccc;
+      }
+
+      input::-moz-placeholder { /* Mozilla Firefox 19+ */
+        font-size: 14px;
+        color: #ccc;
+      }
+      .txt {
+        position: relative;
+        right: 10px;
+        margin-right: -6px;
+        margin-top: 14px;
+        .ks-icon {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+    }
+    .chooseContent.tuizujine{
+      .sel{
+        input{
+          color: red;
+          width: 100%;
+        }
+      }
+    }
+    div.text{
+      color: #999;
+      font-size: 12px;
+    }
+  }
+  .contBottom {
+    margin-left: 10px;
+    .voucher {
+      margin-top: 20px;
+      display: inline-block;
+      margin-right: 12px;
+      .voucherTxt {
+        width: 70px;
+        height: 70px;
+        background: #f5f5f5;
+        .voucherPhoto {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          .img {
+            width: 70px;
+            height: 70px;
+          }
+          .txtWarp {
+            width: 80px;
+            height: 40px;
+            textarea {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              margin-left: 10px;
+              font-size: 12px;
+              color: #101010;
+              line-height: 1.3em;
+              background: none;
+              border: none;
+              width: 63px;
+              height: 40px;
+            }
+          }
+          .delete {
+            position: absolute;
+            left: 60px;
+            top: -13px;
+            .ks-icon {
+              font-size: 22px;
+              color: #e84e40;
+            }
+          }
+        }
+      }
+    }
+    .add {
+      /* position: relative;
+       left: 0px;
+       top: -7px;*/
+      vertical-align: top;
+      margin-top: 20px;
+      display: inline-block;
+      box-sizing: border-box;
+      border: 1px dashed #ccc;
+      text-align: center;
+      width: 70px;
+      height: 70px;
+      .font {
+        .ks-icon {
+          padding-top: 10px;
+          font-size: 22px;
+          color: #ccc;
+        }
+      }
+      span {
+        display: block;
+        margin-top: -4px;
+        text-align: center;
+        font-size: 13px;
+        color: #ccc;
+      }
+    }
+  }
+  .fixed {
+    width: 100%;
+    position: fixed;
+    bottom: 15px;
+    div {
+      max-width: 580px;
+      height: 40px;
+      background: #333333;
+      text-align: center;
+      margin: 0 10px;
+      span {
+        line-height: 40px;
+        text-align: center;
+        font-size: 15px;
+        color: #ffffff;
+      }
+    }
+
+  }
+  .submit-btn{
+    margin: 0px 10px 15px 10px;
+    .ks-black.md-button{
+      width: 100%;
+      height: 40px;
+      border-radius: 0;
+      margin:0;
+      font-size:15px;
+    }
+  }
+}

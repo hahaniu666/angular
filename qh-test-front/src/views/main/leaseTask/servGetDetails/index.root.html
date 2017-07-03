@@ -1,0 +1,194 @@
+<div layout="column" class="ks-servGetDetails ks-main md-whiteframe-z2 ">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+
+            <div class="divTop" flex>
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="vm.fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="sqtz">订单详情</span>
+            </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex>
+        <!--配送中-->
+        <div class="confirmHeader sange" ng-if="transportDetailAPIdata.type=='SENT'">
+            <div class="confirmHeaderTop">
+                <md-icon class="ks-icon ks-timing" md-font-set="ks-icon" ng-if="vm.status==0"></md-icon>
+                <div ng-if="vm.status==0">待接单</div>
+                <md-icon class="ks-icon ks-delivery" md-font-set="ks-icon" ng-if="vm.status==1"></md-icon>
+                <div ng-if="vm.status==1">待收货</div>
+                <md-icon class="ks-icon ks-edit" md-font-set="ks-icon" ng-if="vm.status==2 || vm.status==3"></md-icon>
+                <div ng-if="vm.status==2 || vm.status==3">待评价</div>
+                <md-icon class="ks-icon ks-done" md-font-set="ks-icon" ng-if="vm.status==5"></md-icon>
+                <div ng-if="vm.status==5">已完成</div>
+            </div>
+            <div class="confirmHeaderBottom">
+                <div class="bottomList peisong">
+                    <div class="circle ">
+                        <div class="circleIn " ng-class="{active:vm.status>0}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:vm.status>0}">已接单</div>
+                </div>
+                <div class="bottomList peisong">
+                    <div class="circle">
+                        <div class="circleIn" ng-class="{active:vm.status>1}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:vm.status>1}">已收货</div>
+                </div>
+                <div class="bottomList peisong">
+                    <div class="circle">
+                        <div class="circleIn" ng-class="{active:vm.status>3}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:vm.status>3}">已评价</div>
+                </div>
+                <br style="clear: both">
+                <div class="line"></div>
+            </div>
+        </div>
+        <!--已取回-->
+        <div class="confirmHeader " ng-if="transportDetailAPIdata.type=='TAKE'">
+            <div class="confirmHeaderTop">
+                <md-icon class="ks-icon ks-timing" md-font-set="ks-icon" ng-if="vm.status==0"></md-icon>
+                <div ng-if="vm.status==0">待接单</div>
+                <md-icon class="ks-icon ks-timing" md-font-set="ks-icon" ng-if="vm.status==1"></md-icon>
+                <div ng-if="vm.status==1">待取回</div>
+                <md-icon class="ks-icon ks-check" md-font-set="ks-icon" ng-if="vm.status==2"></md-icon>
+                <div ng-if="vm.status==2">待验收</div>
+                <md-icon class="ks-icon ks-edit" md-font-set="ks-icon" ng-if="vm.status==3"></md-icon>
+                <div ng-if="vm.status==3">待评价</div>
+                <md-icon class="ks-icon ks-done" md-font-set="ks-icon" ng-if="vm.status==5"></md-icon>
+                <div ng-if="vm.status==5">已完成</div>
+            </div>
+            <div class="confirmHeaderBottom">
+                <div class="bottomList quhui">
+                    <div class="circle">
+                        <div class="circleIn " ng-class="{active:vm.status>0}"></div>
+                    </div>
+                    <div class="word " ng-class="{cur:vm.status>0}">已接单</div>
+                </div>
+                <div class="bottomList quhui">
+                    <div class="circle">
+                        <div class="circleIn " ng-class="{active:vm.status>1}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:vm.status>1}">已取回</div>
+                </div>
+                <div class="bottomList quhui">
+                    <div class="circle">
+                        <div class="circleIn" ng-class="{active:vm.status>2}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:vm.status>2}">已验收</div>
+                </div>
+                <div class="bottomList quhui">
+                    <div class="circle">
+                        <div class="circleIn" ng-class="{active:vm.status>3}"></div>
+                    </div>
+                    <div class="word" ng-class="{cur:vm.status>3}">已评价</div>
+                </div>
+                <br style="clear: both">
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="partLine"></div>
+        <div class="distribution">
+            <div class="distributionHeader">
+                <div class="leftBlock"></div>
+                <span>订单信息</span>
+            </div>
+            <md-divider style="margin:0 10px;border-top-style: dashed;"></md-divider>
+            <div class="txtWrap">
+                <p>任务编号：{{transportDetailAPIdata.seq}}</p>
+                <p>创建时间：{{transportDetailAPIdata.date | date:'yyyy.MM.dd HH:mm:ss'}}</p>
+
+            </div>
+            <div class="distributionHeader" style="border-bottom:1px solid #d5d5d5;">
+                <div class="leftBlock"></div>
+                <span>配送</span>
+            </div>
+            <div class="txtWrap">
+                <p>{{transportDetailAPIdata.userName}}：<a href="tel:{{transportDetailAPIdata.userPhone}}"><span>{{transportDetailAPIdata.userPhone}}</span></a>
+                </p>
+                <p ng-if="transportDetailAPIdata.type=='SENT'">配送方式：配送员上门送件</p>
+                <p ng-if="transportDetailAPIdata.type=='TAKE'">配送方式：配送员上门取件</p>
+                <md-divider style="margin:0 10px;border-top-style: dashed;"></md-divider>
+                <p>{{transportDetailAPIdata.recAddr.contact}}&nbsp;&nbsp;{{transportDetailAPIdata.recAddr.phone}}</p>
+                <p class="addressText">
+                    {{transportDetailAPIdata.recAddr.province}}/{{transportDetailAPIdata.recAddr.city}}/{{transportDetailAPIdata.recAddr.area}}/{{transportDetailAPIdata.recAddr.street}}</p>
+                <!--<p ng-if="transportDetailAPIdata.type=='SENT'">送{{transportDetailAPIdata.size}}床</p>
+                <p ng-if="transportDetailAPIdata.type=='TAKE'">取{{transportDetailAPIdata.size}}床</p>-->
+                <!--<md-divider style="margin:0 10px;border-top-style: dashed;"></md-divider>-->
+            </div>
+            <div class="distributionHeader">
+                <div class="leftBlock"></div>
+                <span>配送清单</span>
+            </div>
+            <md-divider style="margin:0 10px;border-top-style: dashed;"></md-divider>
+            <div class="txtWrap" style="border: none;">
+                <div layout="row" class="cart-item"
+                     layout-align="center center"
+                     ng-repeat="transportSkuList in transportDetailAPIdata.skuList track by $index"
+                     ng-click="itemLink($index)">
+
+
+                    <div class="item-img">
+                        <img class="img-left"
+                             ng-src="{{imgSSS}}{{transportSkuList.imgKey}}?imageView2/2/w/100/h/100"
+                             img-holder
+                             alt="钱皇"/>
+                        <!--src="{{citem.sku.img}}" ?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}-->
+
+                    </div>
+                    <div flex layout="column" class="item-desp">
+                        <div class="item-title">{{citem.sku.title}}
+                        </div>
+                        <div class="item-specs"><span>[租赁]&nbsp;&nbsp;{{transportSkuList.title}}</span>
+                        </div>
+                        <div flex layout="row" layout-align="" class="price-row" style="line-height: 30px">
+                            <div flex class="item-price">
+                                            <span ng-if="transportSkuList.specs">
+                                                {{transportSkuList.specs}}
+                                            </span>
+                            </div>
+                            <div layout="row" class="count">
+                                X{{transportSkuList.num}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="distributionHeader">
+                <div class="leftBlock"></div>
+                <span>服务中心</span>
+            </div>
+            <md-divider style="margin:0 10px;border-top-style: dashed;"></md-divider>
+            <div class="txtWrap" style="">
+                <p>{{transportDetailAPIdata.org.title}}</p>
+                <p>
+                    {{transportDetailAPIdata.org.province}}{{transportDetailAPIdata.org.city}}{{transportDetailAPIdata.org.area}}{{transportDetailAPIdata.org.street}}</p>
+                <p>{{transportDetailAPIdata.org.name}},{{transportDetailAPIdata.org.phone}}</p>
+            </div>
+        </div>
+    </md-content>
+    <!--配送-->
+    <div class="fotterFixed" layout="column" ng-if="transportDetailAPIdata.type=='SENT' && vm.status!=5 && 1==2">
+        <div class="fotterFixedBottom" layout="row" layout-align="center center" ng-if="vm.status==1"
+             ng-click="shouhuoqueding()">收货确认
+        </div>
+        <div class="fotterFixedBottom" layout="row" layout-align="center center" ng-if="vm.status==2 || vm.status==3"
+             ng-click="qupinglun()">去评价
+        </div>
+        <!--<div class="fotterFixedBottom" layout="row"  layout-align="center center" ng-if="vm.status==5">订单完成 </div>-->
+    </div>
+    <!--取回-->
+    <div class="fotterFixed" layout="column"
+         ng-if="transportDetailAPIdata.type=='TAKE' && vm.status!=2  && vm.status!=5 && 1==2">
+        <div class="fotterFixedBottom" layout="row" layout-align="center center" ng-if="vm.status==1"
+             ng-click="querenquhui()">确认取回
+        </div>
+        <!--  <div class="fotterFixedBottom" layout="row"  layout-align="center center" ng-if="vm.status==2" ng-click="querenyanshou()">确认验收</div>-->
+        <div class="fotterFixedBottom" layout="row" layout-align="center center" ng-if="vm.status==3"
+             ng-click="qupinglun()">去评价
+        </div>
+        <!--<div class="fotterFixedBottom" layout="row"  layout-align="center center" ng-if="vm.status==5" >订单完成 </div>-->
+    </div>
+</div>

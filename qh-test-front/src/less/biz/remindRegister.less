@@ -1,0 +1,101 @@
+.hah {
+  //蚕丝被保养页面input和select
+  input[type="text"]{
+    -webkit-appearance: none;
+    appearance: none;
+  }
+//取消对日期控件的样式修改
+//  input::-webkit-clear-button{
+//    display: none;
+//    -webkit-appearance: none;
+//  }
+//  input::-webkit-calendar-picker-indicator{
+//    display: none;
+//    -webkit-appearance: none;
+//  }
+//  input::-webkit-inner-spin-button{
+//    display: none;
+//    -webkit-appearance: none;
+//  }
+//
+//  input[type="date"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"] {
+//  align-items: flex-end;
+//  display: -webkit-inline-flex;
+//  font-family: monospace;
+//  overflow: hidden;
+//  padding: 0px;
+//  -webkit-padding-start: 1px;
+//    text-align: right;
+//}
+
+//日期控件三角下拉按钮
+  [pseudo="-webkit-calendar-picker-indicator"]{
+    opacity: 0.3 !important;
+  }
+  [id="picker"]{
+    opacity: 0.3 !important;
+  }
+
+  input:enabled:read-write:-webkit-any(:focus,:hover)::-webkit-calendar-picker-indicator, input::-webkit-calendar-picker-indicator:focus {
+    opacity: 0.3 !important;
+    pointer-events: auto;
+  }
+  ::-webkit-calendar-picker-indicator:hover {
+    background-color: rgb(258, 258, 258) !important;
+  }
+  ::-webkit-calendar-picker-indicator {
+    display: inline-block;
+    width: 0.66em;
+    height: 0.66em;
+    opacity: 0.3;
+    pointer-events: none;
+    -webkit-user-modify: read-only;
+    padding: 0.17em 0.34em;
+  }
+//上滚下滚取消
+  ::-webkit-inner-spin-button {
+    visibility: hidden;
+    display: none;
+  }
+//取消按钮
+  ::-webkit-clear-button {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  input::-webkit-clear-button {
+    -webkit-appearance: none;
+    display: none;
+    -webkit-margin-start: 2px;
+    opacity: 0;
+    //pointer-events: none;
+    -webkit-user-modify: read-only;
+    flex: 0 0 auto;
+  }
+
+  select {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    //optgroup是容器不应设置和子项一样大的值,经测试在一些浏览器中改不动高度
+    optgroup{
+      height: auto;
+    }
+    option{
+      //height: 30px;
+      //line-height: 30px;
+    }
+  }
+  //input::-webkit-datetime-edit{
+  //  background-color: red;
+  //}
+}
+//.bdrs4option:hover{
+//  option{
+//    background-color: red;
+//  }
+//}
+
+

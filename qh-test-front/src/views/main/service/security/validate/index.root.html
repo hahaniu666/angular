@@ -1,0 +1,33 @@
+
+
+<div flex="" layout="column" class=" ks-main ks-antiCounterfeiting">
+    <md-toolbar class="ks-header" >
+        <div layout="row" class="ks-header-divWrap" >
+
+            <div class="divTop" flex >
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left" ng-click="fallbackPage()"></md-icon>
+                <span class="regSpan">防伪验证</span>
+                <!--ng-class="{'verifyColor':noverifyShow}"-->
+                <span class="top-but-yz"  ng-if="vm.isLogined"  ui-sref-opts="{reload: true}"
+                      ui-sref="main.service.security()">验证记录</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content"  >
+        <div class="content-divWrap yzm">
+            <div style="height: 1px;"></div>
+            <div class="yzm">
+                <div class="inputWrap" ng-class="{ 'has-error':!myForm.barcode.$error}">
+                    <input type="text"  placeholder="防伪验证码" data-ng-model='security.code'
+                           placeholder="防伪验证码" ng-change="disableSubmit()"/>
+                </div>
+                <div class="btn" ng-click="queryValidate()" class="btn btn-default1 inp_btn_login"
+                     ng-class="{disabled:disableClass}">
+                    <span>查询</span>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>
+

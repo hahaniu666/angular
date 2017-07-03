@@ -1,0 +1,85 @@
+.qh {
+  .buy-service {
+//折叠按钮上下切换,采用content方式正常,旋转会抖动
+    .collapsed .icon-shrink:before {
+      //display: inline-block;
+      //vertical-align: baseline;
+      //-webkit-transform: rotate(-180deg);
+      //-moz-transform: rotate(-180deg);
+      //-ms-transform: rotate(-180deg);
+      //-o-transform: rotate(-180deg);
+      //transform: rotate(-180deg);
+      content: "\e661" !important;
+    }
+    .ib-icon3 .icon-shrink:before{
+      //display: inline-block;
+      //vertical-align: baseline;
+    }
+
+
+
+   //面板样式
+
+    //.list-group-item > .collapse >.divitem{
+    //  line-height: 30px;
+    //}
+
+
+
+
+    .list-group-item .fl {
+      //font-size: 0;
+      //>span{
+      //  font-size: 14px;
+      //}
+
+    }
+    //面板脚
+    .panel-buy .panel-footer {
+      .attribute{
+        font-size: 16px;
+        color: #323232;
+      }
+      .value{
+        font-size: 16px;
+        color: #323232;
+        font-weight: bold;
+
+      }
+    }
+
+    .ib-name{
+      font-size: 14px;
+      color: #646464;
+    }
+    .ib-value{
+      text-align: center;
+      font-size: 14px;
+      color: #646464;
+      .form-bdrs, .btn-danger2{
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+
+    .divitem .btn-danger2{
+      width: 82px;
+    }
+
+
+  }
+  .icon-right{
+    font-size: 12px;
+  }
+
+}
+
+.buy-service-win{
+  .modal-header{
+    border-bottom: none;
+  }
+  dl {
+    margin-bottom: 0;
+  }
+
+}

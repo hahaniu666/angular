@@ -1,0 +1,129 @@
+//购物咨询
+.qh {
+  .itemhelp {
+    .help-title{
+      //margin-top: 10px;
+      //margin-bottom: 10px;
+      //padding-left: 1em;
+      //padding-right: 1em;
+      background-color: #F5F5F5;
+      font-size: 16px;
+      color: @red-color;
+      height: 44px;
+      line-height: 44px;
+      //border-top: 1px solid @border-color2;
+      border-bottom: 1px solid @border-color2;
+      padding-left: 1em;
+
+    }
+    img{max-width: 100%}
+    form{
+      padding: 0;}
+    .nohelp{
+      //margin-top: 1em;
+      //font-size: 18px;
+      color: @red-color;
+      //padding-left: 1em;
+      height: 44px;
+      line-height: 44px;
+      padding-left: 1em;
+    }
+    .kefu{
+      //padding-left: 1em;
+      margin-bottom: 1em;
+      margin-left: 1em;
+      margin-right: 1em;
+      background-color: #fff;
+      border: 1px solid @border-color2;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      padding-top: 1em;
+      padding-bottom: 1em;
+    }
+    .kefu a{
+      color:@red-color;
+    }
+    ol{
+      //list-style: decimal;
+      //margin-left: 2em;
+      font-size: 16px;
+      //padding-left: 2em;
+      //padding-right: 3px;
+      //padding-top: 3px;
+      //padding-bottom: 3px;
+      background-color: #fff;
+      //list-style: initial;
+      //margin-left: -2em;
+      li{
+        font-size: 16px;
+        //list-style: decimal inside;
+        line-height: 30px;
+        //margin-left: -1em;
+        //margin-right: -3px;
+        //margin-top: -3px;
+        //margin-bottom: -3px;
+        div{
+          //margin-left: -2em;
+          padding-left: 32px;
+          padding-right: 32px;
+          background-color: #f5f5f5;
+          font-size: 14px;
+          //padding-left: 1em;
+          //padding-right: 1em;
+          //padding-top: 35px;
+          //padding-bottom: 35px;
+          p{
+            margin: 9px 0;
+            line-height: 20px;
+          }
+        }
+
+
+        label{
+          font-size: 16px;
+          color: #323232;
+          line-height: 38px;
+          position: relative;
+          display: block;
+          border-bottom: 1px solid @border-color2;
+          //margin-left: -2em;
+          padding-left: 2em;
+          margin-right: -2em;
+          padding-right: 2em;
+          span{
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            right: 15px;
+            input{
+              display: none;
+            }
+          }
+          //.collapsed .icon-unfold:before {
+          //  content: "\e682"!important;
+          //}
+          //.icon-unfold:before {
+          //  content: "\e661"!important;
+          //}
+          [aria-expanded="false"] .icon-down:before{content: "\e617"!important;}
+          [aria-expanded="true"] .icon-down:before {
+            content: "\e600"!important;
+          }
+          i.iconfont{
+            color: #ccc;
+          }
+        }
+
+      }
+      li:last-child label{
+        //border-bottom: none;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet/less" type="text/css" href="../../lib/lib.less"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../lib/lib-min-c3b72ccd7b.css"/>-->
+    <link rel="stylesheet/less" type="text/css" href="../../less/index.less"/>
+    <script src="../../lib/less/less.min.js" data-relative-urls="true"></script>
+</head>
+<body>
+
+<div class="qh">
+    <header class="header">
+        <div class="left" style="background-color: yellow;"
+        ><a class="square"
+        ><span class="iconfont icon-menu icon"></span></a></div>
+        <div class="center">
+            <div class="title">钱皇商城</div>
+        </div>
+        <div class="right" style="background-color: yellow;"
+        ><a class="square" ui-sref="main.cart"
+        ><span class="iconfont icon-cart icon"
+        ></span><span class="itemNub">99</span></a></div>
+    </header>
+    <!--
+    使用方法：增加html属性frame和rules
+        frame属性:
+        above： 只显示上面的边框
+        below：只显示下面的边框
+        border：四周边框都显示。这是默认值。
+        box：四周边框都显示
+        hsides：只显示上下边框
+        lhs：只显示左边框
+        rhs：只显示右边框
+        void：不显示任何边框
+        vsides：只显示左右边框
+
+        rules属性:
+        all：显示所有行列分割线。
+        cols：只显示垂直列分割线。
+        groups：只显示水平分组分割线。组由thead,tbody,tfoot, 和colgroup 标记定义。
+        none:不显示分割线。
+        rows:只显示水平行分割线。
+        -->
+    
+调用方法:复制下面一段后按TAB键
+    table.table1px[frame="void"]>(tr>td*4)*3
+
+    table.table1px[frame="void"]>(tr>td*4)*3
+
+
+    <table class="table1px" frame="void">
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>23</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>54</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>67</td>
+            <td>7</td>
+            <td>7</td>
+        </tr>
+    </table>
+
+
+
+<!--我的页面主体结构-->
+    <!--table.table1px[frame="void"]>(tr>td*4)*3-->
+    <table class="table1px" frame="void" rules="">
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                3
+            </td>
+            <td>
+                4
+            </td>
+        </tr>
+        <tr>
+            <td>
+                1a
+            </td>
+            <td>
+                2a
+            </td>
+            <td>
+                3a
+            </td>
+            <td>
+                4a
+            </td>
+        </tr>
+        <tr>
+            <td>
+                1b
+            </td>
+            <td>
+                2b
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+
+    <table class="table1px2" border="1">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <table class="table1px2" frame="" rules="">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <table class="table1px" frame="" rules="all">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+
+
+    <div class="footer">
+        <div class="divider"></div>
+        <div>
+            <ul class="breadcrumb-links text-center">
+                <li><span><a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备号15028817号</a></span></li>
+                <li><a ui-sref="main.links">友情链接</a></li>
+            </ul>
+        </div>
+        <div class="text-center"><span>©2015 杭州钱皇网络技术有限公司</span></div>
+    </div>
+</div>
+</body>
+</html>

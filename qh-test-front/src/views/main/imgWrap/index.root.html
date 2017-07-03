@@ -1,0 +1,47 @@
+<div flex="" layout="column" layout-align="start start" class="md-whiteframe-z2 ks-imgWrap ks-main" style="background: transparent">
+
+    <!--
+        1.npm i angular-file-seaver --save
+        2.然后吧angular-file-seaver 转移到lib文件夹下
+        3.然后gulpfile.js中加入相应的索引，并执行gulp lib.js  然后在执行gulp lib.compile
+        4.然后gulp
+    -->
+
+    <div class="parent-wrap" layout="column" layout-align="space-between cetner">
+        <div class="top-box">
+            <span>{{data.title}}</span>
+        </div>
+        <div class="center-box">
+            <img ng-src="{{imgUrl}}{{data.img}}?imageView2/2/w/{{itemImg.w}}/h/{{itemImg.h}}"/>
+            <!--<img src="https://img.kingsilk.net/dd757017ceaa9dc849f60f83a3feb4e2" alt="">-->
+        </div>
+        <div class="bottom-box" layout="row" layout-align="start center ">
+            <div>
+                <qrcode data="{{qrCodeUrl}}" style="height: 100%;width: 100%" size="80" version="5" ></qrcode>
+            </div>
+            <div class="bottom-box-right" layout="column">
+                <div class="bottom-price">￥{{data.sku[0].price/100 | num:2}}</div>
+                <div class="bottom-dis">长按识别二维码购买商品</div>
+            </div>
+        </div>
+
+
+
+    <!--    <a ng-href="{{imgUrl}}{{data.img}}?imageView2/2/w/{{itemImg.w}}/h/{{itemImg.h}}">保存图片</a>
+
+
+        <textarea
+                ng-model="url"
+                name="textarea" rows="5" cols="20">
+      Hey ho let's go!
+  </textarea>
+        <a href="" class="btn btn-dark btn-small" ng-click="vm.download(imgUrl+data.img)">
+            Download
+        </a>-->
+    </div>
+  <!--  <a href="http://192.168.0.13:10190/qh/html/api/img?w=500&h=1200&timeout=1000&url=http://w.url.cn/s/Ah40Q53" target="_blank">生成图片测试</a>
+
+    <img src="http://192.168.0.13:10190/qh/html/api/img?w=500&h=1200&timeout=1000&url=https%3A%2F%2Fkingsilk.net%2Fqh%2Fmall%2Flocal%2F%3F_ddnsPort%3D16300%23%2FimgWrap%3FitemId%3D5789a2500d29f2733739f807%26itemName%3D%25E9%2592%25B1%25E7%259A%2587%26skuId%3D5789a3e10d29f2733739f816" width="100" height="100" alt="">
+
+    <md-button class="ks-gold" ng-click="makeImg()">生成图片js测试</md-button>-->
+</div>

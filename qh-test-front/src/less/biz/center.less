@@ -1,0 +1,232 @@
+//个人中心
+.centerye {
+  margin-bottom: 50px
+}
+
+.centeryecover1 {
+  text-align: center;
+  .centeryecover11 {
+    width: 64px;
+    height: 64px;
+    background-color: #fff;
+    display: inline-block;
+    i {
+      line-height: 50px;
+    }
+  }
+}
+
+.centeryecover2 {
+  text-align: center;
+  color: #fff;
+}
+
+.ibcenterye {
+  white-space: nowrap
+}
+
+.qh{
+  .center{
+    section{
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      padding-left: 1em;
+      list-style: none;
+      border-top: 1px solid @border-color2;
+      border-bottom: 1px solid @border-color2;
+
+      .row {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      & > li {
+        list-style: none;
+
+        overflow: hidden;
+        //padding: 1em 0.5em 1em 1em;
+        padding: 12px 0;
+        padding-right: 1em;
+        //padding: 1em 0 1em 0;
+      }
+      & > li+li{
+        border-top: 1px solid @border-color2;
+      }
+      //列中的名称
+      .list-name{
+        font-size: 15px;
+        color: #323232;
+      }
+      //列中的值
+      .list-value{
+        font-size: 13px;
+        color: #909090;
+        text-align: right;
+      }
+
+      //首行li
+      .firstline{
+        margin-left: -1em;
+      }
+      .fl{
+        .iconfont{
+          font-size: 15px;
+          color: #909090;
+        }
+      }
+
+    }
+
+    //个人中心面板
+    .centre-panel{
+      height: 144px;
+      color: #ffffff;
+      .set{
+        font-size: 14px;
+        color: #ffffff;
+        text-align: right;
+        padding-right: 15px;
+        height: 44px;
+        line-height: 44px;
+        a{
+          color: #ffffff;
+        }
+      }
+      //主体
+      .main{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100px;
+
+        .iconfont{
+          color: #ffffff;
+        }
+        .main-left{
+          -webkit-box-flex: 1;
+          -webkit-flex: 1;
+          -ms-flex: 1;
+          flex: 1;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
+          margin-left: 14px;
+
+          .faceimg{
+            background-color: #fff;
+            min-width: 65px;
+            width: 65px;
+            height: 65px;
+            -webkit-border-radius: 65px;
+            -moz-border-radius: 65px;
+            border-radius: 65px;
+
+            //background-color: transparent;
+            border: 3px solid rgba(255,255,255,0.5);
+
+
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            //使里面的图片水平垂直居中
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+
+            -webkit-box-pack: center;
+            -moz-box-pack: center;
+            /*混合版本语法*/
+            -ms-flex-pack: center;
+            /*新版本语法*/
+            -webkit-justify-content: center;
+            justify-content: center;
+
+            img{
+              width: 65px;
+              height: 65px;
+
+            }
+            .iconfont{
+              color: @red-color;
+              font-size: 40px;
+              line-height: 40px;
+            }
+
+          }
+          //昵称
+          .nickname{
+            padding-left: 7px;
+            max-width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            //-webkit-box-flex: 1;
+            //-webkit-flex: 1;
+            //-ms-flex: 1;
+            //flex: 1;
+
+          }
+          //未登录
+          .nologin{
+            padding-left: 7px;
+
+            //-webkit-box-flex: 1;
+            //-webkit-flex: 1;
+            //-ms-flex: 1;
+            //flex: 1;
+
+          }
+          .rqcode{
+            margin-left: 12px;
+          }
+
+        }
+        .main-right{
+          width: 7em;
+          text-align: right;
+          padding-right: 1em;
+          .userinfotext{
+
+
+          }
+        }
+
+      }
+
+
+    }
+    //个人中心菜单
+    .orderflow{
+      .iconfont{
+        position: relative;
+
+        sup{
+          //position: absolute;
+          //top: -5px;
+          //right: -5px;
+        }
+      }
+    }
+
+  }
+}

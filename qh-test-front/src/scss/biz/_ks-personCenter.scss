@@ -1,0 +1,242 @@
+ //主体部分
+  .ks-main.ks-personCenter{
+    //header开始
+    .ks-header._md {
+      height: 30px;
+      margin: 0px auto;
+      position: relative;
+      background: #fff;
+      .ks-header-divWrap {
+        padding: 0 10px;
+        height: 100%;
+        color: #101010;
+        .divTop {
+          text-align: center;
+          position: relative;
+          line-height: 44px;
+          .chevron_left {
+            color: #101010;
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            line-height: 44px;
+          }
+        }
+
+      }
+    }
+    .content-divWrap {
+      .solidRow {
+        width: 100%;
+        background: #f5f5f5;
+        height: 10px;
+      }
+      .InformationBox {
+        margin: 0 0 0 20px;
+        .headerDiv {
+          height: 65px;
+          .Information {
+            color: #101010;
+            font-size: 14px;
+            line-height: 65px;
+          }
+          .floatRight {
+            float: right;
+            line-height: 65px;
+            .rightChildren {
+              overflow: hidden;
+              display: inline-block;
+              font-size: 14px;
+              width: 44px;
+              height: 44px;
+              border-radius: 50%;
+              border: 1px solid #d5d5d5;
+              background-color: #f5f5f5;
+              line-height: 44px;
+              font-size: 12px;
+              color: #d5d5d5;
+              margin-top: 10px;
+              text-align: center;
+              float: left;
+              img{
+                width: 100%;
+                height:100%;
+              }
+            }
+            .chevron_right {
+              margin: 0 10px 0 0px;
+              font-size: 12px;
+              color: #999;
+              line-height: 24px;
+              text-align: center;
+            }
+          }
+        }
+        .IfmRow {
+          border-top: 1px solid #d5d5d5;
+          height: 44px;
+          .Information {
+            color: #101010;
+            font-size: 14px;
+            line-height: 44px;
+          }
+          .floatRight {
+            float: right;
+            line-height: 44px;
+            .rightChildren {
+              display: inline-block;
+              font-size: 14px;
+              .md-font {
+                font-size: 14px;
+                text-align: right;
+                color: #999999;
+              }
+              span {
+                color: #101010;
+              }
+            }
+            .chevron_right {
+              margin: 0 10px 0 0px;
+              font-size: 12px;
+              color: #999;
+              line-height: 24px;
+              text-align: center;
+            }
+            .chevron_right.md-font.ks-arrow_right.ks-icon.ks-diy{
+              margin: 0 0 0 10px;
+            }
+          }
+        }
+      }
+      .butWrap{
+        margin:20px 20px 10px 20px;
+        .but{
+          width: 100%;
+          height: 40px;
+          background: #333;
+          color: #fff;
+          font-size: 14px;
+          border:none;
+        }
+      }
+    }
+
+    .selectImgWrap{
+      width: 100%;
+      .selectBox{
+        margin:15px 20px;
+        border:1px solid #d5d5d5;
+        height: 44px;
+        div.xq{
+          height:43px;
+          /*border-bottom:1px solid #d5d5d5;*/
+        }
+        div{
+          text-align: center;
+          height: 44px;
+          font-size: 15px;
+          color: #ba9f6e;
+          line-height: 44px;
+        }
+      }
+      .qx{
+        text-align: center;
+        height: 44px;
+        line-height: 44px;
+        color: #999;
+        font-size: 15px;
+        margin:0 20px 15px  20px;
+        border:1px solid #d5d5d5;
+      }
+    }
+  }
+
+  //头像弹出框
+  md-bottom-sheet.touxiang{
+    padding: 0;
+    bottom: 80px;
+    position: absolute;
+    transition: none;
+  }
+  //退出弹出框
+  .logout {
+    min-width: 280px;
+    max-width: 310px;
+    border-radius: 6px;
+    .dialogTitle{
+      height: 56px;
+      line-height: 56px;
+      text-align: center;
+      border-bottom: 1px solid #d5d5d5;
+      font-size: 16px;
+    }
+    .dialogTitleNeirong{
+      line-height: 18px;
+      word-wrap: break-word;
+      max-height: 60px;
+      overflow: auto;
+    }
+    div.select {
+      width: 100%;
+      div.left, div.right {
+        height: 45px;
+        font-size: 15px;
+        line-height: 45px;
+        border-right:1px solid #d5d5d5;
+        span{
+          width: 100%;
+          height: 100%;
+          text-align: center;
+        }
+      }
+      div.left {
+        color: #999;
+      }
+      div.right {
+        color: #ba9f6e;
+      }
+    }
+  }
+ //联系客服弹出框
+ .leasingAsset {
+   min-width: 280px;
+   max-width: 310px;
+   border-radius: 6px;
+
+   .dialogTitle{
+     text-align: center;
+     font-size: 13px;
+     margin-bottom:5px;
+   }
+   .dialogTitle:first-child{
+     font-size: 16px;
+     border:none;
+     margin-top: 15px;
+     margin-bottom:5px;
+   }
+   div.select {
+     width: 100%;
+     margin-top: 15px;
+     border-top: 1px solid #d5d5d5;
+     div.left, div.right {
+       height: 45px;
+       font-size: 15px;
+       line-height: 45px;
+       border-right:1px solid #d5d5d5;
+       span{
+         width: 100%;
+         height: 100%;
+         text-align: center;
+       }
+     }
+     div.left {
+       color: #999;
+     }
+     div.right {
+       a{
+         text-decoration:none;
+         color: #101010;
+       }
+     }
+   }
+ }

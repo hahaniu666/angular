@@ -1,0 +1,73 @@
+.ks-cms {
+  //header开始
+  .ks-header._md {
+    height: 30px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+
+    }
+  }
+  .ks-header {
+    .action {
+      font-size: 14px;
+      color: #999;
+      text-align: right;
+    }
+  }
+  .articleimg{
+    padding: 8px;
+    p{
+      width: 100%;
+      text-indent: 2rem;
+      -webkit-margin-before: 0;
+      -webkit-margin-after: 0;
+      img{
+        width: 100%;
+        display: block;
+        margin: 0;
+      }
+    }
+    img{
+      width: 100%;
+      display: block;
+      margin: 0;
+    }
+  }
+  .act-list{
+    padding: 8px;
+    .act-item{
+      text-decoration: none;
+      list-style-type: none;
+      margin: 10px 0;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+  .act-more{
+    text-align: center;
+    min-height: 30px;
+    background-color: #fff;
+    width: 100%;
+    border: 0;
+  }
+}
+

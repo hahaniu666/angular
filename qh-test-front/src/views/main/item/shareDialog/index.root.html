@@ -1,0 +1,36 @@
+<md-bottom-sheet class="md-grid ks-select-spec" layout="column" ng-cloak style="height: 388px">
+    <md-content flex layout="column" layout-align="space-around center" stop-touch-event
+                style="height: 260px;background: #f5f5f5;">
+        <div style="font-size: 18px;font-weight: bold;color: #e84e40;">赚钱币</div>
+        <div layout="column" layout-align="center center" style="color: #555555;font-size: 16px;">
+            <div>每分享一次商品可获得2个钱币</div>
+            <div>每天最多5次获得10个钱币</div>
+        </div>
+        <div style="width: 100%;" layout="row" layout-align="space-around center">
+            <div layout="column" layout-align="center center">
+                <md-icon md-font-set="ks-icon"
+                         style="width: 48px;height: 48px;border-radius: 100px;border: 1px solid #86c373;color:#86c373; font-size: 24px;text-align: center;line-height: 48px"
+                         md-font-icon="ks-wechat-o"></md-icon>
+                <div style="font-size: 14px;color: #555;">分享朋友</div>
+            </div>
+            <div layout="column" layout-align="center center">
+                <md-icon md-font-set="ks-icon"
+                         style="width: 48px;height: 48px;border-radius: 100px;border: 1px solid #59bec9;color:#59bec9;font-size: 24px;text-align: center;line-height: 48px"
+                         md-font-icon="ks-link-40"></md-icon>
+                <div style="font-size: 14px;color: #555;">商品链接</div>
+            </div>
+            <div layout="column" layout-align="center center">
+                <md-icon md-font-set="ks-icon"
+                         style="width: 48px;height: 48px;border-radius: 100px;border: 1px solid #e7a14c;color:#e7a14c;font-size: 20px;text-align: center;line-height: 48px"
+                         md-font-icon="ks-qr-code"></md-icon>
+                <div style="font-size: 14px;color: #555;">商品二维码</div>
+            </div>
+        </div>
+    </md-content>
+    <div class="footer">
+        <div class="btnLeft" style="background: #fff;color: #333;font-weight: bold;font-size: 16px" flex
+             ng-click="vm.cancel()">关闭
+        </div>
+    </div>
+    <div style="padding-bottom: 80px; background:#fff; flex-shrink: 0"></div>
+</md-bottom-sheet>

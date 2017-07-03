@@ -1,0 +1,74 @@
+<div flex="" layout="column" class="ks-viewEvaluation ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">查看评价</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex layout="column">
+        <!--此段代码可复用-->
+        <div class="viewEcont" ng-repeat="c in comment.content track by $index">
+            <div class="contTop" layout="row">
+                <img class="img"
+                     ng-src="{{imgUrl}}{{c.img}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}"
+                     alt=""/>
+                <span layout="column" layout-align="center center">已评价</span>
+                <!--评价的分数-->
+                <!--<span flex layout="column" layout-align="center">{{c.score}}分</span>-->
+            </div>
+
+            <!--评价标签-->
+            <div class="contNext" ng-if="c.tags.length>0">
+                <div ng-repeat="tag in c.tags track by $index">{{tag}}</div>
+                <br style="clear: both">
+            </div>
+
+            <!--评价的内容-->
+            <div class="contTxt">
+                <p> {{c.content}}</p>
+                <span>{{c.commentTime | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                <span ng-repeat="spec in c.specs">{{spec.name}}:{{spec.value}};</span>
+            </div>
+            <div class="contImg" ng-repeat="img in c.imgs track by $index">
+                <div class="imgTop"></div>
+                <img ng-src="{{imgUrl}}{{img}}?imageView2/1/w/80/h/80"
+                     ng-click="imgPreviewReply(c.imgs,img)">
+            </div>
+            <br style="clear: both">
+            <md-divider></md-divider>
+        </div>
+      <!--  <div class="viewEcont" ng-repeat="c in comment.content track by $index">
+            <div class="contTop" layout="row">
+                <img class="img"
+                     ng-src="{{imgUrl}}{{c.img}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}"
+                     alt=""/>
+                <span layout="column" layout-align="center center">已评价</span>
+                &lt;!&ndash;评价的分数&ndash;&gt;
+                &lt;!&ndash;<span flex layout="column" layout-align="center">{{c.score}}分</span>&ndash;&gt;
+            </div>
+
+            &lt;!&ndash;评价标签&ndash;&gt;
+            <div class="contNext" ng-if="c.tags.length>0">
+                <div ng-repeat="tag in c.tags track by $index">{{tag}}</div>
+                <br style="clear: both">
+            </div>
+
+            &lt;!&ndash;评价的内容&ndash;&gt;
+            <div class="contTxt">
+                <p> {{c.content}}</p>
+                <span>{{c.commentTime | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                <span ng-repeat="spec in c.specs">{{spec.name}}:{{spec.value}};</span>
+            </div>
+            <div class="contImg" ng-repeat="img in c.imgs track by $index">
+                <div class="imgTop"></div>
+                <img ng-src="{{imgUrl}}{{img}}?imageView2/1/w/80/h/80"
+                     ng-click="imgPreviewReply(c.imgs,img)">
+            </div>
+            <br style="clear: both">
+        </div>-->
+
+    </md-content>
+</div>

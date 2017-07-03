@@ -1,0 +1,183 @@
+.ks-hotelSettle {
+  .ks-header {
+    background: #101010;
+    height: 44px;
+    font-size: 16px;
+    color: #fff;
+    min-height: 44px;
+    .ks-icon {
+      font-size: 16px;
+      margin-left: 13px;
+      color: #fff;
+      line-height: 20px;
+      width: 40px;
+      margin-top: 3px;
+    }
+    .md-icon-button {
+      width: 40px;
+      margin-top: 3px;
+      font-size: 14px;
+      color: #fff;
+      line-height: 44px;
+    }
+
+    .md-icon-button:last-child {
+      width: auto;
+    }
+    h1 {
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      height: 44px;
+      line-height: 44px;
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+
+  .center-wrap {
+    margin: 0 10px;
+    .transport {
+      margin: 0 10px;
+      .title {
+        height: 55px;
+        min-height: 55px;
+        flex-shrink: 0;
+        .block {
+          width: 8px;
+          height: 18px;
+          min-height: 18px;
+          background: #ba9f6e;
+        }
+        .discr-txt {
+          margin-left: 10px;
+        }
+        .right {
+          position: absolute;
+          right: 20px;
+          font-size: 14px;
+          color: #999;
+          top: 17px;
+          .ks-icon {
+            font-size: 14px;
+            color: #999;
+            text-align: right;
+          }
+        }
+
+      }
+      .order-detail {
+        padding: 15px 0 15px 18px;
+        .txt-wrap {
+          .txt-left {
+            white-space: nowrap;
+          }
+        }
+        .ks-icon {
+          font-size: 14px;
+          color: #ba9f6e;
+          text-align: right;
+          margin: 0;
+        }
+      }
+      .address {
+        padding: 15px 0 15px 18px;
+      }
+    }
+
+    .item-list {
+      margin: 0 10px;
+      .title {
+        height: 55px;
+        flex-shrink: 0;
+        position: relative;
+        .block {
+          width: 8px;
+          height: 18px;
+          background: #ba9f6e;
+        }
+        .discr-txt {
+          margin-left: 10px;
+        }
+
+      }
+
+      .item-detail {
+        .cen-msg {
+          margin: 15px 0;
+          .cen-img-wrap {
+            width: 92px;
+            position: relative;
+            overflow: hidden;
+
+            &:before {
+              content: "";
+              display: block;
+              padding-top: 100%;
+            }
+            img {
+              position: absolute;
+              top: 0;
+              padding: 0;
+              width: 100%;
+            }
+          }
+          .cen-right {
+            margin-left: 15px;
+            .cen-title {
+
+            }
+            .cen-sku {
+
+            }
+            .cen-bottom {
+              width: 100%;
+            }
+          }
+        }
+        .bottom-btn-wrap {
+          .item-btn {
+            width: 90px;
+            height: 30px;
+            border: 1px solid #101010;
+            line-height: 30px;
+            text-align: center;
+            margin: 10px 0 10px 20px;
+          }
+        }
+      }
+    }
+
+    .item-price {
+      padding: 15px;
+      text-align: center;
+    }
+  }
+
+  // 应付金额
+  .pay-amount {
+    @include flex-shrink(0);
+    height: 50px;
+    margin-bottom: 5px;
+    background-color: transparent;
+    color: #101010;
+    font-size: 16px;
+    border-top: 1px solid #d5d5d5;
+  }
+
+  // 提交按钮
+  .submit-btn {
+    @include flex-shrink(0);
+    height: 48px;
+    background-color: transparent;
+    .md-button {
+      max-width: 100%;
+      border-radius: 0;
+      height: 48px;
+      color: #fff;
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<!--已登陆用户-->
+
+<header class="header">
+    <div class="left">
+        <a class="square" ng-click="fallbackPage()">
+            <span class="iconfont icon-arrow icon"></span></a></div>
+    <div class="center">
+        <div class="title">个人中心</div>
+    </div>
+    <div class="right"
+            ><a class="square" ui-sref-opts="{reload: true}" ui-sref="main.setting({s:'center'})"
+            ><span class="iconfont icon-setting icon"></span></a></div>
+</header>
+<div class="container-fluid">
+    <button ng-click="shareRing()">分享给朋友圈</button>
+    <button ng-click="shareFriend()">分享给朋友</button>
+</div>
+<!--置顶按钮-->
+<div to-top=""></div>

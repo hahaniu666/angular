@@ -1,0 +1,93 @@
+
+<div flex="" layout="column" class=" ks-main ">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+
+            <div class="divTop" flex class>
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">个人信息</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+            <div class="InformationBox">
+                <div class="headerDiv" ng-click="showBottomSheet()">
+                    <span class="Information">头像</span>
+                    <div class="floatRight">
+                        <div class="rightChildren"></div>
+                        <md-icon md-font-set="ks-icon" class="chevron_right" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+                <div class="IfmRow">
+                    <span class="Information">性别</span>
+                    <div class="floatRight">
+                        <div class="rightChildren">男</div>
+                        <md-icon md-font-set="ks-icon" class="chevron_right" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+                <div class="IfmRow">
+                    <span class="Information">二维码</span>
+                    <div class="floatRight">
+                        <div class="rightChildren">
+                            <md-icon md-font-set="ks-icon" md-font-icon="ks-qrcode"></md-icon>
+                        </div>
+                        <md-icon md-font-set="ks-icon" class="chevron_right" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+                <div class="IfmRow">
+                    <span class="Information">收货地址</span>
+                    <div class="floatRight">
+                        <div class="rightChildren">
+                            <md-icon md-font-set="ks-icon" md-font-icon="ks-location-o"></md-icon>
+                        </div>
+                        <md-icon md-font-set="ks-icon" class="chevron_right" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="solidRow"></div>
+            <div class="InformationBox">
+                <div class="IfmRow" style="border: none;">
+                    <span class="Information">用户名</span>
+                    <div class="floatRight">
+                        <div class="rightChildren">
+                            <span>只可设置一次</span>
+                        </div>
+                        <md-icon md-font-set="ks-icon" class="chevron_right" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+                <div class="IfmRow">
+                    <span class="Information">手机号</span>
+                    <div class="floatRight">
+                        <div class="rightChildren">15068886472</div>
+                        <md-icon md-font-set="ks-icon" class="chevron_right" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+                <div class="IfmRow">
+                    <span class="Information">电子邮箱</span>
+                    <div class="floatRight">
+                        <div class="rightChildren">
+                            <span>未设置</span>
+                        </div>
+                        <md-icon md-font-set="ks-icon" class="chevron_right" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+                <div class="IfmRow">
+                    <span class="Information">更改密码</span>
+                    <div class="floatRight">
+                        <div class="rightChildren"></div>
+                        <md-icon md-font-set="ks-icon" class="chevron_right" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="butWrap">
+                <button class="but" ng-click="showConfirm($event)">退出登录</button>
+            </div>
+        </div>
+    </md-content>
+    <div service-center="" info="index"></div>
+</div>
+

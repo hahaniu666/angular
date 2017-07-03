@@ -1,0 +1,32 @@
+<md-bottom-sheet class="md-whiteframe-z2 md-grid ks-select-spec" layout="column" ng-cloak>
+    <div class="parameterHeader" layout="row">
+        <div flex class="parameterWord">
+            商品参数
+        </div>
+        <md-icon flex="5" class="chevron_left ks-icon" md-font-set="ks-icon" ng-click="vm.cancel()">close</md-icon>
+    </div>
+    <md-divider></md-divider>
+    <md-content flex="" stop-touch-event>
+       <!-- <div class="parameterContent" layout="row" ng-repeat="tmp in vm.props track by $index">
+            <span flex="35">{{tmp.name}}</span>
+            <span flex="65">{{tmp.value}}</span>
+        </div>
+        <div class="parameterContent" layout="row" ng-repeat="tmp in vm.specs track by $index">
+            <span flex="35">{{tmp.specName}}:</span>
+            <span flex="65" ng-repeat="tmpValue in tmp.specValues">{{tmpValue.name}};</span>
+        </div>-->
+        <div class="parameterContent" layout="row" ng-repeat="tmp in vm.props track by $index">
+            <span class="content-wrap">{{tmp.name}}:</span>
+            <div flex class="content-wrap-bottom">
+                <span class="content-wrap-two">{{tmp.value}}</span>
+            </div>
+        </div>
+        <div class="parameterContent" layout="row" ng-repeat="tmp in vm.specs track by $index">
+            <span  class="content-wrap">{{tmp.specName}}:</span>
+            <div flex class="content-wrap-bottom">
+                <span class="content-wrap-two" ng-repeat="tmpValue in tmp.specValues">{{tmpValue.name}};</span>
+            </div>
+        </div>
+    </md-content>
+    <div class="parameterWordFotter" style="height: 83px; background:#fff; flex-shrink: 0;min-height: 83px"></div>
+</md-bottom-sheet>

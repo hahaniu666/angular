@@ -1,0 +1,123 @@
+<div flex="" layout="column" class=" ks-main ks-studentLease md-whiteframe-z2">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+            <div class="divTop" flex>
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">{{titleName}}</span>
+            </div>
+        </div>
+    </md-toolbar>
+
+
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+            <div class="slidenav">
+                <div class="slideindex">
+                    <ks-swiper-container direction="horizontal"
+                                         initial-slide="0"
+                                         effect="between"
+                                         swiper="swipers"
+                                         loop="false"
+                                         autoplay="5000"
+                                         show-nav-buttons="false"
+                                         pagination-is-active="true"
+                                         pagination-clickable="false"
+                                         slides-per-view="1"
+                                         space-between="5">
+                        <ks-swiper-slide class="swiper-slide" ng-repeat="s in data.recList">
+                            <a   ng-click="vm.clickUrl(s.url)" ><img
+                                    ng-src="{{appConfig.imgUrl}}{{s.img}}?imageView2/2/w/{{imgService.slideImg.w}}/h/{{imgService.slideImg.h}}"></a>
+                            <p class='slide-title'>{{s.title}}</p>
+                        </ks-swiper-slide>
+                    </ks-swiper-container>
+                </div>
+            </div>
+            <div class="bannerText" ng-repeat="bmsg in bannerMsg.recList track by $index">
+                <div class="tip">
+                    惊喜!
+                </div>
+                <a href="{{bannerMsg.recList[$index].url}}">
+                    <div class="txt">
+                        {{bannerMsg.recList[$index].title}}
+                    </div>
+                </a>
+            </div>
+            <!--精选套餐-->
+            <div class="jingxuantaocan">
+                <div class="txtTitle">精选套餐</div>
+                <div class="slidenav">
+                    <div class="slideindex">
+                        <ks-swiper-container
+                                direction="horizontal"
+                                initial-slide="0"
+                                effect="between"
+                                swiper="swiperss"
+                                initial-slide="1"
+                                loop="false"
+                                show-nav-buttons="false"
+                                pagination-is-active="false"
+                                pagination-clickable="false"
+                                slides-per-view="1.1"
+                                space-between="10"
+                        >
+                            <ks-swiper-slide class="swiper-slide" ng-repeat="tc in taocan.items track by $index">
+                                <a ng-click="goItems(tc)"><img
+                                        ng-src="{{appConfig.imgUrl}}{{tc.taocanImg}}?imageView2/2/w/{{imgService.slideImg.w}}/h/{{imgService.slideImg.h}}"
+                                ></a>
+                                <!--ng-src="{{vm.appConfig.imgUrl}}{{s.img}}?imageView2/2/w/{{vm.imgService.slideImg.w}}/h/{{vm.imgService.slideImg.h}}"-->
+                                <div class="textDetails">
+
+                                    {{tc.title}}
+                                </div>
+                                <div class="day">
+                                    ￥{{tc.price/100}}/天
+                                </div>
+                            </ks-swiper-slide>
+                        </ks-swiper-container>
+                    </div>
+                </div>
+            </div>
+
+            <!--分类头部-->
+            <div class="flTitleBox">
+                <div class="flTitle" layout="row">
+                    <div flex ng-repeat="fenlei in list.children track by $index" ng-click="shopList($index);"
+                         ng-class="{cur:fenlei.shows}">{{fenlei.name}}
+                    </div>
+                </div>
+            </div>
+            <!--商品列表-->
+            <div class="commodityList">
+                <div class="commodity" ng-repeat="sp in shangpin.items track by $index" ng-click="goItems(sp)">
+                    <div class="imgDiv">
+                        <div class="padTop"></div>
+                        <img ng-src="{{appConfig.imgUrl}}{{sp.img}}?imageView2/2/w/{{imgService.simpleImg.w}}/h/{{imgService.simpleImg.h}}">
+                    </div>
+                    <div class="textDetails">
+                        {{sp.title}}
+                    </div>
+                    <div class="day">
+                        ￥{{sp.price/100}}/天
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div layout="row" layout-align="center center"
+                 style="padding: 10px">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                           ng-if="!isEnd" ng-click="vm.pageChanged()">
+                    点击加载更多...
+                </md-button>
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                           ng-if="isEnd && curPage > 1">
+                    没有更多内容了...
+                </md-button>
+            </div>
+        </div>
+    </md-content>
+    <!--底部-->
+    <!--    <ks-footer-menu></ks-footer-menu>-->
+</div>
+

@@ -1,0 +1,329 @@
+// 定义变量
+@var-name : #b5bcc7;
+
+//== Breadcrumbs
+//
+//##
+
+@breadcrumb-padding-vertical: 8px;
+@breadcrumb-padding-horizontal: 15px;
+//** Breadcrumb background color
+@breadcrumb-bg: #fff;
+//** Breadcrumb text color
+@breadcrumb-color: #666666;
+//** Text color of current page in the breadcrumb
+@breadcrumb-active-color: #666666;
+//** Textual separator for between breadcrumb elements
+@breadcrumb-separator: "|";
+@line-height-computed: 0;
+@border-radius-base: 5px;
+
+// ------------------------------------------------ global 相关,
+@qh-min-width: 320px;
+@qh-max-width: 640px;
+
+@link-font-color: #666;
+@footer-font-color: @link-font-color;
+@body-font-color: #333;
+@red-color: #eb5252;
+//新红色
+@red-color-new: #e84e40;
+//价格红色
+@red-color-pay:#dd191d;
+
+@head-icon-color:#646464;
+//一级标题颜色
+@h1-color: #646464;
+//二级标题颜色
+@h2-color: #323232;
+//三级标题颜色
+@h3-color: #323232;
+//次要文本颜色
+@text-color: #909090;
+//搜索文本颜色
+@search-text-color: #ccc;
+//边框颜色
+@border-color2: #e5e5e5;
+@border-color: #ededed;
+@border-color3: #d5d5d5;
+//list行的背景颜色
+@list-bgcolor:#dedede;
+// ------------------------------------------------ header 相关
+@header-height: 44px;
+@iconfont-size: 18px;
+@header-title-font-size: 18px;
+
+//默认边框
+@border-default: 1px solid @border-color2;
+
+//行高
+@line-height-base:      1.5;
+@line-height-s:         1.3;
+@line-height-txt:       24px;
+@line-height-bar:       44px;
+@txt-padding-top:       10px;
+@txt-padding-bottom:    10px;
+
+//新增加
+
+
+//+++++++
+// Type
+// --------------------------------------------------
+//默认字体
+@font-family-default: "SimHei","Helvetica Neue", Helvetica,Arial,"Droid Sans",sans-serif;
+@font-size-default: 14px;
+@font-weight: 500;
+@font-weight-light: 400;
+@line-height-default: 1.5;
+
+//基础字号大小
+@font-size9: 9px;
+@font-size10: 10px;
+@font-size11: 11px;
+@font-size12: 12px;
+@font-size15: 15px;
+@font-size16: 16px;
+@font-size18: 18px;
+@font-size20: 20px;
+
+
+//img
+//@imgBaseUrl: "../img";
+//背景图像基准路径
+@imgBaseUrl: "../../assets/bg-img";
+
+
+// Colors
+// --------------------------------------------------
+
+
+// 主色
+@color-primary: #ba9f6e;  //主要出现在租赁的确认订单、订单提交成功、订单详情页面
+// 辅色 #dd191d   用在商品详情表示价格
+
+// 按钮色 #e84e40   红色按钮、徽标
+
+
+// 其它颜色
+//#fff9eb  租赁详情“钱皇承担运费”背景色
+//#f5f5f5  全站大背景色、步进器加减号的背景、标签背景、确认订单到支付底部按钮和金额的背景色
+//#e6e6e6  提示页面图标底部的背景色
+//#d5d5d5  间隔线、步进器的文本背景色、买家留言描边
+//#666666  租赁详情底部“咨询”按钮的背景色
+//#999999  提示文字颜色、部分按钮颜色、部分图标颜色
+//#808080  文字颜色
+//#333333  按钮的默认状态、选项卡背景色、标签选中之后的背景色、底部标签栏背景色等
+//#101010  标题文字等强调性文字、订单状态
+
+//主要红色
+@color-danger: #f6383a;
+//警告,重点颜色
+@color-warning: #f60;
+//确认颜色
+@color-success: #4cd964;
+//一列激活后的颜色
+@color-primary-active: #dedede;
+@color-danger-active: darken(@color-danger, 10%);
+@color-warning-active: darken(@color-warning, 10%);
+@color-success-active: darken(@color-success, 10%);
+
+@color-split: #d5d5d5;  //分割线的颜色
+@color-bg: #f5f5f5 ; //主背景色
+
+@color-bg1:@color-bg;
+@color-text: #808080; //文案色
+@color-text-secondary: #5f646e; //次级文案
+@color-text-gray: #999; //灰色文案
+@color-text-gray-light: #ccc; //更灰色文案
+
+@color-title:#999999; //提示文字颜色
+@color-h1:#101010;
+
+@color-title-bg:#e6e6e6;  //提示页面图标底部的背景色
+
+@color-selector:#333333; //按钮的默认状态、选项卡背景色、标签选中之后的背景色、底部标签栏背景色等
+
+//详情页
+@red-color-pay:#dd191d;
+//文本默认灰色
+@text-default-color:#101010;
+
+
+
+//链接色
+@color-link: @color-primary; //链接色有可能不同于主色
+@color-link-active: @color-primary-active; //链接色有可能不同于主色
+
+// Bars
+// --------------------------------------------------
+//导航条高度
+@bar-base-height:  44px;
+//选项卡高度
+@bar-tab-height:    47px;
+//选项卡间距
+@bar-side-spacing: 0;
+
+
+// Cards卡片或者面板
+// --------------------------------------------------
+//卡片背景色
+@card-bg: #fff;
+
+
+// Buttons
+// --------------------------------------------------
+//按钮字体大小
+@button-font-size: 15px;
+@button-font-size-zx: 12px; //(咨询)
+@button-font-size-tk: 14px; //(退款)
+@button-color:@color-selector;
+
+//按钮高度（1倍的情况下）
+//49px、40px、24px
+@button-height-lg:49px;
+@button-height-m:40px;
+@button-height-s:24px;
+
+@btn-height: @button-height-m;
+//大号按钮高度
+@btn-big-height: @button-height-lg;
+//最小号按钮高度
+@btn-xs-height:24px;
+//按钮圆角,默认为0
+@btn-border-radius: @border-radius0;
+@border-radius25:25px;
+//按钮字体大小
+//@font-size15: 15px;
+@btn-font-size:@font-size15;
+
+//go
+//@color-active:red;
+//@color-primary-active:red;
+
+//确认按钮
+@color-success:#333333;
+@color-success-active:#808080;
+
+//黄的确认收货等按钮
+@color-success2:#ba9f6e;
+@color-success-active2:#c59147;
+
+//小号按钮button-little
+@color-s:#808080;
+@color-s-active:#999999;
+
+
+// 主图
+//比例1/1
+@img1v1: 100%;
+
+
+// Transitions
+// --------------------------------------------------
+
+@timing-fuction: cubic-bezier(.1,.5,.1,1); // Inspired by @c2prods
+
+
+// Borders
+// --------------------------------------------------
+
+@border-default-width: 1px;
+@border-default-color: @color-split;
+@border-default: @border-default-width solid @border-default-color;
+@border-radius: 5px;
+@border-radius4: 4px;
+@border-radius3: 3px;
+@border-radius0: 0;
+
+//+++++++++
+//左边距,右边距
+//左边距
+@ml:14px;
+//右边距
+@mr:14px;
+
+@ml1:10px;
+@mr1:10px;
+
+//填充
+
+//左填充
+@pl:14px;
+//右填充
+@pr:14px;
+@pl1:10px;
+@pr1:10px;
+//文本默认间隔
+@p7:7px;
+@p10:10px;
+@p15:15px;
+@p17:17px;
+@p20:20px;
+@p30:30px;
+
+
+//红点背景色
+@reddot-bg:@color-danger;
+
+@border-color:@border-color2;
+//@border-radius
+@border-before-radius:@border-radius3;
+
+
+// 标签
+// --------------------------------------------------
+//高度（1倍的情况下）
+@label-height:24px;
+
+    //背景色
+  //默认
+@label-color-default:#f5f5f5;
+  //选中
+@label-color-active:#333;
+
+//标签与标签之间的左右间距（1倍的情况下
+@label-X-p:10px;
+
+//标签与标签之间的上下间距（1倍的情况下）
+@label-Y-p:15px;
+
+//标签与步进器之间的上下间距（1倍的情况下）
+@label-step:30px;
+
+
+// 评论
+// --------------------------------------------------
+//头像（1倍的情况下）
+@pro-img-big:30px;
+//昵称
+@commet-fontsize-nikename:14px;
+@commet-fontsize-nikename-color:#101010;
+//时间
+@commet-fontsize-time:12px;
+@commet-fontsize-time-color:#999;
+//正文
+@commet-font-size-body:14px ;
+@commet-color-body-color:#101010;
+//买家秀
+@maijiaxiu:70px;
+//间距
+//7px、10px、15px
+
+
+   // 购物车猜你喜欢卡片（1倍的情况下）
+   // --------------------------------------------------
+   //背景色
+@color-card-car:#fff;
+//字号
+@font-size:12px ;
+@font-color:#101010;
+//放产品图片位置的大小
+@pro-img-big:145px;
+
+
+
+
+
+
+

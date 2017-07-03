@@ -1,0 +1,19 @@
+<md-dialog ng-cloak>
+    <div class="leasingAsset">
+        <div class="dialogTitle" ng-if="vm.title">
+            {{vm.title}}
+        </div>
+        <div class="dialogTitle" ng-if="vm.msg">
+            {{vm.msg}}
+        </div>
+        <div class="select" layout="row">
+            <div class="left" flex layout="row" layout-align="center center">
+                <span ng-click="vm.cancel()">{{vm.leftButton}}</span>
+            </div>
+            <div class="right" flex layout="row" layout-align="center center">
+
+                <a href="tel:0571-86064050-803" class="call"><span ng-click="vm.checkSubmit()">{{vm.rightButton}}</span></a>
+            </div>
+        </div>
+    </div>
+</md-dialog>

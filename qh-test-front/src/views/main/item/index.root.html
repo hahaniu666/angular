@@ -1,0 +1,334 @@
+<div flex="" layout="column" class="md-whiteframe-z2 ks-selsectProduct ks-main"
+     style="overflow: hidden;position: relative;">
+    <md-toolbar class="md-menu-toolbar ks-header">
+        <div class="md-toolbar-tools ">
+            <!--<md-button class="md-icon-button" style="margin-left: -10px" ng-click="fallbackPage()">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+            </md-button>-->
+            <div class="chevron_left_Wrap" ng-click="fallbackPage()">
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"></md-icon>
+            </div>
+            <!--<h1 flex></h1>-->
+            <div class="md-icon-button"
+                 style="position: absolute; top: 0;right: 10px;line-height: 44px;">
+                <!--<md-icon class="shopping-cart-o" md-font-set="ks-icon">shopping-cart-o</md-icon>-->
+                <!--<md-icon md-font-set="ks-icon" class="shopping-cart-o" md-font-icon="ks-shopping-cart-o"></md-icon>-->
+                <!--<i ng-if="cartSize.num>0">{{cartSize.num}}</i>-->
+            </div>
+            <!--<div class="md-icon-button" ui-sref="main.index"
+                 style="position: absolute; top: 0;right: 10px;line-height: 44px;">
+                &lt;!&ndash;<md-icon class="house-o" md-font-set="ks-house-o"></md-icon>&ndash;&gt;
+                <md-icon md-font-set="ks-icon" class="house-o" md-font-icon="ks-house-o"></md-icon>
+                &lt;!&ndash; <md-icon class="ks-icon" md-font-set="ks-icon">house-o</md-icon>&ndash;&gt;
+            </div>-->
+        </div>
+    </md-toolbar>
+
+    <!--<img src="http://192.168.0.13:10190/qh/html/api/img?w=300&h=440&timeout=1000&url=https%3A%2F%2Fkingsilk.net%2Fqh%2Fmall%2Flocal%2F%3F_ddnsPort%3D16300%23%2FimgWrap%3FitemId%3D5789a2500d29f2733739f807%26itemName%3D%25E9%2592%25B1%25E7%259A%2587%26skuId%3D5789a3e10d29f2733739f816"-->
+    <!--width="300" height="440" style="margin: 0 auto" alt="">-->
+
+    <md-divider></md-divider>
+    <md-content flex ng-class="{stopMove:dialogShow}">
+        <ks-swiper-container direction="horizontal"
+                             initial-slide="0"
+                             effect="between"
+                             swiper="swiper"
+                             initial-slide="1"
+                             loop="false"
+                             show-nav-buttons="false"
+                             pagination-is-active="true"
+                             pagination-clickable="false"
+                             slides-per-view="1"
+                             space-between="5">
+            <ks-swiper-slide class="swiper-slide" ng-repeat="s in  checkSku.imgs track by $index">
+                <img ng-src="{{imgUrl}}{{s}}?imageView2/2/w/{{itemImg.w}}/h/{{itemImg.h}}"/>
+            </ks-swiper-slide>
+        </ks-swiper-container>
+        <div class="empty">1</div>
+
+        <div class="limit-wrap" layout="column">
+            <div class="limit-top" ng-if="checkSku.activity.name">{{checkSku.activity.name}}</div>
+            <div class="limit-title-wrap" layout="row" layout-align="space-between start">
+                <div class="limit-title">
+                    {{checkSku.title}}
+                </div>
+                <div layout="row" layout-align="center center">
+                    <div class="limit-line"></div>
+                    <div class="limit-share" layout="column" layout-align="center center"
+                         ng-click="shareDialog1($event)">
+                        <md-icon md-font-set="ks-icon" class="share-icon"
+                                 md-font-icon="ks-share-o"></md-icon>
+                        <div class="share-txt">分享</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="limit-price" ng-if="checkSku.price!=checkSku.acPrice">
+                <span class="coin">￥</span>
+                <span class="price">{{checkSku.acPrice/100.0|num:1}}</span>
+                <span class="del"><del>原价:¥{{checkSku.price/100.0|num:1}}</del></span>
+                <span ng-if="itemDetail.type==='RENT_QUILT'">/ {{skuProp.company}}</span>
+            </div>
+
+            <div class="limit-price" ng-if="checkSku.price==checkSku.acPrice">
+                <span class="coin">￥</span>
+                <span class="price">{{checkSku.acPrice/100.0|num:1}}</span>
+                <span ng-if="itemDetail.type==='RENT_QUILT'||itemDetail.type==='STUDENT_RENT'"
+                      style="font-size: 14px;color: #101010;">/ {{skuProp.company}}</span>
+            </div>
+            <!--<div class="limit-dis">-->
+            <!--{{checkSku.description}}-->
+            <!--</div>-->
+        </div>
+        <!--<div class="line"></div>-->
+
+        <!--<div class="CommodityName">
+            &lt;!&ndash;有限时抢购的时候显示&ndash;&gt;
+            <span style="padding: 0 11px;
+                        display: inline-block;
+                        background-color: #e84e40;
+                        font-size: 12px;
+                        line-height: normal;
+                        color: #fff;
+                        margin-right: 12px;"
+                  ng-if="checkSku.activity.name">{{checkSku.activity.name}}</span>
+            {{checkSku.title}}
+        </div>
+        <div class="commodityPrice" ng-if="checkSku.price!=checkSku.acPrice">
+            ￥{{checkSku.acPrice/100.0|num:1}}
+            <span style="color: #999;font-size: 12px"><del>原价:¥{{checkSku.price/100.0|num:1}}</del></span>
+            <span ng-if="itemDetail.type==='RENT_QUILT'">/ {{skuProp.company}}</span>
+        </div>
+        <div class="commodityPrice" ng-if="checkSku.price==checkSku.acPrice">
+            ￥{{checkSku.acPrice/100.0|num:1}}
+            <span ng-if="itemDetail.type==='RENT_QUILT'||itemDetail.type==='STUDENT_RENT'"
+                  style="font-size: 14px;color: #101010;">/ {{skuProp.company}}</span>
+        </div>
+        <div class="CommodityRemarks">
+            <span>{{checkSku.description}}</span>
+        </div>-->
+        <!-- <div class="salesSupport" ng-if="type!=='Student'">
+             <div>钱皇承担运费</div>
+             <div>
+                 <span>
+                     <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">r-selected</md-icon>正品保证
+                 </span>
+                 <span>
+                     <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">r-selected</md-icon>假一罚万
+                 </span>
+                 <span>
+                     <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">r-selected</md-icon>15天无理由退款
+                 </span>
+             </div>
+         </div>-->
+
+        <div class="CommodityParameters" layout="column" layout-align="center center">
+            <!--ng-click="propItemQuery($event)"-->
+            <!-- <div flex ng-if="type!=='Student'" layout="row"
+                  layout-align="center center" ng-click="shareDialog1()">
+                 <span flex>购买可得{{integral}}钱币,分享可得{{shareIntegral}}钱币</span>
+                 &lt;!&ndash;<span class="wrap" flex="70" style="visibility: hidden">&ndash;&gt;
+                 &lt;!&ndash;<span ng-repeat="spec in checkSku.specs track by $index">{{spec.name}}:{{spec.value}},</span>&ndash;&gt;
+                 &lt;!&ndash;</span>&ndash;&gt;
+                 <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_right</md-icon>
+             </div>-->
+            <md-divider style="width: 100%"></md-divider>
+            <div class="icon-dis" layout="row">
+                <span layout="row">
+                    <md-icon class="dis-icon" md-font-set="ks-icon" md-font-icon="ks-check-c-o"></md-icon>正品保证
+                </span>
+                <span layout="row">
+                    <md-icon class="dis-icon" md-font-set="ks-icon" md-font-icon="ks-check-c-o"></md-icon>假一罚万
+                </span>
+                <span layout="row">
+                    <md-icon class="dis-icon" md-font-set="ks-icon" md-font-icon="ks-check-c-o"></md-icon>快递包邮
+                </span>
+                <span layout="row" style="margin: 0">
+                    <md-icon class="dis-icon" md-font-set="ks-icon" md-font-icon="ks-check-c-o"></md-icon>急速退款
+                </span>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="CommodityParameters" layout="column" layout-align="center center">
+            <div flex ng-click="checkSkuDialog($event,0)" layout="row" layout-align="start center">
+                <span style="width: 55px">已选：</span>
+                <span class="wrap" flex="70" layout-align="start">
+                    <span ng-repeat="spec in checkSku.specs track by $index">{{spec.name}}:{{spec.value}},</span>
+                </span>
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_right</md-icon>
+            </div>
+        </div>
+        <div class="line"></div>
+        <!--<div layout="row">-->
+        <!--<span>积分</span><span>购买积分可得{{integral}}钱币,分享可得{{shareIntegral}}钱币</span>-->
+        <!--</div>-->
+
+        <div class="tabsdemoDynamicHeight">
+            <md-content>
+                <md-tabs md-stretch-tabs="always" md-dynamic-height="" md-border-bottom="">
+                    <md-tab md-stretch-tabs="always" md-stretch-tabs label="商品详情">
+                        <md-content class="md-padding" md-swipe-content="false">
+                            <div class="ks-item-desp" ng-bind-html="checkSku.detail">
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab md-stretch-tabs="always" md-stretch-tabs label="商品参数">
+                        <md-content class="md-padding" style="padding: 20px 10px 20px 10px;">
+                            <div class="parameterContent" layout="row"
+                                 ng-repeat="tmp in itemDetail.props">
+                                <span class="content-wrap">{{tmp.name}}:</span>
+                                <div flex class="content-wrap-bottom">
+                                    <span class="content-wrap-two">{{tmp.value}}</span>
+                                </div>
+                            </div>
+                            <div class="parameterContent" layout="row"
+                                 ng-repeat="tmp in itemDetail.specs">
+                                <span class="content-wrap">{{tmp.specName}}:</span>
+                                <div flex class="content-wrap-bottom">
+                                    <span class="content-wrap-two" ng-repeat="tmpValue in tmp.specValues">
+                                        {{tmpValue.name}};
+                                    </span>
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab md-stretch-tabs="always" md-stretch-tabs label="商品评论">
+                        <md-content class="md-padding" style="padding: 20px 10px 20px 10px;">
+                            <div class="AttributeCourent" ng-if="comment.commentList.length>0">
+                                <div class="AttributeCourentTop">
+                                    <!--<div class="txt active">全部</div>-->
+                                    <div class="txt">非常实惠</div>
+                                    <div class="txt">被子很舒服</div>
+                                    <div class="txt">服务态度好</div>
+                                    <br style="clear: both">
+                                </div>
+                                <div class="AttributeCourentCenter"
+                                     ng-repeat="reply in comment.commentList  track by $index">
+                                    <div class="centermainTop">
+                                        <div class="topImg">
+                                            <div class="empty"></div>
+                                            <img ng-if="reply.userAvator"
+                                                 ng-src="{{imgUrl}}{{reply.userAvator}}?imageView2/1/w/{{simpleImg.w}}/h/{{simpleImg.h}}"
+                                                 alt=""/>
+                                        </div>
+                                        <div class="centermainTopTxt">
+                                            <span class="txt1">{{reply.userName}}</span>
+                                            <span class="txt2">{{reply.commentTime | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="centermainBottom">
+                                        <p>
+                                            {{reply.content}}
+                                        </p>
+                                        <div class="bottomImg" ng-repeat="temp in reply.imgs track by $index">
+                                            <img ng-src="{{imgUrl}}{{temp}}?imageView2/1/w/80/h/80"
+                                                 ng-click="imgPreviewReply(reply.imgs,temp)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div layout="row" layout-align="center center" style="padding: 10px"
+                                 ng-click="pageChanged()"
+                                 ng-if="!comment.pageEnd">
+                                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                                    点击加载更多...
+                                </md-button>
+                            </div>
+                            <div layout="row" layout-align="center center" style="padding: 10px"
+                                 ng-if="comment.pageEnd&&comment.totalCount>10">
+                                没有更多评论
+                                </md-button>
+                            </div>
+                            <div ng-if="comment.commentList.length==0" class="AttributeCourent">
+                                <div flex="" layout="column" layout-align="center center"
+                                     class="layout-align-center-center layout-column flex" style="height: 350px">
+                                    <md-icon class="ks-icon" md-font-set="ks-icon" style="font-size: 60px;line-height: 60px;margin: 0 0 15px; color:#e5e5e5;
+                                            background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(228, 228, 228, 1)), to(rgba(245, 245, 245, 1)));-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
+                                        msg
+                                    </md-icon>
+                                    <div class="txt" style="font-size: 14px;color: #999">该商品暂无评论</div>
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+        </div>
+    </md-content>
+
+    <div class="fotter-btn" layout="row">
+        <div class="footer-chat" layout="column" flex="15">
+            <div layout="column" layout-align="center center" ng-click="contactService()">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-chat"></md-icon>
+                <div style="font-size: 10px;color: #333">客服</div>
+            </div>
+        </div>
+        <span class="line"></span>
+        <div class="footer-chat" layout="column" flex="15">
+            <div layout="column" layout-align="center center" ui-sref="main.cart()">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-cart"></md-icon>
+                <div style="font-size: 10px;color: #333">购物车</div>
+                <i ng-if="cartSize.num>0">{{cartSize.num}}</i>
+            </div>
+        </div>
+        <div flex="30" ng-click="itemPayBuy(0)">
+            加入购物车
+        </div>
+        <div flex="40" ng-click="checkSkuDialog($event,1)">
+            立即购买
+        </div>
+    </div>
+
+    <!--预加载图片，不要删除-->
+    <img ng-src="{{dialogImgUrl}}" width="0" height="0">
+
+    <!--分享弹窗背景-->
+    <div class="dialog-backdrop" ng-show="backdrop" stop-touch-event ng-click="closeDialog()"></div>
+
+    <!--商品二维码-->
+    <div class="dialog-img-wrap" ng-click="closeDialog()" ng-if="imgWrapShow" layout="column"
+         layout-align="center center">
+        <img ng-src="{{dialogImgUrl}}" width="300"
+             height="440" alt="">
+        <div class="save" style="font-weight: bold;font-size: 16px;color: #fff;line-height: 1em;margin-top: 20px" layout="row" layout-align="center center">
+            <md-icon style="min-height: 20px;min-width: 20px;font-size: 20px;color: #fff;line-height: 20px;margin-right: 12px" md-font-set="ks-icon" md-font-icon="ks-fileboard-down-o" ></md-icon>
+            <sapn>长按图片保存到相册</sapn>
+        </div>
+    </div>
+    <div class="dialog-img-wrap" ng-click="closeDialog()" ng-if="imgShareShow" layout="column"
+         layout-align="start center">
+        <img src="assets/bg-img/shareFriend.png">
+    </div>
+    <div layout="column" class="dialog-wrap" ng-class="{dialogWrapActive:dialogShow}" stop-touch-event>
+        <div flex class="dialog-box" layout="column" layout-align="start center ">
+            <div class="dialog-header">赚钱币</div>
+            <div layout="column" layout-align="center center" class="dialog-dis">
+                <div>每分享一次商品可获得2个钱币</div>
+                <div>每天最多5次获得10个钱币</div>
+            </div>
+            <div class="dialog-btn-icon" layout="row" layout-align="space-around center">
+                <div class="btn-icon-wrap" layout="column" layout-align="center center" ng-click="shareFiend()">
+                    <md-icon md-font-set="ks-icon"
+                             class="dialog-icon1"
+                             md-font-icon="ks-wechat-o"></md-icon>
+                    <div class="dialog-btn-txt">分享朋友</div>
+                </div>
+                <div class="btn-icon-wrap" layout="column" layout-align="center center">
+                    <md-icon md-font-set="ks-icon"
+                             class="dialog-icon2"
+                             md-font-icon="ks-link-40"></md-icon>
+                    <div class="dialog-btn-txt">商品链接</div>
+                </div>
+                <div class="btn-icon-wrap" layout="column" layout-align="center center" ng-click="imgShow()">
+                    <md-icon md-font-set="ks-icon"
+                             class="dialog-icon3"
+                             md-font-icon="ks-qr-code"></md-icon>
+                    <div class="dialog-btn-txt">商品二维码</div>
+                </div>
+            </div>
+        </div>
+        <div class="btnLeft" flex ng-click="closeDialog()" layout="column" layout-align="start center ">
+            <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-close"></md-icon>
+        </div>
+    </div>
+</div>

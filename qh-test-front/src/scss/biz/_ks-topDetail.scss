@@ -1,0 +1,139 @@
+.ks-topDetail {
+  //header开始
+  .ks-header._md {
+    height: 30px;
+    margin: 0 auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+        .regSpan {
+          img {
+            width: 24px;
+            border-radius: 50%;
+            vertical-align: text-bottom;
+          }
+        }
+      }
+    }
+  }
+  .content-divWrap {
+    .discuss {
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #101010;
+        margin: 20px 10px 10px;
+      }
+      .intrt{
+        margin: 20px 10px;
+        padding: 20px 0;
+        background-color: #f5f5f5;
+        font-size: 18px;
+        span{
+          font-size: 16px;
+          color: #333333;
+          padding-left: 5px;
+        }
+        .ks-icon{
+          width: 40px;
+          color: #d5d5d5;
+          text-align: center;
+          font-size: 18px;
+        }
+      }
+      .time {
+        margin-left: 10px;
+        font-size: 14px;
+        color: #999999;
+      }
+      .layouts {
+        margin: 10px;
+        blockquote {
+          margin: 0;
+        }
+        p {
+          margin: 0;
+          font-size: 16px;
+          color: #666666;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .Recommend{
+    .title{
+      text-align: center;
+      font-size: 16px;
+      color: #333333;
+      margin: 30px auto 20px;
+      font-weight: bold;
+      .ks-icon{
+        font-size: 8px;
+        color: #333333;
+        padding: 0 5px;
+      }
+    }
+    .img-btn-wrap {
+      margin: 10px 5px 20px 5px;
+      .img-btn {
+        .img-wrap {
+          // width: 92px;
+          position: relative;
+          overflow: hidden;
+          &:before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+          }
+          img {
+            position: absolute;
+            top: 0;
+            padding: 0;
+            width: 100%;
+          }
+        }
+        .dis {
+          margin: 10px 0;
+          .dis-title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #333333;
+            font-size: 14px;
+            padding-bottom: 5px;
+          }
+          .dis-price {
+            color: #333333;
+            font-weight: bold;
+            padding-bottom: 5px;
+          }
+        }
+      }
+      .img-btn {
+        margin: 0 5px;
+      }
+    }
+  }
+  .diviline {
+    height: 10px;
+    background-color: #f5f5f5;
+  }
+}
+
+

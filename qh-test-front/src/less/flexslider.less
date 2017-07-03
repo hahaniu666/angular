@@ -1,0 +1,165 @@
+/*
+轮播图，使用 flexslider 以及 angular-flexslider
+参考：
+http://flexslider.woothemes.com/
+https://github.com/thenikso/angular-flexslider
+*/
+
+.qh {
+
+  /*
+    <div class="index-flexslider-container">
+        <div class="dummy"></div>
+        <flex-slider flex-slide="s in slides" animation="slide" slideshow-speed="4000" animation-speed="400" touch="true">
+          <li>
+          <img ng-src="{{imgUrl}}{{s}}?imageView2/1/w/{{slideImg.w}}/h/{{slideImg.h}}">
+          </li>
+        </flex-slider>
+    </div>
+  */
+  // 主页轮播图
+  .index-flexslider-container {
+    position: relative;
+    width: 100%;
+    line-height: initial;
+
+    .dummy {
+      padding-top: 50%;
+    }
+
+    .flexslider-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+
+      .flexslider {
+        border: none;
+        height: 100%;
+        margin: 0;
+        .slides img{
+          max-width: 100%;
+        }
+
+        .flex-control-nav {
+          bottom: 0;
+          height: 1.5em;
+        }
+
+        .flex-control-paging {
+          // 小圆点之间的距离
+          li {
+            margin: 0 6px;
+            background-color: transparent;
+
+            a {
+              width: 6px;
+              height: 6px;
+              &:hover {
+                background: #ee124b;
+              }
+              &.flex-active {
+                background: #ee124b;
+              }
+            }
+          }
+        }
+        .flex-direction-nav{
+          //display: none;
+        }
+        .flex-direction-nav a::before {
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
+
+  // 商品详情页轮播图
+  .item-flexslider-container {
+
+    .index-flexslider-container();
+
+    .dummy {
+      padding-top: 100%;
+    }
+  }
+
+  //宽高3比2
+  //调用类名slider-3v2
+
+  .slider-3v2 , .flexslider-container-3v2 {
+    .index-flexslider-container();
+    .dummy {
+      //padding-top: 75%;
+      padding-top:66.666% !important;
+    }
+    .flexslider {
+      border: none;
+      height: auto !important;
+      margin: 0;
+    }
+  }
+}
+
+//手机与触摸屏专用样式
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
+  //轮播图调整
+  html .flex-direction-nav a:before {
+    content: "" !important;
+  }
+
+  html .flex-direction-nav a.flex-next:before {
+    content: "" !important;
+  }
+  html .flex-direction-nav a {
+    display: none;
+  }
+
+}
+
+
+@media screen and (max-width: 860px) {
+  html .flex-direction-nav .flex-prev {
+    opacity: 0;
+    left: 10px;
+  }
+  html .flex-direction-nav .flex-next {
+    opacity: 0;
+    right: 10px;
+  }
+}
+
+
+
+
+
+//宽高2比1
+//调用类名slider-2v1
+.qh {
+  .slider-2v1 , .flexslider-container-2v1 {
+    .dummy {
+      padding-top:50% !important;
+    }
+    .flexslider {
+      border: none;
+      height: auto !important;
+      margin: 0;
+    }
+  }
+}
+//宽高1比1
+//调用类名slider-1v1
+.qh {
+  .slider-1v1 , .flexslider-container-1v1 {
+    .dummy {
+      padding-top:100% !important;
+    }
+    .flexslider {
+      border: none;
+      height: auto !important;
+      margin: 0;
+    }
+  }
+}

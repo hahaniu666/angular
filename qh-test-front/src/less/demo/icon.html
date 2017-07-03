@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet/less" type="text/css" href="../../lib/lib.less"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../lib/lib-min-c3b72ccd7b.css"/>-->
+    <link rel="stylesheet/less" type="text/css" href="../../less/index.less"/>
+    <script src="../../lib/less/less.min.js" data-relative-urls="true"></script>
+</head>
+<body>
+
+<div class="qh">
+    <header class="header">
+        <div class="left" style="background-color: yellow;"
+        ><a class="square"
+        ><span class="iconfont icon-menu icon"></span></a></div>
+        <div class="center">
+            <div class="title">钱皇商城</div>
+        </div>
+        <div class="right" style="background-color: yellow;"
+        ><a class="square" ui-sref="main.cart"
+        ><span class="iconfont icon-cart icon"
+        ></span><span class="itemNub">99</span></a></div>
+    </header>
+    字体图标调用的方式
+    调用方式一:单独的字体容器
+   <div class="posr tac"  style="height: 40px;line-height: 40px;background-color: red;"><span class="iconfontnew icon-left abs-left1em"></span>文字 <span class="iconfontnew icon-right abs-right1em"></span>
+   </div>
+调用方式二:arrow-right-icon
+    <div class="arrow-right-icon" style="height: 40px;line-height: 40px;background-color: green;">文字</div>
+
+    +++++
+    <div class="arrow-right-icon-tr" style="height: 40px;line-height: 40px;background-color: yellow;">
+        <div class="tr"><span>文字</span></div>
+    </div>
+
+    调用方式三:abs-arrow-right-icon
+    <div class="abs-arrow-right-icon" style="height: 60px;line-height: 60px;background-color: orchid;">文字</div>
+
+    abs-arrow-right-icon14
+    <div class="abs-arrow-right-icon14" style="height: 60px;line-height: 60px;background-color: #0a8ddf;">文字</div>
+左箭头abs-arrow-left-icon
+    <div class="abs-arrow-left-icon" style="height: 60px;line-height: 60px;background-color: orchid;">文字</div>
+    arrow-left-icon
+    <div class="arrow-left-icon" style="height: 60px;line-height: 60px;background-color: yellowgreen;">文字</div>
+
+    <div class="footer">
+        <div class="divider"></div>
+        <div>
+            <ul class="breadcrumb-links text-center">
+                <li><span><a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备号15028817号</a></span></li>
+                <li><a ui-sref="main.links">友情链接</a></li>
+            </ul>
+        </div>
+        <div class="text-center"><span>©2015 杭州钱皇网络技术有限公司</span></div>
+    </div>
+</div>
+</body>
+</html>

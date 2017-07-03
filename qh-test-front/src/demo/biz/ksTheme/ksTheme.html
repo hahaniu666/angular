@@ -1,0 +1,101 @@
+<md-content flex layout="column" class="top-border">
+
+    <div>默认</div>
+    <div layout="row">
+        <md-button flex class="md-raised md-cornered md-primary">md-primary</md-button>
+        <md-button flex class="md-raised md-cornered md-accent">md-accent</md-button>
+        <md-button flex class="md-raised md-cornered md-warn">md-warn</md-button>
+        <md-button flex class="md-raised md-cornered md-raised">none</md-button>
+    </div>
+    <div layout="row">
+        <md-button flex ng-disabled="true" class="md-raised md-cornered md-primary">md-primary</md-button>
+        <md-button flex ng-disabled="true" class="md-raised md-cornered md-accent">md-accent</md-button>
+        <md-button flex ng-disabled="true" class="md-raised md-cornered md-warn">md-warn</md-button>
+        <md-button flex ng-disabled="true" class="md-raised md-cornered">none</md-button>
+    </div>
+
+    <div layout="row">
+        <md-checkbox flex ng-model="vs.checked" class="md-primary">md-primary</md-checkbox>
+        <md-checkbox flex ng-model="vs.checked" class="md-accent">md-accent</md-checkbox>
+        <md-checkbox flex ng-model="vs.checked" class="md-warn">md-warn</md-checkbox>
+        <md-checkbox flex ng-model="vs.checked" class="">none</md-checkbox>
+    </div>
+    <div layout="row">
+        <md-checkbox ng-disabled="true" flex ng-model="vs.checked" class="md-primary">md-primary</md-checkbox>
+        <md-checkbox ng-disabled="true" flex ng-model="vs.checked" class="md-accent">md-accent</md-checkbox>
+        <md-checkbox ng-disabled="true" flex ng-model="vs.checked" class="md-warn">md-warn</md-checkbox>
+        <md-checkbox ng-disabled="true" flex ng-model="vs.checked" class="">none</md-checkbox>
+    </div>
+
+    <div layout="row">
+        <md-radio-group ng-model="vs.checked" layout="row">
+            <md-radio-button flex ng-value="true" ng-model="vs.checked" class="md-primary">md-primary</md-radio-button>
+            <md-radio-button flex ng-value="true" ng-model="vs.checked" class="md-accent">md-accent</md-radio-button>
+            <md-radio-button flex ng-value="true" ng-model="vs.checked" class="md-warn">md-warn</md-radio-button>
+        </md-radio-group>
+    </div>
+    <div layout="row">
+        <md-radio-group ng-model="vs.checked" layout="row">
+            <md-radio-button flex ng-disabled="true" ng-value="true" ng-model="vs.checked" class="md-primary">md-primary</md-radio-button>
+            <md-radio-button flex ng-disabled="true" ng-value="true" ng-model="vs.checked" class="md-accent">md-accent</md-radio-button>
+            <md-radio-button flex ng-disabled="true" ng-value="true" ng-model="vs.checked" class="md-warn">md-warn</md-radio-button>
+        </md-radio-group>
+    </div>
+
+    <div layout="row">
+        <md-switch flex ng-model="vs.checked" class="md-primary">md-primary</md-switch>
+        <md-switch flex ng-model="vs.checked" class="md-accent">md-accent</md-switch>
+        <md-switch flex ng-model="vs.checked" class="md-warn">md-warn</md-switch>
+    </div>
+    <div layout="row">
+        <md-switch flex ng-model="vs.checked" ng-disabled="true" class="md-primary">md-primary</md-switch>
+        <md-switch flex ng-model="vs.checked" ng-disabled="true" class="md-accent">md-accent</md-switch>
+        <md-switch flex ng-model="vs.checked" ng-disabled="true" class="md-warn">md-warn</md-switch>
+    </div>
+
+
+    <!-- ================================================= -->
+    <md-divider></md-divider>
+    <div>ks-xxx</div>
+    <div layout="row">
+        <md-button flex class="md-raised md-cornered ks-gold">ks-gold</md-button>
+        <md-button flex class="md-raised md-cornered ks-red">ks-red</md-button>
+        <md-button flex class="md-raised md-cornered ks-black">ks-black</md-button>
+        <md-button flex class="md-raised md-cornered ks-grey">ks-grey</md-button>
+        <md-button flex class="md-raised md-cornered ks-white">ks-white</md-button>
+    </div>
+    <div layout="row">
+        <md-button flex ng-disabled="true" class="md-raised md-cornered ks-gold">ks-gold</md-button>
+        <md-button flex ng-disabled="true" class="md-raised md-cornered ks-red">ks-red</md-button>
+        <md-button flex ng-disabled="true" class="md-raised md-cornered ks-black">ks-black</md-button>
+        <md-button flex ng-disabled="true" class="md-raised md-cornered ks-grey">ks-grey</md-button>
+        <md-button flex ng-disabled="true" class="md-raised md-cornered ks-white">ks-white</md-button>
+    </div>
+
+
+    <div layout="row">
+        <md-checkbox flex ng-model="vs.checked" class="ks-gold">ks-gold</md-checkbox>
+    </div>
+    <div layout="row">
+        <md-checkbox ng-disabled="true" flex ng-model="vs.checked" class="ks-gold">ks-gold</md-checkbox>
+    </div>
+
+    <div layout="row">
+        <md-radio-group ng-model="vs.checked" layout="row" class="ks-gold">
+            <md-radio-button flex ng-value="true" ng-model="vs.checked" class="ks-gold">ks-gold</md-radio-button>
+        </md-radio-group>
+    </div>
+    <div layout="row">
+        <md-radio-group ng-model="vs.checked" layout="row" class="ks-gold">
+            <md-radio-button flex ng-disabled="true" ng-value="true" ng-model="vs.checked" class="ks-gold">ks-gold</md-radio-button>
+        </md-radio-group>
+    </div>
+
+    <div layout="row">
+        <md-switch flex ng-model="vs.checked" class="ks-gold">ks-gold</md-switch>
+    </div>
+    <div layout="row">
+        <md-switch flex ng-model="vs.checked" ng-disabled="true" class="ks-gold">ks-gold</md-switch>
+    </div>
+
+</md-content>

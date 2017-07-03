@@ -1,0 +1,228 @@
+.ks-register.ks-main {
+  //header开始
+  .ks-header._md {
+    height: 30px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+
+    }
+  }
+  .content-divWrap {
+
+    .registerForm1 {
+      position: relative;
+      padding: 0 20px;
+      margin-top: 40px;
+
+      .loginLink {
+        padding: 0px;
+        margin-top: 10px;
+        font-size: 13px;
+        a {
+          text-decoration: none;
+          .loginGo {
+            color: #bfa679;
+          }
+        }
+      }
+      .relative {
+        position: relative;
+        height: 44px;
+        border-bottom: 1px solid #d5d5d5;
+        line-height: 44px;
+        input[type="text"], input[type="password"] {
+          width: 100%;
+          font-size: 14px;
+          background: transparent;
+          border: none;
+        }
+        .visibility, .close {
+          position: absolute;
+          right: 0px;
+          line-height: 40px;
+          top: 50%;
+          margin-top: -7px;
+          font-size: 14px;
+        }
+        .close {
+          top: 10px;
+        }
+
+      }
+
+      .md-button {
+        width: 100%;
+        padding: 0;
+        margin: 20px 0 0 0;
+        border-radius: 0;
+        height: 40px;
+        line-height: 40px;
+        background: #999;
+        color: #fff;
+        border: none;
+        font-size: 14px;
+      }
+      .md-button.ng-class-button {
+        background: #333;
+      }
+      .imgwrap {
+        float: right;
+        margin: 2px 0 0 0;
+        border-left: 1px solid #d5d5d5;
+        height: 20px;
+        .ks-rotate {
+          color: #999;
+          font-size: 15px;
+          line-height: 24px;
+          text-align: center;
+          margin: -24px 8px 0 0px;
+        }
+      }
+
+    }
+    .registerForm2 {
+      position: relative;
+      padding: 0 20px;
+      margin-top: 40px;
+      div.inputWrap {
+        height: 40px;
+        line-height: 20px;
+        input[type="text"] {
+          width: 100%;
+          font-size: 14px;
+          height: 14px;
+          margin-top: 10px;
+          border: none;
+
+          background: transparent;
+        }
+
+        span {
+          border-left: 1px solid #d5d5d5;
+          padding-left: 15px;
+        }
+        .rePush {
+          color: #ba9f6e;
+        }
+      }
+
+      .relative {
+        position: relative;
+        height: 44px;
+        border-bottom: 1px solid #d5d5d5;
+        line-height: 44px;
+        input[type="text"], input[type="password"] {
+          width: 100%;
+          font-size: 14px;
+          height: 14px;
+          background: transparent;
+          border: none;
+        }
+        .visibility, .close {
+          position: absolute;
+          right: 0px;
+          line-height: 14px;
+          top: 50%;
+          margin-top: -7px;
+          font-size: 14px;
+        }
+        .close {
+          top: 10px;
+        }
+
+      }
+      .md-button {
+        width: 100%;
+        padding: 0;
+        margin: 20px 0 0 0;
+        border-radius: 0;
+        height: 40px;
+        line-height: 40px;
+        background: #999;
+        color: #fff;
+        border: none;
+        font-size: 14px;
+      }
+      .md-button.ng-class-button {
+        background: #333;
+      }
+      .loginLink {
+        padding: 0px;
+        margin-top: 10px;
+        font-size: 13px;
+        a {
+          text-decoration: none;
+          .loginGo {
+            color: #bfa679;
+          }
+        }
+      }
+    }
+
+  }
+}
+  //dialog弹框验证码
+  .md-dialog-register {
+    mix-width: 310px;
+    min-width: 280px;
+    min-height: 180px;
+    background: #fff;
+  }
+  div.imgReg {
+    margin: 20px;
+    .imgc {
+      width: 80px;
+      margin: 0 20px;
+    }
+  }
+  .dialogInputWrap {
+    height: 44px;
+    margin: 0 20px 20px 20px;
+    border: 1px solid #d5d5d5;
+    overflow: hidden;
+    input {
+      width: 100%;
+      border: none;
+      text-indent: 10px;
+      margin: 11px 0 0 0;
+    }
+  }
+  .modal-footer {
+    border-top: 1px solid #d5d5d5;
+    .btnWrap {
+      height: 45px;
+      text-align: center;
+      button {
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        background: transparent;
+        border: none;
+      }
+      .btn-default1 {
+
+      }
+      .btn-danger1 {
+        border-right: 1px solid #d5d5d5;
+        color: #999;
+      }
+    }
+  }
+

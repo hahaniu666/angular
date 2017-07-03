@@ -1,0 +1,129 @@
+// 顶部菜单条
+//@import "mixins.less";
+
+.qh {
+  .header {
+    position: relative;
+    line-height: @header-height;
+    min-height: @header-height;
+    background-color: #fff;
+    z-index: 1030;
+    text-align: center;
+    border-width: 0 0 1px;
+    margin-bottom: 1px;
+
+    .user-select(none);
+
+    // 顶部标题栏左侧区域，目前宽度为是一个正方形
+    .left {
+      display: block;
+      position: absolute;
+      width: @header-height;
+      height: @header-height;
+    }
+
+    // 顶部标题栏中间区域，目前宽度为是一个正方形
+    .center {
+      display: block;
+      padding: 0;
+      margin: 0 @header-height 0 @header-height;
+      height: @header-height;
+
+      // 顶部标题栏中间区域的标题区
+      .title {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        font-size: @header-title-font-size;
+        position: relative;
+      }
+      .title-toggle-btn {
+        border: none;
+        font-size: @header-title-font-size;
+      }
+    }
+
+    // 顶部标题栏右侧区域
+    .right {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      //width: @header-height;
+      min-width:@header-height;
+      height: @header-height;
+    }
+    select {
+      background: transparent none repeat scroll 0 0;
+      color: #333;
+      border: none;
+    }
+    option {
+      background-color: transparent;
+      color: #333;
+    }
+
+    .icon {
+      color: @head-icon-color;
+      font-size: @iconfont-size;
+    }
+    .icon-zhuyegouwuche2{
+      font-size: 22px;
+    }
+    .icon-zhuyezhucaidan{
+      font-size: 22px;
+    }
+    .icon-text {
+      color: @head-icon-color;
+      font-size: 14px;
+      //margin-right: 15px;
+      padding-right: 15px;
+    }
+
+    .input {
+      color: #555;
+      height: 30px;
+      font-size: 14px;
+
+      background-color: #FFF;
+      border: 1px solid #CCC;
+      .box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075));
+      .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+
+      .user-select(text);
+    }
+
+    // 一个正方形，可用在 left 或 right 内
+    .square {
+      position: relative; // 重要，主要用于内部购物车数量圆形图标绝对定位用
+      display: inline-block;
+      //width: @header-height;
+      min-width: @header-height;
+      height: @header-height;
+
+      &:active {
+        background-color: #ccc;
+      }
+
+      // 购物车商品数量
+      .itemNub {
+        display: inline-block;
+
+        position: absolute;
+        top: 1px;
+        right: 1px;
+
+        min-width: 16px;
+        line-height: 16px;
+        height: 16px;
+        border-radius: 8px;
+
+        color: #fff;
+        background-color: @red-color;
+
+        text-align: center;
+        font-size: 12px;
+      }
+    }
+  }
+}

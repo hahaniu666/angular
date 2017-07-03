@@ -1,0 +1,97 @@
+.ks-vipRecord {
+  .ks-header {
+    background: #fff;
+    height: 44px;
+    font-size: 16px;
+    color: #101010;
+    min-height: 44px;
+    .ks-icon {
+      font-size: 16px;
+      margin-left: 13px;
+      color: #101010;
+      line-height: 20px;
+      width: 40px;
+      margin-top: 3px;
+    }
+    .md-icon-button {
+      width: 40px;
+      margin-top: 3px;
+      font-size: 14px;
+      color: #fff;
+      line-height: 44px;
+    }
+
+    .md-icon-button:last-child {
+      width: auto;
+    }
+    h1 {
+      font-size: 20px;
+      color: #101010;
+      text-align: center;
+      height: 44px;
+      line-height: 44px;
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+  .bg {
+    background: #f5f5f5;
+    .msgWrap {
+      background: #fff;
+
+      .centerMsg, .showDetail {
+        margin: 0 10px;
+      }
+      .timeMsg {
+        height: 44px;
+        background: #f5f5f5;
+        span {
+          color: #ccc;
+          font-size: 14px;
+        }
+      }
+      .centerMsg {
+        .imgWrap {
+          margin: 15px 0;
+          width: 70px;
+          height: 70px;
+          img {
+            width: 70px;
+            height: 70px;
+          }
+        }
+        .detailWrap {
+          padding-left: 10px;
+          margin: 15px 0;
+          .title {
+            font-size: 14px;
+            color: #333;
+            line-height: 14px;
+          }
+          .bottomMsg {
+            line-height: 12px;
+            .price {
+              font-size: 13px;
+              color: #101010;
+            }
+          }
+        }
+      }
+      .showDetail {
+        border-top: 1px dashed #d5d5d5;
+        height: 45px;
+        .word {
+          color: #999;
+          font-size: 16px;
+          line-height: 45px;
+        }
+        .ks-icon {
+          text-align: right;
+          font-size: 12px;
+          margin-right: -2px;
+          color: #999;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,232 @@
+.ks-Coupon.ks-main{
+  //header开始
+  .ks-header._md {
+    height: 30px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+
+    }
+  }
+  //主体部分
+  .content-divWrap{
+    .toggleDiv1{
+      margin-bottom: 20px;
+    }
+    .toggleDiv2{
+      .noneCoupon{
+        position: relative;
+        margin: 0 20px;
+        .cheng{
+          padding-top:100%;
+        }
+        .iconBoxWrap{
+          width: 80px;
+          height: 80px;
+          position: absolute;
+          top:50%;
+          left:50%;
+          text-align: center;
+          margin: -40px 0 0 -40px ;
+          .coupon{
+            font-size: 60px;
+            color: #ccc;
+          }
+          p{
+            color: #999;
+          }
+        }
+      }
+      .keyong{
+        display: block;
+      }
+      .bukeyong{
+        display: none;
+
+        .couponBox{
+          .couponPrice{
+            background: #ccc;
+            border:1px solid #d5d5d5;
+          }
+          p{
+            color:#ccc;
+          }
+          p.date{
+            color:#ccc;
+          }
+        }
+      }
+    }
+    .inputCouponWrapBox{
+      background: #ccc;
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      .inputCouponWrap{
+        margin: 0 10px;
+        line-height: 44px;
+        height: 40px;
+        position: relative;
+        top:10px;
+        .inputCouponsWrap{
+
+          background: #fff;
+          overflow: hidden;
+
+          input[type="text"]{
+            width: 100%;
+            height: 14px;
+            border:none;
+            background: transparent;
+            font-size: 14px;
+            text-indent: 10px;
+          }
+        }
+
+        div.jhWrap{
+          width: 90px;
+          background: #999;
+          text-align: center;
+          span.jh{
+            color: #fff;
+            display: inline-block;
+            font-weight: normal;
+            font-size: 15px;
+            height: 40px;
+
+          }
+        }
+        div.jh-sure{
+          background-color: #333!important;
+        }
+
+      }
+    }
+
+    .towNav{
+      margin: 5px 10px;
+      height: 44px;
+      div{
+        font-size: 14px;
+        border-bottom: 4px solid #000;
+      }
+      div.cur{
+        border-bottom: 4px solid #ba9f6e;
+        color: #ba9f6e;
+      }
+    }
+
+    .couponBox{
+      height: 60px;
+      margin: 10px 10px 0 10px;
+      .couponPrice{
+        background: #ba9f6e ;
+        line-height: 60px;
+        color: #fff;
+        text-align: center;
+        border:1px solid #ba9f6e ;
+        b {
+          font-size: 26px;
+          font-weight: normal;
+          span{
+            font-size: 18px;
+          }
+        }
+        i{
+          font-size: 18px;
+          font-style: normal;
+        }
+      }
+      div.pri-disable{
+        background-color: #ccc;
+        border: 1px solid #ccc;
+      }
+      .couponDate{
+        border: 1px solid #d5d5d5;
+        border-left: none;
+        p{
+          margin: 10px 10px 0 0;
+          font-size:12px;
+          text-align: right;
+          line-height: 20px;
+          color: #101010;
+        }
+        p.date{
+          font-size: 12px;
+          margin-top: 0px;
+          color: #999;
+        }
+      }
+      .date-disable{
+        p{
+          color: #ccc!important;
+        }
+      }
+    }
+    .jhcg{
+      display: none;
+      min-width: 360px;
+      max-width: 420px;
+      position: absolute;
+      z-index: 9999;
+      background: #000;
+      opacity: 0.8;
+      top:25%;
+      left:50%;
+      text-align: center;
+      border-radius: 6px;
+      margin-left: -180px;
+      .chevron_left{
+        font-size: 34px;
+        color: #fff;
+        margin: 15px auto;
+      }
+      p{
+        margin:0 0 15px 0;
+        font-size:15px;
+        color:#fff;
+        text-align: center;
+      }
+    }
+    .jhsb{
+      min-width: 360px;
+      max-width: 420px;
+      position: absolute;
+      z-index: 9999;
+      background: #fff;
+      top:25%;
+      left:50%;
+      text-align: center;
+      border-radius: 6px;
+      margin-left: -180px;
+      .cw{
+        font-size: 15px;
+      }
+      .wx{
+        font-size: 13px;
+      }
+      .zhidao{
+        font-size:16px ;
+        color: #ba9f6e;
+      }
+    }
+
+  }
+
+}

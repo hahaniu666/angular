@@ -1,0 +1,37 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-v2">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>V2专区</h1>
+        <div class="md-icon-button" flex="20" ui-sref="main.vip.record()">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex>
+        <div class="guess">
+            <div layout="row" layout-wrap>
+                <!--直接复制的，repeat部分需要换一下-->
+                <div flex="50" layout="column" class="rec-item" ng-repeat="item in vm.comments track by $index">
+                    <div flex layout="column">
+                        <!-- 多追加一层div，方便使用  layout-wrap 和 ng-repeat 。 需要CSS特殊处理  -->
+                        <div class="item-img" ui-sref="main.vip.detail({id:item.id})">
+                            <!--<img ng-src="{{vm.imgUrl}}{{item.img}}?imageView2/1/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}"/>-->
+                            <img ng-src="{{vm.appConfig.imgUrl}}/{{item.img}}?imageView2/2/w/{{vm.imgService.indexBelowImg.w}}/h/{{vm.imgService.indexBelowImg.h}}"
+                                 img-holder/>
+                        </div>
+                        <div>
+                            <div class="item-title">
+                                {{item.title}}
+                            </div>
+                            <div class="item-price">
+                                {{item.integral}}钱币
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>

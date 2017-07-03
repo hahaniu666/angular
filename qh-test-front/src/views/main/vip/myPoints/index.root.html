@@ -1,0 +1,107 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-myPoints">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>我的钱币</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <div class="topMsg">
+        <div class="point" layout="column" layout="center center">
+            <span>当前钱币</span>
+            <span>{{vm.data.integral/100.0|num:1}}</span>
+        </div>
+        <div class="rules" ui-sref="main.vip.myPoints.rules()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-question"></md-icon>
+            <span>钱币规则</span>
+        </div>
+    </div>
+    <div class="headerTab" layout="row" layout-align="center center">
+        <div flex class="tabs" ng-click="vm.tabs('integral')" ng-class="{active:vm.tab=='integral'}">统计</div>
+        <div flex class="tabs" ng-click="vm.tabs('account')" ng-class="{active:vm.tab=='account'}">收支明细</div>
+    </div>
+    <md-content flex ng-if="vm.account.recList[0]">
+        <!--统计对应div-->
+        <div class="totalWrap" ng-if="vm.tab==='integral'">
+            <div class="totalMsg" layout="row">
+                <div flex class="totalLeftMsg">累计钱币</div>
+                <div flex class="totalRightMsg">{{vm.data.totalIntegral/100.0|num:1}}</div>
+            </div>
+
+            <div class="totalMsg" layout="row">
+                <div flex class="totalLeftMsg">当前剩余钱币</div>
+                <div flex class="totalRightMsg">{{vm.data.integral/100.0|num:1}}</div>
+            </div>
+
+            <div class="totalMsg" layout="row">
+                <div flex class="totalLeftMsg">累计消费钱币</div>
+                <div flex class="totalRightMsg">
+                    <span>{{(vm.data.totalIntegral-vm.data.integral)/100.0|num:1}}</span>
+                    <!--<span>￥7777</span>-->
+                </div>
+            </div>
+            <div class="totalMsg" layout="row">
+                <div flex class="totalLeftMsg">累计消费金额</div>
+                <div flex class="totalRightMsg">
+                    <span>￥{{vm.data.totalPrice/100.0|num:1}}</span>
+                </div>
+            </div>
+
+            <div class="totalMsg" layout="row">
+                <div flex class="totalLeftMsg">已连续签到</div>
+                <div flex class="totalRightMsg">{{vm.data.sign}}天</div>
+            </div>
+
+            <div class="totalMsg" layout="row">
+                <div flex class="totalLeftMsg">本月签到</div>
+                <div flex class="totalRightMsg">{{vm.data.count}}天</div>
+            </div>
+
+        </div>
+
+
+        <!--收支明细对应div-->
+        <div class="paymentWrap" ng-if="vm.tab==='account'">
+            <div class="paymentMsg" layout="row" ng-repeat="log in vm.account.recList  track by $index">
+                <div flex class="paymentLeftMsg" layout="row">
+                    <span style="margin-right: 20px">{{log.typeDes}}</span>
+                    <span class="price-s" ng-if="log.changeAmount<0" style="color:#e84e40">
+                        {{log.changeAmount/100.0|num:1}}
+                    </span>
+                    <span class="price-s" ng-if="log.changeAmount>=0" style="color:#ba9f6e">
+                        {{log.changeAmount/100.0|num:1}}
+                    </span>
+                </div>
+                <div flex class="paymentRightMsg">
+                    {{log.date | date:'yyyy-MM-dd'}}
+                </div>
+            </div>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px" ng-click="vm.page()"
+             ng-if="!vm.pageEnd && vm.tab==='account'">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                点击加载更多...
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="vm.pageEnd&&vm.totalCount>10 && vm.tab==='account'">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                没有更多记录了
+            </md-button>
+        </div>
+    </md-content>
+
+    <md-content flex layout="column" class="empty" ng-if="!vm.account.recList[0]">
+        <div flex layout="column" layout-align="center center">
+            <div class="txt">啊哦，没有数据～</div>
+        </div>
+    </md-content>
+</div>
+
+<style>
+    .empty .txt {
+        color: #999;
+        font-size: 14px;
+    }
+</style>

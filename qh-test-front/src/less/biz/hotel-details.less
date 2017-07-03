@@ -1,0 +1,175 @@
+.qh {
+  //酒店详情
+  .hotel-details {
+    section {
+      overflow: hidden;
+      //overflow-x: hidden;
+      //overflow-y: visible;
+      position: relative;
+      min-height: 100px;
+      margin-top: 12px;
+      margin-bottom: 12px;
+      //推荐
+      .recommend {
+        font-size: 14px;
+        color: #fff;
+        background-color: #eb5252;
+        position: absolute;
+        left: -18px;
+        top: 6px;
+        width: 5em;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        transform: rotate(-45deg);
+      }
+      h2 {
+        font-size: 16px;
+        color: #323232;
+        line-height: 4;
+        text-align: center;
+
+      }
+      //HTML编辑器输出的内容样式
+      .htmledit {
+        //生成ul标签的红色圆点
+        ul {
+          //display: block;
+          //list-style-image: none;
+          //list-style-position: outside;
+          //list-style-type: disc;
+          //margin: 1em 0;
+          //padding: 0 0 0 30pt;
+
+          li {
+            margin-left: 14px;
+            line-height: 2;
+            vertical-align: middle;
+            //font-size: 13px;
+            //color: #323232;
+            //line-height:1.6;
+            //初始样式
+            //list-style: initial;
+            span {
+              vertical-align: middle;
+            }
+
+          }
+          li:before {
+            content: ' ';
+            //border: 3px solid #ccc;
+            background-color: @red-color;
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            vertical-align: middle;
+            //下面的垂直对齐更精确，暂时注释
+            //vertical-align: 6%;
+            border-radius: 8px;
+            //margin-left: -8px;
+            margin-right: 7px;
+            /*margin-bottom: -10px;*/
+          }
+        }
+        ol {
+          padding-left: 1em;
+          padding-right: 1em;
+
+          li {
+            line-height: 2;
+
+          }
+        }
+        //段落，图片一般也在段落中
+        p {
+          text-indent: 0;
+          margin: 0 0 5px;
+          img {
+            //vertical-align: baseline;
+            vertical-align: middle;
+          }
+
+        }
+        //>span{
+        //  margin-left: 1em;
+        //  margin-right: 1em;
+        //}
+        > div {
+          margin-left: 1em;
+          margin-right: 1em;
+        }
+
+      }
+    }
+    //轮播图下面一行的说明
+    .hotel-address {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #fff;
+      //地图图标
+      .local {
+        margin-left: 15px;
+        //margin-right: 12px;
+        font-size: 18px;
+        color: #909090;
+
+      }
+      //地址文本，省略号
+      .address {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding: 5px 12px;
+        max-width: 100%;
+        //overflow: inherit;
+        //white-space: nowrap;
+        text-overflow: ellipsis;
+
+      }
+      .tel {
+        width: 63px;
+        height: 20px;
+        border-left: 2px solid @border-color2;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        /*混合版本语法*/
+        -ms-flex-pack: center;
+        /*新版本语法*/
+        -webkit-justify-content: center;
+        justify-content: center;
+
+        .iconfont {
+          color: #18a5d9;
+          font-size: 20px;
+        }
+      }
+    }
+
+  }
+  //酒店详情banner顶部对齐样式
+  #hotel-top-banner {
+    margin-top: -45px;
+  }
+  #hotel-header {
+    background-color: transparent;
+    .icon {
+      color: #ffffff;
+    }
+  }
+}

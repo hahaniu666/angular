@@ -1,0 +1,86 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-hotelRefund">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex ng-if="vm.patterns===0">申请退款</h1>
+        <h1 flex ng-if="vm.patterns===1">退货退款</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-content flex layout="column" style="overflow-x: hidden">
+        <div class="refund-wrap">
+            <div class="con" layout="row">
+                <div class="txt">退款类型：</div>
+                <div class="sel" flex>
+                    <select flex data-ng-model="vm.type" ng-change="vm.changeType()">
+                        <option value="ORGORDER_SKU">
+                            退货退款
+                        </option>
+                        <option value="ORGORDER">
+                            仅退款
+                        </option>
+                    </select>
+                </div>
+                <div class="icon-wrap" flex="10" layout="row">
+                    <md-icon class=" ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_down"></md-icon>
+                </div>
+            </div>
+            <div class="con" layout="row">
+                <div class="txt">退款原因：</div>
+                <div class="sel" flex>
+                    <select flex data-ng-model="vm.reason">
+                        <option value="" checked="true">选择退款原因</option>
+                        <option value="七天无理由退换货" data-tip="申请七天无理由退换货，请注意保持商品的完好，且不影响二次销售">
+                            七天无理由退换货
+                        </option>
+                        <option value="退运费" data-tip="如果您需要退还运费，可申请此退款，并提供有效凭证或与商家协商一致。">
+                            退运费
+                        </option>
+                        <option value="收到商品破损" data-tip="如您收到商品时就存在破损问题，可选择此项退款原因，并且需要提供有效的物流凭证。">
+                            收到商品破损
+                        </option>
+                        <option value="商品错发/漏发" data-tip="如商家发错或漏发商品，可选择此项退款原因，且您需要提供有效的物流凭证。">
+                            商品错发/漏发
+                        </option>
+                        <option value="收到商品与描述不符" data-tip="收到的商品与商家或宝贝详情页面的描述存在不符的情况。">
+                            收到商品与描述不符
+                        </option>
+                        <option value="商品质量问题" data-tip="若您收到的商品存在做工粗糙、商品瑕疵等质量问题时，可申请此原因退款">
+                            商品质量问题
+                        </option>
+                        <option value="未按约定时间发货" data-tip="如您不需要退货，仅对商家未按约定时间发货不满">
+                            未按约定时间发货
+                        </option>
+                        <option value="不想要了" data-tip="如果您只是不想要了，那可以选择此项退款原因">
+                            不想要了
+                        </option>
+                        <option value="其它" data-tip="其它">
+                            其它
+                        </option>
+                    </select>
+                </div>
+                <div class="icon-wrap" flex="10" layout="row">
+                    <md-icon class=" ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_down"></md-icon>
+                </div>
+            </div>
+            <div class="con" layout="row">
+                <div class="txt">退款金额：</div>
+                <span style="line-height: 40px;color: #e84e40">￥</span>
+                <input type="text" ng-model="vm.price"
+                       style="color: #e84e40"
+                       placeholder="填写金额" flex>
+            </div>
+            <div class="con" layout="row">
+                <div class="txt" ng-if="vm.patterns===0">退款说明：</div>
+                <div class="txt" ng-if="vm.patterns===1">退货说明：</div>
+
+                <textarea flex type="text" ng-model="vm.memo" placeholder="最多200字"></textarea>
+            </div>
+        </div>
+    </md-content>
+    <div class="submit-btn" layout="row" layout-align="center center">
+        <md-button class="ks-black " flex="90" ng-click=" vm.update()">提交申请</md-button>
+    </div>
+
+</div>

@@ -1,0 +1,94 @@
+<div flex="" layout="column" class=" ks-main ks-leaseDetails" xmlns="">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+
+            <div class="divTop" flex class>
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="vm.fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="sqtz">租赁商品详情</span>
+            </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex id="content">
+        <div class="content-divWrap">
+            <div class="commodityList">
+                <div class="commodityListHeader">
+                    <div class="leftBlock"></div>
+                    <span>商品清单</span>
+                </div>
+            </div>
+            <div class="commodityListContent">
+                <md-divider class="dashed"></md-divider>
+                <img class="contentListImg"
+                     ng-src="{{imgUrl}}/{{data.sku.img}}?w/20/h/20" >
+                <!-- src="http://img3.imgtn.bdimg.com/it/u=2841864524,1539229139&fm=21&gp=0.jpg"-->
+                <div class="contentListRight" ng-click="itemLink()">
+                    <div class="right1">[租赁]{{data.sku.title}}</div>
+                    <!--<span class="text-spec" ng-repeat="spec in orderItem.specs">
+                                            {{spec.name}}：{{spec.value}}；
+                                        </span>-->
+                    <div class="item-specs">
+                        <span ng-repeat="dd in data.sku.specs">
+                             {{dd.name}}:{{dd.value}}
+                        </span> &nbsp;
+                    </div>
+
+                    <br style="clear: both">
+                </div>
+                <br style="clear: both">
+                <md-icon md-font-set="ks-icon" class="arrow_right" >arrow_right</md-icon>
+            </div>
+        </div>
+        <!--//如果data.rentOrderId为null,则不显示 ng-if="data.rentOrderId"-->
+        <div class="content-divWrap" >
+            <md-divider style="margin: 0 10px;"></md-divider>
+            <div class="commodityList">
+                <div class="commodityListHeader">
+                    <div class="leftBlock"></div>
+                    <span>服务中心</span>
+                </div>
+            </div>
+            <div class="commodityListContent">
+                <md-divider class="dashed"></md-divider>
+                <p class="text1">{{data.org.title}}</p>
+                <p class="text1 none">{{data.org.province}} {{data.org.city}} {{data.org.area}} {{data.org.street}} </p>
+                <p class="text1">{{data.org.name}}：{{data.org.phone}}</p>
+                <br style="clear: both">
+            </div>
+            <md-divider style="margin: 0 10px;"></md-divider>
+            <div class="commodityList">
+                <div class="commodityListHeader" >
+                    <div class="leftBlock"></div>
+                    <span>租赁订单</span>
+                </div>
+            </div>
+            <div class="commodityListContent" ng-click="orderLink()">
+                <md-divider class="dashed"></md-divider>
+                <p class="text2">{{data.rentOrderId}}订单编号：{{data.orderSeq}}</p>
+                <p class="text1">租金价格：￥{{data.price/100}}/天</p>
+                <md-icon md-font-set="ks-icon" class="arrow_right" >arrow_right</md-icon>
+                <br style="clear: both">
+            </div>
+            <div class="commodityListContent">
+                <md-divider class="dashed" ></md-divider>
+                <p class="text1" style="margin-top: 15px;">创建时间：{{data.beginDate | date:'yyyy-MM-dd'}}</p>
+                <p class="text1" style="">到期时间：{{data.endDate | date:'yyyy-MM-dd'}}</p>
+                <p class="text1" style="margin-bottom: 50px;">资产编号：{{data.seq}}</p>
+            </div>
+
+        </div>
+    </md-content>
+
+
+    <div class="submit-btn" layout="row" layout-align="center center" ng-click="tuizu()" ng-if="!$state.params.refundId && $state.params.lishi!=3">
+        <md-button class="ks-black md-raised" flex="100">申请退租{{$state.params.refundId}}</md-button>
+    </div>
+    <!-- 取消退租按钮不要，隐藏掉，若要修改，把最后的1==2去掉 -->
+    <div class="submit-btn" layout="row" layout-align="center center" ng-click="quxiaotuizu()" ng-if="$state.params.refundId && $state.params.lishi!=3 && 1==2">
+        <md-button class="ks-black md-raised" flex="100">取消退租</md-button>
+    </div>
+    <div class="submit-btn" layout="row" layout-align="center center" ng-click="shanchu()" ng-if="$state.params.lishi==3">
+        <md-button class="ks-black md-raised" flex="100">删除历史</md-button>
+    </div>
+</div>
+

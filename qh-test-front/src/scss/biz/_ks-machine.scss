@@ -1,0 +1,107 @@
+.ks-machine{
+  .ks-header._md {
+    height: 30px;
+    margin: 0 auto;
+    position: relative;
+    background: #ffffff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+        .regSpan{
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  //主内容开始
+  .timer{
+    height: 120px;
+    background: url("https://o96iiewkd.qnssl.com/FokW4u4ZZ_RHxzo6W6aOXrK5oyhY") repeat top;
+    background-size: 100%;
+    .getTime{
+      text-align: center;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      span{
+        padding-left: 15px;
+      }
+    }
+    .states{
+      text-align: center;
+      color: #fff;
+      font-size: 16px;
+      padding-top: 5px;
+    }
+  }
+  .kind{
+    height: 49px;
+    background-color: #fff9eb;
+    line-height: 49px;
+    padding: 0 30px;
+    .ks-icon{
+      font-size: 16px;
+      text-align: center;
+      line-height: 22px;
+    }
+    span{
+      padding: 0 15px 0 5px;
+    }
+  }
+  .modes{
+    .getMode{
+      margin: 20px 0;
+      .eachMode{
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+        border: 2px solid #d5d5d5;
+        text-align: center;
+        line-height: 70px;
+        img{
+          width: 100%;
+          opacity: 0.2;
+        }
+      }
+      .select{
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+        border: 2px solid #333;
+        text-align: center;
+        line-height: 70px;
+        background-color: #333;
+        img{
+          width: 100%;
+        }
+      }
+      .name{
+        text-align: center;
+        color: #d5d5d5;
+        padding-top: 15px;
+      }
+      .selName{
+        color: #101010!important;
+      }
+    }
+    .info{
+      margin: 0 30px;
+      border-top: 1px solid #d5d5d5;
+      text-align: center;
+      padding-top: 6px;
+    }
+  }
+}
+

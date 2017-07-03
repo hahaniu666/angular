@@ -1,0 +1,83 @@
+<div flex="" layout="column" class="ks-returnInform ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="">
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_left</md-icon>
+            </md-button>
+            <h1 flex style="margin-left: -10px">退货信息</h1>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+
+    <md-content>
+        <!--选择框-->
+        <div class="choose">
+            <div class="chooseContent" layout="row">
+                <span>快递公司：</span>
+                <div class="sel" flex>
+                    <select flex>
+                        <option>退货退款</option>
+                        <option>仅退款</option>
+                        <option>仅退款</option>
+                        <option>仅退款</option>
+                    </select>
+                </div>
+                <div class="txt" flex="10" layout="row">
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_down</md-icon>
+                </div>
+            </div>
+
+            <div class="chooseContent" layout="row">
+                <span>退货说明：</span>
+                <input flex type="text" placeholder="填写单号">
+                <!--style=’ resize: none;’-->
+            </div>
+        </div>
+        <div class="voucher">
+            <div class="voucherTxt">
+                <div class="voucherPhoto">
+                    <div class="img">
+                        <img src="http://placehold.it/600x600">
+                    </div>
+                    <div class="txtWarp">
+                        <textarea maxlength="10" style="resize: none">最多10个字最多10个字</textarea>
+                    </div>
+                    <div class="delete">
+                        <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">delete</md-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="voucherTxt">
+                <div class="voucherPhoto">
+                    <div class="img">
+                        <img src="http://placehold.it/600x600">
+                    </div>
+                    <div class="txtWarp">
+                        <textarea maxlength="10" style="resize: none" placeholder="输入说明"></textarea>
+                    </div>
+                    <div class="delete">
+                        <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">delete</md-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add">
+            <div class="font">
+                <div class="fontWrap">
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">plus</md-icon>
+                </div>
+                <span>
+                    <span>上传凭证</span>
+                    <p>(最多三张)</p>
+                </span>
+            </div>
+        </div>
+
+    </md-content>
+    <div class="fixed">
+        <div>
+            <span>确认退货</span>
+        </div>
+
+    </div>
+</div>

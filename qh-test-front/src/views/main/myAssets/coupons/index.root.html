@@ -1,0 +1,168 @@
+<div flex="" layout="column" class="md-whiteframe-z2 ks-main appBody ks-Coupon">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+
+            <div class="divTop" flex class>
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">优惠券</span>
+            </div>
+
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+            <div class="inputCouponWrapBox">
+                <div class="inputCouponWrap" layout="row" layout-align="center center">
+                    <div class="inputCouponsWrap" flex>
+                        <form name="form">
+                            <input type="text" data-ng-model="vsChange.code"
+                                     placeholder="请输入优惠码" ng-minlength="6" name="yanzheng" required/>
+                        </form>
+                    </div>
+                    <div class="jhWrap" ng-class="{'jh-sure':form.yanzheng.$valid}"><span class="jh" ng-click="exchange()">兑换</span></div>
+                </div>
+            </div>
+
+
+            <div class="toggleDiv1">
+                <div class="towNav" layout="row">
+                    <div flex layout="row" layout-align="center center" ng-class="{cur:vsChange.not}"
+                         ng-click="clickChange(1)">可使用
+                    </div>
+                    <div flex layout="row" layout-align="center center" ng-class="{cur:vsChange.already}"
+                         ng-click="clickChange(2)">已使用
+                    </div>
+                    <div flex layout="row" layout-align="center center" ng-class="{cur:vsChange.overdue}"
+                         ng-click="clickChange(3)">已过期
+                    </div>
+                </div>
+                <div ng-if="vsChange.not">
+                    <div class="couponBox" layout="row" ng-repeat="coupon in not.resList">
+                        <div class="couponPrice" flex="33" ng-if="coupon.type==='ORDER'"><i>¥</i>&nbsp;<b>{{coupon.reduceMoney/100.0|num:0}}</b></div>
+                        <div class="couponPrice" flex="33" ng-if="coupon.type==='DISCOUNT'"><b>{{coupon.discount/10.0|num:1}}</b>&nbsp;<i>折</i></div>
+                        <div class="couponDate" flex layout="column">
+                            <!--<p ng-if="coupon.requiredMoney===0&&coupon.renovate===false">-->
+                                <!--无门槛使用-->
+                            <!--</p>-->
+                            <!--<p ng-if="coupon.renovate===true">-->
+                                <!--翻新优惠券-->
+                            <!--</p>-->
+                            <p>{{coupon.name}}</p>
+                            <!--<p class="" ng-if="coupon.requiredMoney!==0&&coupon.renovate===false">-->
+                                <!--满{{coupon.requiredMoney/100.0|num:0}}减{{coupon.reduceMoney/100.0|num:0}}</p>-->
+                            <p class="date">有效期：{{coupon.startTime | date:'yyyy-MM-dd'}} ~
+                                {{coupon.endTime|date:'yyyy-MM-dd'}}</p>
+                        </div>
+                    </div>
+                    <div class="toggleDiv2 empty" ng-if="not.resList.length===0">
+                        <div class="noneCoupon">
+                            <div class="cheng"></div>
+                            <div class="iconBoxWrap">
+                                <md-icon md-font-set="ks-icon" class="coupon icon">coupon</md-icon>
+                                <p>暂无优惠券</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="center center" style="padding: 10px" ng-click="notPageChanged()"
+                         ng-if="!(not.pageEnd)&&(not.totalCount>10)">
+
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow:none;">
+                            <!--<md-icon style="color: #999" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>-->
+                            点击加载更多...
+                        </md-button>
+                    </div>
+                    <div layout="row" ng-if="(not.pageEnd)&&(not.totalCount>10)" layout-align="center center"
+                         style="padding: 10px">
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow:none;">
+                            没有更多优惠券
+                        </md-button>
+                    </div>
+                </div>
+                <div ng-if="vsChange.already">
+                    <div class="couponBox" layout="row" ng-repeat="coupon in already.resList">
+                        <div class="couponPrice pri-disable" flex="33" ng-if="coupon.type==='ORDER'"><i>¥</i>&nbsp;<b>{{coupon.reduceMoney/100.0|num:0}}</b></div>
+                        <div class="couponPrice pri-disable" flex="33" ng-if="coupon.type==='DISCOUNT'"><b>{{coupon.discount/10.0|num:1}}</b>&nbsp;<i>折</i></div>
+                        <div class="couponDate date-disable" flex layout="column">
+                            <!--<p ng-if="coupon.requiredMoney===0&&coupon.renovate===false">-->
+                                <!--无门槛使用-->
+                            <!--</p>-->
+                            <!--<p ng-if="coupon.renovate===true">-->
+                                <!--翻新优惠券-->
+                            <!--</p>-->
+                            <p>{{coupon.name}}</p>
+                            <!--<p class="" ng-if="coupon.requiredMoney!==0&&coupon.renovate===false">-->
+                                <!--满{{coupon.requiredMoney/100.0|num:0}}减{{coupon.reduceMoney/100.0|num:0}}</p>-->
+                            <p class="date">有效期：{{coupon.startTime | date:'yyyy-MM-dd'}} ~
+                                {{coupon.endTime|date:'yyyy-MM-dd'}}</p>
+                        </div>
+                    </div>
+                    <div class="toggleDiv2 empty" ng-if="already.resList.length===0">
+                        <div class="noneCoupon">
+                            <div class="cheng"></div>
+                            <div class="iconBoxWrap">
+                                <md-icon md-font-set="ks-icon" class="coupon icon">coupon</md-icon>
+                                <p>暂无已使用优惠券</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="center center" style="padding: 10px" ng-click="alreadyPageChanged()"
+                         ng-if="!already.pageEnd&&already.totalCount>10">
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow:none;">
+                            <!--<md-icon style="color: #999" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>-->
+                            点击加载更多...
+                        </md-button>
+                    </div>
+                    <div layout="row" ng-if="already.pageEnd&&already.totalCount>10" layout-align="center center"
+                         style="padding: 10px">
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow:none;">
+                            没有更多优惠券
+                        </md-button>
+                    </div>
+                </div>
+                <div ng-if="vsChange.overdue">
+                    <div class="couponBox" layout="row" ng-repeat="coupon in overdue.resList">
+                        <div class="couponPrice pri-disable" flex="33" ng-if="coupon.type==='ORDER'"><i>¥</i>&nbsp;<b>{{coupon.reduceMoney/100.0|num:0}}</b></div>
+                        <div class="couponPrice pri-disable" flex="33" ng-if="coupon.type==='DISCOUNT'"><b>{{coupon.discount/10.0|num:1}}</b>&nbsp;<i>折</i></div>
+                        <div class="couponDate date-disable" flex layout="column">
+                            <!--<p ng-if="coupon.requiredMoney===0 && coupon.renovate===false">-->
+                                <!--无门槛使用-->
+                            <!--</p>-->
+                            <!--<p ng-if="coupon.renovate===true">-->
+                                <!--翻新优惠券-->
+                            <!--</p>-->
+                            <p>{{coupon.name}}</p>
+                            <!--<p class="" ng-if="coupon.requiredMoney!==0&&coupon.renovate===false">-->
+                                <!--满{{coupon.requiredMoney/100.0|num:0}}减{{coupon.reduceMoney/100.0|num:0}}</p>-->
+                            <p class="date">有效期：{{coupon.startTime | date:'yyyy-MM-dd'}} ~
+                                {{coupon.endTime|date:'yyyy-MM-dd'}}</p>
+                        </div>
+                    </div>
+                    <div class="toggleDiv2 empty" ng-if="overdue.resList.length===0">
+                        <div class="noneCoupon">
+                            <div class="cheng"></div>
+                            <div class="iconBoxWrap">
+                                <md-icon md-font-set="ks-icon" class="coupon icon">coupon</md-icon>
+                                <p>暂无已过期优惠券</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="center center" style="padding: 10px" ng-click="overduePageChanged()"
+                         ng-if="!overdue.pageEnd && overdue.totalCount>10">
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow:none;">
+                            <!-- <md-icon style="color: #999" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>-->
+                            点击加载更多...
+                        </md-button>
+                    </div>
+                    <div layout="row" layout-align="center center" style="padding: 10px"
+                         ng-if="overdue.pageEnd && overdue.totalCount>10">
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow:none;">
+                            没有更多优惠券
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>

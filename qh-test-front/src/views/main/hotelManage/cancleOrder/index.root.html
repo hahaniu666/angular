@@ -1,0 +1,38 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-hotelRefund">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>取消订单</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-content flex layout="column" style="overflow-x: hidden">
+        <div class="refund-wrap">
+            <div class="con" layout="row">
+                <div class="txt">取消原因：</div>
+                <div class="sel" flex>
+                    <select flex data-ng-model="vm.type" ng-change="vm.changeType()">
+                        <option value="ORGORDER_SKU">
+                            退货退款
+                        </option>
+                        <option value="ORGORDER">
+                            仅退款
+                        </option>
+                    </select>
+                </div>
+                <div class="icon-wrap" flex="10" layout="row">
+                    <md-icon class=" ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_down"></md-icon>
+                </div>
+            </div>
+            <div class="con" layout="row">
+                <div class="txt">取消说明：</div>
+                <textarea flex type="text" ng-model="vm.memo" placeholder="最多200字"></textarea>
+            </div>
+        </div>
+    </md-content>
+    <div class="submit-btn" layout="row" layout-align="center center">
+        <md-button class="ks-black " flex="90" ng-click="vm.update()">确定</md-button>
+    </div>
+
+</div>

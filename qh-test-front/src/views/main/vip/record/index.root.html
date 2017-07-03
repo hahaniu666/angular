@@ -1,0 +1,72 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-vipRecord">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>兑换记录</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex class="bg" ng-if="vm.record.result[0]">
+        <div class="msgWrap" ng-repeat="order in vm.record.result">
+            <div class="timeMsg" layout="row" layout-align="center center">
+                <span>{{order.date|date:"yyyy-MM-dd"}}</span>
+            </div>
+            <div class="centerMsg" layout="row" ng-click="vm.orderDetail(order)">
+                <div class="imgWrap">
+                    <img ng-src="{{vm.appConfig.imgUrl}}/{{order.item.img}}?imageView2/2/w/{{vm.imgService.simpleImg.w}}/h/{{vm.imgService.simpleImg.h}}"
+                         img-holder/>
+                </div>
+                <div flex class="detailWrap" layout="column" layout-align="space-between none">
+                    <div class="title">
+                        {{order.item.title}}
+                    </div>
+                    <div class="bottomMsg" layout="row" layout-align="space-between none">
+                        <div class="price" flex ng-if="order.integral>0 || order.price>0">
+                            {{order.item.integral/100.0|num:1}}钱币&nbsp;<span ng-if="order.price>0">（￥{{order.item.price/100|num:1}}）</span>
+                        </div>
+                        <div class="num">x1</div>
+                    </div>
+                </div>
+            </div>
+
+            <!--这个div如果没有，直接用ng-if判断消失即可-->
+            <div class="showDetail" layout="row" layout-align="space-between none" ng-click="vm.orderDetail(order)">
+                <div flex class="word">查看详情</div>
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+            </div>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px" ng-click="vm.page()"
+             ng-if="!vm.pageEnd">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                <!-- <md-icon style="color: #999;margin-right: 10px" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>-->
+                点击加载更多...
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="vm.pageEnd&&vm.totalCount>10">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                没有更多记录了
+            </md-button>
+        </div>
+    </md-content>
+    <md-content flex layout="column" class="empty" ng-if="!vm.record.result[0]">
+        <div flex layout="column" layout-align="center center">
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-sort-right-left" class="icon"></md-icon>
+            <div class="txt">啊哦，没有记录～</div>
+        </div>
+    </md-content>
+</div>
+
+<style>
+    .empty .icon {
+        font-size: 60px;
+        line-height: 60px;
+        margin: 0 0 15px;
+    }
+
+    .empty .txt {
+        color: #999;
+    }
+</style>

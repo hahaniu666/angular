@@ -1,0 +1,159 @@
+.qh {
+  //确认服务页面.服务详情页面也采用
+  .ok-service {
+    .ib-icon2, .ib-icon3 {
+      display: none;
+    }
+    .close {
+      display: none;
+    }
+    //重定义面板样式
+    .panel-default {
+      border-top: 2px solid #e5e5e5;
+      border-bottom: 2px solid #e5e5e5;
+      border-left: none;
+      border-right: none;
+      margin-bottom: 12px;
+      background-color: #fff;
+      border-radius: 0;
+    }
+    .panel-default .panel-heading {
+      background-image: none;
+      color: #333;
+      background-color: #fafafa;
+      border-color: #e5e5e5;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      //padding-top: 7px;
+      //padding-bottom: 7px;
+      //padding-left: 7px;
+      //padding-right: 7px;
+    }
+    .panel {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+    .panel .divitem{
+      line-height: 26px;
+    }
+    .panel-title {
+      font-weight: 500;
+    }
+    //面板脚
+    .panel-buy .panel-footer {
+      padding: 10px 7px 11px 7px;
+      background-color: #f5f5f5;
+      border-top: 1px solid @border-color;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+    }
+    .shopbuy-win1 {
+      margin-left: 1em;
+      margin-right: 1em;
+      padding-left: 1em;
+      padding-right: 1em;
+      //padding-left: 0;
+      border: 1px solid #e5e5e5;
+    }
+    .shopbuy-win1 > div {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    .shopbuy-win1 > div.ui1 {
+      //padding-left: 1em !important;
+      padding-right: 0 !important;
+      padding-left: 7px !important;
+    }
+
+    .shopbuy-win1 + .shopbuy-win1 {
+      margin-top: 7px;
+    }
+
+    //div.divitem:not(:first-child) {
+    //  padding-left: 2em;
+    //}
+    .shopbuy-win1 {
+
+      .divitem {
+        .ib-name {
+          font-weight: normal;
+          color: #646464;
+        }
+        .ib-value {
+          font-weight: normal;
+          color: #646464;
+        }
+
+        .divitem:first-child {
+          .ib-name {
+            font-weight: normal;
+            color: #eb5252;
+          }
+          .ib-value {
+            font-weight: normal;
+            color: #eb5252;
+          }
+        }
+
+      }
+    }
+
+      li > div > .divitem {
+        padding-left: 2em;
+        padding-right: 2em;
+
+      }
+
+      li > .divitem:first-child {
+        .ib-name {
+          font-weight: bold;
+          color: #323232;
+        }
+        .ib-value {
+          font-weight: bold;
+          color: #323232;
+        }
+      }
+
+      .list-group-item {
+        > div.divitem:first-child {
+          //background-color: red;
+          .ib-name {
+            font-size: 14px !important;
+            font-weight: bold !important;
+            color: #323232 !important;
+            //color: red !important;
+          }
+          .ib-value {
+            font-weight: bold !important;
+          }
+          .ib-icon2 {
+            display: none;
+          }
+        }
+        > div.divitem:not(:first-child) {
+          padding:0  2em;
+          line-height: 26px;
+        }
+        label.divitem ~ div {
+          padding-left: 0 !important;
+        }
+
+      }
+
+      div.divitem:first-child {
+        //line-height: 38px;
+        //background-color: red;
+      }
+      .div-after > div {
+        line-height: 26px;
+        padding-left: 2.5em;
+        padding-right: 2.5em;
+        //background-color: greenyellow;
+      }
+
+    }
+
+  }

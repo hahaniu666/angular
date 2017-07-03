@@ -1,0 +1,485 @@
+.qh {
+  //全部商品
+  .all-goods {
+    background-color: #fff;
+    padding-top: 9px;
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      height: auto;
+      max-width: 100%;
+      //width: 100%;
+    }
+
+    .p-img {
+      text-align: center;
+      //background-color: #f1f1f1;
+      background-color: #ffffff;
+      background-repeat: repeat;
+      background-size: auto auto;
+      img {
+        display: inline-block;
+        vertical-align: middle;
+        height: auto;
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    a {
+      color: #333;
+      display: block;
+      padding-bottom: 0.5em;
+    }
+
+    a:link, a:visited, ins {
+      text-decoration-color: -moz-use-text-color;
+      text-decoration-line: none;
+      text-decoration-style: solid;
+    }
+
+    a {
+      background-attachment: scroll;
+      background-clip: border-box;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: none;
+      background-origin: padding-box;
+      background-position: 0 center;
+      background-repeat: repeat;
+      background-size: auto auto;
+      text-decoration-color: -moz-use-text-color;
+      text-decoration-line: none;
+      text-decoration-style: solid;
+    }
+
+    /*16px字体根,正好是10px*/
+    .flag {
+      margin-left: 10px;
+    }
+
+    .p-info {
+      //margin-bottom: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 7px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      //text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+      text-align: left;
+      color: @h3-color;
+      font-size: 12px;
+      //height: 38px;
+      line-height: 1.5em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .p-info2 {
+      //margin-bottom: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      //text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+      text-align: left;
+      color: @h3-color;
+      font-size: 12px;
+      //height: 38px;
+      line-height: 1.5em;
+      height: 3em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .c-product-value .small-block-grid-2 {
+      margin-bottom: 0;
+      margin-left: 4px;
+      margin-right: 4px;
+      margin-top: 0;
+    }
+
+    .small-block-grid-2 > li:nth-of-type(2n+1) {
+      clear: both;
+    }
+
+    .small-block-grid-2 > li {
+      list-style-image: none;
+      list-style-position: outside;
+      list-style-type: none;
+      width: 50%;
+
+      margin-bottom: 4px;
+      padding-bottom: 0;
+      padding-left: 4px;
+      padding-right: 4px;
+      padding-top: 0;
+    }
+    .small-block-grid-2 > li {
+      //display: block;
+      //float: left;
+      display: inline-block;
+      height: auto;
+      padding-bottom: 0;
+      padding-left: 3px;
+      padding-right: 3px;
+      padding-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .small-block-grid-2 > li:nth-of-type(n) {
+      clear: none;
+    }
+    .small-block-grid-2 > li {
+      list-style-image: none;
+      list-style-position: outside;
+      list-style-type: none;
+      width: 50%;
+    }
+
+    .line-bd1{
+      border: 1px solid @border-color;
+      //padding-bottom: 3px;
+    }
+    .flag{
+      margin-left: 10px;
+      margin-bottom: 4px;
+      overflow: hidden;
+      span{
+        height: 20px;
+        line-height: 20px;
+      }
+      .price-text{
+        float: left;
+        color: @red-color;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .popular{
+        float: right;
+        padding-right: 10px;
+        font-size: 11px;
+        color: @text-color;
+      }
+    }
+  }
+  .goods-btn-cell{
+    .goods-btn{
+      width: 100%;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+    }
+  }
+//三列图文,全部商品页面
+  .all-goods2 {
+    background-color: #f5f5f5;
+    padding-top: 9px;
+    .goods2-wrap{
+
+
+    }
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      height: auto;
+      max-width: 100%;
+      //width: 100%;
+    }
+
+    .p-img {
+      text-align: center;
+      background-color: #f1f1f1;
+      background-repeat: repeat;
+      background-size: auto auto;
+      img {
+        display: inline-block;
+        vertical-align: middle;
+        height: auto;
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+    .p-img-text{
+      padding-top: 100%;
+      position: relative;
+      span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+      }
+      //table{
+      //  position: absolute;
+      //  top: 0;
+      //  left: 0;
+      //  width: 100%;
+      //  height: 100%;
+      //}
+
+    }
+
+    a {
+      color: #333;
+      display: block;
+      padding-bottom: 0.5em;
+    }
+
+    a:link, a:visited, ins {
+      text-decoration-color: -moz-use-text-color;
+      text-decoration-line: none;
+      text-decoration-style: solid;
+    }
+
+    a {
+      background-attachment: scroll;
+      background-clip: border-box;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: none;
+      background-origin: padding-box;
+      background-position: 0 center;
+      background-repeat: repeat;
+      background-size: auto auto;
+      text-decoration-color: -moz-use-text-color;
+      text-decoration-line: none;
+      text-decoration-style: solid;
+    }
+
+    /*16px字体根,正好是10px*/
+    .flag {
+      margin-left: 10px;
+    }
+
+    .p-info {
+      //margin-bottom: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 7px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      //text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+      text-align: left;
+      color: @h3-color;
+      font-size: 12px;
+      //height: 38px;
+      line-height: 1.5em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .p-info2 {
+      //margin-bottom: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      //text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+      text-align: left;
+      color: @h3-color;
+      font-size: 12px;
+      //height: 38px;
+      line-height: 1.5em;
+      height: 3em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .c-product-value .small-block-grid-2 {
+      margin-bottom: 0;
+      margin-left: 4px;
+      margin-right: 4px;
+      margin-top: 0;
+
+      white-space: nowrap;
+    }
+
+    .small-block-grid-2 > li:nth-of-type(2n+1) {
+      clear: both;
+    }
+
+    .small-block-grid-2 > li {
+      list-style-image: none;
+      list-style-position: outside;
+      list-style-type: none;
+      width: 50%;
+
+      margin-bottom: 4px;
+      padding-bottom: 0;
+      padding-left: 4px;
+      padding-right: 4px;
+      padding-top: 0;
+    }
+    .small-block-grid-2 > li {
+      //display: block;
+      //float: left;
+      display: inline-block;
+      height: auto;
+      padding-bottom: 0;
+      padding-left: 3px;
+      padding-right: 3px;
+      padding-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .small-block-grid-2 > li:nth-of-type(n) {
+      clear: none;
+    }
+    .small-block-grid-2 > li {
+      list-style-image: none;
+      list-style-position: outside;
+      list-style-type: none;
+      width: 33.3%;
+    }
+
+    .line-bd1{
+      border: 1px solid @border-color;
+      //padding-bottom: 3px;
+    }
+    .flag{
+      margin-left: 10px;
+      margin-bottom: 4px;
+      overflow: hidden;
+      span{
+        height: 20px;
+        line-height: 20px;
+      }
+      .price-text{
+        //float: left;
+        color: @red-color;
+        font-size: 12px;
+        font-weight: bold;
+        margin-right: 1em;
+      }
+      .popular{
+        float: right;
+        padding-right: 10px;
+        font-size: 11px;
+        color: @text-color;
+      }
+      del{
+        color: @text-color;
+        font-size: 12px;
+      }
+    }
+  }
+  //新滑动样式
+  .newswiper{
+    .swiper-wrapper{
+
+      .swiper-slide{
+        margin-right: 6px;
+      }
+      .swiper-slide:first-child{
+        margin-left: 6px;
+      }
+    }
+
+  }
+  .all-goods-banner{
+    max-width:640px;
+    min-width: 320px;
+    margin-bottom: 14px;
+    margin-top: 12px;
+    div.banner1{
+      display: block;
+      img{
+        max-width:100%;
+      }
+      .abscm-bannertext{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        display: inline-block;
+
+        color: #ffffff;
+        text-align: center;
+        h3{
+          font-size: 18px;
+          color: #ffffff;
+          margin-bottom: 12px;
+
+        }
+        .lookall-text{
+          display: inline-block;
+          padding: 4px;
+          //background-color: @red-color;
+          font-size: 12px;
+          //opacity: 0.5;
+          background-color: rgba(197,4,5,0.6);
+          .iconfont{
+            color: #ffffff;
+            font-size: 8px;
+          }
+
+
+        }
+      }
+    }
+  }
+
+  .triangle-down2 {
+    //width: 100px;
+    //height: 60px;
+    /*margin-left: 200px;*/
+    //background-color: red;
+    position: relative;
+  }
+
+  .triangle-down2:after {
+    border: solid transparent;
+    border-top-color: #ccc;
+    border-width: 6px;
+    content: " "; /* blank space */
+    height: 0;
+    bottom: -12px; /* centers it */
+    margin-left: 0px;
+    position: absolute;
+    left: 50%; /* makes it appear below bubble */
+    width: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    //z-index: -1;
+    z-index: 2;
+  }
+
+  /* 首页查看全部按钮样式 */
+  .lookall {
+
+    button {
+      width: 100%;
+      padding: 1em;
+      border: 1px solid #e5e5e5;
+      background-color: #fff;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      color: #666;
+    }
+
+    .btn:hover,
+    .btn:focus,
+    .btn.focus {
+      color: #727272;
+      text-decoration: none;
+    }
+  }
+}

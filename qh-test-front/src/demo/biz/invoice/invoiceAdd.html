@@ -1,0 +1,55 @@
+<div flex="" layout="column" class="ks-main ks-invoice-add">
+
+    <md-toolbar class="md-menu-toolbar ks-header">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button">
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+            </md-button>
+            <h1 flex>发票抬头</h1>
+            <div class="icon-placeholder-right"></div>
+        </div>
+    </md-toolbar>
+
+    <md-content flex layout="column" class="top-border">
+
+        <!-- 个人发票 -->
+        <div class="block">
+            <div class="title-row" layout-align="center center" layout="" ng-click="selected = 'person'">
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-selected" ng-if="selected == 'person'"></md-icon>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-unselected" ng-if="selected != 'person'"></md-icon>
+                <div flex layout="" layout-align="start center">个人发票</div>
+            </div>
+            <md-divider class="dashed" ng-if="selected == 'person'"></md-divider>
+            <div class="content-row no-right" layout="row" ng-if="selected == 'person'">
+                <input type="text" placeholder="请输入抬头名称">
+            </div>
+        </div>
+
+        <md-divider></md-divider>
+        <!-- 公司发票 -->
+        <div class="block">
+            <div class="title-row" layout-align="center center" layout="" ng-click="selected = 'com'">
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-selected" ng-if="selected == 'com'"></md-icon>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-unselected" ng-if="selected != 'com'"></md-icon>
+                <div flex layout="" layout-align="start center">公司发票</div>
+            </div>
+            <md-divider class="dashed" ng-if="selected == 'com'"></md-divider>
+            <div class="content-row no-right" layout="row" ng-if="selected == 'com'">
+                <input type="text" placeholder="请输入抬头名称">
+            </div>
+        </div>
+        <md-divider></md-divider>
+
+        <div layout="" class="set-default-row">
+            <div flex>设为默认抬头</div>
+            <md-switch class="md-warn">
+                Disabled
+            </md-switch>
+        </div>
+
+        <div layout="row" layout-align="center center" class="confirm-row">
+            <md-button class="md-primary md-raised" flex> 确定</md-button>
+        </div>
+    </md-content>
+
+</div>

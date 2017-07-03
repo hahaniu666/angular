@@ -1,0 +1,357 @@
+<div flex="" layout="column" class="ks-groupOrderStatus ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left"
+                         ui-sref="main.unionOrder({orgId:'584662c0dc8d4c2a21c37234'})"
+                         md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">订单详情</span>
+            </div>
+        </div>
+        <span class="cancleBtn"
+              ng-click="orderCancel($event)"
+              ng-if="order.groupOrder.status==='UNPAYED'">取消订单</span>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex>
+        <div class="orderDetailHeader" ng-if="classActive.view">
+            <div class="orderDetailHeaderTop">
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.groupOrder.status==='UNPAYED'">card
+                </md-icon>
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.groupOrder.status==='UNGROUP'"
+                         md-font-icon="ks-menbers"></md-icon>
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.groupOrder.status==='UNSHIP'"
+                         md-font-icon="ks-drawer-arrow-up"></md-icon>
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.groupOrder.status==='UNRECEIVE'">edit
+                </md-icon>
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.groupOrder.status==='UNSERVICE'"
+                         md-font-icon="ks-drawer-arrow-up"></md-icon>
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.groupOrder.status==='UNCOMMENT'"
+                         md-font-icon="ks-edit"></md-icon>
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.groupOrder.status==='SUCCESS'">done
+                </md-icon>
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.groupOrder.status==='CLOSED'">done</md-icon>
+                <md-icon class="ks-icon" md-font-set="ks-icon" ng-if="order.groupOrder.status==='REFUNDING'">done
+                </md-icon>
+
+
+                <div>{{order.groupOrder.status_desp}}</div>
+            </div>
+            <div class="circle-msg-wrap" layout="column" layout-align="center center">
+                <div class="circle-wrap" layout="row" layout-align="space-between center">
+
+                    <!--第一条线对应第二个圆。以此类推-->
+                    <!--判断active位置-->
+                    <!--第一个圆，一直显示-->
+                    <div class="circle"
+                         ng-class="{active:order.groupOrder.status == 'UNPAYED' || order.groupOrder.status != 'CLOSED' }"
+                    ></div>
+                    <!--第一条线-->
+                    <div flex class="line"
+                         ng-class="{lineActive:order.groupOrder.status != 'UNPAYED'  && order.groupOrder.status != 'CLOSED' }"
+                    ></div>
+                    <!--第二个圆-->
+                    <div class="circle"
+                         ng-class="{active:order.groupOrder.status != 'UNPAYED' && order.groupOrder.status != 'CLOSED' }"
+                    ></div>
+
+                    <!--第二个线-->
+                    <div flex class="line"
+                         ng-class="{lineActive:order.groupOrder.status == 'UNSHIP'||order.groupOrder.status == 'UNRECEIVE'||order.groupOrder.status == 'SUCCESS'
+                             ||order.groupOrder.status == 'UNCOMMENT'||order.groupOrder.status == 'REFUNDING'}"
+                    ></div>
+                    <!--第三个圆-->
+                    <div class="circle"
+                         ng-class="{active:order.groupOrder.status == 'UNSHIP'||order.groupOrder.status == 'UNRECEIVE'||order.groupOrder.status == 'SUCCESS'
+                             ||order.groupOrder.status == 'UNCOMMENT'||order.groupOrder.status == 'REFUNDING'}"
+                    ></div>
+
+                    <!--第三个线-->
+                    <div flex class="line"
+                         ng-class="{lineActive:order.groupOrder.status == 'SUCCESS'
+                             ||order.groupOrder.status == 'UNCOMMENT'||order.groupOrder.status == 'REFUNDING'}"></div>
+                    <!--第四个圆-->
+                    <div class="circle"
+                         ng-class="{active:order.groupOrder.status == 'SUCCESS'
+                             ||order.groupOrder.status == 'UNCOMMENT'||order.groupOrder.status == 'REFUNDING'}"></div>
+                    <!--第四个线-->
+                    <div flex class="line"
+                         ng-class="{lineActive:order.groupOrder.status == 'SUCCESS'||order.groupOrder.status == 'REFUNDING'}"></div>
+                    <!--第5个圆-->
+                    <div class="circle"
+                         ng-class="{active:order.groupOrder.status == 'SUCCESS'||order.groupOrder.status == 'REFUNDING'}"></div>
+                </div>
+                <div class="txt-wrap" layout="row" layout-align="space-between center">
+                    <div class="msg-txt active">
+                        提交订单
+                    </div>
+                    <div class="msg-txt"
+                         style="margin-left: -7px"
+                         ng-class="{active:order.groupOrder.status != 'UNPAYED' && order.groupOrder.status != 'CLOSED' }">
+                        已支付
+                    </div>
+                    <div class="msg-txt"
+                         ng-class="{active:order.groupOrder.status == 'UNSHIP'||order.groupOrder.status == 'UNRECEIVE'||order.groupOrder.status == 'SUCCESS'
+                             ||order.groupOrder.status == 'UNCOMMENT'||order.groupOrder.status == 'REFUNDING'}">
+                        已成团
+                    </div>
+                    <div class="msg-txt"
+                         ng-class="{active:order.groupOrder.status == 'SUCCESS'
+                             ||order.groupOrder.status == 'UNCOMMENT'||order.groupOrder.status == 'REFUNDING'}">
+                        已收货
+                    </div>
+                    <div class="msg-txt"
+                         ng-class="{active:order.groupOrder.status == 'SUCCESS'||order.groupOrder.status == 'REFUNDING'}">
+                        已评价
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="partLine"></div>
+
+        <!--订单信息-->
+        <!--<div class="orderMessage" ng-if="classActive.view">-->
+        <!--<div class="orderMessageTop">-->
+        <!--<div class="leftBlock"></div>-->
+        <!--<span>订单信息</span>-->
+        <!--</div>-->
+        <!--<div class="orderMessageWrap">-->
+        <!--<div class="wrapChild">-->
+        <!--<div class="txtMessage">订单编号：</div>-->
+        <!--<span>{{order.seq}}</span>-->
+        <!--</div>-->
+        <!--<div class="wrapChild">-->
+        <!--<div class="txtMessage">下单时间：</div>-->
+        <!--<span>{{order.dateCreated|date:"yyyy-MM-dd HH:mm"}}</span>-->
+        <!--</div>-->
+
+        <!--</div>-->
+        <!--<md-divider></md-divider>-->
+        <!--</div>-->
+
+        <div class="distribution" ng-if="order.type!=='CLEANORDER'">
+            <div class="distributionHeader">
+                <div class="leftBlock"></div>
+                <span>配送</span>
+            </div>
+            <div class="txtWrap" layout="row">
+                <div class="txt" style="font-size: 14px; text-indent: 18px;  width: 85px;">订单跟踪:</div>
+                <div class="txt" flex style="margin-left: 5px" layout="row" ng-click="queryLogistics()"
+                     ng-if="order.groupOrder.status == 'UNGROUP'">
+                    拼团中,还差{{order.peopleNum}}人即可成团<br>
+                    {{order.groupOrder.unionOrder.dateCreated|date:'yyyy-MM-dd HH:MM:ss'}}
+                </div>
+                <div class="txt" flex style="margin-left: 5px" layout="row" ng-click="queryLogistics()"
+                     ng-if="order.groupOrder.status != 'UNGROUP'">
+                    {{order.groupOrder.status_desp}}<br>
+                    {{order.groupOrder.unionOrder.dateCreated|date:'yyyy-MM-dd HH:MM:ss'}}
+                </div>
+
+
+                <div class="txt" flex="8" layout="row" layout-align="end">
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_right</md-icon>
+                </div>
+            </div>
+            <!--<div class="txt" flex="8" layout="row" layout-align="end">-->
+            <!--<md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_right</md-icon>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="distributionMode">
+                <div class="txt" style="font-size: 14px; text-indent: 18px;  width: 85px;">配送方式:</div>
+                <span>快递 包邮</span>
+            </div>
+            <div class="address" layout="column">
+                <div class="addressTxt">{{order.groupOrder.addr.contact}} {{order.groupOrder.addr.phone}}</div>
+                <div class="addressTxt" flex layout="row">
+                    {{order.groupOrder.addr.province}}/{{order.groupOrder.addr.city}}/
+                    {{order.groupOrder.addr.area}}/{{order.groupOrder.addr.street}}
+                </div>
+            </div>
+        </div>
+        <div class="commodityList">
+            <div class="commodityListHeader">
+                <div class="leftBlock"></div>
+                <span>商品清单</span>
+            </div>
+        </div>
+        <div class="commodityListContent">
+            <md-divider class="dashed"></md-divider>
+            <img class="contentListImg"
+                 ng-src="{{imgUrl}}{{order.groupOrder.sku.img.key}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}">
+            <div class="contentListRight" ng-click="itemDetail(orderItem)">
+                <div class="right1">{{order.groupOrder.sku.itemTitle}}</div>
+                <div class="item-specs">
+                    <span ng-repeat="spec in order.groupOrder.sku.specs">
+                        <span>{{spec.name}}:{{spec.value}}；</span>
+                        <!--<span ng-if="$index == orderItem.specs.length-1">{{spec.name}}:{{spec.value}}</span>-->
+                    </span>
+                </div>
+                <div class="num1">￥{{order.groupOrder.totalPrice/100.0|num:1}}</div>
+                <div class="num2">x{{order.groupOrder.num}}</div>
+                <br style="clear: both">
+            </div>
+            <div class="ib" layout="row" ng-if="order.groupOrder.status == 'UNSHIP'||order.groupOrder.status == 'UNRECEIVE'||order.groupOrder.status == 'SUCCESS'
+                ||order.groupOrder.status == 'UNCOMMENT'||order.groupOrder.status == 'REFUNDING'">
+
+                <span flex layout="column" layout-align="center end"></span>
+                <span class="ibButton" ng-if="order.groupOrder.refund" layout="row">
+                        <i flex></i>
+                        <md-button class="ks-white ibBtn"
+                                   ng-class="{refundOnlyText:orderItem.refund.status!='FINISHED',refundOnlyFinish:orderItem.refund.status==='FINISHED'}"
+                                   ng-if="order.groupOrder.refund">
+                            <span ng-click="inputLogistics(order.groupOrder.refund)"
+                                  ng-if="order.groupOrder.refund.status==='WAIT_BUYER_SENDING'">{{order.groupOrder.refund.status_desp}}</span>
+                            <span ng-if="order.groupOrder.refund.status!='WAIT_BUYER_SENDING'">{{order.groupOrder.refund.status_desp}}</span>
+                        </md-button>
+                    <!--<md-button class="ks-white ibBtn"-->
+                    <!--ng-if="orderItem.refund.status==='WAIT_BUYER_SENDING'"-->
+                    <!--ng-click="inputLogistics(orderItem.refund)">-->
+                    <!--{{orderItem.refund.name}}-->
+                    <!--</md-button>-->
+                    </span>
+                <span class="ibButton" ng-if="!order.groupOrder.refund" layout="row">
+                        <i flex></i>
+                         <md-button class="ks-white ibBtn" ng-click="orderRefund(order.groupOrder)">退款</md-button>
+                         <i flex="5"></i>
+                    </span>
+
+            </div>
+            <br style="clear: both">
+        </div>
+        <div class="discount">
+            <md-divider></md-divider>
+            <div class="discountHeader">
+                <div class="leftBlock"></div>
+                <span>优惠券</span>
+                <p ng-if="!order.coupon"
+                   style="font-size: 14px;color: #999;height: 0px; margin-right: 7px;float: right;display: inline">
+                    未选择</p>
+                <br style="clear: both">
+            </div>
+            <md-divider ng-if="!order.coupon" style="clear: both"></md-divider>
+            <md-divider ng-if="order.coupon" class="dashed" style="clear: both;margin-left: 12px"></md-divider>
+            <div class="discountbottom" ng-if="order.coupon">
+                {{order.coupon.name}}
+            </div>
+        </div>
+        <div class="invoice">
+            <div class="invoiceHeader">
+                <div class="leftBlock"></div>
+                <span>发票信息</span>
+                <p ng-if="!order.invoiceTitle"
+                   style="font-size: 14px;height: 0px; color: #999; margin-right: 7px;float: right;display: inline">
+                    未选择</p>
+            </div>
+            <md-divider ng-if="!order.invoiceTitle" style="clear: both"></md-divider>
+            <md-divider ng-if="order.invoiceTitle" class="dashed" style="clear: both;margin-left: 12px"></md-divider>
+            <div class="invoiceMode" ng-if="order.invoiceTitle">
+                <div class="txt" style="font-size: 14px; text-indent: 30px;  width: 96px;">
+                    发票抬头:
+                </div>
+                <span>{{order.invoiceTitle}}</span>
+            </div>
+            <!--<div class="textArea" ng-if="order.type!=='CLEANORDER'">-->
+            <!--<div class="message">{{order.groupOrder.buyerMemo}}</div>-->
+            <!--&lt;!&ndash; <textarea flex style="resize: none"-->
+            <!--placeholder="买家备注"></textarea>&ndash;&gt;-->
+            <!--</div>-->
+        </div>
+        <!--<div style="background:#fff; flex-shrink: 0;min-height: 48px" ></div>-->
+
+        <md-divider ng-if="order.status!='CANCELING'&&order.status=='UNPAYED'"></md-divider>
+        <div class="pay-amount" layout="column" layout-align="center center"
+             ng-if="order.status=='UNPAYED'">
+            应付金额：￥{{(order.paymentAmount)/100.0|num:1}}
+        </div>
+        <!--礼品卡-->
+        <!--<div class="invoice">-->
+        <!--<div class="invoiceHeader">-->
+        <!--<div class="leftBlock"></div>-->
+        <!--<span>使用礼品卡抵用￥{{order.useGiftAmount/100|num:1}}</span>-->
+        <!--&lt;!&ndash;<md-switch style="float: right;display: inline;margin: 10px 0 0 0 " class="ks-gold"></md-switch>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<md-divider style="clear: both;padding-top: -10px"></md-divider>-->
+        <!--</div>-->
+        <div class="cash">
+            <!--<div class="csahTxt">商品金额：￥{{(order.orderPrice)/100.0|num:2}}</div>
+            <div class="csahTxt" ng-if="order.adjustedAmount">客服修改：￥{{order.adjustedAmount/100.0|num:2}}</div>
+            <div class="csahTxt" ng-if="order.coupon">{{order.coupon.name}}：-￥{{order.coupon.reduceMoney/100.0|num:2}}
+            </div>-->
+
+            <!-- --------------------------------------此处有修改---------------------------------------------- -->
+            <div class="csahTxt">商品金额：￥{{(order.groupOrder.totalPrice)/100.0|num:1}}</div>
+            <!--<div class="csahTxt" ng-if="order.coupon">优惠券：-￥{{order.coupon.reduceMoney/100.0|num:1}}</div>-->
+            <!--<div class="csahTxt" ng-if="order.orderItems&&minusPrice>0">-->
+            <!--指定满减活动- ￥{{minusPrice/100.0|num:1}}-->
+            <!--</div>-->
+            <!--<div class="csahTxt" ng-if="order.activitys.length>0">-->
+            <!--{{order.activitys[0].name}}- ￥{{order.activitys[0].price/100.0|num:1}}-->
+            <!--</div>-->
+            <!--<div class="csahTxt" ng-if="order.useGiftAmount > 0">-->
+            <!--使用礼品卡:- ￥{{order.useGiftAmount/100|num:1}}-->
+            <!--</div>-->
+            <div class="csahTxt" style="color: #101010" ng-if="order.status!='UNPAYED'">
+                应付金额：￥{{(order.groupOrder.paymentAmount)/100.0|num:1}}
+            </div>
+        </div>
+        <div class="textArea" ng-if="order.type!=='CLEANORDER'">
+            <div class="message">{{order.groupOrder.buyerMemo}}</div>
+            <!-- <textarea flex style="resize: none"
+                       placeholder="买家备注"></textarea>-->
+        </div>
+        <!--<div style="background:#fff; flex-shrink: 0;min-height: 48px" ></div>-->
+    </md-content>
+    <md-divider ng-if="order.status!='CANCELING'&&order.status=='UNPAYED'"></md-divider>
+    <!--<div class="pay-amount" layout="column" layout-align="center center"-->
+    <!--ng-if="order.status=='UNPAYED'">-->
+    <!--应付金额：￥{{(order.paymentAmount)/100.0|num:1}}-->
+    <!--</div>-->
+    <div class="submit-btn" layout="row" layout-align="center center" ng-if="order.groupOrder.status =='UNGROUP'">
+        <!--<md-button class="ks-black md-raised" flex="50" ng-click="vm.maskShow()">-->
+        <!--邀请好友-->
+        <!--</md-button>-->
+        <md-button class="ks-black md-raised" flex ng-click="goStartGroup()"
+                   style="background: #333 !important;">
+            拼团详情
+        </md-button>
+    </div>
+    <div class="submit-btn" layout="row" layout-align="center center" ng-if="order.groupOrder.status =='UNPAYED'">
+        <md-button class="ks-black md-raised" flex="100" ng-click="createOrder()"
+                   style="background: #333 !important;">
+            去支付
+        </md-button>
+    </div>
+    <div class="submit-btn" layout="row" layout-align="center center" ng-if="order.groupOrder.status !='UNGROUP' &&
+    order.groupOrder.status !='UNPAYED'&& order.groupOrder.status !='CLOSED' ">
+
+        <md-button class="ks-black md-raised" flex ng-click="goStartGroup()" style="background: #ba9f6e !important;"
+                   ng-if="order.groupOrder.status =='UNRECEIVE' ||order.groupOrder.status =='UNCOMMENT'">
+            拼团详情
+        </md-button>
+        <md-button class="ks-black md-raised" flex ng-click="goStartGroup()" style="background: #333 !important;"
+                   ng-if="order.groupOrder.status !='UNRECEIVE' && order.groupOrder.status !='UNCOMMENT'">
+            拼团详情
+        </md-button>
+
+        <md-button class="ks-black md-raised" flex ng-click="orderConfirm()"
+                   ng-if="order.groupOrder.status =='UNRECEIVE'">
+            确认收货
+        </md-button>
+        <md-button class="ks-black md-raised" flex ng-click="orderComment()"
+                   ng-if="order.groupOrder.status =='UNCOMMENT'">
+            去评价
+        </md-button>
+
+    </div>
+    <!--遮罩-->
+    <div class="mask" ng-if="vm.mask">
+        <div class="maskButton">
+            <div class="shareKnow" ng-click="vm.maskHide()" md-font-icon="ks-arrow_left"></div>
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,274 @@
+.ks-main.ks-orderSuccess {
+  //header开始
+  .ks-header._md {
+    height: 30px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+
+    }
+  }
+  .content-divWrap .InformationBox .IfmRow .floatRight .rightChildren {
+    display: inline-block;
+    font-size: 14px;
+    color: #999;
+    margin-right: -6px;
+  }
+  .content-divWrap .InformationBox .IfmRow .floatRight .rightChildren span {
+    color: #999;
+  }
+  .content-divWrap .InformationBox .IfmRow .floatRight .rightChildren span.redTxt {
+    color: #dd191d;
+  }
+  .InformationBox {
+    margin: 0 0 0 10px;
+    .headerDiv {
+      height: 65px;
+      .Information {
+        color: #101010;
+        font-size: 14px;
+        line-height: 65px;
+      }
+      .floatRight {
+        float: right;
+        line-height: 65px;
+        .rightChildren {
+          overflow: hidden;
+          display: inline-block;
+          font-size: 14px;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: 1px solid #d5d5d5;
+          background-color: #f5f5f5;
+          line-height: 44px;
+          font-size: 12px;
+          color: #d5d5d5;
+          margin-top: 10px;
+          text-align: center;
+          float: left;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .chevron_right {
+          margin: 0 10px 0 0px;
+          font-size: 12px;
+          color: #999;
+          line-height: 24px;
+          text-align: center;
+        }
+      }
+    }
+    .IfmRow {
+      border-top: 1px solid #d5d5d5;
+      height: 44px;
+      .Information {
+        color: #101010;
+        font-size: 14px;
+        line-height: 44px;
+      }
+      .floatRight {
+        float: right;
+        line-height: 44px;
+        .rightChildren {
+          display: inline-block;
+          font-size: 14px;
+          .md-font {
+            font-size: 14px;
+            text-align: right;
+            color: #999999;
+          }
+          span {
+            color: #101010;
+          }
+        }
+        .chevron_right {
+          margin: 0 10px 0 0px;
+          font-size: 12px;
+          color: #999;
+          line-height: 24px;
+          text-align: right;
+        }
+        .chevron_right.md-font.ks-arrow_right.ks-icon.ks-diy {
+          margin: 0 0 0 10px;
+        }
+      }
+    }
+    &:first-child {
+      border-top: none;
+    }
+  }
+  .botTxt {
+    text-align: center;
+    margin: 15px auto 30px auto;
+    color: #999;
+    font-size: 14px;
+  }
+  .weixin {
+    .mdWrap {
+      background: #62b566;
+    }
+
+  }
+  .zhifu {
+    .mdWrap {
+      background: #4fa5db;
+    }
+  }
+  .weixin, .zhifu {
+    width: 50%;
+    float: left;
+    .mdWrap {
+      width: 25px;
+      height: 25px;
+      display: block;
+      float: left;
+      margin: 9px 10px 0 0;
+      md-icon {
+        line-height: 25px;
+        text-align: center;
+        font-size: 15px;
+        color: #fff;
+      }
+    }
+  }
+
+  .content-divWrap {
+
+    .changeTxtEmailBox {
+
+      text-align: center;
+      height: 107px;
+      background: #333;
+      p {
+        color: #fff;
+        font-size: 15px;
+
+      }
+      p.bindEmailTxt {
+        padding-top: 10px;
+        margin-top: 0px;
+        md-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 40px;
+          line-height: 40px;
+          color: #ba9f6e;
+        }
+      }
+    }
+    .loginPassRow {
+      position: relative;
+      margin: 0 10px;
+      height: 44px;
+      border-bottom: 1px solid #d5d5d5;
+      input {
+        background: transparent;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        border: none;
+        font-size: 14px;
+        color: #999;
+      }
+      .layout-row-input {
+        height: 30px;
+        border-right: 1px solid #d5d5d5;
+        margin-top: 5px;
+        color: #ccc;
+      }
+      .layout-align-center-center {
+        color: #ccc;
+      }
+    }
+    .loginPassRow.diy {
+      margin: 0;
+      .sexTxt {
+        margin-left: 10px;
+      }
+    }
+    .bindcolor {
+      input {
+        color: #999;
+      }
+    }
+    .butWrap {
+      margin: 20px 10px 10px 10px;
+      .but {
+        width: 100%;
+        height: 40px;
+        background: #333;
+        color: #fff;
+        font-size: 14px;
+        border: none;
+      }
+    }
+  }
+
+  .backShow {
+    width: 100%;
+    background: url(../assets/bg-img/zhifubg.png) repeat-x center center;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+  }
+
+  .back {
+    .backScreen {
+      background: url(../assets/bg-img/zhifubg.png) repeat-x top center;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+    }
+    .img-wrap {
+      width: 100%;
+      height: 100%;
+      .androidBg {
+        z-index: 1000;
+        position: absolute;
+        right: 10px;
+        top: 0;
+        width: 80%;
+        height: 100%;
+        background: url(../assets/bg-img/Android.png) no-repeat top center;
+        background-size: 100%;
+      }
+      .iosBg {
+        z-index: 1000;
+        position: absolute;
+        right: 10px;
+        top: 0;
+        width: 80%;
+        height: 100%;
+        background: url(../assets/bg-img/ios.png) no-repeat top center;
+        background-size: 100%;
+      }
+    }
+  }
+}
+
+
+

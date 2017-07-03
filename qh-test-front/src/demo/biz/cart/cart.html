@@ -1,0 +1,104 @@
+    <div flex="" layout="column" class="ks-main ks-cart">
+
+    <md-toolbar class="md-menu-toolbar ks-header">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" md-no-ink="">
+                <!--<md-icon md-font-set="ks-icon">r-selected</md-icon>-->
+            </md-button>
+            <h1 flex ng-click="vs.cartEmpty = !vs.cartEmpty">购物车</h1>
+
+            <md-button class="md-icon-button action" md-no-ink>
+                编辑
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-content flex layout="column" class="top-border">
+
+        <!-- ======================================== 空购物车 -->
+        <div class="empty" ng-if="vs.cartEmpty">
+            <md-grid-list md-cols="1"
+                          md-row-height="3:2"
+                          md-gutter="0">
+                <md-grid-tile>
+                    <div layout="column" layout-align="center center">
+                        <md-icon md-font-set="ks-icon" class="cart-icon" md-font-icon="ks-shopping-cart"></md-icon>
+                        <div class="txt">您的购物车空空如也～</div>
+                    </div>
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+
+        <!-- ======================================== 猜您喜欢 -->
+        <div class="guess" ng-if="vs.cartEmpty">
+            <div class="title" layout layout-align="center center"><span>- 猜您喜欢 - </span></div>
+
+            <div layout="row" layout-wrap>
+                <div flex="50" layout="column" class="rec-item" ng-repeat="recItem in recItems track by $index">
+                    <div flex layout="column"> <!-- 多追加一层div，方便使用  layout-wrap 和 ng-repeat 。 需要CSS特殊处理  -->
+                        <div class="item-img">
+                            <img src="http://placehold.it/600x600"/>
+                        </div>
+                        <div>
+                            <div class="item-title">蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被 蚕丝被</div>
+                            <div class="item-price">￥999.00</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ======================================== 未登录提示 -->
+        <div class="notice" layout="" layout-align="center center" ng-if="!vs.cartEmpty && !vs.logined">
+            您可以在登录后保存购物车中的商品
+            <span class="login" ui-sref="main.login">登录</span>
+        </div>
+
+        <!-- 商品列表 -->
+        <div class="cart-items" ng-if="!vs.cartEmpty">
+
+            <div layout="row"
+                 class="cart-item"
+                 layout-align="center center"
+                 ng-repeat="cartItem in cartItems track by $index">
+
+                <div layout="" layout-align="end center">
+                    <md-checkbox class="ks-gold"></md-checkbox>
+                </div>
+                <div class="item-img">
+                    <img src="http://placehold.it/600x600"/>
+                </div>
+
+                <div flex layout="column" class="item-desp">
+                    <div class="item-title">title title title title title title title title title title title title title title title title title title title title title</div>
+                    <div class="item-specs">尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸 尺寸</div>
+                    <div flex layout="row" layout-align="" class="price-row">
+                        <div flex class="item-price">￥1000.00</div>
+                        <div layout="row" class="count" ng-if="$index%2==0">
+                            <div class="minus" ng-click="cartItemCount=cartItemCount-1" layout="" layout-align="center center">-</div>
+                            <input type="number" ng-model="cartItemCount" layout="" layout-align="center center"/>
+                            <div class="add" ng-click="cartItemCount=cartItemCount+1" layout="" layout-align="center center">+</div>
+                        </div>
+                        <div class="count-show" ng-if="$index%2==1">
+                            x 0
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+
+    <md-divider></md-divider>
+    <div layout="row" layout-align="center center" class="cartToolbar">
+        <div layout="" layout-align="end center" class="selectAll">
+            <md-checkbox class="ks-gold">全选</md-checkbox>
+        </div>
+        <div flex class="totalPrice">合计: ￥99999.99</div>
+        <md-button class="go" ng-if="go" ng-click="changeGo()">去结算 (0)</md-button>
+        <md-button class="delete" ng-if="!go" ng-click="changeGo()">删除</md-button>
+    </div>
+
+    <div ks-footer-menu cur="'cart'"></div>
+</div>

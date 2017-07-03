@@ -1,0 +1,89 @@
+<div flex="" layout="column" class="ks-unionpay ks-main md-whiteframe-z2 ">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>支付</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content>
+        <!--这块暂时不显示-->
+        <!--<div class="payNumCash" style="height: 132px;display: none">-->
+        <!--<div class="rechageset rechargeNum" layout="row" layout-align="center center">-->
+        <!--<div flex layout="row" layout-align="start center" class="cash-txt">订单金额：</div>-->
+        <!--<div flex="70" layout="row" layout-align="end center" class="cash-input">-->
+        <!--￥{{vm.payMenthod.item.price/100.0|num:2}}-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="rechageset rechargeNum" layout="row" layout-align="center center"-->
+        <!--ng-if="vm.payMenthod.item.integral>0">-->
+        <!--<div flex layout="row" layout-align="start center" class="cash-txt">钱币金额：</div>-->
+        <!--<div flex="70" layout="row" layout-align="end center" class="cash-input">-->
+        <!--￥{{vm.payMenthod.item.integral}}-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="rechageset rechargeNum" layout="row" layout-align="center center">-->
+        <!--<div flex layout="row" layout-align="start center" class="cash-txt">当前钱币金额：</div>-->
+        <!--<div flex="70" layout="row" layout-align="end center" class="cash-input">-->
+        <!--￥{{vm.payMenthod.item.accountIntegral}}-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="payStaleTop">
+            <span ng-class="{jfNotEnough:vm.payMenthod.item.integral<1}">支付方式</span>
+            <!--<span class="ye" ng-class="{jfNotEnough:vm.payMenthod.item.integral<1}">钱币支付</span>-->
+        </div>
+        <div class="payStyleNext">
+            <div class="alipay" layout="row" ng-repeat="pay in vm.jfpay" ng-click="vm.choosePayMethod(pay)"
+                 ng-class="{notEnough:vm.payMenthod.item.integral<1,noline:vm.payMenthod.item.price>0}">
+                <div class="alipayCont">
+                    <!--<md-icon class="ks-rmb-symbol ks-icon" md-font-set="ks-icon">ks-rmb-symbol</md-icon>-->
+                    <md-icon md-font-set="ks-icon {{pay.icon}}" class="chevron_left ks-icon"
+                             md-font-icon="{{pay.icon}}"></md-icon>
+                </div>
+                <div class="alipayRight" flex>
+                    <span>{{pay.name}}</span>
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon"
+                             ng-class="{jfNotEnough:vm.payMenthod.item.integral<1}"
+                             ng-if="vm.currentPay.payType!=pay.payType">
+                        r-unselected
+                    </md-icon>
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon"
+                             ng-if="vm.currentPay.payType===pay.payType"
+                             style="color: #ba9f6e">r-selected
+                    </md-icon>
+                </div>
+            </div>
+        </div>
+        <div class="diviline" ng-if="vm.payMenthod.item.price>0"></div>
+        <div class="payStaleTop" ng-if="vm.payMenthod.item.price>0">
+            <span>支付方式</span>
+            <!--<span class="ye" ng-if="vm.currentPay.name!='钱币支付'">现金支付</span>-->
+        </div>
+        <div class="payStyleNext" ng-if="vm.payMenthod.item.price>0">
+            <div class="alipay" layout="row" ng-repeat="pay in vm.list" ng-click="vm.choosePayMethod(pay)">
+                <div class="alipayCont">
+                    <!--<md-icon class="ks-rmb-symbol ks-icon" md-font-set="ks-icon">ks-rmb-symbol</md-icon>-->
+                    <md-icon md-font-set="ks-icon {{pay.icon}}" class="chevron_left ks-icon"
+                             md-font-icon="{{pay.icon}}"></md-icon>
+                </div>
+                <div class="alipayRight" flex>
+                    <span>{{pay.name}}</span>
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon"
+                             ng-if="vm.currentPay.payType!=pay.payType">
+                        r-unselected
+                    </md-icon>
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon"
+                             ng-if="vm.currentPay.payType===pay.payType"
+                             style="color: #ba9f6e">r-selected
+                    </md-icon>
+                </div>
+            </div>
+        </div>
+        <div class="bottomPay" layout="column">
+            <span layout="row" flex layout-align="center center" ng-click=" vm.clickPayType()">确定</span>
+        </div>
+    </md-content>
+</div>

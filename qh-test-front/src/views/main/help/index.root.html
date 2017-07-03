@@ -1,0 +1,44 @@
+<header class="header">
+    <div class="left">
+        <a class="square" ng-click="fallbackPage()">
+            <span class="iconfont icon-arrow icon"></span></a></div>
+    <div class="center">
+        <div class="title">{{titleName}}</div>
+    </div>
+    <!--<div class="right">-->
+        <!--<a class="square" ui-sref-opts="{reload: true}" ui-sref="main.index"><span class="iconfont icon-home2 icon"></span></a>-->
+    <!--</div>-->
+</header>
+
+<div class="constant">
+    <!--<div class="help_title">-->
+        <!--<span>FAQ</span>-->
+    <!--</div>-->
+    <div class="help_list">
+        <ul>
+            <li ng-repeat="category in categorys.subCategories" ng-click="goContent(category)"><a>{{category.name}}</a></li>
+            <li style="color: red;font-size:12px" ng-repeat="cmsPage in categorys.cmsPages" ng-click="goArticle(cmsPage)">{{cmsPage.title}}</li>
+
+        </ul>
+    </div>
+
+</div>
+<div class="text-center">
+    <pagination ng-change="pageChanged()" previous-text="<<" next-text=">>"
+                direction-links="true"
+                items-per-page="pageSize" total-items="categorys.totalCount"
+                ng-model="categorys.curPage"
+                max-size="maxSize" class="pagination-sm"></pagination>
+</div>
+<!--置顶按钮-->
+<div to-top=""></div>
+
+
+
+
+
+
+
+
+
+

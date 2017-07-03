@@ -1,0 +1,128 @@
+.qh {
+  //酒店列表
+  .hotel-list{
+    section{
+      margin-bottom: 12px;
+      ul{
+        border-top: 1px solid @border-color2;
+        border-bottom: 1px solid @border-color2;
+        li{
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          height: 89px;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
+
+          //列表图像
+          img.list{
+            width: 64px;
+            height: 64px;
+            margin-left: 14px;
+            margin-right: 12px;
+
+
+          }
+          .listinfo{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            vertical-align: top;
+
+            padding-right: 12px;
+            overflow: hidden;
+
+            h5{
+              font-size: 15px;
+              color: #323232;
+
+              //类型
+              .name-type{
+                font-size: 13px;
+                color: #646464;
+
+              }
+
+            }
+            .addressinfo{
+              font-size: 13px;
+              color: #646464;
+              max-width: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              //为兼容firefox省略号
+              //display: -webkit-box;
+              //display: -webkit-flex;
+              //display: -ms-flexbox;
+              //display: flex;
+              //width: 100px;
+              //display: block;
+              padding-right: 1px;
+            }
+            .moreinfo{
+              max-width: 100%;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              //为兼容firefox省略号
+              //padding-right: 1px;
+              //display: -webkit-box;
+              //display: -webkit-flex;
+              //display: -ms-flexbox;
+              //display: flex;
+              //width: 100px;
+              //徽标，蓝色圆角
+              .badge-blue{
+                height: 20px;
+                line-height: 20px;
+                background-color: #18a5d9;
+                color: #ffffff;
+                display: inline-block;
+                text-align: center;
+                font-size: 11px;
+                padding: 0 6px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+              }
+              .moreinfotext{
+                font-size: 12px;
+                color: #646464;
+                //max-width: 100%;
+                //overflow: hidden;
+                //white-space: nowrap;
+                //text-overflow: ellipsis;
+              }
+
+            }
+
+
+          }
+        }
+      }
+
+    }
+    .address{
+      padding-left: 14px;
+      padding-right: 14px;
+    }
+
+  }
+  //民宿名称/网点名称，标题栏地图地址
+  .hotel-list-location{
+    white-space: nowrap;
+    padding-left: 12px;
+    padding-right: 12px;
+    max-width: 114px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+
+  }
+}

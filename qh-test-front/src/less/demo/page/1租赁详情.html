@@ -1,0 +1,173 @@
+<!--1租赁详情-->
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet/less" type="text/css" href="../../../lib/lib.less"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../lib/lib-min-c3b72ccd7b.css"/>-->
+    <link rel="stylesheet/less" type="text/css" href="../../../less/index.less"/>
+    <script src="../../../lib/less/less.min.js" data-relative-urls="true"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.12.1/jquery.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css">
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+</head>
+<body>
+<!---->
+
+名称,价格
+.goods-part
+
+基本信息
+.basic-info
+.itempage>
+商品标题
+.prod-title
+副说明
+.prod-act
+产品价格
+.prod-price
+
+
+.goods-part>.basic-info>.prod-title+.prod-price+.prod-act
+
+
+<div class="itempage">
+
+    <!--名称,价格-->
+
+    <div class="goods-part">
+        <div class="basic-info">
+            <div class="prod-title">【促】钱皇全棉被套100％手工蚕丝被优等品春秋被子母被儿童被芯</div>
+            <div class="prod-price">
+                <span class="strong-pay">¥7</span> <span class="pay-time">/天</span>
+            </div>
+            <div class="prod-act">
+                次月1日可到货 需提前7天预订
+            </div>
+        </div>
+    </div>
+
+    <!--
+   钱皇承担运费
+  不可点击列表,用于详情页面
+  .noclick-list>ul>li.item$*2
+  .item2-child*3
+   -->
+
+
+    <div class="noclick-list">
+        <ul>
+            <li class="item1">钱皇承担运费</li>
+            <li class="item2">
+                <div class="item2-child">
+                    <i class="iconfont icon-checked-circle-invert"></i> 正品保证
+                </div>
+                <div class="item2-child">
+                    <i class="iconfont icon-checked-circle-invert"></i> 定期护理
+                </div>
+                <div class="item2-child">
+                    <i class="iconfont icon-checked-circle-invert"></i> 7天无理由退款
+                </div>
+
+            </li>
+        </ul>
+    </div>
+
+    <!--商品参数,调列表组件
+    -->
+
+    <!--
+   .list-block>ul>.item-content*2>.item-inner>.item-title
+   a.item-link.item-content
+   使用
+   section.mb10>.list-block>ul>(li>a.item-link.item-content>.item-inner>.item-title)*2
+  -->
+
+
+<!--section-->
+    <section class="mb10">
+        <div class="list-block">
+            <ul>
+                <li><a href="#" class="item-link item-content"><span class="item-inner"><span
+                        class="item-title">商品参数</span></span></a></li>
+                <li><a href="#" class="item-link item-content"><span class="item-inner"><span
+                        class="item-title">选择尺寸</span></span></a></li>
+            </ul>
+        </div>
+    </section>
+
+
+
+
+
+    <!--
+    <tabset class="blockcenter bgc">
+        <tab heading="商品详情" id="skuDetailText">
+            <div ng-bind-html="checkSku.detail" class="ui0 item-detail" ></div>
+        </tab>
+        <tab heading="商品评论">
+        </tab>
+    </tabset>
+
+    -->
+
+    商品详情 商品评论
+
+
+    选项卡 tab样式
+    引用newtab应用新样式
+    .newtab
+
+    <div class="newtab">
+        <ul class="nav nav-tabs" >
+            <li class="active"><a href="#identifier" data-toggle="tab">商品详情</a></li>
+            <li class=""><a href="#identifier" data-toggle="tab">商品评论</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="home4">内容</div>
+        </div>
+
+    </div>
+
+
+
+    <!--商品评论部分-->
+    <!--
+    项目中的样式
+    label.item-label
+    label.item-label.active
+    -->
+
+    <div class="bgc-w" style="height: 100px;padding: 15px 10px;">
+        <label class="item-label active">全部</label><label class="item-label">有图评价</label><label class="item-label">被子很舒适</label>
+    </div>
+
+
+
+    <!--底部导航-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</body>
+</html>

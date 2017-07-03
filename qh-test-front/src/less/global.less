@@ -1,0 +1,202 @@
+//  这里放置全局的 css 配置，在bootstrap 的 css 之后
+html {
+  font-family: "Microsoft YaHei", "微软雅黑", "宋体", "WenQuanYi Micro Hei", "Droid Sans Fallback", Arial, sans-serif;
+  position: relative;
+  height: 100%;
+  //height: auto !important;
+  overflow-x: hidden;
+}
+
+body {
+  // 设置灰色背景，方便在屏幕宽度大于720px时，区分内容区域和空白区域。
+  background-color: #F5F5F5 !important;
+  height: 100%;
+  //height: auto !important;
+  font-family: "Helvetica Neue", "Roboto","Heiti SC Medium","Heiti SC","Microsoft Yahei", "微软雅黑",  "Segoe UI", sans-serif;
+}
+code, kbd, pre, samp{
+  font-family: "Helvetica Neue", "Roboto","Heiti SC Medium","Heiti SC","Microsoft Yahei", "微软雅黑",  "Segoe UI", sans-serif;
+}
+input[type="date"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"]{
+  font-family: "Helvetica Neue", "Roboto","Heiti SC Medium","Heiti SC","Microsoft Yahei", "微软雅黑",  "Segoe UI", sans-serif !important;
+}
+// 参考 Angular 指令 ngCloak
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/////////////////////////////////////////////////////  最小高度为全屏。
+// 参考（请查看源代码） ：http://peterned.home.xs4all.nl/examples/csslayout1.html
+
+.qh {
+  // 小于 320 像素时，高度100%，固定宽度320px，
+  position: absolute; // 主要用于较大屏幕居中
+  min-height: 100%;
+  //background-color: #eee;
+  width: 320px;
+  //height: 100%;
+
+  @media (min-width: @qh-min-width) {
+    width: 100%;
+  }
+
+  @media (min-width: @qh-max-width) {
+    left: 50%;
+    margin-left: -320px;
+    width: @qh-max-width;
+  }
+
+  // 请参考主页的布局，页面主要由 class=header, main-content, footer 3部分组成
+  .main-content {
+    position: relative;
+    width: 100%;
+    padding-bottom: 0; // 注意：此处通常需要配合指令 qhFooter，动态的的重新设置该值。
+  }
+
+  .form-control{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+  .form-control:focus{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+}
+
+//全局链接
+a, a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: #666666;
+}
+
+a, [href], [ui-sref], [ng-click] {
+  cursor: pointer
+}
+
+h2 {
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 14px;
+  color: #424242;
+}
+
+h4, h5, h6 {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+em{
+  display: block;
+}
+
+samp, dfn, small, var, kbd, bdo {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+dt, kbd kbd, label {
+  font-weight: normal;
+}
+
+input {vertical-align: baseline}
+input[type="text"],input[type="password"],input[type="number"]{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline:none;
+}
+input[type="date"]{
+  background-color: transparent;
+}
+
+select{
+  /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  //border: solid 1px #000;
+
+  /*很关键：将默认的select选择框样式清除*/
+  //appearance:none;
+  //-moz-appearance:none;
+  //-webkit-appearance:none;
+
+  /*在选择框的最右侧中间显示小箭头图片*/
+  //background: url("test.png") no-repeat scroll right center transparent;
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  //padding-right: 14px;
+}
+
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+//select::-ms-expand { display: none;}
+
+textarea{
+  -webkit-appearance: none;
+  //appearance: none;
+}
+dt {font-weight: normal}
+
+html h1,
+html .h1,
+html h2,
+html .h2,
+html h3,
+html .h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+html label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+//改变下拉三角形的颜色
+.caret{
+  color: #999;
+}
+button{
+  border: 0;
+  outline: 0;
+  background: none;
+}
+
+//表单行高重置
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: initial;
+}
+//电话的颜色
+a[href^="tel:"]{
+  color: #52a5eb;;
+}
+//选项卡
+.tab-content{}
+img {
+  max-width:100%;
+}
+

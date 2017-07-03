@@ -1,0 +1,64 @@
+<!--防伪溯源，梦扬js联调-->
+<div flex="" layout="column" class=" ks-main ks-verifyLog">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"
+                         ng-click="fallbackPage()"></md-icon>
+                <span class="regSpan">验证记录</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content" ng-if="!noverifyShow">
+        <div class="content-divWrap yzjlWrap">
+            <div class="nrRow" layout="row" ng-repeat="verify in verifys.verifyList " ui-sref-opts="{reload: true}"
+                 ui-sref="main.service.security.product({id:verify.id,code:verify.code})">
+                <div class="imgWrap">
+                    <img ng-src="{{imgUrl}}{{verify.img}}?imageView2/2/w/{{imgService.simpleImg.w}}/h/{{imgService.simpleImg.h}}"
+                         alt="TODO"/>
+                </div>
+                <div class="rigth" flex>
+                    <p class="txtTitle">{{verify.title}}</p>
+                    <p class="timeDate">
+                        <span>{{verify.dateCreated | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                    </p>
+                    <p class="code">{{verify.code}}</p>
+                </div>
+            </div>
+
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-if="!pageEnd" ng-click="queryItemVerify(curPage)">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    点击加载更多...
+                </md-button>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-if="pageEnd && curPage!=1">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    没有更多记录了...
+                </md-button>
+            </div>
+            <!--  <div class="yzjl empty" ng-if="noverifyShow">
+                  <md-icon md-font-set="ks-icon" md-font-icon="ks-verified" class="ks-verified icon"></md-icon>
+                  <p>您还没有相关验证记录，快去创建吧</p>
+              </div>-->
+
+        </div>
+    </md-content>
+    <md-content flex="" layout="column" id="content" ng-if="noverifyShow">
+        <div class="content-divWrap yzjlWrap" flex="" layout="column" layout-align="center center">
+            <div class="yzjl empty">
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-verified" class="ks-verified icon"></md-icon>
+                <p>您还没有相关验证记录，快去创建吧</p>
+            </div>
+
+        </div>
+    </md-content>
+    <div class="yzjlBtn" ng-if="noverifyShow" ng-click="fallbackPage()">
+        <span>验证</span>
+    </div>
+</div>
+
+

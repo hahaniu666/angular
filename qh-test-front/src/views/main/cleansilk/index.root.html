@@ -1,0 +1,62 @@
+<div flex="" layout="column" class=" ks-main ks-care md-whiteframe-z2">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+            <div class="divTop" flex class>
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"
+                         ng-click="fallbackPage()"></md-icon>
+                <span class="regSpan">蚕丝护理</span>
+                <div class="md-icon-button" ui-sref="main.cart()"
+                     style="position: absolute; top: 0;right: 10px;line-height: 44px;">
+                    <!--<md-icon class="shopping-cart-o" md-font-set="ks-icon">shopping-cart-o</md-icon>-->
+                    <md-icon md-font-set="ks-icon" class="shopping-cart-o" md-font-icon="ks-shopping-cart-o"></md-icon>
+                    <i ng-if="cartSize.num>0">{{cartSize.num}}</i>
+                </div>
+                <!--<div class="md-icon-button" ng-click="fallbackPage()"
+                     style="position: absolute; top: 0;right: 10px;line-height: 44px;">
+                    &lt;!&ndash;<md-icon class="house-o" md-font-set="ks-house-o"></md-icon>&ndash;&gt;
+                    <md-icon md-font-set="ks-icon" class="house-o" md-font-icon="ks-house-o"></md-icon>
+                    &lt;!&ndash; <md-icon class="ks-icon" md-font-set="ks-icon">house-o</md-icon>&ndash;&gt;
+                </div>-->
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <div class="sample" layout="column" ng-cloak style="flex-shrink:0;">
+        <md-tabs md-selected="listIndex"
+                 md-border-bottom
+                 md-center-tabs
+                 md-swipe-content="false"
+                 md-dynamic-height
+                 md-stretch-tabs="always">
+            <md-tab label="{{l.name}}" ng-click="changeType(l.code,l.code)" ng-repeat="l in list">
+            </md-tab>
+        </md-tabs>
+    </div>
+    <md-content flex="" id="content" ng-repeat="l in list" ng-if="l.shows">
+        <!--<div class="tag" layout-wrap layout="row" ng-if="l.children.length>1">-->
+            <!--<span class="tags" flex ng-repeat="tags in l.children" ng-class="{'actives':tags.active}"-->
+                  <!--ng-click="changeType(l.code,tags.code)">{{tags.name}}</span>-->
+        <!--</div>-->
+        <!--<div ng-repeat="top in l.children" ng-if="top.active">-->
+            <div class="myClean">
+                <div class="cleanling" layout="row" layout-wrap>
+                    <div class="cl_item" ng-repeat="cl in l.service_item track by $index"
+                         ng-click="getItem(cl)" ng-if="!cl.delete">
+                        <img ng-src="{{imgUrl}}{{cl.img}}?imageView2/2/w/640/h/640"
+                             alt="{{cl.title}}">
+                        <div class="cl_pri">
+                            <span class="n_pri">￥{{cl.sku[0].price/100|num:0}}</span>
+                            <span class="y_pri" ng-if="cl.sku[0].price<cl.sku[0].marketPrice" style="text-decoration: line-through;padding-left: 5px">原价￥{{cl.sku[0].marketPrice/100|num:0}}</span>
+                            <span class="y_pri" ng-if="cl.sku[0].itemUnit" style="padding-left: 5px">{{cl.sku[0].itemUnit}}</span>
+                            <div class="getsku">
+                                查看详情
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--</div>-->
+    </md-content>
+</div>
+
+

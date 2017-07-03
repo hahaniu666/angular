@@ -1,0 +1,66 @@
+<header class="header">
+    <div class="left">
+        <a class="square">
+            <span class="iconfont icon-arrow icon" ng-click="fallbackPage()"></span></a></div>
+    <div class="center">
+        <div class="title">领券中心</div>
+    </div>
+    <div class="right">
+        <a class="square">
+            <span class="iconfont icon-assets icon" ui-sref="main.myAssets"></span></a>
+    </div>
+</header>
+
+<!--领券中心没任何优惠券的时候-->
+<div class="noCoupons" ng-if="noCouponsshow">
+    <div class="noCoupons1">
+        <span class="iconfont icon-sale noCouponsspan"></span>
+    </div>
+    <div class="noCoupons2"><span>暂时没有可领用的优惠券哦</span></div>
+</div>
+
+<div ng-if="!noCouponsshow">
+    <ul style="min-width: 320px;background-color: white">
+        <li class="getcoupons" ng-repeat="getCoupon in getCoupons.coupons ">
+            <div class="getcoupons1"
+                 style="background-image: url('assets/img/bg.png'); background-position: 50%;
+                                         background-repeat: no-repeat; background-size: contain;">
+                <div class="getcoupons11"><span style="font-size: 20px;color: white">¥{{getCoupon.reduceMoney/100.0|num:1}}</span>
+                </div>
+                <div style="text-align: center">
+                    <span ng-if="getCoupon.requiredMoney===0" style="font-size: 12px;color: white">无门槛使用</span>
+                    <span ng-if="getCoupon.requiredMoney!==0" style="font-size: 12px;color: white">满¥{{getCoupon.requiredMoney/100.0|num:1}}使用</span>
+                </div>
+
+            </div>
+            <div class="getcoupons2">
+                <div><span style="font-size: 11px">剩余{{getCoupon.leftCount}}张</span></div>
+                <div><span style="font-size: 11px">每人限{{getCoupon.userLimit}}张</span></div>
+                <div><span style="font-size: 11px;white-space: nowrap">
+                                           领用时间：<span style="font-size: 10px">{{getCoupon.startTime | date:'yyyy-MM-dd'}}~
+                                            {{getCoupon.endTime |
+                                            date:'yyyy-MM-dd'}}</span>
+
+                                        </span>
+                </div>
+            </div>
+            <div class="getcoupons3">
+                <button class="btn" ng-class="{'getcouponColor':!getCoupon.getAlready,'getcouponColorNo':getCoupon.getAlready}"
+                        style="padding: 1px;width: 50px;background-color: white"  ng-disabled="getCoupon.getAlready"
+                        ng-click="ReceiveCoupons(getCoupon)">{{getCoupon.name}}
+                </button>
+            </div>
+        </li>
+    </ul>
+    <div style="text-align: center">
+        <pagination ng-change="getPageChanged()" previous-text="<<" next-text=">>"
+                    direction-links="true"
+                    items-per-page="pageSize" total-items="getCoupon.totalCount"
+                    ng-model="getCoupon.curPage"
+                    max-size="maxSize" class="pagination-sm"></pagination>
+    </div>
+</div>
+
+<div to-top=""></div>
+
+

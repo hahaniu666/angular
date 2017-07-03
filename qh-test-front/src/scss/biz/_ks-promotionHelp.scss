@@ -1,0 +1,47 @@
+.ks-promotionHelp {
+  //header开始
+  .ks-header._md {
+    height: 30px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+
+    }
+  }
+
+  .txtContent {
+    padding: 0 10px;
+    .contentWord {
+      margin-top: 10px;
+      h2 {
+        font-size: 14px;
+        color: #101010;
+        font-weight: normal;
+      }
+      p {
+        padding: 0 10px;
+        margin: -7px;
+        font-size: 13px;
+        color: #333;
+        line-height: 2em;
+        text-indent: 2em;
+      }
+    }
+  }
+}

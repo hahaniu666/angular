@@ -1,0 +1,145 @@
+<div flex="" layout="column" class="md-whiteframe-z2 ks-center ks-main">
+    <md-content flex>
+
+
+    <div class="header-wrap" layout="row" layout-align=" center center ">
+        <div layout="column" layout-align="center center" style="min-height: 103px;min-width: 70px"
+             ui-sref="main.user({s:'center'})">
+            <div id="img-wrap">
+                <!--<img src="https://o96iiewkd.qnssl.com/FvGu6YV_aLJlLrdzT8QmyOK72pIQ" width="40px" alt="">-->
+                <!--<img ui-sref="main.user({s:'center'})" class="img-circle"-->
+                <!--ng-src="{{imgUrl}}{{user.userInfo.avatar}}?imageView2/1/w/{{simpleImg.w}}/h/{{simpleImg.h}}"/>-->
+            </div>
+            <div class="name" ng-bind="user.userInfo.nickName">
+                <!--{{user.userInfo.nickName}}-->
+            </div>
+        </div>
+        <div class="vip-wrap" style="color: #8c2d2a">
+            <span ng-bind="name">银粉</span>VIP卡
+            <!--<span>VIP卡</span>-->
+        </div>
+    </div>
+    <div class="icon-txt" layout="row" layout-align="center center">
+        <div class="icon-wra" flex layout="column" layout-align="cetner center"
+             ui-sref="main.unionOrder({status:'2',hide:'hide'})">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-card-o"></md-icon>
+            <div class="wra-txt">待付款</div>
+        </div>
+        <div class="icon-wra" flex layout="column" layout-align="cetner center"
+             ui-sref="main.unionOrder({status:'4',hide:'hide'})">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-car-o"></md-icon>
+            <div class="wra-txt">待收货</div>
+        </div>
+        <div class="icon-wra" flex layout="column" layout-align="cetner center"
+             ui-sref="main.unionOrder({status:'5',hide:'hide'})">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-evaluation"></md-icon>
+            <div class="wra-txt">待评价</div>
+        </div>
+        <span class="line-red"></span>
+        <div class="icon-wra" flex layout="column" layout-align="cetner center"
+             ui-sref="main.unionOrder({status:'1',hide:'hide'})">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-order"></md-icon>
+            <div class="wra-txt">全部</div>
+        </div>
+    </div>
+    <md-divider style="margin: 0 10px;background: #fff"></md-divider>
+    <div class="icon-txt" layout="row" layout-align="center center">
+        <div class="icon-wra" flex layout="column" layout-align="cetner center" ui-sref="main.wallet({num:'1'})">
+            <div class="wra-word">{{data.integral/100|num:1}}</div>
+            <div class="wra-txt">钱币</div>
+        </div>
+        <div class="icon-wra" flex layout="column" layout-align="cetner center" ui-sref="main.wallet({num:'2'})">
+            <div class="wra-word">{{canAmount/100|num:1}}</div>
+            <div class="wra-txt">佣金</div>
+        </div>
+        <div class="icon-wra" flex layout="column" layout-align="cetner center" ui-sref="main.wallet({num:'3'})">
+            <div class="wra-word">{{giftAmount/100|num:1}}</div>
+            <div class="wra-txt">服务卡</div>
+        </div>
+        <span class="line-red"></span>
+        <div class="icon-wra" flex layout="column" layout-align="cetner center" ui-sref="main.wallet">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-wallet-balance"></md-icon>
+            <div class="wra-txt">钱包</div>
+        </div>
+    </div>
+    <div class="line"></div>
+
+        <div class="det-wrap" layout="column">
+            <div class="det" layout="row" layout-align="center center" ui-sref="main.myAssets.coupons">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-discount"></md-icon>
+                <div layout="column" flex>
+                    <div layout="row" layout-align="space-between center">
+                        <div class="det-word">优惠券</div>
+                        <div class="det-right">
+                            <span class="right-word">{{couponNum}}张</span>
+                            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                        </div>
+                    </div>
+                    <md-divider></md-divider>
+                </div>
+            </div>
+        </div>
+        <div class="det-wrap" layout="column">
+            <div class="det" layout="row" layout-align="center center" ui-sref="main.service.security.validate">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-verified-o"></md-icon>
+                <div layout="column" flex>
+                    <div layout="row" layout-align="space-between center">
+                        <div class="det-word">防伪溯源</div>
+                        <div class="det-right">
+                            <!--<span class="right-word">1张</span>-->
+                            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                        </div>
+                    </div>
+                    <md-divider></md-divider>
+                </div>
+            </div>
+        </div>
+        <div class="det-wrap" layout="column">
+            <div class="det" layout="row" layout-align="center center" ui-sref="main.center.account">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-link-40"></md-icon>
+                <div layout="column" flex>
+                    <div layout="row" layout-align="space-between center">
+                        <div class="det-word">帐号绑定</div>
+                        <div class="det-right">
+                            <!--<span class="right-word">1张</span>-->
+                            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                        </div>
+                    </div>
+                    <md-divider></md-divider>
+                </div>
+            </div>
+        </div>
+        <div class="det-wrap" layout="column">
+            <div class="det" layout="row" layout-align="center center" ui-sref="main.user.code({s:'center'})">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-share-o"></md-icon>
+                <div layout="column" flex>
+                    <div layout="row" layout-align="space-between center">
+                        <div class="det-word">分享</div>
+                        <div class="det-right">
+                            <!--<span class="right-word">1张</span>-->
+                            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                        </div>
+                    </div>
+                    <md-divider></md-divider>
+                </div>
+            </div>
+        </div>
+        <div class="det-wrap" layout="column">
+            <div class="det" layout="row" layout-align="center center" ui-sref="main.more">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-more"></md-icon>
+                <div layout="column" flex>
+                    <div layout="row" layout-align="space-between center">
+                        <div class="det-word">更多</div>
+                        <div class="det-right">
+                            <!--<span class="right-word">1张</span>-->
+                            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                        </div>
+                    </div>
+                    <md-divider></md-divider>
+                </div>
+            </div>
+        </div>
+    </md-content>
+
+    <div ks-footer-menu cur="'user'"></div>
+</div>

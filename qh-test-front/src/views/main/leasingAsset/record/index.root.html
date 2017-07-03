@@ -1,0 +1,84 @@
+<div flex="" layout="column" class="ks-hotelRecord ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left"
+                         ng-click="fallbackPage()" md-font-icon="ks-arrow_left">
+                </md-icon>
+                <span class="regSpan">我的账单</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex ng-if="orders.length!==0">
+
+        <!-- ======================================== 内容 -->
+        <div class="contentList" ng-repeat="order in orders track by $index">
+            <div class="contentListOne">
+                <span>{{order.date|date:"yyyy-MM-dd"}}</span>
+                <span style="float: right;color: #999">{{order.statusDes}}</span>
+            </div>
+            <div class="contentListThree" layout="row" ng-click="goDetails(order.id)"
+                 ng-repeat="item in order.orderItems">
+                <div class="contentListThreeImg">
+                    <img ng-src="{{imgUrl}}{{item.img}}?imageView2/2/w/100/h/100"/>
+                </div>
+                <div class="contentListThreeRight" flex layout="column" layout-align="start">
+                    <div class="right1" layout="row">
+                        <span layout="row" flex layout-align="start ">{{item.title}}</span>
+                        <span style="font-size: 13px" layout="row" layout-align="end ">x{{item.day}}天</span></div>
+                    <div layout="row" layout-align="end" style="margin-bottom: -3px">
+                        <span style="font-size: 13px" layout="row" flex layout-align="start "> ¥{{item.price/100.0|num:1}}/天</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contentListFour" layout="row">
+                <span flex layout-align="start">共{{order.orderItems.length}}件
+                </span>
+                <span layout-align="end"> 订单金额：￥{{order.paymentAmount/100.0|num:1}}</span>
+            </div>
+            <md-divider ng-if="order.status=='UNPAYED' ||order.status=='PAY' ||order.status=='CANCELED' ||order.status=='UNRECEIVED'
+             || order.status=='UNCONFIRMED' ||order.status=='UNCOMMENTED' ||order.status=='FINISHED' || order.status=='USER_UNSHIPPED'
+              || (order.status=='UNSHIPPED' && order.type=='RENT') " style="margin: 0 -20px;"></md-divider>
+            <!-- 待付款 -->
+            <div class="contentListFive" layout="row" ng-if="order.status=='PAY'" class="contentListFive">
+                <div flex></div>
+                <!--<span layout-align="end center" ng-click="vm.orderCancel($event,order,0)">取消订单</span>-->
+                <span layout-align="end center" ng-click="orderPay(order)">去支付</span>
+            </div>
+            <div class="line"></div>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px" ng-click="getList()"
+             ng-if="!page.pageEnd">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                <!-- <md-icon style="color: #999;margin-right: 10px" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>-->
+                点击加载更多...
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="page.pageEnd&&page.totalCount>10">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                       ng-if="page.pageEnd&&page.totalCount>10">
+                没有更多账单了...
+            </md-button>
+        </div>
+    </md-content>
+    <md-content flex layout="column" class="empty" ng-if="orders.length==0">
+        <div flex layout="column" layout-align="center center">
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-order" class="icon"></md-icon>
+            <div class="txt">啊哦，没有账单～</div>
+        </div>
+    </md-content>
+</div>
+
+<style>
+    .empty .icon {
+        font-size: 60px;
+        line-height: 60px;
+        margin: 0 0 15px;
+    }
+
+    .empty .txt {
+        color: #999;
+    }
+</style>

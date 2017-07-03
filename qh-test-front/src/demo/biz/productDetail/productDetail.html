@@ -1,0 +1,106 @@
+<div flex="" layout="column" class="ks-productDetail ks-main">
+
+    <md-toolbar class="md-menu-toolbar ks-header">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="">
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_left</md-icon>
+            </md-button>
+            <h1 flex></h1>
+            <md-button class="md-icon-button" ng-click="">
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">shopping-cart-o</md-icon>
+                <span>19</span>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="">
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">user-o</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <div class="currentImg">
+            <div class="imgtop"></div>
+            <img title="图片"
+                 src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1466404961&di=a43c884a28fbac773e6831e9948f935f&src=http://pic12.nipic.com/20110114/5209172_151649618176_2.jpg">
+        </div>
+        <div class="CommodityName">钱皇100%蚕丝被钱皇100%蚕丝被钱皇100%蚕丝被钱皇100%蚕丝被钱皇100%蚕丝被钱皇100%蚕丝被</div>
+        <div class="commodityPrice">￥399</div>
+        <div class="CommodityRemarks">
+            <span>蚕丝被1</span>
+            <span>蚕丝被2</span>
+            <span>蚕丝被3</span>
+            <span>蚕丝被4</span>
+        </div>
+        <div class="salesSupport">
+            <div>钱皇承担运费</div>
+            <div>
+            <span>
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">r-selected</md-icon>正品保证
+            </span>
+            <span>
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">r-selected</md-icon>假一罚万
+            </span>
+            <span>
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">r-selected</md-icon>15天无理由退款
+            </span>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="CommodityParameters">
+            <div>
+                <span>商品参数</span>
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_right</md-icon>
+            </div>
+            <div>
+                <span>已选：蚕丝净重：3斤蚕丝净重：3斤蚕丝净重：3斤蚕丝净重：3斤</span>
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_right</md-icon>
+            </div>
+        </div>
+        <div class="CommodityAttribute" style="clear: both;">
+            <div class="ProductDetails">商品详情</div>
+            <div class="CommodityReview">商品评论</div>
+            <br style="clear: both">
+        </div>
+        <div class="AttributeCourent">
+            <div class="AttributeCourentTop">
+                <div class="txt active">全部</div>
+                <div class="txt">有图评价</div>
+                <div class="txt">被子很舒服</div>
+                <div class="txt">服务态度好</div>
+                <br style="clear: both">
+            </div>
+            <div class="AttributeCourentCenter" ng-repeat="comment in comments track by $index">
+                <div class="centermainTop">
+                    <div class="topImg">
+                        <img src="http://placehold.it/600x600"/>
+                    </div>
+                    <span>
+                        毛豆豆
+                        <br>
+                        2016.03.03
+                    </span>
+                </div>
+                <div class="centermainBottom">
+                    <p>
+                        这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论这么多评论
+                    </p>
+                    <div class="bottomImg">
+                        <img src="http://placehold.it/600x600"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+    <div class="fotter" layout="row">
+        <div class="fotterLeft" layout="column" flex="20">
+            <div layout="column" layout-align="center center">
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">chat</md-icon>
+                <div>咨询</div>
+            </div>
+        </div>
+        <div flex="30">
+            加入购物车
+        </div>
+        <div flex="50">
+            立即购买
+        </div>
+    </div>
+</div>

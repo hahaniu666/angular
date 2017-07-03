@@ -1,0 +1,76 @@
+<div flex="" layout="column" class="ks-evaluation ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header">
+     <!--   <div class="md-toolbar-tools">
+            <div class="chevron_left_Wrap" ng-click="fallbackPage()">
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"></md-icon>
+            </div>
+            <h1 flex>评价</h1>
+
+        </div>
+        <span flex="10"></span>-->
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">评价</span>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-divider></md-divider>
+
+    <md-content style="color: #fff" flex>
+        <div class="evaluationCont" ng-repeat="orderItem in order.orderItems track by $index ">
+            <div class="contTop" layout="row">
+                <img class="img"
+                     ng-src="{{imgUrl}}{{orderItem.img}}?imageView2/1/w/{{simpleImg.w}}/h/{{simpleImg.h}}">
+                <textarea flex style="resize: none" data-ng-model="orderItem.content"
+                          placeholder="亲，来说说您对我们产品的喜爱吧"></textarea>
+            </div>
+            <div class="contBottom">
+                <div class="voucher" ng-repeat="img in orderItem.imgs">
+                    <div class="voucherTxt">
+                        <div class="voucherPhoto">
+                            <img class="img"
+                                 ng-src="{{imgUrl}}{{img.avatar}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}">
+                            <div class="delete">
+                                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon"
+                                         ng-click="removeOneImg(img.id,orderItem)">delete
+                                </md-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add">
+                    <div class="font" ng-click="uploadImg(orderItem,$index)">
+                        <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">plus</md-icon>
+                    </div>
+                    <span>
+                        <span style="font-size: 13px;color: #999;">发照片</span>
+                        <span style="margin-top: -5px;font-size: 12px;color: #999">(最多5张)</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="evalua">
+            <div class="evaluaBottom">
+                <span>请选择标签：</span>
+                <!--button点击的时候变黑，字体变白-->
+                <button class="btn " ng-class="{active:tag.click}" ng-click="tagOrderItemInsert(tag)"
+                        ng-repeat="tag in order.tags">{{tag.tag}}
+                </button>
+            </div>
+        </div>
+        <div class="line"></div>
+    </md-content>
+
+    <div class="footer" layout="row">
+        <md-checkbox flex ng-model="anonymous" class="ks-gold" layout="column" layout-align="start ">匿名评价</md-checkbox>
+        <md-button class="ks-black" style="border-radius: 0;height: 30px;min-height: 30px;line-height: 30px;margin-top: 10px;margin-right: 0" ng-click="submitComment()">
+            发表评价
+        </md-button>
+    </div>
+</div>
+<input type="file" nv-file-select uploader="uploader" style="display: none" id="uploaderFile"/>
+
+
+

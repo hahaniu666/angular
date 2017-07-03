@@ -1,0 +1,72 @@
+<!--不可点击列表-->
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet/less" type="text/css" href="../../../lib/lib.less"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../lib/lib-min-c3b72ccd7b.css"/>-->
+    <link rel="stylesheet/less" type="text/css" href="../../../less/index.less"/>
+    <script src="../../../lib/less/less.min.js" data-relative-urls="true"></script>
+</head>
+<body>
+支付列表,
+
+.zhifu-list>ul>li.item$*2
+
+.zhifu-list>ul>(li+li>(ol>li*2>label))
+.zhifuimg
+
+.item2-child*3
+
+<div class="zhifu-list">
+    <ul>
+        <li class="item1">钱皇承担运费</li>
+        <li class="item2">
+            <div class="item2-child">
+                <i class="iconfont icon-checked-circle-invert"></i> 正品保证
+            </div>
+            <div class="item2-child">
+                <i class="iconfont icon-checked-circle-invert"></i> 定期护理
+            </div>
+            <div class="item2-child">
+                <i class="iconfont icon-checked-circle-invert"></i> 7天无理由退款
+            </div>
+
+        </li>
+    </ul>
+</div>
+
+支付方式
+<div class="zhifu-list">
+    <ul>
+        <li>支付方式</li>
+        <li>
+            <ol>
+                <li><div class="zhifuimg1">
+                    <i class="iconfont icon-weixin2"></i>
+
+                </div><label class="radioselector-icon tar"><span class="fl">微信支付</span>
+                    <input type="radio" name="check1" value="1" ng-model="pay">
+                    <!--<i class="iconfont icon-checked-circle-invert"></i>-->
+                    <i class="iconfont icon-checked-point"></i>
+                    <i class="iconfont icon-unchecked"></i>
+                </label></li>
+                <li><div class="zhifuimg2">
+                    <i class="iconfont icon-alipay"></i>
+                </div><label class="radioselector-icon dashedtop tar"><span class="fl">支付宝支付</span>
+                    <input type="radio" name="check1" value="1" ng-model="pay">
+                    <!--<i class="iconfont icon-checked-circle-invert"></i>-->
+                    <i class="iconfont icon-checked-point"></i>
+                    <i class="iconfont icon-unchecked"></i>
+                </label></li>
+            </ol>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

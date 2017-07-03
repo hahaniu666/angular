@@ -1,0 +1,172 @@
+.qh {
+  //我的二维码
+  .QRcode{
+    section{
+      width: 90%;
+      //height: 60vh;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 12px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      //box-shadow: 0 0 0 10px #655;
+      box-shadow: 0px 3px 12px 3px #ccc;
+      header{
+        -webkit-border-top-left-radius: 5px;
+        -moz-border-top-left-radius: 5px;
+        -ms-border-top-left-radius: 5px;
+        -o-border-top-left-radius: 5px;
+        border-top-left-radius: 5px;
+
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-top-right-radius: 5px;
+        -ms-border-top-right-radius: 5px;
+        -o-border-top-right-radius: 5px;
+        border-top-right-radius: 5px;
+
+        background-color: #eb5252;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100px;
+        //头像
+        .faceimg{
+          display: inline-block;
+          width: 62px;
+          height: 62px;
+          -webkit-border-radius: 50px;
+          -moz-border-radius: 50px;
+          border-radius: 50px;
+          background-color: #fff;
+          //background-color: #eb5252;
+          //background-color: transparent;
+          border: 3px solid rgba(255,255,255,0.5);
+          //border: 3px solid rgba(0,0,0,0.3);
+          margin-left: 30px;
+          text-align: center;
+          //-webkit-box-sizing: content-box;
+          //-moz-box-sizing: content-box;
+          //box-sizing: content-box;
+
+          //使里面的图片水平垂直居中
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
+
+          -webkit-box-pack: center;
+          -moz-box-pack: center;
+          /*混合版本语法*/
+          -ms-flex-pack: center;
+          /*新版本语法*/
+          -webkit-justify-content: center;
+          justify-content: center;
+          .iconfont{
+            color: @red-color;
+            font-size: 40px;
+            line-height: 40px;
+          }
+          img{
+            //width: 65px;
+            //height: 65px;
+            //width: 62px;
+            //height: 62px;
+            max-width: 100%;
+            max-height: 100%;
+
+            //max-width: 58px;
+            //max-height: 58px;
+            //min-width: 58px;
+            //min-height: 58px;
+          }
+
+        }
+        .userinfotext{
+          margin-left: 7px;
+          color: #fff;
+          .name{
+            font-size: 16px;
+          }
+          .address{
+            font-size: 13px;
+          }
+
+
+        }
+
+
+      }
+      .body{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        //padding-top: 100%;
+        position: relative;
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        text-align: center;
+        >*{
+          margin-left: auto;
+          margin-right: auto;
+          max-width:100%;
+          max-height:100%;
+          width: 320px;
+          padding-left: 2em;
+          padding-right: 2em;
+          display: inline-block;
+
+          canvas{
+            max-width:100%;
+            max-height:100%;
+            //width: 100%;
+            //height: 100%;
+            width: 240px;
+            height: 240px;
+          }
+
+        }
+
+        qrcode{
+
+
+        }
+
+
+
+
+        .body-abs{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+
+      }
+    }
+    .bottom-title{
+      height: 6em;
+      margin-top: 2em;
+      .bottom-title-text{
+        font-size: 13px;
+        color: #323232;
+        text-align: center;
+      }
+    }
+
+  }
+}

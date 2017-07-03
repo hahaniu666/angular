@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="stylesheet/less" type="text/css" href="../../../lib/lib.less"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../lib/lib-min-c3b72ccd7b.css"/>-->
+    <link rel="stylesheet/less" type="text/css" href="../../../less/index.less"/>
+    <script src="../../../lib/less/less.min.js" data-relative-urls="true"></script>
+</head>
+<body>
+二级结构的列表样式
+原型定义为函数two-list-block()
+标签使用ul和ol分级区别,一级用ul实线边框,二级用ol虚线边框
+主体结构
+大类two-list-block
+.two-list-block>ul>li*3>ol>li
+
+
+.list-block>ul>.item-content*3>.item-inner>.item-title
+.list-block>ul>.item-content*3>.item-inner>.item-title
+<div class="list-block">
+    <ul>
+        <li class="item-content">
+            <div class="item-inner">
+                <div class="item-title">sfsfs</div>
+            </div>
+        </li>
+        <li class="item-content">
+            <div class="item-inner">
+                <div class="item-title">sggehe</div>
+            </div>
+        </li>
+        <li class="item-content">
+            <div class="item-inner">
+                <div class="item-title">hh dhreh</div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+.list-block>ul>.item-content*3>.item-inner>ol>.item-content*3>.item-inner
+.list-block>ul>.item-content*3>.item-inner>ol>.item-content*3>.item-inner2
+item-inner2生成虚线
+
+
+<div class="list-block">
+    <ul>
+        <li class="item-content">
+            <div class="item-inner">
+                <ol>
+                    <li class="item-content">
+                        <div class="item-inner2">gfwgwe</div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2">gwg</div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2">\wg</div>
+                    </li>
+                </ol>
+            </div>
+        </li>
+        <li class="item-content">
+            <div class="item-inner">
+                <ol>
+                    <li class="item-content">
+                        <div class="item-inner2">wgw</div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2">gw</div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2">wwg</div>
+                    </li>
+                </ol>
+            </div>
+        </li>
+        <li class="item-content">
+            <div class="item-inner">
+                <ol>
+                    <li class="item-content">
+                        <div class="item-inner2"></div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2"></div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2"></div>
+                    </li>
+                </ol>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="list-block">
+    <ul>
+        <li class="item-content">
+            <div class="item-inner">
+                <ol>
+                    <li class="item-content">
+                        <div class="item-inner2">kewgegop</div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2">wgjwjgwjg</div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2">gewghwh</div>
+                    </li>
+                </ol>
+            </div>
+        </li>
+        <li class="item-content">
+            <div class="item-inner">
+                <ol>
+                    <li class="item-content">
+                        <div class="item-inner2">whwhw</div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2">hewh</div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2">ehehe</div>
+                    </li>
+                </ol>
+            </div>
+        </li>
+        <li class="item-content">
+            <div class="item-inner">
+                <ol>
+                    <li class="item-content">
+                        <div class="item-inner2">ege</div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2">gege</div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner2">
+                            eheehehehe
+
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </li>
+        <li class="item-content">
+            <div class="item-inner">
+                <ol>
+                    <li class="item-content">
+                        <div class="item-inner2">one</div>
+                    </li>
+                </ol>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+</body>
+</html>
+

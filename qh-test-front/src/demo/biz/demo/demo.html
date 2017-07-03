@@ -1,0 +1,19 @@
+<!--<div flex="" layout="column" class="md-whiteframe-z2 ks-main">-->
+
+    <!--<md-toolbar layout="row" class="ks-header">-->
+        <!--<div class="md-toolbar-tools">-->
+            <!--<h1 flex="" style="text-align: center;">UI列表</h1>-->
+        <!--</div>-->
+    <!--</md-toolbar>-->
+
+    <md-content flex="" id="content">
+        <md-subheader class="md-sticky">UI列表</md-subheader>
+        <md-list-item ng-repeat="ui in uiList" ng-click="null" ui-sref="{{ui.state}}">
+            <div class="md-list-item-text" layout="column">
+                <h3>{{ ui.name }}</h3>
+            </div>
+        </md-list-item>
+    </md-content>
+
+
+<!--</div>-->

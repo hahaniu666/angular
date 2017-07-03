@@ -1,0 +1,91 @@
+<div flex="" layout="column" class=" ks-main md-whiteframe-z2 ks-register">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+            <div class="divTop" flex>
+                <!-- <md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">{{forgetReigster.title}}</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+            <form class="registerForm1" ng-if="step == 1">
+                <div class="relative">
+
+                    <input type="text" data-ng-model="user.phone" placeholder="手机号 " ng-change="checkPhone()" >
+                    <md-icon md-font-set="ks-icon" class="close" ng-if="user.phone" ng-click="clearText(1)" >close
+
+                    </md-icon>
+                </div>
+                <div class="relative">
+                    <div layout="row" style="padding-top: 10px;">
+                        <input type="text" data-ng-model="user.imgCode" placeholder="验证码（不区分大小写）" flex style="border: none;"/>
+                        <div class="imgwrap">
+                            <img ng-src="{{tokenImg}}" ng-click="refresh()" style="width: 80px;height: 30px;margin-top: -4px;float:left;margin-left: 10px;">
+                            <md-icon md-font-set="ks-icon" class="ks-rotate" ng-click="refresh()" ></md-icon>
+                        </div>
+
+                        <!--https://kingsilk.net/qh/mall/local/11300/api/common/generatorToken-->
+                    </div>
+                </div>
+
+
+                <!--<input type="button" ng-click="openDialogCode($event)" ng-class="{'ng-class-button':user.phone.length>0}" value="{{fsyzm}}">-->
+                <!-- 发送验证码按钮 -->
+                <md-button class="md-login-button" aria-label="Custom Icon Button"
+                           ng-click="getSmsCode()" ng-class="{'ng-class-button':user.phone.length==11 && user.imgCode.length}">
+                    <span><!--{{fsyzm}}-->下一步</span>
+                </md-button>
+
+                <div class="loginLink" ng-if="!forgetReigster.forget">
+                    <span>已有帐号?&nbsp;&nbsp;</span>
+                    <a href=""><span class="loginGo" ui-sref="main.login({s:'index'})">请登录</span></a>
+                </div>
+            </form>
+            <form class="registerForm2" ng-if="step == 2">
+
+                <!-- <div layout="row" class="inputWrap">
+                     <input type="text" data-ng-model="user.code" placeholder="验证码">
+                     <div flex layout="row" layout-align="center center">
+                         &lt;!&ndash;<input type="button" ng-click="openDialogCode($event)" value="{{fsyzm}}">&ndash;&gt;
+                     </div>
+                 </div>-->
+                <div layout="row" class="inputWrap" style="border-bottom: 1px solid #d5d5d5">
+                    <div flex="70" layout="row" class="relative" style="border: none;">
+                        <input type="text" data-ng-model="user.code" placeholder="验证码">
+                    </div>
+                    <div flex layout="row" layout-align="center center">
+                        <span style="width: 72px;display: inline-block;text-align: center;" ng-click="openDialogCode($event)" ng-class="{rePush:!waitShow}">{{fsyzm}}</span>
+
+                        <!-- <input type="button" ng-click="openDialogCode($event)" value="{{fsyzm}}">-->
+                    </div>
+                </div>
+                <div class="relative">
+                    <input type="{{user.type}}" placeholder="密码" data-ng-model="user.password"/>
+                    <!-- <md-icon md-font-set="ks-icon" class="visibility" ng-if="user.password" ng-click="clearText(3)">
+                         eye-o{{user.icon}}
+                     </md-icon>-->
+                    <!--<md-icon md-font-set="ks-icon" class="visibility" ng-click="changeEyes(user.type)"
+                             ng-if="user.password">{{user.icon}}
+                    </md-icon>-->
+
+                </div>
+                <md-button class="md-login-button" aria-label="Custom Icon Button" ng-click="register()"
+                           ng-class="{'ng-class-button':user.code.length==6 && user.password.length>=6}">
+                    <span>{{forgetReigster.value}}</span>
+                </md-button>
+                <div class="loginLink" ng-if="!forgetReigster.forget">
+                    <span>点击“注册”意味着您同意&nbsp;&nbsp;</span>
+                    <a href=""><span class="loginGo" ng-click="goRent()">《用户协议》</span></a>
+                </div>
+            </form>
+
+        </div>
+
+    </md-content>
+    <div service-center="" info="index"></div>
+</div>
+
+

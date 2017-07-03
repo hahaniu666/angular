@@ -1,0 +1,107 @@
+<md-bottom-sheet class="md-grid ks-select-spec" layout="column" ng-cloak>
+    <div class="header" layout="row">
+        <div class="item-img">
+            <img ng-src="{{vm.appConfig.imgUrl}}{{vm.tempCheckSku.imgs[0]}}?imageView2/2/w/{{vm.imgService.slideImg.w}}/h/{{vm.imgService.slideImg.h}}"/>
+        </div>
+        <div flex>
+            <div class="Htop">
+                ￥{{vm.tempCheckSku.acPrice/100.0|num:1}}
+                <span ng-if="vm.type==='RENT'">/ 天</span>
+            </div>
+            <div class="txtWarp" ng-if="vm.tempCheckSku&&!vm.tempCheckSku.delete&&vm.tempCheckSku.storage>0">
+                库存{{vm.tempCheckSku.storage}}件
+            </div>
+            <!--<div class="txtWarp" ng-if="vm.tempCheckSku&&vm.tempCheckSku.delete">当前商品缺货</div>-->
+            <div class="txtWarp" ng-if="vm.specClick.length<vm.itemDetail.specs.length">选择规格</div>
+            <div class="txtWarp"
+                 ng-if="vm.specClick.length===vm.itemDetail.specs.length&&vm.tempCheckSku&&vm.tempCheckSku.storage<=0">
+                当前商品缺货
+            </div>
+        </div>
+        <md-icon flex="5" class="chevron_left ks-icon" md-font-set="ks-icon" ng-click="vm.cancel()">close</md-icon>
+    </div>
+    <md-divider></md-divider>
+
+    <md-content flex="" stop-touch-event>
+        <div class="contentTxt" layout="row" ng-repeat="spec in vm.itemDetail.specs">
+            <div class="selectLeft">{{spec.specName}}：</div>
+            <div flex>
+                <!--点中之后加active状态-->
+                <div class="slectBtn" ng-class="{active:specValue.check}" ng-style="disabled"
+                     ng-click="vm.clickedSpec(spec,specValue)" ng-repeat="specValue in spec.specValues">
+                    {{specValue.name}}
+                </div>
+            </div>
+        </div>
+        <div class="contentTxt" layout="row" style="padding-bottom: 14px">
+            <div class="selectLeft">数量:</div>
+            <!--<div class="selectLeft" ng-if="vm.skuProp.status==='RENT'">租期:</div>-->
+            <div layout="row" class="count">
+                <div class="minus" ng-mobile-click="vm.skuNumCount(0)" layout="" layout-align="center center">
+                    <md-icon class="iconBtn" md-font-set="ks-icon" md-font-icon="ks-minus"></md-icon>
+                </div>
+                <input type="number" ng-model="vm.skuProp.skuNum" layout="" layout-align="center center" readonly/>
+                <div class="add" ng-mobile-click="vm.skuNumCount(1)" layout="" layout-align="center center">
+                    <md-icon class="iconBtn" md-font-set="ks-icon" md-font-icon="ks-plus-bold"></md-icon>
+                </div>
+
+            </div>
+            <div layout="row" style="margin-left: 10px;font-size: 13px;color: #999" layout-align="center center">
+                件
+            </div>
+        </div>
+        <div class="contentTxt" layout="row" ng-if="vm.skuProp.status==='RENT'"
+             style="padding-bottom: 14px;margin-top: -26px">
+            <div class="selectLeft">租期:</div>
+            <div layout="row" class="count">
+                <div class="minus" ng-mobile-click="vm.skuDayCount(0)" layout="" layout-align="center center">
+                    <md-icon class="iconBtn" md-font-set="ks-icon" md-font-icon="ks-minus"></md-icon>
+                </div>
+                <input type="number" ng-model="vm.skuProp.day" layout="" layout-align="center center"/>
+                <div class="add" ng-mobile-click="vm.skuDayCount(1)" layout="" layout-align="center center">
+                    <md-icon class="iconBtn" md-font-set="ks-icon" md-font-icon="ks-plus-bold"></md-icon>
+                </div>
+
+            </div>
+            <div layout="row" layout-align="center center" style="margin-left: 10px;font-size: 13px;color: #999">
+                天
+            </div>
+        </div>
+    </md-content>
+    <div class="footer" layout="row">
+        <div class="btnLeft" flex ng-click="vm.checkSubmit(0)">加入购物车</div>
+        <div class="btnRight" flex ng-click="vm.checkSubmit(1)">确定</div>
+    </div>
+    <div style="padding-bottom: 80px; background:#fff; flex-shrink: 0"></div>
+</md-bottom-sheet>
+<!--
+
+<div class="modal-body">
+    &lt;!&ndash;选择规格&ndash;&gt;
+    <section id="J_GoodsSku" class="goods-sku" style="visibility: visible;">
+        <div class="content">
+            <div class="sku-list">
+                <dl class="size" ng-repeat="spec in vm.itemDetail.specs">
+                    <dt>{{spec.specName}}：</dt>
+                    <br>
+                    <dd>
+                        <ol class="s3 J_StyleList style-list clearfix" style="text-align: left">
+                            <li ng-class="{c:specValue.check,itemStock:specValue.stock}" ng-style="disabled"
+                                ng-click="vm.clickedSpec(spec,specValue)" ng-repeat="specValue in spec.specValues">
+                                {{specValue.name}}
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+    <div ng-if="vm.itemDetail.type!='RENT_QUILT'&&vm.tempCheckSku">当前库存:{{vm.tempCheckSku.storage}}</div>
+    <div ng-if="vm.specClick.length<vm.itemDetail.specs.length">选择规格</div>
+    <div ng-if="vm.specClick.length===vm.itemDetail.specs.length&&!vm.tempCheckSku">当前商品缺货</div>
+</div>
+<div class="modal-footer" style="cursor:default">
+    <button class="btn btn-danger1" ng-click="vm.cancel()">取消</button>
+    <button class="btn btn-default1" ng-click="vm.checkSubmit()">确定</button>
+</div>
+-->

@@ -1,0 +1,175 @@
+.ks-care{
+  .ks-header._md {
+    height: 30px;
+    margin: 0 auto;
+    position: relative;
+    background: #ffffff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+        .regSpan{
+          font-size: 18px;
+        }
+        .shopping-cart-o,.house-o {
+          color: #101010;
+          line-height: 23px;
+          font-size: 20px;
+        }
+        .md-icon-button i {
+          position: absolute;
+          left: 50%;
+          text-align: center;
+          line-height: 14px;
+          border-radius: 11px;
+          height: 18px;
+          background: #e84e40;
+          color: #ffffff;
+          font-size: 11px;
+          font-style: normal;
+          min-width: 18px;
+          padding: 0 3px;
+          border: 2px solid #fff;
+        }
+      }
+    }
+  }
+  #content{
+    background-color: #f5f5f5;
+  }
+  .tag{
+    background-color: #fff;
+    justify-content: space-between;
+    .tags{
+      text-align: center;
+      background-color: #f1f1f1;
+      display: block;
+      height: 30px;
+      line-height: 30px;
+      margin: 15px 5px;
+      width: 23%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .actives{
+      color: #fff;
+      background-color: #101010;
+    }
+  }
+  /*这个是头部tab*/
+  .sample md-tabs.md-default-theme .md-tab, md-tabs .md-tab {
+    color: #999;
+    font-size: 16px;
+  }
+  .md-tab{
+    font-weight: normal;
+  }
+  .sample .md-tab {
+    padding: 12px 6px;
+  }
+  .sample .md-tab.md-active {
+    color: #101010;
+  }
+  .sample md-tabs md-ink-bar {
+    flex-shrink: 0;
+    color: #101010;
+    height: 2px;
+    margin: 0 15px -4px 15px;
+    background-color: #101010;
+  }
+  .sample {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    height: 49px;
+    background: #fff;
+    min-height: 49px;
+    padding: 0 10px;
+    border-bottom: 4px solid #fff;
+    md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon .tabsdemoDynamicHeight md-content {
+      flex-shrink: 0;
+      background: #fff !important;
+    }
+    md-tabs-canvas {
+      flex-shrink: 0;
+      overflow: visible;
+      height: 45px;
+    }
+    md-tabs[md-border-bottom] md-tabs-wrapper {
+      flex-shrink: 0;
+      border-width: 0 0 4px;
+      border-color: #fff;
+    }
+    md-pagination-wrapper {
+      flex-shrink: 0;
+      height: 45px;
+    }
+  }
+  .sample .md-tab.md-active{
+    font-size: 16px;
+  }
+
+  .myClean {
+    margin: 0 10px;
+    .cleanling {
+      .cl_item {
+        min-height: 150px;
+        position: relative;
+        width: 100%;
+        margin: 10px 0;
+        background-color : #fff;
+        .cl_pri {
+          font-size: 14px;
+          height: 50px;
+          span.n_pri{
+            line-height: 50px;
+            padding-left: 15px;
+            font-size: 20px;
+            color: #de372f;
+          }
+          span.y_pri{
+            line-height: 50px;
+            padding-left: 15px;
+            font-size: 14px;
+            color: #999;
+          }
+          .pri_del {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 12px;
+          }
+          .getsku{
+            width: 80px;
+            height: 24px;
+            text-align: center;
+            border: 1px solid #101010;
+            position: absolute;
+            right: 15px;
+            bottom: 12px;
+            line-height: 24px;
+          }
+        }
+        img {
+          display: block;
+          margin: 0 auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+}
+
+

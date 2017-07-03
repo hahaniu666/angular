@@ -1,0 +1,88 @@
+<div flex="" layout="column" class="md-whiteframe-z2 ks-main ks-appSearchReturn">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>商品列表</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+            <div class="contentCommodity contentCommodityLeft">
+                <div class="layoutWrap ">
+                    <div class="commodity commodityTitle" style="background:#8c2d2a ">
+                        <!--{{listTitle}}-->
+                        全部商品
+                    </div><!--ng-repeat="item in vm.items.items"-->
+                    <div class="commodityList" ng-repeat="all in allData[0] "
+                         ui-sref="main.item({itemId:all.itemId})"
+                         ng-if="$odd">
+                        <div class="commodity ">
+                            <div class="commodityImg"></div>
+                            <img ng-src="{{imgUrl}}/{{all.itemImg}}" img-holder/>
+                        </div>
+                        <div class="paremsTtitle">{{all.itemTitle}}</div>
+                        <div class="paremsPrice">￥{{all.skuPrice}}</div>
+                    </div>
+                    <div class="commodityList" ng-repeat="all in allData[0] "
+                         ui-sref="main.item({itemId:all.itemId})"
+                         ng-if="$even">
+                        <div class="commodity ">
+                            <div class="commodityImg"></div>
+                            <img ng-src="{{imgUrl}}/{{all.itemImg}}" img-holder/>
+                        </div>
+                        <div class="paremsTtitle">{{all.itemTitle}}</div>
+                        <div class="paremsPrice">￥{{all.skuPrice}}</div>
+                    </div>
+
+
+                    <!--<div ng-show="status == 'jxjnList' " class="commodityList" ng-repeat="jxjn in jxjnData[0] "-->
+                    <!--ui-sref="main.item({itemId:jxjn.itemId})"-->
+                    <!--ng-if="$odd">-->
+                    <!--<div class="commodity ">-->
+                    <!--<div class="commodityImg"></div>-->
+                    <!--<img ng-src="{{imgUrl}}/{{jxjn.itemImg}}" img-holder/>-->
+                    <!--</div>-->
+                    <!--<div class="paremsTtitle">{{jxjn.itemTitle}}</div>-->
+                    <!--<div class="paremsPrice">￥{{jxjn.skuPrice}}</div>-->
+                    <!--</div>-->
+                    <!--<div ng-show="status == 'jxjnList' " class="commodityList" ng-repeat="jxjn in jxjnData[0] "-->
+                    <!--ui-sref="main.item({itemId:jxjn.itemId})"-->
+                    <!--ng-if="$even">-->
+                    <!--<div class="commodity ">-->
+                    <!--<div class="commodityImg"></div>-->
+                    <!--<img ng-src="{{imgUrl}}/{{jxjn.itemImg}}" img-holder/>-->
+                    <!--</div>-->
+                    <!--<div class="paremsTtitle">{{jxjn.itemTitle}}</div>-->
+                    <!--<div class="paremsPrice">￥{{jxjn.skuPrice}}</div>-->
+                    <!--</div>-->
+
+
+                    <!--<div ng-show="status == 'smjnList' " class="commodityList" ng-repeat="smjn in smjnData[0] "-->
+                    <!--ui-sref="main.item({itemId:smjn.itemId})"-->
+                    <!--ng-if="$odd">-->
+                    <!--<div class="commodity ">-->
+                    <!--<div class="commodityImg"></div>-->
+                    <!--<img ng-src="{{imgUrl}}/{{smjn.itemImg}}" img-holder/>-->
+                    <!--</div>-->
+                    <!--<div class="paremsTtitle">{{smjn.itemTitle}}</div>-->
+                    <!--<div class="paremsPrice">￥{{smjn.skuPrice}}</div>-->
+                    <!--</div>-->
+                    <!--<div ng-show="status == 'smjnList' " class="commodityList" ng-repeat="smjn in smjnData[0] "-->
+                    <!--ui-sref="main.item({itemId:smjn.itemId})"-->
+                    <!--ng-if="$even">-->
+                    <!--<div class="commodity ">-->
+                    <!--<div class="commodityImg"></div>-->
+                    <!--<img ng-src="{{imgUrl}}/{{smjn.itemImg}}" img-holder/>-->
+                    <!--</div>-->
+                    <!--<div class="paremsTtitle">{{smjn.itemTitle}}</div>-->
+                    <!--<div class="paremsPrice">￥{{smjn.skuPrice}}</div>-->
+                    <!--</div>-->
+
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>
+

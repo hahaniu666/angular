@@ -1,0 +1,619 @@
+<div flex="" layout="column" class=" ks-main ks-leasingAsset">
+
+    <md-toolbar class="ks-header" style="height: 86px;">
+        <div layout="row" class="ks-header-divWrap">
+            <div class="divTop" flex>
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="vm.fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <div class="topTab" layout="column" ng-cloak style="flex-shrink:0;">
+                    <span ng-if="assets != 'SCHOOL'">酒店合作</span>
+                    <span ng-if="assets == 'SCHOOL'">我的租赁</span>
+                </div>
+                <div ng-click="vm.goList()" ng-if="user.userInfo.org==='HOTEL'"
+                     style="position: absolute;top:0;right:20px;width: 100px;z-index: 19;font-size: 14px;text-align: right">
+                    账单
+                </div>
+                <div style="background: #d5d5d5;height: 1px;width: 100%;margin-top: 0px;"></div>
+                <!--租赁资产-->
+                <md-tabs md-selected="vm.tableIndex"
+                         md-border-bottom
+                         md-center-tabs
+                         md-swipe-content="true"
+                         md-dynamic-height
+                         md-stretch-tabs="always"
+                         md-selected="selectedIndex"
+                         ng-if="selectedTop==false"
+                         style="padding: 0 10px;background: #fff;">
+                    <md-tab label="使用中" ng-click="zichan(1);vs.my.tabLv2='inUse';curTab"
+                            md-active="$state.params.s=='inUse'"></md-tab>
+                    <!-- <md-tab label="退租中" ng-click="zichan(2);vs.my.tabLv2='back' "
+                             md-active="$state.params.s=='back'"></md-tab>-->
+                    <md-tab label="历史" ng-click="zichan(3);vs.my.tabLv2='delete'"
+                            md-active="$state.params.s=='delete'"></md-tab>
+                </md-tabs>
+            </div>
+    </md-toolbar>
+
+    <md-content style="height: 100vh" id="content">
+        <!--我的租赁-->
+        <div ng-if="selectedTop==false">
+            <!--使用中-->
+            <div class="shiyongzhongDiv" ng-if="zulinzichan==1">
+                <md-content class="md-padding">
+                    <!--普通租赁-->
+                    <div layout="row" class="cart-item"
+                         layout-align="center center"
+                         ng-repeat=" citem in vs.my.inUse.data.recList track by $index"
+                         ng-if="user.userInfo.org!=='HOTEL'">
+
+                        <div layout="" layout-align="end center" ng-click="selecedOnly()">
+                            <!--副选框,不要删除-->
+                            <!-- <md-checkbox class="ks-gold goes" ng-checked="isChecked(citem)" ng-click="setChecked(citem)" ng-model="citem.lhl"></md-checkbox>-->
+
+                            <md-icon class="unselected ks-icon" md-font-set="ks-icon"
+                                     ng-if="skus[0] != $index"
+                                     ng-click="setChecked(citem,$index);">
+                                r-unselected
+                            </md-icon>
+                            <md-icon class="selected ks-icon" md-font-set="ks-icon" ng-if="skus[0] == $index"
+                                     ng-click="setChecked(citem, $index);" style="color: #ba9f6e">r-selected
+                            </md-icon>
+                        </div>
+                        <div class="item-img" ng-click="linkDetail($index)">
+                            <img ng-src="{{imgSSS}}{{citem.sku.img}}?imageView2/2/w/50/h/50"
+                                 img-holder
+                                 alt="钱皇"/>
+                        </div>
+                        <div flex layout="column" class="item-desp" ng-click="linkDetail($index)">
+                            <div class="item-title">{{citem.sku.title}}
+                            </div>
+                            <div class="item-specs"><span>创建：{{citem.beginDate | date:'yyyy-MM-dd' }} 退租时间：{{citem.endDate | date:'yyyy-MM-dd' }}</span>
+                            </div>
+                            <div flex layout="row" layout-align="" class="price-row" style="line-height: 30px">
+                                <div flex class="item-price">
+                                            <span>
+                                                ￥{{citem.price/100}}/天
+                                            </span>
+                                    <span style="color: red;margin-left: 20px;"
+                                          ng-if="tmp.isSelected">{{citem.delete}}</span>
+                                </div>
+                                <div layout="row" class="count">
+                                    还可用：{{citem.day}}天
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--酒店租赁-->
+                    <div layout="row" class="cart-item"
+                         style=" padding: 0 10px;"
+                         layout-align="center center"
+                         ng-repeat=" citem in vs.my.inUse.data.recList track by $index"
+                         ng-if="user.userInfo.org==='HOTEL'">
+                        <div class="item-img" ng-click="hotelDetail($index)">
+                            <img ng-src="{{imgSSS}}{{citem.sku.img}}?imageView2/2/w/50/h/50"
+                                 img-holder
+                                 alt="钱皇"/>
+                            <!--src="{{citem.sku.img}}" ?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}-->
+
+                        </div>
+                        <div flex layout="column" class="item-desp" ng-click="hotelDetail($index)"
+                             layout-align="space-between start">
+                            <div flex class="hotel-title">
+                                {{citem.sku.title}}
+                            </div>
+                            <span style="position: absolute;right: 0;top:0;">x{{citem.count}}</span>
+                            <div class="hotel-desp">
+                                <div class="hotel-specs" style="margin-bottom: 10px">
+                                    <span ng-repeat="sk in citem.sku.specs track by $index">{{sk.name}}:{{sk.value}}</span>
+                                </div>
+                                <div class="hotel-specs">
+                                    <span>{{citem.sku.price/100 | num:1}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background: #d5d5d5;width: 100%;height: 1px;"
+                         ng-if="vs.my.inUse.data.recList.length>0"></div>
+                    <div layout="row" layout-align="center center"
+                         ng-if="vs.my.inUse.data.totalCount>10 "
+                         style="padding: 10px" ng-click="fff()">
+                        <!--&& vs.my.inUse.data.pageEnd-->
+                        <md-button class="ks-white md-raised" flex
+                                   style="color: #999;box-shadow: 0 0 0 0 #fff;"
+                                   ng-if="!vs.my.inUse.data.pageEnd">
+                            点击加载更多...
+                        </md-button>
+                        <md-button class="ks-white md-raised" flex
+                                   style="color: #999;box-shadow: 0 0 0 0 #fff;"
+                                   ng-if="vs.my.inUse.data.pageEnd">
+                            没有更多内容了...
+                        </md-button>
+                    </div>
+                </md-content>
+                <md-content flex layout="column" class="empty" ng-if="!vs.my.inUse.data.recList.length>0">
+                    <div flex layout="column" layout-align="center center">
+                        <md-icon md-font-set="ks-icon" md-font-icon="ks-order" class="icon"></md-icon>
+                        <div class="txt">啊哦，没有订单～</div>
+                    </div>
+                </md-content>
+            </div>
+            <!-- &lt;!&ndash;退租中&ndash;&gt;
+             <div class="shiyongzhongDiv" ng-if="zulinzichan==2">
+                 <md-content class="md-padding">
+                     <div layout="row" class="cart-item"
+                          layout-align="center center"
+                          ng-repeat=" citem in vs.my.back.data.recList track by $index"
+                          ng-if="user.userInfo.org!=='HOTEL'">
+                         &lt;!&ndash;副选框,不要删除&ndash;&gt;
+                         &lt;!&ndash; <md-checkbox class="ks-gold goes" ng-checked="isChecked(citem)" ng-click="setChecked(citem)" ng-model="citem.lhl"></md-checkbox>&ndash;&gt;
+                         <md-icon class="unselected ks-icon" md-font-set="ks-icon" ng-if="skus[1] != $index"
+                                  ng-click="setChecked(citem, $index);">
+                             r-unselected
+                         </md-icon>
+                         <md-icon class="selected ks-icon" md-font-set="ks-icon" ng-if="skus[1] == $index"
+                                  ng-click="setChecked(citem, $index);" style="color: #ba9f6e">r-selected
+                         </md-icon>
+                         <div class="item-img" ng-click="linkDetail($index)">
+                             <img ng-src="{{imgSSS}}{{citem.sku.img}}"
+                                  img-holder
+                                  alt="钱皇"/>
+                             &lt;!&ndash;src="{{citem.sku.img}}" ?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}&ndash;&gt;
+
+                         </div>
+                         <div flex layout="column" class="item-desp" ng-click="linkDetail($index)">
+                             <div class="item-title">{{citem.sku.title}}
+                             </div>
+                             <div class="item-specs"><span>创建： {{citem.beginDate | date:'yyyy-MM-dd' }}退租时间：{{citem.endDate | date:'yyyy-MM-dd' }}</span>
+                             </div>
+                             <div flex layout="row" layout-align="" class="price-row" style="line-height: 30px">
+                                 <div flex class="item-price">
+                                                     <span>
+                                                         ￥{{citem.price/100}}/天
+                                                     </span>
+                                     <span style="color: red;margin-left: 20px;"
+                                           ng-if="tmp.isSelected">{{citem.delete}}</span>
+                                 </div>
+                                 <div layout="row" class="count">
+                                     还可用：{{citem.day}}天
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                     <div layout="row" class="cart-item"
+                          layout-align="center center"
+                          ng-repeat=" citem in vs.my.back.data.recList track by $index"
+                          ng-if="user.userInfo.org==='HOTEL'">
+                         &lt;!&ndash;副选框,不要删除&ndash;&gt;
+                         &lt;!&ndash; <md-checkbox class="ks-gold goes" ng-checked="isChecked(citem)" ng-click="setChecked(citem)" ng-model="citem.lhl"></md-checkbox>&ndash;&gt;
+                         <md-icon class="unselected ks-icon" md-font-set="ks-icon" ng-if="skus[1] != $index"
+                                  ng-click="setChecked(citem, $index);">
+                             r-unselected
+                         </md-icon>
+                         <md-icon class="selected ks-icon" md-font-set="ks-icon" ng-if="skus[1] == $index"
+                                  ng-click="setChecked(citem, $index);" style="color: #ba9f6e">r-selected
+                         </md-icon>
+                         <div class="item-img" ng-click="hotelDetail($index)">
+                             <img ng-src="{{imgSSS}}{{citem.sku.img}}"
+                                  img-holder
+                                  alt="钱皇"/>
+                             &lt;!&ndash;src="{{citem.sku.img}}" ?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}&ndash;&gt;
+
+                         </div>
+                         <div flex layout="column" class="item-desp" ng-click="hotelDetail($index)">
+                             <div class="item-title">{{citem.sku.title}}
+                             </div>
+                             <div class="item-specs">
+                                 <span ng-repeat="specs in citem.sku.specs">{{specs.name}} {{specs.value}}</span>
+                             </div>
+                             <div flex layout="row" layout-align="" class="price-row" style="line-height: 30px">
+                                 <div flex class="item-price">
+                                                     <span>
+                                                         ￥{{citem.sku.price/100}}/天
+                                                     </span>
+                                     <span style="color: red;margin-left: 20px;"
+                                           ng-if="tmp.isSelected">{{citem.delete}}</span>
+                                 </div>
+                                 <div layout="row" class="count">
+                                     <span ng-if="citem.count<0">数量：{{-citem.count}}件</span>
+                                     <span ng-if="citem.count>0">数量：{{citem.count}}件</span>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                     <div style="background: #d5d5d5;width: 100%;height: 1px;"
+                          ng-if="vs.my.back.data.recList.length>0"></div>
+                     <div layout="row" layout-align="center center"
+                          ng-if="vs.my.back.data.totalCount>10 "
+                          style="padding: 10px" ng-click="aaa()">
+                         <md-button class="ks-white md-raised" flex
+                                    style="color: #999;box-shadow: 0 0 0 0 #fff;"
+                                    ng-if="!vs.my.back.data.pageEnd">
+                             点击加载更多...
+                         </md-button>
+                         <md-button class="ks-white md-raised" flex
+                                    style="color: #999;box-shadow: 0 0 0 0 #fff;"
+                                    ng-if="vs.my.back.data.pageEnd">
+                             没有更多内容了...
+                         </md-button>
+                     </div>
+                 </md-content>
+                 <md-content flex layout="column" class="empty" ng-if="!vs.my.back.data.recList.length>0">
+                     <div flex layout="column" layout-align="center center">
+                         <md-icon md-font-set="ks-icon" md-font-icon="ks-order" class="icon"></md-icon>
+                         <div class="txt">啊哦，没有订单～</div>
+                     </div>
+                 </md-content>
+             </div>-->
+            <!--历史-->
+            <div class="shiyongzhongDiv" ng-if="zulinzichan==3">
+                <md-content class="md-padding">
+                    <div layout="row" class="cart-item"
+                         layout-align="center center"
+                         ng-repeat=" citem in vs.my.delete.data.recList track by $index"
+                         ng-if="user.userInfo.org!=='HOTEL'">
+                        <!--副选框,不要删除-->
+                        <md-checkbox class="ks-gold goes" ng-click="setChecked(citem, $index);"
+                                     ng-checked="exists(citem)"></md-checkbox>
+                        <div class="item-img" ng-click="linkDetail($index)">
+                            <img ng-src="{{imgSSS}}{{citem.sku.img}}?imageView2/2/w/50/h/50"
+                                 img-holder
+                                 alt="钱皇"/>
+                        </div>
+                        <div flex layout="column" class="item-desp" ng-click="linkDetail($index)">
+                            <div class="item-title">{{citem.sku.title}}
+                            </div>
+                            <div class="item-specs"><span>创建： {{citem.beginDate | date:'yyyy-MM-dd' }}退租时间：{{citem.endDate | date:'yyyy-MM-dd' }}</span>
+                            </div>
+                            <div flex layout="row" layout-align="" class="price-row" style="line-height: 30px">
+                                <div flex class="item-price">
+                                                <span>
+                                                    ￥{{citem.price/100}}/天
+                                                </span>
+                                    <span style="color: red;margin-left: 20px;"
+                                          ng-if="tmp.isSelected">{{citem.delete}}</span>
+                                </div>
+                                <!--<div layout="row" class="count">
+                                    还可用：{{citem.day}}天
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div layout="row" class="cart-item"
+                         layout-align="center center"
+                         ng-repeat=" citem in vs.my.delete.data.recList track by $index"
+                         ng-if="user.userInfo.org=='HOTEL'">
+                        <!--副选框,不要删除-->
+                        <md-checkbox class="ks-gold goes" ng-click="setChecked(citem, $index);"
+                                     ng-checked="exists(citem)"></md-checkbox>
+                        <!--<md-icon class="unselected ks-icon" md-font-set="ks-icon" ng-if="skus[2] != $index"
+                                 ng-click="setChecked(citem, $index);">
+                            r-unselected
+                        </md-icon>
+                        <md-icon class="selected ks-icon" md-font-set="ks-icon" ng-if="skus[2] == $index"
+                                 ng-click="setChecked(citem, $index);" style="color: #ba9f6e">r-selected
+                        </md-icon>-->
+                        <div class="item-img" ng-click="hotelDetail($index)">
+                            <img
+                                    ng-src="{{imgSSS}}{{citem.sku.img}}?imageView2/2/w/50/h/50"
+                                    img-holder
+                                    alt="钱皇"/>
+                            <!--src="{{citem.sku.img}}" ?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}-->
+
+                        </div>
+                        <div flex layout="column" class="item-desp" ng-click="hotelDetail($index)">
+                            <div class="item-title">{{citem.sku.title}}
+                            </div>
+                            <div class="item-specs"><span ng-repeat="specs in citem.sku.specs">{{specs.name}} {{specs.value}}</span>
+                            </div>
+                            <div flex layout="row" layout-align="" class="price-row" style="line-height: 30px">
+                                <div flex class="item-price">
+                                                    <span>
+                                                        ￥{{citem.sku.price/100}}/天
+                                                    </span>
+                                    <span style="color: red;margin-left: 20px;"
+                                          ng-if="tmp.isSelected">{{citem.delete}}</span>
+                                </div>
+                                <div layout="row" class="count">
+                                    <span ng-if="citem.count<0">数量：{{-citem.count}}件</span>
+                                    <span ng-if="citem.count>0">数量：{{citem.count}}件</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="center center"
+                         ng-if="vs.my.delete.data.totalCount>10 "
+                         style="padding: 10px" ng-click="eee()">
+                        <md-button class="ks-white md-raised" flex
+                                   style="color: #999;box-shadow: 0 0 0 0 #fff;"
+                                   ng-if="!vs.my.delete.data.pageEnd">
+                            点击加载更多...
+                        </md-button>
+                        <md-button class="ks-white md-raised" flex
+                                   style="color: #999;box-shadow: 0 0 0 0 #fff;"
+                                   ng-if="vs.my.delete.data.pageEnd">
+                            没有更多内容了...
+                        </md-button>
+                    </div>
+                </md-content>
+                <md-content flex layout="column" class="empty" ng-if="!vs.my.delete.data.recList.length>0">
+                    <div flex layout="column" layout-align="center center">
+                        <md-icon md-font-set="ks-icon" md-font-icon="ks-order" class="icon"></md-icon>
+                        <div class="txt">啊哦，没有订单～</div>
+                    </div>
+                </md-content>
+            </div>
+        </div>
+
+
+        <!--租赁任务-->
+        <!--全部-->
+        <!--
+        <div ng-if="selectedTop==true">
+            <div class="shiyongzhongDiv" ng-if="renwu==4">
+                <md-content class="md-padding">
+                    <div class="InformationWrap"
+                         ng-repeat=" transportData in transportAPIdata.recList track by $index"
+                         ng-if="!(transportData.statusDes=='待接单')">
+                        <div class="date" ng-click="goDetails($index)">
+                            <div class="spanText">
+                                <span>{{transportData.date | date:'yyyy-MM-dd'}}</span>
+                            </div>
+                            <div class="set" ng-if="transportData.type=='TAKE'">
+                                <span>取回</span>
+                            </div>
+                            <div class="set" ng-if="transportData.type=='SENT'">
+                                <span>配送</span>
+                            </div>
+                            <div class="orderReceiving">
+                                <span>{{transportData.statusDes}}</span>
+                            </div>
+
+                        </div>
+                        <div class="address" ng-click="goDetails($index)">
+                            <div>
+                                <md-icon md-font-set="ks-icon" class="ks-location glden"></md-icon>
+                                <span> {{transportData.orgName}}</span>
+                                <div class="clear"></div>
+                            </div>
+                            <div>
+                                <md-icon md-font-set="ks-icon" class="ks-location black"></md-icon>
+                                <span>{{transportData.userAddr}}</span>
+                                <div class="clear"></div>
+                            </div>
+                            <md-icon md-font-set="ks-icon" class="chevron_right">arrow_right</md-icon>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="Divmsg">
+                            <span class="left" ng-if="transportData.type=='SENT'">配送任务数量</span>
+                            <span class="left" ng-if="transportData.type=='TAKE'">取回任务数量</span>
+                            <span class="right">{{transportData.count}}件</span>
+                        </div>
+                        <a href="tel:0571-86064050" class="call">
+                            <div class="but-div" ng-click=""
+                                 ng-if="transportData.statusDes=='待收货' || transportData.statusDes=='待取回'">
+                                <span>联系客服</span>
+                            </div>
+                        </a>
+                        &lt;!&ndash; 隐藏评价
+                        <div class="but-div" ng-click="qupinglun($index)"
+                             ng-if="transportData.statusDes=='待验收' || transportData.statusDes=='待评价'">
+                            <span>评价</span>
+                        </div>
+                        &ndash;&gt;
+                        <div class="but-div" ng-click="delete($index)"
+                             ng-if="transportData.statusDes=='已完成'">
+                            <span>删除任务</span>
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                    <div layout="row" layout-align="center center"
+
+                         ng-if="transportAPIdata.totalCount>10"
+                         style="padding: 10px" ng-click="ddd()">
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                                   ng-if="!transportAPIdata.pageEnd">
+                            点击加载更多...
+                        </md-button>
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                                   ng-if="transportAPIdata.pageEnd">
+                            没有更多内容了...
+                        </md-button>
+                    </div>
+                </md-content>
+                <md-content flex layout="column" class="empty" ng-if="!transportAPIdata.recList.length>0">
+                    <div flex layout="column" layout-align="center center">
+                        <md-icon md-font-set="ks-icon" md-font-icon="ks-order" class="icon"></md-icon>
+                        <div class="txt">啊哦，没有订单～</div>
+                    </div>
+                </md-content>
+            </div>
+            &lt;!&ndash;进行中&ndash;&gt;
+            <div class="shiyongzhongDiv" ng-if="renwu==5">
+                <md-content class="md-padding">
+                    <div class="InformationWrap"
+                         ng-repeat=" transportData in transportAPIdata.recList track by $index">
+                        <div class="date" ng-click="goDetails($index)">
+                            <div class="spanText">
+                                <span>{{transportData.date | date:'yyyy-MM-dd'}}</span>
+                            </div>
+                            <div class="set" ng-if="transportData.type=='TAKE'">
+                                <span>取回</span>
+                            </div>
+                            <div class="set" ng-if="transportData.type=='SENT'">
+                                <span>配送</span>
+                            </div>
+                            <div class="orderReceiving">
+                                <span>{{transportData.statusDes}}</span>
+                            </div>
+                        </div>
+                        <div class="address" ng-click="goDetails($index)">
+                            <div>
+                                <md-icon md-font-set="ks-icon" class="ks-location glden"></md-icon>
+                                <span> {{transportData.orgName}}</span>
+                                <div class="clear"></div>
+                            </div>
+                            <div>
+                                <md-icon md-font-set="ks-icon" class="ks-location black"></md-icon>
+                                <span>{{transportData.userAddr}}</span>
+                                <div class="clear"></div>
+                            </div>
+                            <md-icon md-font-set="ks-icon" class="chevron_right">arrow_right</md-icon>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="Divmsg">
+                            <span class="left" ng-if="transportData.type=='SENT'">配送任务数量</span>
+                            <span class="left" ng-if="transportData.type=='TAKE'">取回任务数量</span>
+                            <span class="right">{{transportData.count}}件</span>
+                        </div>
+                        <a href="tel:0571-86064050" class="call">
+                            <div class="but-div" ng-click=""
+                                 ng-if="transportData.statusDes=='待收货' || transportData.statusDes=='待取回'">
+                                <span>联系客服</span>
+                            </div>
+                        </a>
+                        &lt;!&ndash;
+                        <div class="but-div" ng-click="qupinglun($index)"
+                             ng-if="transportData.statusDes=='待验收' || transportData.statusDes=='待评价'">
+                            <span>评价</span>
+                        </div>
+                        &ndash;&gt;
+                        <div class="clear"></div>
+                    </div>
+                    <div layout="row" layout-align="center center" ng-if="transportAPIdata.totalCount>10"
+                         style="padding: 10px" ng-click="bbb()">
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                                   ng-if="!transportAPIdata.pageEnd">
+                            点击加载更多...
+                        </md-button>
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                                   ng-if="transportAPIdata.pageEnd">
+                            没有更多内容了...
+                        </md-button>
+                    </div>
+                </md-content>
+                <md-content flex layout="column" class="empty" ng-if="!transportAPIdata.recList.length>0">
+                    <div flex layout="column" layout-align="center center">
+                        <md-icon md-font-set="ks-icon" md-font-icon="ks-order" class="icon"></md-icon>
+                        <div class="txt">啊哦，没有订单～</div>
+                    </div>
+                </md-content>
+            </div>
+            &lt;!&ndash;代评价&ndash;&gt;
+            <div class="shiyongzhongDiv" ng-if="renwu==6">
+                <md-content class="md-padding">
+                    <div class="InformationWrap"
+                         ng-repeat=" transportData in transportAPIdata.recList track by $index">
+                        <div class="date" ng-click="goDetails($index)">
+                            <div class="spanText">
+                                <span>{{transportData.date | date:'yyyy-MM-dd'}}</span>
+                            </div>
+                            <div class="orderReceiving">
+                                <span>{{transportData.statusDes}}</span>
+                            </div>
+                        </div>
+                        <div class="address" ng-click="goDetails($index)">
+                            <div>
+                                <md-icon md-font-set="ks-icon" class="ks-location glden"></md-icon>
+                                <span> {{transportData.orgName}}</span>
+                                <div class="clear"></div>
+                            </div>
+                            <div>
+                                <md-icon md-font-set="ks-icon" class="ks-location black"></md-icon>
+                                <span>{{transportData.userAddr}}</span>
+                                <div class="clear"></div>
+                            </div>
+                            <md-icon md-font-set="ks-icon" class="chevron_right">arrow_right</md-icon>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="Divmsg">
+                            <span class="left" ng-if="transportData.type=='SENT'">配送任务数量</span>
+                            <span class="left" ng-if="transportData.type=='TAKE'">取回任务数量</span>
+                            <span class="right">{{transportData.count}}件</span>
+                        </div>
+                        &lt;!&ndash;
+                        <div class="but-div" ng-click="qupinglun($index)"
+                             ng-if="transportData.statusDes=='待验收' || transportData.statusDes=='待评价'">
+                            <span>评价</span>
+                        </div>
+                        &ndash;&gt;
+                        <div class="clear"></div>
+                    </div>
+                    <div layout="row" layout-align="center center" ng-if="transportAPIdata.totalCount>10"
+                         style="padding: 10px" ng-click="ccc()">
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                                   ng-if="!transportAPIdata.pageEnd">
+                            点击加载更多...
+                        </md-button>
+                        <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                                   ng-if="transportAPIdata.pageEnd">
+                            没有更多内容了...
+                        </md-button>
+                    </div>
+                </md-content>
+                <md-content flex layout="column" class="empty" ng-if="!transportAPIdata.recList.length>0">
+                    <div flex layout="column" layout-align="center center">
+                        <md-icon md-font-set="ks-icon" md-font-icon="ks-order" class="icon"></md-icon>
+                        <div class="txt">啊哦，没有订单～</div>
+                    </div>
+                </md-content>
+            </div>
+        </div>-->
+
+
+        <!--按钮-->
+    </md-content>
+    <div layout="row" layout-align="center center" class="cartToolbar"
+         ng-if="vs.my.tabLv2=='inUse' && selectedTop==false && vs.my.inUse.data.recList.length>0 && user.userInfo.org!=='HOTEL'">
+        <div flex class="totalPrice"></div>
+        <md-button ng-class="{go:!vm.editCartClick.click,delete:vm.editCartClick.click}"
+                   ng-click=" tuizu()">
+            申请退租
+        </md-button>
+    </div>
+    <!--这个跟上面唯一的区别是这个给酒店用的-->
+    <div layout="row" layout-align="center center" class="cartToolbar"
+         ng-if="vs.my.tabLv2=='inUse' && selectedTop==false && vs.my.inUse.data.recList.length>0 && user.userInfo.org==='HOTEL'">
+        <div flex class="totalPrice"></div>
+        <md-button ng-class="{go:!vm.editCartClick.click,delete:vm.editCartClick.click}"
+                   ng-click=" checkin()" style="background-color: #ba9f6e">
+            结算登记
+        </md-button>
+    </div>
+    <!-- 取消退租按钮不要，隐藏掉，若要修改，把最后的1==2去掉 -->
+    <div layout="row" layout-align="center center" class="cartToolbar"
+         ng-if="vs.my.tabLv2=='back' && selectedTop==false && vs.my.back.data.recList.length>0 && 1==2">
+        <div flex class="totalPrice"></div>
+        <md-button ng-class="{go:vm.editCartClick.click,delete:!vm.editCartClick.click}"
+                   ng-click=" quxiaotuizu()">
+            取消退租
+        </md-button>
+    </div>
+
+    <!--    <div layout="row" layout-align="center center" class="cartToolbar"
+             ng-if="vs.my.tabLv2=='delete' && selectedTop==false && vs.my.delete.data.recList.length>0">
+            <div flex class="totalPrice"></div>
+            <md-button ng-class="{go:vm.editCartClick.click,delete:!vm.editCartClick.click}"
+                       ng-click=" shanchu()">
+                删除历史
+            </md-button>
+        </div>-->
+    <div layout="row" layout-align="center center" class="shanchuToolbar shanchu"
+         ng-if="vs.my.tabLv2=='delete' && selectedTop==false && vs.my.delete.data.recList.length>0">
+        <!--ng-if="vm.cartIsNull"-->
+        <div layout="" layout-align="end center" class="selectAll">
+            <md-checkbox class="ks-gold goes" ng-click="toggleAll()" ng-checked="isChecked()"
+                         md-indeterminate="isIndeterminate()">全选
+            </md-checkbox>
+        </div>
+        <div flex class="totalPrice"></div>
+        <md-button ng-class="{go:vm.editCartClick.click,delete:!vm.editCartClick.click}"
+                   ng-click=" shanchu()">
+            删除({{skuSelected.length}})
+        </md-button>
+    </div>
+</div>
+

@@ -1,0 +1,92 @@
+<!--除了此页有新加代码之外，其他退货退款页面没有css改动，可以复用，但是头部ks-这块不一样-->
+<div flex="" layout="column" class="ks-refundDetail ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="">
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_left</md-icon>
+            </md-button>
+            <h1 flex>退款详情</h1>
+            <span></span>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+
+    <md-content>
+        <!--选择框-->
+        <div class="choose">
+            <div class="chooseContent" layout="row">
+                <span class="chooseTxt" layout="row" flex="20" layout-align="end">订单编号：</span>
+                <span flex></span></span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span layout="row" flex="20" layout-align="end">退货方式：</span>
+                <span></span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span layout="row" flex="20" layout-align="end">最后修改时间：</span>
+                <span></span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span layout="row" flex="20" layout-align="end">退款状态：</span>
+                <span></span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span layout="row" flex="20" layout-align="end">实际退款金额：</span>
+                <span style="width: 45px">￥<span style="color: red;margin-left: 2px;">173</span></span>
+            </div>
+            <div class="chooseTxt">
+                <span>(最多￥173,含邮费￥0)</span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span layout="row" flex="20" layout-align="end">退货说明：</span>
+                <input flex type="text" placeholder="填写单号">
+            </div>
+        </div>
+        <div class="voucher">
+            <div class="voucherTxt">
+                <div class="voucherPhoto">
+                    <div class="img">
+                        <img src="http://placehold.it/600x600">
+                    </div>
+                    <div class="txtWarp">
+                        <textarea maxlength="10" style="resize: none">最多10个字最多10个字</textarea>
+                    </div>
+                    <div class="delete">
+                        <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">delete</md-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="voucherTxt">
+                <div class="voucherPhoto">
+                    <div class="img">
+                        <img src="http://placehold.it/600x600">
+                    </div>
+                    <div class="txtWarp">
+                        <textarea maxlength="10" style="resize: none" placeholder="输入说明"></textarea>
+                    </div>
+                    <div class="delete">
+                        <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">delete</md-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add">
+            <div class="font">
+                <div class="fontWrap">
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">plus</md-icon>
+                </div>
+                <span class="addTxt">
+                    <span>上传凭证</span>
+                    <p>(最多三张)</p>
+                </span>
+            </div>
+        </div>
+
+    </md-content>
+    <div class="fixed">
+        <div>
+            <span>提交申请</span>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div flex="" layout="column" class="ks-transactionRecord ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header" style="background: #FFF;border-bottom: 1px solid #d5d5d5">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="fallbackPage()" flex="10">
+                <md-icon class="chevron_left ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+            </md-button>
+            <h1 flex>收支明细</h1>
+            <span flex="10"><!-- 这个功能先不做   筛选--></span>
+        </div>
+    </md-toolbar>
+    <md-content ng-if="counts.recList.length!==0">
+        <div class="transactionRecord">
+            <div class="month">
+                <span>历史收支明细</span>
+            </div>
+            <div class="introduceWrap" ng-repeat="s in counts.recList">
+                <div class="contentUserName" layout="row">
+                    <div class="contentUserNameOne" flex="15" layout="column" layout-align="center start ">
+                        <span>{{s.date|date:'MM-dd'}}</span>
+                    </div>
+                    <div class="contentUserNameTwo" flex="20" layout="column" layout-align="center center ">
+                        <div class="img1">
+                            <md-icon class="imgIcon ks-icon" md-font-set="ks-icon" md-font-icon="ks-card-r"></md-icon>
+                        </div>
+                    </div>
+                    <div class="contentUserNameThree" flex="30" layout="column" layout-align="center start ">
+                        <span class="inv-name">{{s.changeAmount/100.0|num:1}}</span>
+                        <span class="ivt-status">{{s.typeDes}}</span>
+                    </div>
+                    <div class="contentUserNameOne" flex="25" layout="column" layout-align="center start "
+                         ng-if="s.status==='PAY'">
+                        <span>{{s.statusDesp}}</span>
+                    </div>
+                </div>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px" ng-click="transRecord(curPage)"
+                 ng-if="!pageEnd">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    <!-- <md-icon style="color: #999;margin-right: 10px" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>-->
+                    点击加载更多...
+                </md-button>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-if="pageEnd&&totalCount>10">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    没有更多记录了
+                </md-button>
+            </div>
+        </div>
+    </md-content>
+    <md-content flex layout="column" class="empty" ng-if="counts.recList.length===0">
+
+        <div flex layout="column" layout-align="center center">
+            <md-icon md-font-set="ks-icon" class="icon" md-font-icon="ks-sort-right-left"></md-icon>
+            <div class="txt">您还没有收支明细~</div>
+        </div>
+    </md-content>
+</div>

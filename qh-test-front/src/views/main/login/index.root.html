@@ -1,0 +1,57 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-login">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+
+            <div class="divTop" flex class>
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">登录</span>
+            </div>
+
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+
+            <form class="loginForm1" style="">
+                <div class="relative">
+                    <input type="text" ng-model="user.j_username" placeholder="手机号/用户名/邮箱">
+                    <md-icon md-font-set="ks-icon" class="close" ng-click="clearText(1)"
+                             ng-if="user.j_username">close
+                    </md-icon>
+                </div>
+                <div class="relative">
+                    <input type="{{user.type}}" ng-model="user.j_password" placeholder="密码">
+                    <md-icon md-font-set="ks-icon" class="visibility" ng-click="clearText(2)"
+                             ng-if="user.j_password">{{user.icon}}
+                    </md-icon>
+                    <!--ks-eye   eye-o-->
+                </div>
+                <md-button class="md-login-button" aria-label="Custom Icon Button" ng-click="login()"
+                           ng-class="{'ng-class-button':user.j_username.length>0 && user.j_password.length>0}">
+                    <span>登录</span>
+                </md-button>
+            </form>
+            <div class="loginLink">
+                <span>没有帐号？&nbsp;</span>
+                <a ng-click="toRegister()"><span class="loginGo">请注册</span></a>
+                <a><span class="wjmm" ui-sref="main.register({s:'index',forget:'true'})">忘记密码？</span></a>
+            </div>
+            <div class="sfLogin">
+                <div class="title" ng-if="wxIconFunction">
+                    <div class="titleChildrenhr1 titleChildrenhr"></div>
+                    <div class="titleChildren">第三方帐号登录</div>
+                    <div class="titleChildrenhr"></div>
+                </div>
+                <div class="iconTab" ng-if="wxIconFunction">
+                    <div class="iconWrap" layout="row" layout-align="center center" ng-click="wxLogin()">
+                        <md-icon md-font-set="ks-icon" class="weixin">weixin</md-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>
+
+

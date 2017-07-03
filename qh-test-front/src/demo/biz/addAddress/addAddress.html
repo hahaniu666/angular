@@ -1,0 +1,70 @@
+<div flex="" layout="column" class=" ks-main ">
+    <md-toolbar class="ks-header" >
+        <div layout="row" class="ks-header-divWrap" >
+
+            <div class="divTop" flex class>
+                <!--<md-icon  md-font-set="material-icons" class="chevron_left">chevron_left</md-icon>-->
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">添加地址</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content"  >
+        <div class="content-divWrap">
+            <div class="loginPassRow">
+                <input type="text" placeholder="姓名" />
+            </div>
+            <div class="loginPassRow">
+                <input type="text" placeholder="联系电话" />
+            </div>
+            <div class="loginPassRow">
+                <!--<input type="text" style="width: 80%;" placeholder="浙江省/杭州市/萧山区" />-->
+                <select style="background: transparent ; border: none; margin-top: 10px;">
+                    <option>浙江省</option>
+                </select>
+                <select style="background: transparent ; border: none; margin-top: 10px;">
+                    <option>杭州市</option>
+                </select>
+                <select style="background: transparent ; border: none; margin-top: 10px;">
+                    <option>萧山区</option>
+                </select>
+
+
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_right" class="arrow_right" ></md-icon>
+            </div>
+            <div class="loginPassRow">
+                <input type="text" placeholder="小区、街道、门派等详细信息"/>
+            </div>
+            <div class="loginPassRow">
+                <span class="txtSpan">设为默认地址</span>
+                <!--<div class="controllers">
+                    <div class="yuan"></div>
+                </div>-->
+                <md-switch  flex ng-model="vs.checked" class="ks-gold controllers"></md-switch>
+            </div>
+        </div>
+
+    <!--成功框-->
+        <div class="successBox" style="display: none">
+            <div class="bg-color"></div>
+            <div class="successWrap">
+                <md-icon md-font-set="ks-icon" md-font-icon=" ks-success" class="success" ></md-icon>
+            </div>
+            <p>添加地址成功！</p>
+        </div>
+        <!--失败框-->
+        <div class="successBox" style="display: block">
+            <div class="bg-color"></div>
+            <div class="successWrap">
+                <md-icon md-font-set="ks-icon" md-font-icon=" ks-cancle" class="success" ></md-icon>
+            </div>
+            <p>添加地址失败！</p>
+        </div>
+
+        <div class="address">
+            <button class="but">确定</button>
+        </div>
+    </md-content>
+</div>
+

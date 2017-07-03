@@ -1,0 +1,117 @@
+<div flex="" layout="column" class="ks-main  ks-earnMoney">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>赚钱币</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex>
+        <div class="earnMoney-Title" layout="row" layout-align="start center">
+            <div class="title-img">
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-Crown-o"></md-icon>
+            </div>
+            <div class="title-content" layout="column" layout-align="center start" flex>
+                <div class="title-1" flex>做任务&nbsp;<span>赚钱币</span></div>
+                <div class="title-2" flex>完成钱币任务,领取相应奖励</div>
+            </div>
+        </div>
+        <div layout="column" style="padding:0 10px" class="list" layout="column" layout-align="center center">
+            <div class="task-wrap" layout="row" layout-align="space-between center" flex style="width: 100%">
+                <div layout="row" class="list-left" layout-align="start center">
+                    <div class="leftIcon" layout="row" layout-align="center center" style="background: #d0af73">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-calendar-sign"
+                                 style="color: #ffffff;font-size: 24px"></md-icon>
+                    </div>
+
+                    <div layout="column" layout-align="space-between start">
+                        <div class="list-leftTitle">每日签到</div>
+                        <div class="list-leftContent">点击签到领钱币</div>
+                    </div>
+                </div>
+                <div layout="row" class="list-right">
+                    <div class="sign" ng-click="signs()" ng-if="!data.toDaySign">一键签到</div>
+                    <div class="signed" ng-if="data.toDaySign">已签到</div>
+                </div>
+            </div>
+
+        </div>
+        <md-divider></md-divider>
+
+        <div layout="column" style="padding:0 10px" class="list" layout="column" layout-align="center center">
+            <div class="task-wrap" layout="row" layout-align="space-between center" flex style="width: 100%">
+                <div layout="row" class="list-left" layout-align="start center">
+                    <div class="leftIcon" layout="row" layout-align="center center" style="background: #d0af73">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-massage"
+                                 style="color: #ffffff"></md-icon>
+                    </div>
+                    <div layout="column" layout-align="space-between start">
+                        <div class="list-leftTitle">评论分析</div>
+                        <div class="list-leftContent">在热门话题中进行评论</div>
+                    </div>
+                </div>
+                <div layout="row" class="list-right" ng-if="!data.iscommentMoreFive" ui-sref="main.topic">
+                    <span>+10钱币</span>
+                    <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                </div>
+                <div layout="row" class="list-right" ng-if="data.iscommentMoreFive">
+                    <div class="list-right2">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-selected"></md-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <md-divider></md-divider>
+
+
+        <div layout="column" style="padding:0 10px" class="list" layout="column" layout-align="center center">
+            <div class="task-wrap" layout="row" layout-align="space-between center" flex style="width: 100%">
+                <div layout="row" class="list-left" layout-align="start center">
+                    <div class="leftIcon" layout="row" layout-align="center center">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-wechat-o"></md-icon>
+                    </div>
+                    <div layout="column" layout-align="space-between start">
+                        <div class="list-leftTitle">关注获得钱币</div>
+                        <div class="list-leftContent">点击关注钱皇微信公众号</div>
+                    </div>
+                </div>
+                <div layout="row" class="list-right" ng-if="!data.isSubcribe">
+                    <span>+10钱币</span>
+                    <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                </div>
+                <div layout="row" class="list-right" ng-if="data.isSubcribe">
+                    <div class="list-right2">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-selected"></md-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <div layout="column" style="padding:0 10px" class="list" layout="column" layout-align="center center">
+            <div class="task-wrap" layout="row" layout-align="space-between center" flex style="width: 100%">
+                <div layout="row" class="list-left" layout-align="start center">
+                    <div class="leftIcon" layout="row" layout-align="center center">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-edit-pencil"></md-icon>
+                    </div>
+                    <div layout="column" layout-align="space-between start">
+                        <div class="list-leftTitle">完善个人信息</div>
+                        <div class="list-leftContent">填写个人资料绑定手机号</div>
+                    </div>
+                </div>
+                <div layout="row" class="list-right" ui-sref="main.user({s:'center'})" ng-if="!data.isUpdateUserInfo">
+                    <span>+10钱币</span>
+                    <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                </div>
+                <div layout="row" class="list-right" ng-if="data.isUpdateUserInfo">
+                    <div class="list-right2">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-selected"></md-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <md-divider></md-divider>
+
+    </md-content>
+</div>

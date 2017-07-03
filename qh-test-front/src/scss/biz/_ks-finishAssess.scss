@@ -1,0 +1,393 @@
+.ks-finishAssess {
+  .md-toolbar-tools {
+    height: 40px;
+    font-size: 16px;
+    color: #101010;
+
+    .nav-left {
+      font-size: 14px;
+      color: white;
+    }
+    .md-icon-button {
+      width: 22px;
+    }
+    span {
+      color: #808080;
+      font-size: 14px;
+    }
+  }
+
+  .finishAssessHeader {
+    padding: 0 10px;
+    .finishAssessHeaderTop {
+      border-bottom: 1px dashed #d5d5d5;
+      margin-left: 15px;
+      .ks-icon {
+        font-size: 24px;
+        color: #333333;
+        margin: 30px auto 30px 5px;
+      }
+      div {
+        height: 10px;
+        display: inline;
+        margin-left: 10px;
+        font-size: 16px;
+        color: #101010;
+        font-weight: bold;
+        line-height: 10px;
+      }
+    }
+    .finishAssessHeaderBottom {
+      .bottomList {
+        z-index: 2;
+        width: 20%;
+        text-align: center;
+        float: left;
+        position: relative;
+        height: 65px;
+        margin-top: 15px;
+        .circle {
+          display: inline-block;
+          position: absolute;
+          left: 50%;
+          margin-left: -10px;
+          box-sizing: border-box;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #ba9f6e;
+          .circleIn {
+            position: absolute;
+            left: -5px;
+            top: -5px;
+            margin: 10px;
+            line-height: 20px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+          }
+          .circleIn.active {
+            background: #333333;
+          }
+        }
+        .word {
+          margin-top: 35px;
+          font-size: 12px;
+          color: #999;
+        }
+        .word.cur {
+          color: #101010;
+        }
+      }
+      .line {
+        width: 80%;
+        position: relative;
+        left: 10%;
+        top: -57px;
+        height: 4px;
+        background: #ba9f6e;
+      }
+    }
+  }
+  .partLine {
+    width: 100%;
+    height: 10px;
+    background: #f5f5f5;
+  }
+  .distribution {
+    padding: 0 10px;
+    .distributionHeader {
+      border-bottom: 1px dashed #d5d5d5;
+      margin-left: 16px;
+      height: 44px;
+      .leftBlock {
+        position: relative;
+        left: 20px;
+        top: 15px;
+        float: left;
+        width: 8px;
+        height: 16px;
+        background: #ba9f6e;
+      }
+      span {
+        line-height: 44px;
+        height: 44px;
+        margin-left: 28px;
+        font-size: 14px;
+        color: #101010;
+      }
+    }
+    .txtWrap {
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #d5d5d5;
+      color: #ba9f6e;
+      font-size: 14px;
+      margin-top: 15px;
+      margin-left: 16px;
+      .ks-icon {
+        margin-left: 8px;
+        font-size: 12px;
+        color: #ba9f6e;
+      }
+      md-icon{
+        text-align: center;
+        line-height: 20px;
+      }
+    }
+    .distributionMode {
+      border-bottom: 1px dashed #d5d5d5;
+      padding: 15px 0;
+      margin-left: 16px;
+      .txt {
+        display: inline-block;
+        font-size: 14px;
+        text-indent: 35px;
+        width: 96px;
+        color: #999;
+
+      }
+      span {
+        font-size: 14px;
+        color: #999;
+      }
+    }
+    .address {
+      border-bottom: 1px solid #d5d5d5;
+      padding: 15px 0;
+      margin: 0;
+      .addressTxt {
+        line-height: 1.5em;
+        font-size: 14px;
+        color: #999;
+        margin-left: 33px;
+      }
+    }
+  }
+  .commodityList {
+    padding: 0 10px;
+    border-bottom: 1px solid #d5d5d5;
+    .commodityListHeader {
+      height: 44px;
+      margin-left: 15px;
+      .leftBlock {
+        position: relative;
+        left: 5px;
+        top: 15px;
+        float: left;
+        width: 8px;
+        height: 16px;
+        background: #ba9f6e;
+      }
+      span {
+        line-height: 44px;
+        height: 44px;
+        margin-left: 13px;
+        font-size: 14px;
+        color: #101010;
+      }
+    }
+    .commodityListContent {
+      position: relative;
+      margin-left: 15px;
+      border-top: 1px dashed #d5d5d5;
+      padding: 15px 5px 0 5px;
+      .contentListImg {
+        width: 70px;
+        max-width: 70px;
+        height: 70px;
+        float: left;
+        margin: 5px 10px 0 0;
+      }
+      .contentListRight {
+        position: relative;
+        width: 100%;
+        .right1 {
+          font-size: 13px;
+          color: #333;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .num1 {
+          font-size: 13px;
+          position: absolute;
+          bottom: 10;
+          left: 76px;
+          margin-top: 20px;
+        }
+        .num2 {
+          font-size: 13px;
+          position: absolute;
+          bottom: 10;
+          right: 6px;
+          margin-top: 20px;
+        }
+      }
+      .contentListRight > span {
+        font-size: 12px;
+        color: #999999;
+        margin-bottom: 10px;
+      }
+      // “赠品” 等飘带角标
+      .ribbon {
+        background-color: #ba9f6e;
+        height: 16px;
+        width: 32px;
+        font-size: 12px;
+        line-height: 16px;
+        position: absolute;
+        color: #fff;
+        top: 27px;
+        left: 0;
+        padding-left: 8px;
+
+        &::before, &::after {
+          display: inline-block;
+          box-sizing: border-box;
+          width: 8px;
+          height: 8px;
+          content: '';
+          border: 4px solid;
+          position: absolute;
+        }
+
+        // 角标
+        &::before {
+          border-color: #ba9f6e transparent transparent #ba9f6e;
+          top: 0;
+          right: -8px;
+        }
+        &::after {
+          border-color: transparent transparent #ba9f6e #ba9f6e;
+          bottom: 0;
+          right: -8px;
+        }
+      }
+    }
+    .btn{
+      text-align: center;
+      cursor: pointer;
+      width: 80px;
+      background: none;
+      border: 1px #101010 solid;
+      float: right;
+      margin-bottom: 15px;
+      color: #101010;
+      font-size: 14px;
+      height: 24px;
+      line-height: 24px;
+    }
+  }
+
+  .discount {
+    padding: 0 10px;
+    .discountHeader {
+      border-bottom: 1px dashed #d5d5d5;
+      height: 44px;
+      margin-left: 15px;
+      .leftBlock {
+        position: relative;
+        left: 5px;
+        top: 15px;
+        float: left;
+        width: 8px;
+        height: 16px;
+        background: #ba9f6e;
+      }
+      span {
+        line-height: 44px;
+        height: 44px;
+        margin-left: 13px;
+        font-size: 14px;
+        color: #101010;
+      }
+    }
+    .discountbottom {
+      border-bottom: 1px solid #d5d5d5;
+      padding: 15px 20px 15px 34px;
+      line-height: 1.5em;
+      font-size: 14px;
+      color: #999;
+    }
+  }
+  .invoice {
+    padding: 0 10px;
+    .invoiceHeader {
+      border-bottom: 1px dashed #d5d5d5;
+      height: 44px;
+      margin-left: 15px;
+      .leftBlock {
+        position: relative;
+        left: 5px;
+        top: 15px;
+        float: left;
+        width: 8px;
+        height: 16px;
+        background: #ba9f6e;
+      }
+      span {
+        line-height: 44px;
+        height: 44px;
+        margin-left: 13px;
+        font-size: 14px;
+        color: #101010;
+      }
+    }
+    .invoiceMode {
+      border-bottom: 1px solid #d5d5d5;
+      padding: 15px 0;
+      .txt {
+        display: inline-block;
+        font-size: 14px;
+        text-indent: 35px;
+        color: #999;
+      }
+      span {
+        margin-left: 10px;
+        font-size: 14px;
+        color: #999;
+      }
+    }
+  }
+  .cash {
+    border-bottom: 1px solid #d5d5d5;
+    font-size: 14px;
+    color: #999999;
+    padding: 15px 0 15px 0;
+    .csahTxt {
+      margin-left: 113px;
+    }
+  }
+  .textArea {
+    padding: 15px 20px;
+    margin-bottom: 48px;
+    .message {
+      height: 80px;
+      padding: 10px 0 0 15px;
+      border: 1px solid #d5d5d5;
+      font-size: 14px;
+      color: #101010;
+    }
+  }
+  .fotterFixed {
+    width: 100%;
+    height: 48px;
+    position: fixed;
+    max-width: 600px;
+    bottom: 0;
+    text-align: center;
+    .fotterFixedLeft {
+      background: #333;
+      height: 48px;
+      color: #fff;
+      font-size: 15px;
+    }
+    .fotterFixedRight {
+      background: #ba9f6e;
+      height: 48px;
+      color: #fff;
+      font-size: 15px;
+    }
+  }
+}

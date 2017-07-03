@@ -1,0 +1,77 @@
+<div flex="" layout="column" class="ks-deliver ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header topToolbar">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">物流信息</span><!-- 服务订单买家发货 -->
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+
+    <md-content>
+        <!--选择框-->
+        <div class="choose">
+            <div class="chooseContent" layout="row">
+                <span>快递公司：</span>
+                <div class="sel" flex>
+                    <select flex data-ng-model="deliver.company">
+                        <option value="">请选择</option>
+                        <option ng-repeat="comp in resp.companys" value="{{comp.name}}">{{comp.description}}</option>
+                    </select>
+                </div>
+                <div class="txt" flex="10" layout="row">
+                    <md-icon class="chevron_left ks-icon" md-font-set="ks-icon">arrow_down</md-icon>
+                </div>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span>快递单号：</span>
+                <input flex type="text" placeholder="请填写快递单号" ng-model="deliver.no" ng-change="requireNum()">
+            </div>
+            <div class="chooseContent" layout="row">
+                <span>备注：</span>
+                <textarea flex type="text" placeholder="最多200字" ng-change="checkText()" data-ng-model="deliver.memo">
+                </textarea>
+                <!--style=’ resize: none;’-->
+            </div>
+        </div>
+        <div class="voucher" ng-if="1==1"><!--暂时不用-->
+            <div class="voucherTxt" ng-repeat="img in imgs">
+                <div class="voucherPhoto">
+                    <div class="img">
+                        <div class="imgTop"></div>
+                        <img ng-src="{{imgUrl}}{{img.avatar}}?imageView2/2/w/{{simpleImg.w}}/h/{{simpleImg.h}}"
+                             alt="Picture" ng-click="imgPreviewReply(imgs,img.avatar)">
+                    </div>
+                    <div class="txtWarp">
+                        <textarea maxlength="10" style="resize: none" placeholder="输入说明"></textarea>
+                    </div>
+                    <div class="delete">
+                        <md-icon class="chevron_left ks-icon" md-font-set="ks-icon" ng-click="removeOneImg(img.id)">
+                            delete
+                        </md-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="add" ng-if="imgs.length<3">
+                <div class="font">
+                    <div class="fontWrap">
+                        <md-icon class="chevron_left ks-icon" md-font-set="ks-icon" ng-click="uploaderFiles()">plus
+                        </md-icon>
+                        <input type="file" nv-file-select uploader="uploader" style="display: none" id="uploaderFile"/>
+                    </div>
+                <span>
+                    上传凭证
+                    <br>
+                    <span style="font-size: 13px">(最多三张)</span>
+                </span>
+                </div>
+            </div>
+        </div>
+    </md-content>
+    <div class="fixed" style="position: fixed;bottom: 0">
+        <div>
+            <span ng-click="submit()">提交</span>
+        </div>
+    </div>
+</div>

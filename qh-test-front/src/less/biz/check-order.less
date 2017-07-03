@@ -1,0 +1,242 @@
+.qh {
+  .check-order {
+    position: relative;
+    min-width: 320px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+
+    line-height: 1.2;
+    .receiving-address {
+      -ms-word-break: break-all;
+      word-break: break-all;
+    }
+
+    .small-word {
+      font-size: 11px;
+      color: #909090;
+    }
+
+    > div > ol > li {
+      //margin-bottom: 12px;
+      padding-left: 1em;
+      padding-right: 1em;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid @border-color;
+      background-color: #fff;
+      overflow: hidden;
+      .dt-text {
+        float: left;
+        font-size: 13px;
+        color: #646464;
+      }
+      .dd-text {
+        font-size: 14px;
+        color: #323232;
+      }
+      dl {
+        overflow: hidden;
+        margin-bottom: 0;
+        dt {
+          float: left;
+          font-size: 13px;
+          color: #646464;
+
+        }
+        .dd-text, dd {
+          font-size: 14px;
+          color: #323232;
+          overflow: hidden;
+          text-align: right;
+          //float: right;
+          .iconfont {
+            color: #c8c7cc;
+          }
+        }
+      }
+    }
+    //属性与值的颜色
+    .attribute {
+
+    }
+    .value {
+
+    }
+    //收货人
+    .receiving {
+      line-height: 1.5;
+      margin-right: 2em;
+      .consignee {
+      }
+      .myphone {
+        padding-left: 2em;
+      }
+    }
+    .receiving2 {
+      line-height: 1.5;
+      margin-right: 2em;
+      margin-left: 2em;
+      .consignee {
+      }
+      .myphone {
+        padding-left: 2em;
+      }
+    }
+
+    //物流信息
+
+    .express-main {
+      margin-right: 2em;
+      .miniature {
+        //overflow: hidden;
+        //height: 1.2em;
+      }
+    }
+    //字体图标
+    .express-icon {
+
+    }
+    //赠品样式
+    .gift-wrap {
+      overflow: hidden;
+      position: relative;
+      font-size: 14px;
+      border: none !important;
+      > div {
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+    }
+    .gift {
+      font-size: 14px;
+      color: #fff;
+      background-color: @red-color;
+      position: absolute;
+      left: -18px;
+      top: 6px;
+      width: 5em;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg); /* IE 9 */
+      -moz-transform: rotate(-45deg); /* Firefox */
+      -webkit-transform: rotate(-45deg); /* Safari 和 Chrome */
+      -o-transform: rotate(-45deg); /* Opera */
+    }
+    section {
+      //margin-top: 12px;
+      margin-bottom: 12px;
+      padding-left: 1em;
+      padding-right: 1em;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid @border-color;
+      background-color: #fff;
+      dl {
+        overflow: hidden;
+      }
+      //规格清单
+      &.spec-list {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        //border-bottom: none !important;
+
+        .title-spec {
+          font-size: 12px;
+          color: #323232;
+        }
+        .text-spec {
+          font-size: 12px;
+          color: #909090;
+        }
+        .price-text1 {
+          font-size: 13px;
+          color: #323232;
+          font-weight: bold;
+        }
+        .activitytime, .price-text2 {
+          font-size: 11px;
+          color: #909090;
+        }
+        .text-num1 {
+          font-size: 12px;
+          color: #323232;
+        }
+        .x-font {
+          font-size: 9px;
+        }
+        li {
+          border-bottom: 1px solid @border-color;
+        }
+        li:only-child {
+          border: none;
+        }
+        li > div {
+          //margin-left: 1em;
+          //margin-right: 1em;
+          padding-left: 1em;
+          padding-right: 1em;
+        }
+        .words {
+          height: 30px;
+          line-height: 30px;
+        }
+        dl {
+          line-height: 1.2;
+          overflow: hidden;
+          margin-top: 6px;
+          margin-bottom: 6px;
+        }
+        dt {
+          line-height: 1.2;
+          float: left;
+          width: 70px;
+          margin-right: 5px;
+        }
+        dd {
+          line-height: 1.2;
+          //margin-left: 69px;
+          overflow: hidden;
+          div {
+            white-space: pre-wrap;
+          }
+        }
+      }
+      //收货信息
+      &.receiving {
+        dl {
+          overflow: hidden;
+          margin-top: 6px;
+          margin-bottom: 6px;
+        }
+        dt {
+          float: left;
+          width: 5em;
+        }
+        dd {
+          overflow: hidden;
+        }
+      }
+
+      //费用
+      &.cost {
+
+        dl {
+          overflow: hidden;
+          margin-top: 6px;
+          margin-bottom: 6px;
+        }
+        dt {
+          display: inline-block;
+        }
+        dd {
+          float: right;
+        }
+      }
+    }
+
+  }
+}

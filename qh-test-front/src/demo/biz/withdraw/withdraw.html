@@ -1,0 +1,38 @@
+<div flex="" layout="column" class=" ks-main ks-withdraw">
+    <md-toolbar class="ks-header" >
+        <div layout="row" class="ks-header-divWrap" >
+            <div class="divTop" flex class>
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">提现</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-content flex="" id="content"  >
+        <div class="candraw" layout="row" layout-align="center center">
+            <div flex layout="row" layout-align="start center" class="draw-cash">可提现金额：<span>￥666.00</span></div>
+            <div flex="10" layout="row" layout-align="end center">
+                <md-icon md-font-set="ks-icon" class="question" md-font-icon="ks-question"></md-icon>
+            </div>
+        </div>
+        <div class="forcash" layout="row" layout-align="center center">
+            <div flex layout="row" layout-align="start center" class="cash-txt">提现金额</div>
+            <div flex="70" layout="row" layout-align="end center" class="cash-input">
+                <input type="text" placeholder="请出入提现金额" ng-model="cashmodel">
+            </div>
+        </div>
+        <div class="diviline"></div>
+        <div class="drawinfo">
+            <div class="infotitle"  >
+                <md-icon md-font-set="ks-icon" class="question" md-font-icon="ks-bulb"></md-icon>
+                <span>佣金提现说明</span>
+            </div>
+            <div class="infocontent">提现只用于佣金提现，钱包充值余额不可体现。提现之前，请绑定微信号。提现成功后，情去微信红包查看该红包。</div>
+        </div>
+        <div class="butWrap">
+            <button class="but" ng-class="{sure:cashmodel}">确认提现</button>
+        </div>
+    </md-content>
+    <div service-center="" info="index"></div>
+</div>
+
+

@@ -1,0 +1,58 @@
+<div flex="" layout="column" class="ks-main ks-hotel">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>酒店登记</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex>
+        <div class="register-wrap">
+            <div class="con" layout="row" layout-align="space-between center">
+                <div class="register-name">酒店名称</div>
+                <input type="text" data-ng-model="vm.title" placeholder="请输入酒店名称">
+            </div>
+            <div class="con" layout="row" layout-align="space-between center">
+                <div class="register-name" ng-hide="vm.areas[0].id">酒店位置</div>
+                <select class="select"
+                        ng-change="vm.queryAddress(vm.provinceId,2)"
+                        data-ng-model="vm.provinceId" ng-show="vm.provinces[0].id">
+                    <option value="">请选择</option>
+                    <option ng-repeat="province in vm.provinces" value="{{province.id}}">{{province.name}}</option>
+                </select>
+                <select class="select"
+                        ng-show="vm.citys[0].id" ng-change="vm.queryAddress(vm.cityId,3)"
+                        data-ng-model="vm.cityId">
+                    <option value="">请选择</option>
+                    <option ng-repeat="city in vm.citys" value="{{city.id}}">{{city.name}}</option>
+                </select>
+                <select class="select"
+                        ng-show="vm.areas[0].id" data-ng-model="vm.areaId">
+                    <option value="">请选择</option>
+                    <option ng-repeat="area in vm.areas" value="{{area.id}}">{{area.name}}</option>
+                </select>
+            </div>
+            <div class="con" layout="row" layout-align="space-between center">
+                <div class="register-name">详细地址</div>
+                <input type="text" data-ng-model="vm.street" ng-blur="vm.addStreet()" placeholder="详细地址">
+            </div>
+            <div class="con" layout="row" layout-align="space-between center">
+                <div class="register-name">联系人</div>
+                <input type="text" data-ng-model="vm.hotelContact" placeholder="联系人姓名">
+            </div>
+            <div class="con" layout="row" layout-align="space-between center">
+                <div class="register-name">联系电话</div>
+                <input type="text" data-ng-model="vm.hotelPhone" ng-blur="vm.addPhone()" placeholder="手机/座机号码">
+            </div>
+            <div class="con" layout="row" layout-align="space-between center">
+                <div class="register-name">酒店账号</div>
+                <input type="text" data-ng-model="vm.phone" placeholder="输入账号">
+            </div>
+        </div>
+    </md-content>
+    <div class="fotter-btn" ng-click="vm.save()">
+        <span>保存</span>
+    </div>
+</div>

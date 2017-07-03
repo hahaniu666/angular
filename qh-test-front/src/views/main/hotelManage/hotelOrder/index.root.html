@@ -1,0 +1,166 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-hotelOrder">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>订单管理</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <div class="nav-wrap" layout="row" layout-align="center center">
+        <div class="nav-btn-wrap" layout="row" layout-align="center stretch ">
+            <div flex class="nav-btn" ng-click="vm.tabs('SALE','ALL','0')"
+                 ng-class="{cur:vm.tab == 'BUY'}">销售订单
+            </div>
+            <div flex class="nav-btn" ng-click="vm.tabs('BUY','ALL','0')"
+                 ng-class="{cur:vm.tab == 'SALE'}">进货订单
+            </div>
+        </div>
+    </div>
+    <div class="tab-wrap">
+        <md-tabs md-selected="vm.tableIndex"
+                 md-border-bottom
+                 md-center-tabs
+                 md-swipe-content="true"
+                 md-dynamic-height
+                 md-stretch-tabs="always">
+            <md-tab label="全部" ng-class="{active:classStatus[0]}" ng-click="vm.tabs(vm.type,'ALL','0')"></md-tab>
+            <md-tab label="待付款" ng-class="{active:classStatus[1]}" ng-click="vm.tabs(vm.type,'UNPAYED','1')"></md-tab>
+            <!--<md-tab label="待接单" ng-class="{active:classStatus[1]}" ng-click="vm.tabs(vm.type,'PAYED')"></md-tab>-->
+            <md-tab label="待发货" ng-class="{active:classStatus[2]}" ng-click="vm.tabs(vm.type,'UNSHIPPED','2')"></md-tab>
+            <md-tab label="待收货" ng-class="{active:classStatus[3]}"
+                    ng-click="vm.tabs(vm.type,'UNRECEIVED','3')"></md-tab>
+        </md-tabs>
+
+    </div>
+    <md-content flex style="overflow-x: hidden"
+                ng-if="vm.data[vm.status][vm.type].items[0]"
+    >
+        <!--用于ng-repeat -->
+        <!--当tab=1时-->
+        <div class="order-wrap" ng-repeat="order in vm.data[vm.status][vm.type].items track by $index">
+            <!--上部line，不要动-->
+            <div class="top-line"></div>
+            <!--<div class="con-title" ng-if="vm.type == 'SALE'">
+                <span ng-class="{now:order.logisticsType=='STOCK',other:order.logisticsType!=='STOCK'}">{{order.logisticsTypeDesp}}</span>
+            </div>-->
+            <!--中间部分样式-->
+            <div class="content-wrap">
+                <div class="top-msg" layout="row" layout-align="space-between stretch">
+                    <div class="seq" flex>
+                        手机号：{{order.phone}}
+                    </div>
+                    <div ng-class="{red:order.status == 'UNSHIPPED',status:order.status != 'UNSHIPPED'}">
+                        {{order.statusName}}
+                    </div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div ng-repeat="msg in order.orderItems track by $index ">
+                    <div class="cen-msg" layout="row"
+                         ui-sref="main.hotelManage.manageOrderDetail({id:order.id,type:vm.type,status:vm.status,tableIndex:vm.tableIndex})">
+                        <div class="cen-img-wrap">
+                            <img ng-src="{{vm.appConfig.imgUrl}}{{msg.img}}?imageView2/2/w/92/h/92"/>
+                        </div>
+                        <!--右边sku部分样式-->
+                        <div class="cen-right" flex layout="column" layout-align="space-between start">
+                            <div class="cen-title">
+                                {{msg.title}}
+                            </div>
+                            <div class="cen-sku">
+                                <!-- span用于ng-repeat-->
+                            <span style="margin-right: 10px;" ng-repeat="sku in msg.specs track by $index">
+                                {{sku.name}} ： {{sku.value}}
+                            </span>
+
+                            </div>
+                            <div class="cen-bottom" layout="row" layout-align="space-between center">
+                                <div class="num">{{msg.price/100 | num:1}}</div>
+                                <div class="num">x{{msg.num}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <md-divider class="dashed"></md-divider>
+                </div>
+
+                <!--<md-divider class="dashed"></md-divider>-->
+                <div class="botton-msg" layout="row" layout-align="space-between center">
+                    <div class="bot-num">共{{order.orderItems.length}}件</div>
+                    <div class="bot-num">订单金额：￥{{order.paymentAmount/100 | num:1}}</div>
+                </div>
+            </div>
+            <md-divider ng-if="
+                    (order.status == 'UNSHIPPED'&& vm.type=='SALE'&& order.logisticsType=='STOCK')
+                    ||(order.status == 'UNSHIPPED' && vm.type=='SALE' && order.logisticsType=='STOCK' && !order.allocation)
+                    ||(order.status == 'UNSHIPPED' && order.logisticsType=='STOCK' && vm.type=='SALE')
+                    ||(order.status == 'ALLOCATION' && vm.type=='SALE' && order.logisticsType=='STOCK' && order.allocation=='ALLOCATION')
+                    ||(order.status == 'ALLOCATION' && vm.type=='SALE' && order.logisticsType=='STOCK' && order.allocation=='ASK')
+                    ||(order.status == 'UNRECEIVED'&& vm.type!=='SALE')
+                    "></md-divider>
+            <!--底部按钮样式-->
+            <div class="bottom-btn-wrap"
+                 ng-class="{gold:order.status == 'UNSHIPPED' && order.logisticsType=='STOCK' && vm.type=='SALE'}"
+                 layout="row" layout-align="end center">
+                <!-- <div class="bot-btn"
+                      ng-if="order.status == 'UNSHIPPED'&& vm.type=='SALE'&& order.logisticsType=='STOCK'"
+                      ng-click="vm.reject(order.id)">拒绝接单
+                 </div>-->
+                <!-- && !order.allocation-->
+                <div class="bot-btn"
+                     ng-if="order.status == 'UNSHIPPED'
+                     && vm.type=='SALE'
+                     && order.logisticsType=='STOCK'"
+                     ng-click="vm.getAllocation(order.id)">申请调拨
+                </div>
+                <div class="bot-btn gold"
+                     ng-if="order.status == 'UNSHIPPED'
+                     && order.logisticsType=='STOCK'
+                     && vm.type=='SALE'"
+                     ng-click="vm.sellDelivery(order.id)">现货出售
+                </div>
+                <div class="bot-btn"
+                     ng-if="order.status == 'ALLOCATION'
+                     && vm.type=='SALE'
+                     && order.logisticsType=='STOCK'
+                     && order.allocation=='ALLOCATION'"
+                     ng-click="vm.finnishAllocation(order.id)">调拨收货
+                </div>
+                <div class="bot-btn"
+                     ng-if="order.status == 'ALLOCATION'
+                     && vm.type=='SALE'
+                     && order.logisticsType=='STOCK'
+                     && order.allocation=='ASK'"
+                     ng-click="vm.cancelAllocation(order.id)">取消调拨
+                </div>
+                <div class="bot-btn " ng-if="order.status == 'UNRECEIVED'&& vm.type!=='SALE'"
+                     ng-click="vm.checkReceipt(order.id)">确认收货
+                </div>
+            </div>
+        </div>
+        <div style="width: 100%;height: 10px;background:#f5f5f5;flex-shrink: 0"></div>
+        <!--分页-->
+        <div layout="row" layout-align="center center" style="padding: 10px;min-height: 44px;">
+            <md-button class="ks-white md-raised ks-white-noBorder" flex
+                       style="color: #999;box-shadow: 0 0 0 0 #fff"
+                       ng-click="vm.getOrder()"
+                       ng-show="!vm.data[vm.status][vm.type].pageEnd && vm.data[vm.status][vm.type].totalCount>10">
+                点击加载更多...
+            </md-button>
+
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                       ng-show="vm.data[vm.status][vm.type].pageEnd&& vm.data[vm.status][vm.type].totalCount>10">
+                没有更多商品了
+            </md-button>
+        </div>
+    </md-content>
+
+
+    <md-content flex layout="column" class="empty"
+                ng-if="!vm.data[vm.status][vm.type].items[0]"
+                style="overflow-x: hidden">
+        <div class="top-line"></div>
+        <div flex layout="column" layout-align="center center">
+            <md-icon md-font-set="ks-icon" md-font-icon="ks-order-manage" class="icon"></md-icon>
+            <div class="txt">暂无数据～</div>
+        </div>
+    </md-content>
+</div>

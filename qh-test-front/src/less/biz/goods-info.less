@@ -1,0 +1,156 @@
+//被子信息
+.qh{
+  .goods-info{
+
+    ::-webkit-input-placeholder { color: #909090; }
+    /* mozilla solution */
+    input:-moz-placeholder { color: #909090;  }
+    section{
+      margin-top: 12px;
+      margin-bottom: 12px;
+      ol{
+        border-top: 1px solid @border-color2;
+        border-bottom: 1px solid @border-color2;
+
+        li{
+          margin-left: 1em;
+          dl{
+            margin: 0;
+            height: 38px;
+            //padding: 10px 15px;
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+          }
+          dt{
+            min-width: 9em;
+            color: #323232;
+            font-size: 14px;
+
+          }
+          dd{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            color: #323232;
+
+            input{
+              width: 100%;
+            }
+            select{
+              width: 100%;
+            }
+            input[type="text"],input[type="password"],input[type="number"],input[type="date"],select{
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              -ms-appearance: none;
+              appearance: none;
+              outline:none;
+              border: 0;
+              background-color: transparent;
+              vertical-align: baseline;
+            }
+            input[type="date"]{
+              padding-right: 12px;
+            }
+
+          }
+          .caret{
+            margin-right: 14px;
+          }
+
+        }
+        li+li{
+          border-top: 1px solid @border-color2;
+        }
+      }
+      &.goodsinfo2{
+        //dt{
+        //  //min-width: auto;
+        //}
+        //dd[class="ng-binding"]{
+        //  -webkit-box-flex: none;
+        //  -webkit-flex:  none;
+        //  -ms-flex:  none;
+        //  flex:  none;
+        //  font-size: 14px;
+        //  color: #909090;
+        //}
+        //dd[class="ng-binding"]:before{
+        //  content: "(";
+        //}
+        //dd[class="ng-binding"]:after{
+        //  content: ")";
+        //}
+        //dd:last-child{
+        //
+        //}
+
+        //限制下拉宽度9em
+        select{
+          option{
+            max-width: 9em;
+          }
+          [selected="selected"]{
+
+          }
+        }
+
+        .moreinfo:empty{
+          display: none;
+        }
+        .moreinfo:before{
+          content: "(";
+        }
+        .moreinfo:after{
+          content: ")";
+        }
+        .moreinfo{
+          font-size: 13px;
+          color: #909090;
+        }
+
+      }
+    }
+
+  }
+}
+
+//手机端响应
+@media (max-width: 320px) {
+  .qh{
+    .goods-info{
+      select{
+        max-width: 11em;
+        //width: 10em;
+        width: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+
+        option{
+          max-width: 11em;
+          //width: 10em;
+          width: auto;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          display: block;
+        }
+        [selected="selected"]{
+
+        }
+      }
+    }
+  }
+
+}
+

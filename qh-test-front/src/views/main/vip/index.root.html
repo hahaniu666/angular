@@ -1,0 +1,176 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-vip">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20">
+            <!--<md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>-->
+        </div>
+        <h1 flex>VIP会员</h1>
+        <div class="md-icon-button" flex="20" ui-sref="main.vip.record()">
+            兑换记录
+        </div>
+    </md-toolbar>
+    <md-content flex>
+        <div class="msgWrap">
+
+            <!--斜着的背景-->
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="msg" ng-if="vm.data.advertise">
+                <span>{{vm.data.advertise}}</span>
+            </div>
+            <div class="wrap" layout="column" layout-align="center center">
+                <div style="margin-top: 20px;position: relative;min-height: 140px;">
+                    <!--通过js动态添加-->
+                    <!--      <div class="signBtn" ng-click="vm.signs()" ng-if="!vm.data.toDaySign">
+                              签到
+                          </div>
+                          <div class="signBtn" ng-if="vm.data.toDaySign" ng-class="{finshBtn:vm.data.toDaySign}">
+                              今日已签
+                          </div>-->
+                    <div class="signBtn" id="creat"></div>
+                    <!--另加了一个showSign避免多次出现此效果-->
+                    <span class="first" ng-class="{signMsg:vm.showSign}">钱币+{{vm.data.signIntegral/100.0|num:1}}</span>
+
+                    <div ui-sref="main.vip.authority()" class="walletEnters" layout="row" layout-align="center center">
+                        <md-icon ng-if="vm.order=='1'" class="ks-icon" md-font-set="ks-icon"
+                                 md-font-icon="ks-v-one"></md-icon>
+                        <md-icon ng-if="vm.order=='2'" class="ks-icon" md-font-set="ks-icon"
+                                 md-font-icon="ks-v-two"></md-icon>
+                        <md-icon ng-if="vm.order=='3'" class="ks-icon" md-font-set="ks-icon"
+                                 md-font-icon="ks-v-three"></md-icon>
+                        <span ng-if="vm.order=='1'" class="txtWarp">银卡会员</span>
+                        <span class="txtWarp" ng-if="vm.order=='2'">金卡会员</span>
+                        <span class="txtWarp" ng-if="vm.order=='3'">钻石会员</span>
+                    </div>
+                    <!--这段是头像右上角的图标，有三个状态，分别是ks-v-one   ks-v-two  ks-v-three ,  判断是v1或是v2或是v3，然后在md-font-icon=""中切换-->
+                    <!--改版注释掉-->
+                    <!-- <i class="vipWrap">
+                         &lt;!&ndash;判断钱币等级是否是当前级&ndash;&gt;
+                         <md-icon ng-if="vm.order=='1'" class="ks-icon" md-font-set="ks-icon"
+                                  md-font-icon="ks-v-one"></md-icon>
+                         <md-icon ng-if="vm.order=='2'" class="ks-icon" md-font-set="ks-icon"
+                                  md-font-icon="ks-v-two"></md-icon>
+                         <md-icon ng-if="vm.order=='3'" class="ks-icon" md-font-set="ks-icon"
+                                  md-font-icon="ks-v-three"></md-icon>
+                     </i>-->
+                </div>
+            </div>
+            <div class="bottomSign" layout="row" ui-sref="main.vip.myPoints()">
+                <div flex layout="column" layout-align="center center">
+                    <span flex>我的钱币</span>
+                    <span flex>
+                        <span class="bold">{{vm.data.integral/100.0|num:1}}</span>
+                    </span>
+                </div>
+                <div flex layout="column" layout-align="center center">
+                    <span flex>连续签到</span>
+                    <span flex>
+                        <span class="bold">{{vm.data.sign}}</span>天
+                    </span>
+                </div>
+                <div flex layout="column" layout-align="center center">
+                    <span flex>本月签到</span>
+                    <span flex>
+                        <span class="bold">{{vm.data.count}}</span>天
+                    </span>
+                </div>
+                <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+            </div>
+        </div>
+        <div class="line-bg"></div>
+        <div>
+            <div class="slideindex">
+                <ks-swiper-container direction="horizontal"
+                                     initial-slide="0"
+                                     effect="between"
+                                     swiper="vm.swipers"
+                                     loop="fale"
+                                     autoplayDisableOnInteraction="false"
+                                     autoplay="5000"
+                                     show-nav-buttons="false"
+                                     pagination-is-active="true"
+                                     pagination-clickable="false"
+                                     slides-per-view="1"
+                                     space-between="5">
+                    <ks-swiper-slide class="swiper-slide" ng-repeat="s in vm.imgCarousel" ng-click="vm.clickUrl(s.url)">
+                        <img ng-src="{{vm.appConfig.imgUrl}}/{{s.img}}?imageView2/2/w/{{vm.imgService.indexBelowImg.w}}/h/{{vm.imgService.indexBelowImg.h}}"
+                             img-holder/>
+                    </ks-swiper-slide>
+                </ks-swiper-container>
+            </div>
+            <div style="overflow: hidden;width: 100%;height: 8px;"></div>
+        </div>
+        <div class="tab">
+            <div class="tabWrap" layout="row" layout-align="center center">
+                <div flex ng-click="vm.tabs('SERVICE')" ng-class="{active:vm.tab=='SERVICE'}">门店兑换</div>
+                <div flex ng-click="vm.tabs('ITEM')" ng-class="{active:vm.tab=='ITEM'}">物品兑换</div>
+                <div flex ng-click="vm.tabs('CARD')" ng-class="{active:vm.tab=='CARD'}">卡券专区</div>
+            </div>
+        </div>
+        <div class="guess">
+            <div layout="row" layout-wrap>
+                <div flex="50" layout="column" class="rec-item" ng-repeat="item in vm.comments.result track by $index">
+                    <div flex layout="column" style="position: relative">
+                        <!-- 多追加一层div，方便使用  layout-wrap 和 ng-repeat 。 需要CSS特殊处理  -->
+                        <div class="item-img" ui-sref="main.vip.detail({id:item.id})">
+                            <!--<img ng-src="{{vm.imgUrl}}{{item.img}}?imageView2/1/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}"/>-->
+                            <img ng-src="{{vm.appConfig.imgUrl}}/{{item.img}}?imageView2/2/w/{{vm.imgService.indexBelowImg.w}}/h/{{vm.imgService.indexBelowImg.h}}"
+                                 img-holder/>
+                        </div>
+                        <div>
+                            <div class="item-title">
+                                {{item.title}}
+                            </div>
+                            <div class="item-price">
+                                {{item.integral/100.0|num:1}}钱币
+                            </div>
+                        </div>
+
+                        <!--等级专享 -->
+                        <div class="positionWap" layout="row" layout-align="center center"
+                             ng-if="item.level.order===2||item.level.order===3">
+                            <!--ks-v-one 对应v1  ks-v-two对应v2  ks-v-three对应v3-->
+                            <!--   <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-v-one"
+                                        ng-if="!item.level||item.level.order===1"></md-icon>-->
+                            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-v-two"
+                                     ng-if="item.level.order===2"></md-icon>
+                            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-v-three"
+                                     ng-if="item.level.order===3"></md-icon>
+                            <span>专享</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px" ng-click="vm.page()"
+             ng-if="!vm.pageEnd">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                <!-- <md-icon style="color: #999;margin-right: 10px" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>-->
+                点击加载更多...
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="vm.pageEnd&&vm.totalCount>10">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                没有更多商品了
+            </md-button>
+        </div>
+    </md-content>
+    <div ks-footer-menu cur="'vip'"></div>
+</div>

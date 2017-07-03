@@ -1,0 +1,87 @@
+<div flex="" layout="column" class="ks-refundDetail ks-main md-whiteframe-z2 ">
+    <md-toolbar class="md-menu-toolbar ks-header">
+        <div flex layout="row" class="ks-header-divWrap ks-user-divWrap">
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">退款详情</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+
+    <md-content flex>
+        <!--选择框-->
+        <div class="choose">
+            <div class="chooseContent" layout="row">
+                <span class="contentTxt">订单编号：</span>
+                <span>{{refund.seq}}</span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span class="contentTxt">退货方式：</span>
+                <span>{{refund.type}}</span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span class="contentTxt">最后修改时间：</span>
+                <span>{{refund.lastUpdated | date:'yyyy-MM-dd'}}</span>
+            </div>
+            <div class="chooseContent" ng-if="refund.refundStatus" layout="row">
+                <span class="contentTxt">物流状态：</span>
+                <span>{{refund.refundStatus}}</span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span class="contentTxt">退款状态：</span>
+                <span>{{refund.statusName}}</span>
+            </div>
+            <div class="chooseContent" layout="row" ng-if="refund.rejectReason">
+                <span class="contentTxt">拒绝原因：</span>
+                <span>{{refund.rejectReason}}</span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span class="contentTxt">退款金额：</span>
+                <span style="width: 45px">￥<span
+                        style="color: red;margin-left: 2px;">{{refund.refundMoney/100.0|num:1}}</span></span>
+            </div>
+            <div class="chooseContent" layout="row">
+                <span class="contentTxt">退货原因：</span>
+                <span>{{refund.reason}}</span>
+            </div>
+            <div class="chooseContent" layout="row" ng-if="refund.memo">
+                <span class="contentTxt">退货说明：</span>
+                <span>{{refund.memo}}</span>
+            </div>
+        </div>
+        <div class="voucher">
+            <div class="voucherTxt" style="height: 80px" ng-repeat="temp in refund.imgs">
+                <div class="voucherPhoto">
+                    <div class="img">
+                        <img ng-src="{{imgUrl}}{{temp.key}}?imageView2/1/w/{{simpleImg.w}}/h/{{simpleImg.h}}"
+                             ng-click="imgPreviewReply(refund.imgs,temp.key)">
+                    </div>
+                    <div class="txtWarp">
+                        <textarea maxlength="10" style="resize: none" placeholder="输入说明"></textarea>
+                    </div>
+                    <div class="delete">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-content>
+    <div class="fixed"
+         ng-if="refund.status!='FINISHED' && refund.status!='CANCLED' && refund.status!='CLOSED'">
+        <div ng-if="refund.status=='WAIT_BUYER_SENDING'">
+            <span ng-click="logistics()">填写物流</span>
+        </div>
+        <div ng-if="refund.status=='UNCHECKED'||refund.status=='WAIT_BUYER_SENDING'">
+            <span ng-click="cancelRefund()">取消申请</span>
+        </div>
+
+    </div>
+    <div class="fixed"
+         ng-if="refund.status=='CANCLED'  || refund.status=='REJECTED'">
+        <div>
+            <span ng-if="refund.typeName=='GOOGS_AND_MONEY'  || refund.typeName=='RENTITEM'"
+                  ng-click="repeatRefund()">重新申请
+            </span>
+        </div>
+    </div>
+</div>

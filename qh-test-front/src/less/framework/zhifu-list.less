@@ -1,0 +1,100 @@
+//不可点击列表样式
+.zhifu-list{
+  background-color: #fff;
+  ul {
+    border-top: 1px solid @border-color2;
+    border-bottom: 1px solid @border-color2;
+    li{
+      min-height: 44px;
+      line-height: 44px;
+      //margin-left: 15px;
+      padding-left: 15px;
+
+      font-size: 14px;
+      color: #101010;
+
+      ol{
+
+        li{
+          min-height: 44px;
+          line-height: 44px;
+          margin-left: 36px;
+
+          .zhifuimg1{
+            display: inline-block;
+            vertical-align: middle;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            background-color: #71ba74;
+            margin-right: 10px;
+            margin-left: -50px;
+
+            .iconfont{
+              font-size: 15px;
+              color: #fff;
+            }
+          }
+          .zhifuimg2{
+            display: inline-block;
+            vertical-align: middle;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            background-color: #5eb5f3;
+            margin-right: 10px;
+            margin-left: -50px;
+
+            .iconfont{
+              font-size: 15px;
+              color: #fff;
+            }
+          }
+
+          label{
+            display: inline-block;
+            width: 100%;
+            vertical-align: middle;
+          }
+        }
+        //直接加虚线
+        .dashedtop{
+          border-top: 1px dashed @border-color3;
+        }
+        li+li{
+          //border-top: 1px dashed @border-color3;
+          border: none;
+        }
+      }
+
+    }
+    .item1{
+      font-size: 14px;
+      color: #808080;
+
+    }
+    .item2{
+      .item2-child{
+        display: inline-block;
+        margin-right: 16px;
+
+        font-size: 12px;
+        color: #808080;
+        .icon-checked-circle-invert:before {
+          color: #4c4c4c;
+          font-size: 15px;
+        }
+
+      }
+    }
+    li+li{
+      border-top: 1px solid @border-color3;
+    }
+    //点击行后的背景色
+    //li:active{
+    //  background-color: @list-bgcolor;
+    //}
+  }
+}

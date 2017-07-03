@@ -1,0 +1,62 @@
+<div flex="" layout="column" class="ks-main ks-bindcard  md-whiteframe-z2">
+    <md-toolbar class="ks-header" >
+        <div layout="row" class="ks-header-divWrap" >
+
+            <div class="divTop" flex class>
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"></md-icon>
+                <span class="regSpan">银行卡</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="content-divWrap">
+             <div class="ecard youzheng">
+                 <div class="bankInfo" flex layout="row">
+                     <div class="banklogo">
+                         <md-icon md-font-set="ks-icon" class="banks_logo youzhengfont" md-font-icon="ks-bank-logo-psbc"></md-icon>
+                     </div>
+                     <div class="bankname" >
+                         <span class="card_name">中国邮政储蓄银行</span><br>
+                         <span class="card_type">储蓄卡</span>
+                     </div>
+                 </div>
+                 <div class="bankCardNum" flex layout="row" layout-align="center center">
+                     <span flex layout="row" layout-align="start center" class="notsee">****</span>
+                     <span flex layout="row" layout-align="start center" class="notsee">****</span>
+                     <span flex layout="row" layout-align="start center" class="notsee">****</span>
+                     <span flex layout="row" layout-align="start center">8888</span>
+                 </div>
+             </div>
+            <div class="ecard gongshang">
+                <div class="bankInfo" flex layout="row">
+                    <div class="banklogo">
+                        <md-icon md-font-set="ks-icon" class="banks_logo gongshangfont" md-font-icon=" ks-bank-logo-icbc"></md-icon>
+                    </div>
+                    <div class="bankname" >
+                        <span class="card_name">中国工商银行</span><br>
+                        <span class="card_type">储蓄卡</span>
+                    </div>
+                </div>
+                <div class="bankCardNum" flex layout="row" layout-align="center center">
+                    <span flex layout="row" layout-align="start center" class="notsee">****</span>
+                    <span flex layout="row" layout-align="start center" class="notsee">****</span>
+                    <span flex layout="row" layout-align="start center" class="notsee">****</span>
+                    <span flex layout="row" layout-align="start center">8888</span>
+                </div>
+            </div>
+        </div>
+    </md-content>
+    <md-content flex layout="column" class="empty" ng-if="xianshi">
+        <div flex layout="column" layout-align="center center">
+            <md-icon md-font-set="ks-icon" class="icon" md-font-icon="ks-card-r"></md-icon>
+            <div class="txt">没有搜到您输入的交易类型~</div>
+        </div>
+    </md-content>
+    <div class="butWrap">
+        <button class="but">+添加银行卡</button>
+    </div>
+    <div service-center="" info="index"></div>
+</div>
+
+

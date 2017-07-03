@@ -1,0 +1,188 @@
+.ks-hotelMethod {
+  //header开始
+  .ks-header._md {
+    height: 30px;
+    margin: 0px auto;
+    position: relative;
+    background: #fff;
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+
+    }
+  }
+  .sqtz {
+    font-size: 18px;
+  }
+  .topToolbar {
+    .ks-header-divWrap {
+      padding: 0 10px;
+      height: 100%;
+      color: #101010;
+      .divTop {
+        text-align: center;
+        position: relative;
+        line-height: 44px;
+        .chevron_left {
+          color: #101010;
+          position: absolute;
+          left: 0;
+          font-size: 14px;
+          line-height: 44px;
+        }
+        .top-but {
+          position: absolute;
+          font-size: 14px;
+          line-height: 40px;
+          right: 0;
+          color: #101010;
+        }
+      }
+    }
+    .cancleBtn {
+      width: 61px;
+      position: absolute;
+      right: 5px;
+      line-height: 44px;
+      top: 0;
+      color: #808080;
+      font-size: 14px;
+    }
+  }
+
+  .payStaleTop {
+    border-bottom: 1px solid #d5d5d5;
+    height: 44px;
+    span {
+      font-size: 14px;
+      color: #101010;
+      line-height: 44px;
+      margin-left: 10px;
+    }
+    span.ye {
+      float: right;
+      margin-right: 10px;
+      color: #999;
+    }
+  }
+  .payStyleNext {
+    .alipay {
+      height: 44px;
+      .alipayCont {
+        display: inline-block;
+        margin: 8px 10px;
+        width: 25px;
+        height: 25px;
+
+        .ks-icon {
+          text-align: center;
+          font-size: 15px;
+          color: #fff;
+          line-height: 24px;
+        }
+      }
+      .alipayRight {
+        border-bottom: 1px dashed #d5d5d5;
+        margin-right: 10px;
+        display: inline-block;
+        span {
+          line-height: 44px;
+          font-size: 14px;
+          color: #101010;
+        }
+        .ks-icon {
+          text-align: right;
+          float: right;
+          line-height: 44px;
+          font-size: 18px;
+          color: #999;
+        }
+        .kuaijie {
+          color: #ccc;
+          font-size: 14px;
+          float: right;
+        }
+      }
+
+      //微信颜色
+      .ks-weixin {
+        background: #62b566;
+      }
+      //余额颜色
+      .ks-alipay {
+        background: #1faeff;
+      }
+      //余额颜色
+      .ks-rmb-symbol {
+        background: #ebbd34;
+      }
+      //招商颜色
+      .ks-bank-logo-cmbchina {
+        background: #b02509;
+      }
+      //天津颜色
+      .ks-bank-logo-tccb {
+        background: #1162a8;
+      }
+      .ks-qrcode{
+        background: #62b566;
+      }
+      .ks-wxcode{
+        background: #0eb83a;
+      }
+      .ks-alicode{
+        background: #1faeff;
+      }
+    }
+    .alipay:last-child {
+      border-bottom: 1px solid #d5d5d5;
+      .alipayRight {
+        border-bottom: none;
+      }
+    }
+
+  }
+  .add {
+    height: 44px;
+    width: 100%;
+    border-bottom: 1px solid #d5d5d5;
+    margin-bottom: 20px;
+    span {
+      line-height: 44px;
+      font-size: 14px;
+      color: #101010;
+      margin-left: 10px;
+    }
+    .chevron_right {
+      color: #999;
+      font-size: 12px;
+      float: right;
+      line-height: 24px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+  .bottomPay {
+    height: 40px;
+    margin: 20px 10px 10px 10px;
+    background: #333333;
+    span {
+      text-align: center;
+      font-size: 15px;
+      color: #ffffff;
+    }
+  }
+}

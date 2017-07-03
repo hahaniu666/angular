@@ -1,0 +1,70 @@
+<div flex="" layout="column" class=" ks-main ks-stores md-whiteframe-z2">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+            <div class="divTop" flex class>
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"
+                         ng-click="vm.fallbackPage()"></md-icon>
+                <span class="regSpan">门店服务</span>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="" id="content">
+        <div class="gather">
+            <div class="logo" ng-click="vm.showOrder(s)" ng-repeat="s in vm.data.recList">
+                <div class="card">
+                    <img ng-src="{{vm.appConfig.imgUrl}}/{{s.img}}?imageView2/2/w/{{vm.imgService.indexBelowImg.w}}/h/{{vm.imgService.indexBelowImg.h}}"
+                         img-holder
+                         class="serviceImg"/>
+                </div>
+            </div>
+        </div>
+    </md-content>
+    <div class="backdrop" ng-if="vm.backdrop">
+        <div class="black" ng-click="vm.showOrder()"></div>
+        <div class="orderBox">
+            <div class="wrapper">
+                <div class="typePic">
+                    <div style="padding-top: 50%">
+                        <img ng-src="{{vm.appConfig.imgUrl}}/{{vm.STOrder.img}}?imageView2/2/w/{{vm.imgService.indexBelowImg.w}}/h/{{vm.imgService.indexBelowImg.h}}"
+                             img-holder
+                             class="serviceImg"/>
+                    </div>
+                    <div class="cancel"></div>
+                    <md-icon md-font-set="ks-icon" md-font-icon="ks-close"
+                             ng-click="vm.showOrder()"></md-icon>
+                </div>
+                <div class="mode">
+                    <h3>选择模式</h3>
+                    <div class="division"></div>
+                    <div class="allMode" layout="row" ng-cloak>
+                        <div class="eachMode" flex ng-class="{seled:it.selectd}"
+                             ng-repeat="it in vm.STOrder.modeList">
+                            <div class="selectMode" ng-click="vm.addList(it)">
+                                <!--<md-icon md-font-set="ks-icon" class="chevron_left"-->
+                                <!--md-font-icon="ks-arrow_left"></md-icon>-->
+                                <md-icon md-font-set="ks-icon" md-font-icon="{{it.icon}}" ng-if="!it.selectd"></md-icon>
+                                <md-icon md-font-set="ks-icon" md-font-icon="{{it.selectIcon}}" ng-if="it.selectd"></md-icon>
+                                <!--<img ng-src="{{vm.appConfig.imgUrl}}/{{it.img}}?imageView2/2/w/{{vm.imgService.indexBelowImg.w}}/h/{{vm.imgService.indexBelowImg.h}}"-->
+                                     <!--class="serviceImg" ng-if="!it.selectd"/>-->
+                                <!--<img ng-src="{{vm.appConfig.imgUrl}}/{{it.selectImg}}?imageView2/2/w/{{vm.imgService.indexBelowImg.w}}/h/{{vm.imgService.indexBelowImg.h}}"-->
+                                     <!--class="serviceImg" ng-if="it.selectd"/>-->
+                            </div>
+                            <div class="dcp">{{it.title}}</div>
+                            <div class="price">￥{{it.price/100|num:2}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ignore" ng-if="vm.data.reduceList.length>0">
+                    服务两项减￥5，三项减￥10
+                </div>
+            </div>
+        </div>
+        <div class="payButton" layout="row" ng-if="vm.orderList[vm.STOrder.id].length>0">
+            <div class="btns" flex>合计:￥{{vm.showPrice/100.0|num:1}}</div>
+            <div class="btns btn_R" flex ng-click="vm.checkOrder()">立即下单</div>
+        </div>
+    </div>
+</div>
+
+

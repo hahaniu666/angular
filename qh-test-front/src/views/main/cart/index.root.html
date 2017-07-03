@@ -1,0 +1,273 @@
+<div flex="" layout="column" class="md-whiteframe-z2 ks-main ks-cart-o">
+
+    <!--  <md-toolbar class="ks-header">
+          <div class="md-toolbar-tools">
+              <md-button class="md-icon-button" ng-click="vm.fallbackPage()">
+                  <md-icon class="chevron_left ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+              </md-button>
+              <h1 flex>购物车</h1>
+              <md-button class="md-icon-button action" ng-click="vm.editCart()" md-no-ink>
+                  <span ng-if="vm.cartNotNull">{{vm.editCartClick.name}}</span>
+              </md-button>
+          </div>
+      </md-toolbar>-->
+
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+
+            <div class="divTop" flex>
+                <md-icon md-font-set="ks-icon" class="chevron_left" md-font-icon="ks-arrow_left"
+                         ng-click="vm.fallbackPage()"></md-icon>
+                <span class="regSpan">购物车</span>
+                <!--ng-class="{'verifyColor':noverifyShow}"-->
+                <span class="top-but-yz" ng-if="vm.cartNotNull"
+                      ng-click="vm.editCart()">{{vm.editCartClick.name}}</span>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-divider></md-divider>
+
+    <md-content flex layout="column">
+        <!-- ======================================== 未登录提示 -->
+        <div class="notice" layout="" layout-align="center center" ng-if="vm.noLogin && vm.cartNotNull">
+            您可以在登录后保存购物车中的商品
+            <span class="login" ng-click="vm.login()">登录</span>
+        </div>
+        <!--莫名奇妙在手机端会显示，先注释了，找不到谁写的这块-->
+        <!--<md-divider ng-if="vm.noLogin"></md-divider>-->
+
+        <!-- ======================================== 空购物车 -->
+        <div class="empty" layout="column" layout-align="center center" flex ng-if="!vm.cartNotNull">
+            <div style="text-align: center;">
+                <md-icon md-font-set="ks-icon" class="cart-icon" md-font-icon="ks-shopping-cart"></md-icon>
+                <div class="txt">您的购物车空空如也～</div>
+            </div>
+        </div>
+        <!-- ======================================== 猜您喜欢 -->
+        <!--<div class="guess" ng-if="!vm.cartNotNull">-->
+        <!--<div class="line" style="width: 100%;height: 10px; background: #f5f5f5"></div>-->
+        <!--<div class="title" layout layout-align="center center"><span>- 猜您喜欢 -</span></div>-->
+
+        <!--<div layout="row" layout-wrap>-->
+        <!--<div flex="50" layout="column" class="rec-item" ng-repeat="item in  vm.hotItem">-->
+        <!--<div flex layout="column" ui-sref="main.item({itemId:item.itemId,skuId:item.skuId})">-->
+        <!--&lt;!&ndash; 多追加一层div，方便使用  layout-wrap 和 ng-repeat 。 需要CSS特殊处理  &ndash;&gt;-->
+        <!--<div class="item-img">-->
+        <!--<img ng-src="{{vm.imgUrl}}{{item.img}}?imageView2/1/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}"/>-->
+        <!--</div>-->
+        <!--<div>-->
+        <!--<div class="item-title">{{item.title}}-->
+        <!--</div>-->
+        <!--<div class="item-price">￥{{item.price/100.0|num:1}}</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!-- 商品列表 -->
+        <div class="cart-items" ng-if="vm.cartNotNull">
+
+
+            <div layout="row"
+                 class="cart-item"
+                 layout-align="center center"
+                 ng-repeat="tmp in vm.cart.item"
+            >
+                <!--  <div layout="" layout-align="end center">
+                      普通商品
+                  </div>-->
+                <div layout="" layout-align="end center">
+                    <md-checkbox ng-model="tmp.selected" ng-disabled="tmp.isSelected" ng-change="vm.calcTotalPrice()"
+                                 class="ks-gold goes"></md-checkbox>
+                </div>
+                <div class="item-img" ui-sref="main.item({itemId:tmp.itemId,skuId:tmp.skuId,fromId:tmp.fromId})">
+                    <img ng-src="{{vm.imgUrl}}{{tmp.pic}}?imageView2/1/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}"
+                         alt="钱皇"/>
+                </div>
+
+                <div flex layout="column" class="item-desp">
+                    <div class="item-title" ui-sref="main.item({itemId:tmp.itemId,skuId:tmp.skuId,fromId:tmp.fromId})">
+                        {{tmp.skuTitle}}
+                    </div>
+                    <div class="item-specs"><span ng-repeat="spec in tmp.specs">{{spec.name}}:{{spec.value}}</span>
+                    </div>
+                    <div flex layout="row" layout-align="" class="price-row" style="line-height: 30px">
+                        <div flex class="item-price">
+                            <span ng-if="tmp.activity&&tmp.activity.id">
+                                ￥{{tmp.activity.price/100.0|num:1}}
+                                <!--<del>￥{{tmp.price/100.0|num:2}}</del>-->
+                            </span>
+                            <span ng-if="!tmp.activity||!tmp.activity.id">￥{{tmp.price/100.0|num:1}}</span>
+                            <span style="color: red;margin-left: 20px;" ng-if="tmp.isSelected">失效</span>
+                        </div>
+
+                        <div layout="row" class="count" ng-if="vm.editCartClick.click">
+                            <div class="minus" ng-mobile-click="vm.add(tmp,0)" layout=""
+                                 layout-align="center center">
+                                <md-icon class="iconBtn" md-font-set="ks-icon" md-font-icon="ks-minus"></md-icon>
+                            </div>
+                            <input type="text" ng-model="tmp.num" layout="" ng-blur="vm.editNum(tmp)"
+                                   readonly
+                                   onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                                   layout-align="center center"/>
+                            <div class="add" ng-mobile-click="vm.add(tmp,1)" layout=""
+                                 layout-align="center center">
+                                <md-icon class="iconBtn" md-font-set="ks-icon" md-font-icon="ks-plus-bold"></md-icon>
+                            </div>
+                        </div>
+                        <div layout="row" class="count" ng-if="!vm.editCartClick.click">
+                            x{{tmp.num}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div layout="row"
+                 class="cart-item"
+                 layout-align="center center"
+                 ng-repeat="tmp in vm.cart.rentItem"
+            >
+                <!--    <div layout="" layout-align="end center">
+                        租赁商品
+                    </div>-->
+                <div layout="" layout-align="end center">
+                    <md-checkbox ng-model="tmp.selected" ng-disabled="tmp.isSelected" ng-change="vm.calcTotalPrice()"
+                                 class="ks-gold goes"></md-checkbox>
+                </div>
+                <div class="item-img" ui-sref="main.item({itemId:tmp.itemId,skuId:tmp.skuId})">
+                    <img ng-src="{{vm.imgUrl}}{{tmp.pic}}?imageView2/1/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}"
+                         alt="钱皇"/>
+                </div>
+
+                <div flex layout="column" class="item-desp">
+                    <div class="item-title" ui-sref="main.item({itemId:tmp.itemId,skuId:tmp.skuId})">{{tmp.skuTitle}}
+                    </div>
+                    <div class="item-specs"><span ng-repeat="spec in tmp.specs">{{spec.name}}:{{spec.value}}</span>
+                        <span>租期:{{tmp.day}}天</span>
+                    </div>
+                    <div flex layout="row" layout-align="" class="price-row" style="line-height: 30px">
+                        <div flex class="item-price">
+                            <span ng-if="tmp.activity&&tmp.activity.id">
+                                ￥{{tmp.activity.price/100.0|num:1}}
+                                <!--<del>￥{{tmp.price/100.0|num:2}}</del>-->
+                            </span>
+                            <span ng-if="!tmp.activity||!tmp.activity.id">￥{{tmp.price/100.0|num:1}}</span>
+                            <span style="color: red;margin-left: 20px;" ng-if="tmp.isSelected">失效</span>
+                        </div>
+                        <div layout="row" class="count" ng-if="vm.editCartClick.click">
+                            <div class="minus" ng-mobile-click="vm.add(tmp,0)" layout=""
+                                 layout-align="center center">
+                                <md-icon class="iconBtn" md-font-set="ks-icon" md-font-icon="ks-minus"></md-icon>
+                            </div>
+                            <input type="text" ng-model="tmp.num" ng-blur="vm.editNum(tmp)" layout=""
+                                   readonly
+                                   onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                                   layout-align="center center"/>
+                            <div class="add" ng-mobile-click="vm.add(tmp,1)" layout=""
+                                 layout-align="center center">
+                                <md-icon class="iconBtn" md-font-set="ks-icon" md-font-icon="ks-plus-bold"></md-icon>
+                            </div>
+                        </div>
+                        <div layout="row" class="count" ng-if="!vm.editCartClick.click">
+                            x{{tmp.num}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div layout="row"
+                 class="cart-item"
+                 layout-align="center center"
+                 ng-repeat="tmp in vm.cart.service">
+                <!--  <div layout="" layout-align="end center">
+                      服务商品
+                  </div>-->
+                <div layout="" layout-align="end center">
+                    <md-checkbox ng-model="tmp.selected" ng-disabled="tmp.isSelected" ng-change="vm.calcTotalPrice()"
+                                 class="ks-gold goes"></md-checkbox>
+                </div>
+                <div class="item-img" ui-sref="main.item({itemId:tmp.itemId,skuId:tmp.skuId})">
+                    <img ng-src="{{vm.imgUrl}}{{tmp.pic}}?imageView2/1/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}"
+                         alt="钱皇"/>
+                </div>
+
+                <div flex layout="column" class="item-desp">
+                    <div class="item-title" ui-sref="main.item({itemId:tmp.itemId,skuId:tmp.skuId,fromId:tmp.fromId})">
+                        {{tmp.skuTitle}}
+                    </div>
+                    <div class="item-specs"><span ng-repeat="spec in tmp.specs">{{spec.name}}:{{spec.value}}</span>
+                    </div>
+                    <div flex layout="row" layout-align="" class="price-row" style="line-height: 30px">
+                        <div flex class="item-price">
+                            <span ng-if="tmp.activity&&tmp.activity.id">
+                                ￥{{tmp.activity.price/100.0|num:1}}
+                                <!--<del>￥{{tmp.price/100.0|num:2}}</del>-->
+                            </span>
+                            <span ng-if="!tmp.activity||!tmp.activity.id">￥{{tmp.price/100.0|num:1}}</span>
+                            <span style="color: red;margin-left: 20px;" ng-if="tmp.isSelected">失效</span>
+                        </div>
+                        <div layout="row" class="count" ng-if="vm.editCartClick.click">
+                            <div class="minus" ng-mobile-click="vm.add(tmp,0)" layout=""
+                                 layout-align="center center">
+                                <md-icon class="iconBtn" md-font-set="ks-icon" md-font-icon="ks-minus"></md-icon>
+                            </div>
+                            <input type="text" ng-model="tmp.num" layout="" ng-blur="vm.editNum(tmp)"
+                                   readonly
+                                   onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                                   layout-align="center center"/>
+                            <div class="add" ng-mobile-click="vm.add(tmp,1)" layout=""
+                                 layout-align="center center">
+                                <md-icon class="iconBtn" md-font-set="ks-icon" md-font-icon="ks-plus-bold"></md-icon>
+                            </div>
+                        </div>
+
+                        <div layout="row" class="count" ng-if="!vm.editCartClick.click">
+                            <div>
+                                x{{tmp.num}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomLine"></div>
+            <div layout="row" layout-align="center center" style="padding: 10px">
+                <md-button class="ks-white md-raised ks-white-noBorder" flex
+                           style="color: #999;box-shadow: 0 0 0 0 #fff"
+                           ng-click="vm.queryPageCart(vm.cart.curPage)"
+                           ng-if="!vm.cart.pageEnd">
+                    <!--<md-icon style="color: #999" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>-->
+                    点击加载更多...
+                </md-button>
+
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff"
+                           ng-if="vm.cart.pageEnd&&vm.cart.totalCount>10">
+                    没有更多商品了
+                </md-button>
+            </div>
+        </div>
+    </md-content>
+
+    <md-divider ng-if="vm.cartNotNull"></md-divider>
+    <div layout="row" layout-align="center center" class="cartToolbar" ng-if="vm.cartNotNull">
+        <div layout="" layout-align="end center" class="selectAll">
+            <md-checkbox ng-change="vm.selectAllChanged()" ng-model="vm.allSelected" class="ks-gold goes">全选
+            </md-checkbox>
+        </div>
+        <div flex class="totalPrice">合计: ￥{{vm.totalPrice/100.0|num:1}}</div>
+        <md-button ng-class="{go:vm.editCartClick.click,delete:!vm.editCartClick.click}"
+                   ng-click=" vm.removeOrCreate($event)">
+            {{vm.editCartClick.button}}({{vm.numberTotal}})
+        </md-button>
+    </div>
+
+    <!--<div ks-footer-menu cur="'cart'"></div>-->
+
+    <!--<div flex layout="column" class="item-desp">-->
+    <!--<md-checkbox ng-click="vm.selectAllChanged()"></md-checkbox>-->
+    <!--合计:{{vm.totalPrice/100.0|num:2}},-->
+    <!--<button ng-click="vm.removeOrCreate($event)">{{vm.editCartClick.button}}</button>-->
+    <!--<button ng-click="vm.testAdd()">测试添加商品按钮,测试用</button>-->
+
+</div>

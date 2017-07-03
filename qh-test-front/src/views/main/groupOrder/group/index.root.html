@@ -1,0 +1,112 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-group">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>参团</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex layout="column" style="overflow-x: hidden">
+        <div class="item-detail">
+            <!--多加一层方便布局-->
+            <div class="cen-msg" layout="row"
+                 ui-sref="main.groupOrder.groupOrderDetail({id: vm.id,skuId: vm.skuId})">
+                <div class="cen-img-wrap">
+                    <!--图片直接在这里变，外层不要删-->
+                    <!--<img ng-src="{{vm.imgUrl}}{{order.img}}?imageView2/1/w/92/h/92"/>-->
+                    <img img-holder ng-src="{{vm.imgUrl}}{{vm.groupDetail.img}}"/>
+                </div>
+                <!--右边sku部分样式-->
+                <div class="cen-right" flex layout="column" layout-align="space-between start">
+                    <div class="cen-title">
+                        {{vm.groupDetail.sku.title}}
+                    </div>
+                    <div class="cen-bottom" layout="column" layout-align="space-between start">
+                        <span class="cen-des">{{vm.groupDetail.groupNum}}人团</span>
+                        <!--<p calss="cen-price"> ￥{{vm.groupDetail.price/100}}</p>-->
+                        <div style="margin-left: -2px" layout="row" layout-align="start end">
+                            <span class="price-icon">￥</span>
+                            <span class="price">{{vm.detail.item[0].skuList[0].activityPrice/100|num:0}}</span>
+                            <span class="first-price">￥{{vm.detail.item[0].skuList[0].price/100|num:0}}</span>
+                            <span class="dis">{{vm.detail.item[0].groupNum}}人团省{{vm.detail.item[0].skuList[0].price/100 - vm.detail.item[0].skuList[0].activityPrice/100|num:0}}元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <md-divider></md-divider>
+            <div class="need-know" layout="column">
+                <div class="need-txt">拼团须知：</div>
+                <div class="icon-wrap" layout="row" layout-align="start center">
+                    <div class="icon-txt" layout="row" layout-align="center center">
+                        <span class="circle"></span>
+                        <span>邀请好友</span>
+                    </div>
+                    <div class="icon-txt" layout="row" layout-align="center center">
+                        <span class="circle"></span>
+                        <span>人满发货</span>
+                    </div>
+                    <div class="icon-txt" layout="row" layout-align="center center">
+                        <span class="circle"></span>
+                        <span>人不满退款</span>
+                    </div>
+                </div>
+            </div>
+            <md-divider></md-divider>
+        </div>
+
+        <div class="group-detail" layout="row" layout-align="center">
+            <div class="detail-wrap" layout="column" layout="center">
+                <div class="detail-txt" ng-if="vm.groupDetail.groupNum - vm.groupDetail.curSize >0 ">
+                    还差{{vm.groupDetail.groupNum - vm.groupDetail.curSize}}人，赶紧参团吧
+                </div>
+                <div class="detail-txt" ng-if="vm.groupDetail.groupNum - vm.groupDetail.curSize<=0">团已满</div>
+                <div class="img-header" layout="row" layout-align="center center">
+                    <div class="img-wrap" ng-repeat="leader in vm.groupLeader.groupOrders">
+                        <!--{{vm.imgUrl}}暂时去掉，显示微信头像-->
+
+                        <img ng-if="leader.imgType !='URLIMG'" img-holder ng-src="{{vm.imgUrl}}{{leader.img}}"
+                             width="44px" height="44px"
+                             alt="">
+                        <img ng-if="leader.imgType =='URLIMG'" img-holder src="{{leader.img}}" width="44px"
+                             height="44px"
+                             alt="">
+
+                        <div class="tuanzhang" ng-if="leader.isLeader">团长</div>
+                    </div>
+
+                    <div class="img-wrap" ng-repeat="comment in vm.comments track by $index">
+                        <img src="https://img.kingsilk.net/Fi7EqWqwTZtoQQxDNOx3fp3Prjcq" width="44px" height="44px"
+                             alt="">
+                    </div>
+                </div>
+                <div class="time" ng-if="vm.groupDetail.groupNum - vm.groupDetail.curSize >0 ">
+                    剩余<span style="margin-left: 10px" ng-if="vm.groupDetail.activityCheck.hour">{{vm.groupDetail.activityCheck.hour}}</span><span
+                        style="margin-left: 10px"
+                        ng-if="!vm.groupDetail.activityCheck.hour">00</span>
+                    : <span
+                        ng-if="vm.groupDetail.activityCheck.minute">{{vm.groupDetail.activityCheck.minute}}</span><span
+                        ng-if="!vm.groupDetail.activityCheck.minute">00</span> : <span
+                        style="margin-right: 10px"
+                        ng-if="vm.groupDetail.activityCheck.second">{{ vm.groupDetail.activityCheck.second }}</span><span
+                        style="margin-right: 10px" ng-if="!vm.groupDetail.activityCheck.second">00</span>结束
+                </div>
+            </div>
+        </div>
+    </md-content>
+    <div class="group-fotter" layout="row">
+        <div flex class="group" layout="column" layout-align="center center"
+             ng-if="vm.groupDetail.groupNum - vm.groupDetail.curSize >0 "
+             ng-click="vm.checkSkuDialog($event)">
+            <span>一键参团</span>
+        </div>
+        <div flex class="group" layout="column" layout-align="center center"
+             ng-if="vm.groupDetail.groupNum - vm.groupDetail.curSize <=0 "
+             ui-sref="main.groupOrder.groupOrderDetail({id:vm.id,skuId:vm.groupDetail.sku.id,orgId: vm.orgId})">
+            <span>重新开团</span>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,780 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-newVip">
+    <!--<md-toolbar class="ks-header" layout="row">-->
+    <!--<div class="md-icon-button" flex="20">-->
+    <!--&lt;!&ndash;<md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>&ndash;&gt;-->
+    <!--</div>-->
+    <!--<h1 flex>VIP会员</h1>-->
+    <!--<div class="md-icon-button" flex="20" ui-sref="main.vip.record()">-->
+    <!--兑换记录-->
+    <!--</div>-->
+    <!--</md-toolbar>-->
+    <md-content flex style="overflow-x: hidden">
+        <!--<div class="swiper-bg">-->
+        <!--<div class="swiper-container">-->
+        <!--<div class="swiper-wrapper">-->
+        <!--<div class="swiper-slide">-->
+        <!--<div class="silver"></div>-->
+        <!--</div>-->
+        <!--<div class="swiper-slide gold">-->
+        <!--<div class="silver"></div>-->
+        <!--</div>-->
+        <!--<div class="swiper-slide jewel">-->
+        <!--<div class="silver"></div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="swiper-pagination"></div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <!--金银粉轮播图-->
+        <div class="swiper-bg">
+            <div class="swiper-container2">
+                <div class="my-wrapper2">
+                    <div class="my-slide2">
+                        <div class="silver">
+                            <div class="grade" layout="row">
+                                <md-icon class="ks-icon1" md-font-set="ks-icon"
+                                         md-font-icon="ks-tga"></md-icon>
+                                <span class="grade-txt1">已拥有</span>
+                            </div>
+                            <div class="grade-dis">关注店铺公众号即可免费领取</div>
+                            <!--<div class="line-bg">-->
+                            <!--<div class="line-img"></div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <div class="my-slide2">
+                        <div class="gold">
+                            <div class="grade" layout="row" ng-hide="currentLevel == '3'">
+                                <md-icon ng-if="currentLevel == '2'" class="ks-icon1" md-font-set="ks-icon"
+                                         md-font-icon="ks-tga" style="color: #af925b"></md-icon>
+                                <md-icon ng-if="currentLevel != '2'" class="ks-icon2" md-font-set="ks-icon"
+                                         md-font-icon="ks-tga" style="color: #af925b"></md-icon>
+                                <span ng-if="currentLevel == '2'" class="grade-txt1" style="color: #a68a56">已拥有</span>
+                                <span ng-if="currentLevel != '2'" class="grade-txt2" style="color: #a68a56">尚未拥有</span>
+                            </div>
+                            <div class="grade-dis">一年内商城累计达{{data1.agents[1].integral/100}}钱币</div>
+                            <div class="line-bg" ng-hide="currentLevel == '2'">
+                                <div class="line-img1"></div>
+                                <div style="font-size: 10px;transform: scale(0.8);line-height: 12px;color:#ba9f6e">
+                                    {{totalIntegral/100}} <span style="color: #ba9f6e">/</span>
+                                    {{data1.agents[1].integral/100}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-slide2">
+                        <div class="jewel">
+                            <div class="grade" layout="row">
+                                <md-icon ng-if="currentLevel == '3'" class="ks-icon1" md-font-set="ks-icon"
+                                         md-font-icon="ks-tga"></md-icon>
+                                <md-icon ng-if="currentLevel != '3'" class="ks-icon2" md-font-set="ks-icon"
+                                         md-font-icon="ks-tga"></md-icon>
+                                <span ng-if="currentLevel == '3'" class="grade-txt1">已拥有</span>
+                                <span ng-if="currentLevel != '3'" class="grade-txt2">尚未拥有</span>
+                            </div>
+                            <div class="grade-dis">一年内商城累计达{{data1.agents[2].integral/100}}钱币</div>
+                            <div class="line-bg" ng-hide="currentLevel == '3'">
+                                <div class="line-img2"></div>
+                                <div style="font-size: 10px;transform: scale(0.8);line-height: 12px;color:#5f557d">
+                                    {{totalIntegral/100}} <span style="color: #5f557d">/</span>
+                                    {{data1.agents[2].integral/100}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <!--权益轮播图-->
+        <div class="interests-bg">
+            <div class="vip-header"></div>
+            <div class="swiper-container1">
+                <div class="my-wrapper">
+                    <div class="my-slide" ng-class="{yinHeight1:!iconShow1,yinHeight2:iconShow1}">
+                        <div class="vip-interests" layout="column" layout-align="center center">
+                            <div class="interests-top" layout="column" layout-align="center">
+                                <div class="interests-top-dis-yin" layout="row" layout-align="center center">
+                                    <span class="disline"></span>
+                                    <md-icon class="ks-icon" md-font-set="ks-icon"
+                                             md-font-icon="ks-Crown-o"></md-icon>
+                                    <span class="disline"></span>
+                                </div>
+                                <div class="interests-top-txt-yin">银粉VIP权益</div>
+                            </div>
+                            <div class="interests-icon-wrap">
+                                <div class="icon-wrap" layout="row" layout-align="stretch">
+                                    <div class="icon-con" flex style="text-align: center"
+                                         ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-game"></md-icon>
+                                        <div class="icon-discrb-yin">主题活动</div>
+                                    </div>
+                                    <!--ng-click="diaShow()"-->
+                                    <div class="icon-con" flex style="text-align: center"
+                                         ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-sign"></md-icon>
+                                        <div class="icon-discrb-yin">特惠信息</div>
+                                    </div>
+                                    <div class="icon-con" ng-click="dialogShow($event)" flex style="text-align: center">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-hand-heart"></md-icon>
+                                        <div class="icon-discrb-yin">免费消毒</div>
+                                    </div>
+                                </div>
+                                <div class="icon-wrap" layout="row" ng-click="dialogShow($event)" layout-align="stretch"
+                                     style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-cake"></md-icon>
+                                        <div class="icon-discrb-yin">生日特权</div>
+                                    </div>
+                                    <div class="icon-con" flex ng-click="dialogShow($event)" style="text-align: center">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-charge"></md-icon>
+                                        <div class="icon-discrb-yin">商品兑换</div>
+                                    </div>
+                                    <div class="icon-con" flex ng-click="dialogShow($event)" style="text-align: center">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-crown-vip"></md-icon>
+                                        <div class="icon-discrb-yin">会员活动</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="interests-bottom" style="width: 100%" layout="column" layout-align="center center">
+                                <div class="interests-bottom-dis-yin" style="width: 83%" layout="row" layout-align="center center">
+                                    <span class="line" flex></span>
+                                    <span class="txt">线下门店服务</span>
+                                    <span class="line" flex></span>
+                                </div>
+                            </div>
+
+                            <div class="interests-icon-wrap" ng-if="iconShow1" style="margin-top: 30px">
+                                <div class="icon-wrap" layout="row" layout-align="stretch">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-wifi-40"></md-icon>
+                                        <div class="icon-discrb-yin">免费WIFI</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-reading"></md-icon>
+                                        <div class="icon-discrb-yin">免费阅读</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-taype"></md-icon>
+                                        <div class="icon-discrb-yin">快递收发</div>
+                                    </div>
+                                </div>
+                                <div class="icon-wrap" layout="row" layout-align="stretch" style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-diamond-40"></md-icon>
+                                        <div class="icon-discrb-yin">会员独享</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-drink"></md-icon>
+                                        <div class="icon-discrb-yin">免费茶饮</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-lightning"></md-icon>
+                                        <div class="icon-discrb-yin">便捷充电</div>
+                                    </div>
+                                </div>
+                                <div class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px;margin-bottom: 20px;">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-building-o"></md-icon>
+                                        <div class="icon-discrb-yin">场地借用</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-yin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-racket"></md-icon>
+                                        <div class="icon-discrb-yin">儿童娱乐</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="interests-bottom" layout="column" layout-align="center center">
+                                <div class="interests-bottom-btn" ng-mobile-click="showIcon1()"
+                                     style="font-size: 24px;line-height:24px;color: #8f9eb6;margin-top: 10px"
+                                     ng-if="!iconShow1">︾
+                                </div>
+                                <div class="interests-bottom-btn" ng-mobile-click="showIcon1()"
+                                     style="font-size: 24px;line-height:24px;color: #8f9eb6;margin-bottom: 20px;"
+                                     ng-if="iconShow1"> ︽
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-slide" ng-class="{jinHeight1:!iconShow2,jinHeight2:iconShow2}">
+                        <div class="vip-interests" layout="column" layout-align="center center">
+                            <div class="interests-top" layout="column" layout-align="center">
+                                <div class="interests-top-dis-jin" layout="row" layout-align="center center">
+                                    <span class="disline"></span>
+                                    <md-icon class="ks-icon" md-font-set="ks-icon"
+                                             md-font-icon="ks-Crown-o"></md-icon>
+                                    <span class="disline"></span>
+                                </div>
+                                <div class="interests-top-txt-jin">金粉VIP权益</div>
+                            </div>
+                            <div class="interests-icon-wrap">
+                                <div class="icon-wrap" layout="row" layout-align="stretch">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-game"></md-icon>
+                                        <div class="icon-discrb-jin">主题活动</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-sign"></md-icon>
+                                        <div class="icon-discrb-jin">特惠信息</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-hand-heart"></md-icon>
+                                        <div class="icon-discrb-jin">免费消毒</div>
+                                    </div>
+                                </div>
+                                <div class="icon-wrap" layout="row" layout-align="stretch" style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-cake"></md-icon>
+                                        <div class="icon-discrb-jin">生日特权</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-charge"></md-icon>
+                                        <div class="icon-discrb-jin">商品兑换</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-crown-vip"></md-icon>
+                                        <div class="icon-discrb-jin">会员活动</div>
+                                    </div>
+                                </div>
+                                <div ng-if="iconShow2" class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-tie"></md-icon>
+                                        <div class="icon-discrb-jin">资格优先</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-up-arrow"></md-icon>
+                                        <div class="icon-discrb-jin">活动优先</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-discount"></md-icon>
+                                        <div class="icon-discrb-jin">特价优先</div>
+                                    </div>
+                                </div>
+                                <div ng-if="iconShow2" class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-gift-40"></md-icon>
+                                        <div class="icon-discrb-jin">免费精品</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow($event)">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-cap"></md-icon>
+                                        <div class="icon-discrb-jin">奖品优先</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="interests-bottom" style="width: 100%" layout="column" layout-align="center center">
+                                <div class="interests-bottom-dis-jin" style="width: 83%" layout="row" layout-align="center center">
+                                    <span class="line" flex></span>
+                                    <span class="txt">线下门店服务</span>
+                                    <span class="line" flex></span>
+                                </div>
+                            </div>
+
+                            <div class="interests-icon-wrap" ng-if="iconShow2" style="margin-top: 30px">
+                                <div class="icon-wrap" layout="row" layout-align="stretch">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-wifi-40"></md-icon>
+                                        <div class="icon-discrb-jin">免费WIFI</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-reading"></md-icon>
+                                        <div class="icon-discrb-jin">免费阅读</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-taype"></md-icon>
+                                        <div class="icon-discrb-jin">快递收发</div>
+                                    </div>
+                                </div>
+                                <div class="icon-wrap" layout="row" layout-align="stretch" style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-diamond-40"></md-icon>
+                                        <div class="icon-discrb-jin">会员独享</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-drink"></md-icon>
+                                        <div class="icon-discrb-jin">免费茶饮</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-lightning"></md-icon>
+                                        <div class="icon-discrb-jin">便捷充电</div>
+                                    </div>
+                                </div>
+                                <div class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px; ">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-building-o"></md-icon>
+                                        <div class="icon-discrb-jin">场地借用</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-racket"></md-icon>
+                                        <div class="icon-discrb-jin">儿童娱乐</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-ding"></md-icon>
+                                        <div class="icon-discrb-jin">应急用品</div>
+                                    </div>
+                                </div>
+                                <div class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px;margin-bottom: 20px; ">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-dollar-o"></md-icon>
+                                        <div class="icon-discrb-jin">内部优惠</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-jin" md-font-set="ks-icon"
+                                                 md-font-icon="ks-bed-quilt"></md-icon>
+                                        <div class="icon-discrb-jin">急用借被</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="interests-bottom" layout="column" layout-align="center center">
+
+                                <div class="interests-bottom-btn" ng-click="showIcon2()"
+                                     style="font-size: 24px;line-height:24px;color: #ba9f6e;margin-top: 10px"
+                                     ng-if="!iconShow2">︾
+                                </div>
+                                <div class="interests-bottom-btn" ng-click="showIcon2()"
+                                     style="font-size: 24px;line-height:24px;color: #ba9f6e;margin-bottom: 20px;"
+                                     ng-if="iconShow2"> ︽
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="my-slide" ng-class="{zuanHeight1:!iconShow3,zuanHeight2:iconShow3}">
+                        <div class="vip-interests" layout="column" layout-align="center center">
+                            <div class="interests-top" layout="column" layout-align="center">
+                                <div class="interests-top-dis-zuanshi" layout="row" layout-align="center center">
+                                    <span class="disline"></span>
+                                    <md-icon class="ks-icon" md-font-set="ks-icon"
+                                             md-font-icon="ks-Crown-o"></md-icon>
+                                    <span class="disline"></span>
+                                </div>
+                                <div class="interests-top-txt-zuanshi">钻石VIP权益</div>
+                            </div>
+                            <div class="interests-icon-wrap">
+                                <div class="icon-wrap" layout="row" layout-align="stretch">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-game"></md-icon>
+                                        <div class="icon-discrb-zuanshi">主题活动</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-sign"></md-icon>
+                                        <div class="icon-discrb-zuanshi">特惠信息</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-hand-heart"></md-icon>
+                                        <div class="icon-discrb-zuanshi">免费消毒</div>
+                                    </div>
+                                </div>
+                                <div class="icon-wrap" layout="row" layout-align="stretch" style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-cake"></md-icon>
+                                        <div class="icon-discrb-zuanshi">生日特权</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-charge"></md-icon>
+                                        <div class="icon-discrb-zuanshi">商品兑换</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-crown-vip"></md-icon>
+                                        <div class="icon-discrb-zuanshi">会员活动</div>
+                                    </div>
+                                </div>
+                                <div ng-if="iconShow3" class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-tie"></md-icon>
+                                        <div class="icon-discrb-zuanshi">资格优先</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-up-arrow"></md-icon>
+                                        <div class="icon-discrb-zuanshi">活动优先</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-discount"></md-icon>
+                                        <div class="icon-discrb-zuanshi">特价优先</div>
+                                    </div>
+                                </div>
+                                <div ng-if="iconShow3" class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-gift-40"></md-icon>
+                                        <div class="icon-discrb-zuanshi">免费精品</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-cap"></md-icon>
+                                        <div class="icon-discrb-zuanshi">奖品优先</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-percent"></md-icon>
+                                        <div class="icon-discrb-zuanshi">特价商品</div>
+                                    </div>
+                                </div>
+                                <div ng-if="iconShow3" class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-new"></md-icon>
+                                        <div class="icon-discrb-zuanshi">新品体验</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center">
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="interests-bottom" layout="column" style="width: 100%" layout-align="center center">
+                                <div class="interests-bottom-dis-zuanshi" style="width: 83%" layout="row" layout-align="center center">
+                                    <span class="line" flex></span>
+                                    <span class="txt">线下门店服务</span>
+                                    <span class="line" flex></span>
+                                </div>
+                            </div>
+
+                            <div class="interests-icon-wrap" ng-if="iconShow3" style="margin-top: 30px">
+                                <div class="icon-wrap" layout="row" layout-align="stretch">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-wifi-40"></md-icon>
+                                        <div class="icon-discrb-zuanshi">免费WIFI</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-reading"></md-icon>
+                                        <div class="icon-discrb-zuanshi">免费阅读</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-taype"></md-icon>
+                                        <div class="icon-discrb-zuanshi">快递收发</div>
+                                    </div>
+                                </div>
+                                <div class="icon-wrap" layout="row" layout-align="stretch" style="margin-top: 30px">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-diamond-40"></md-icon>
+                                        <div class="icon-discrb-zuanshi">会员独享</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-drink"></md-icon>
+                                        <div class="icon-discrb-zuanshi">免费茶饮</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-lightning"></md-icon>
+                                        <div class="icon-discrb-zuanshi">便捷充电</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px;">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-building-o"></md-icon>
+                                        <div class="icon-discrb-zuanshi">场地借用</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-racket"></md-icon>
+                                        <div class="icon-discrb-zuanshi">儿童娱乐</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-ding"></md-icon>
+                                        <div class="icon-discrb-zuanshi">应急用品</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px;">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-dollar-o"></md-icon>
+                                        <div class="icon-discrb-zuanshi">内部优惠</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-bed-quilt"></md-icon>
+                                        <div class="icon-discrb-zuanshi">急用借被</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-endless"></md-icon>
+                                        <div class="icon-discrb-zuanshi">双重权益</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="icon-wrap" layout="row" layout-align="stretch"
+                                     style="margin-top: 30px;margin-bottom: 20px; ">
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-water"></md-icon>
+                                        <div class="icon-discrb-zuanshi">免费清洁</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-heart-40"></md-icon>
+                                        <div class="icon-discrb-zuanshi">免费代护</div>
+                                    </div>
+                                    <div class="icon-con" flex style="text-align: center" ng-click="dialogShow()">
+                                        <md-icon class="ks-icon-zuanshi" md-font-set="ks-icon"
+                                                 md-font-icon="ks-dinner"></md-icon>
+                                        <div class="icon-discrb-zuanshi">免费简餐</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="interests-bottom" layout="column" layout-align="center center">
+                                <div class="interests-bottom-btn" ng-click="showIcon3()"
+                                     style="font-size: 24px;line-height:24px;color: #bcbad7;margin-top: 10px"
+                                     ng-if="!iconShow3">︾
+                                </div>
+                                <div class="interests-bottom-btn" ng-click="showIcon3()"
+                                     style="font-size: 24px;line-height:24px;color: #bcbad7;margin-bottom: 20px;"
+                                     ng-if="iconShow3"> ︽
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vip-task-dis" layout="row" layout-align="space-between center">
+            <div class="vip-dis-lift">赚钱币</div>
+            <div class="vip-dis-right">做任务，赚钱币</div>
+        </div>
+        <div class="vip-task-wrap">
+            <div class="vip-task">
+                <div class="vip-task-det" layout="row" layout-align="center center">
+                    <md-icon class="ks-icon-left" md-font-set="ks-icon" style="font-size:24px"
+                             md-font-icon="ks-calendar-sign"></md-icon>
+                    <div class="det-txt" flex layout="column">
+                        <span class="det-txt-top">每日签到</span>
+                        <span class="det-txt-bottom">点击签到领钱币</span>
+                    </div>
+                    <div class="signBtn" ng-click="signs()" ng-if="!data.toDaySign">一键签到</div>
+                    <div class="signed" ng-if="data.toDaySign">已签到</div>
+                    <!--<md-icon class="ks-icon-right" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>-->
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <div class="vip-task">
+                <div class="vip-task-det" layout="row" layout-align="center center" ui-sref="main.topic">
+                    <md-icon class="ks-icon-left" md-font-set="ks-icon" style="line-height: 40px;"
+                             md-font-icon="ks-massage"></md-icon>
+                    <div class="det-txt" flex layout="row" layout-align="space-between center">
+                        <div layout="column">
+                            <span class="det-txt-top">评论分享</span>
+                            <span class="det-txt-bottom">在热门话题中进行讨论</span>
+                        </div>
+                        <div class="give" ng-if="!data.iscommentMoreFive">+10钱币</div>
+                    </div>
+                    <!--<md-icon class="ks-icon-right" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>-->
+                    <md-icon class="ks-icon-right" ng-if="!data.iscommentMoreFive" md-font-set="ks-icon"
+                             md-font-icon="ks-arrow_right"></md-icon>
+                    <!--<md-icon class="ks-icon-right" ng-if="data.iscommentMoreFive" md-font-set="ks-icon"
+                             md-font-icon="ks-selected"></md-icon>-->
+
+                    <div class="icon-par" ng-if="data.iscommentMoreFive">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-selected"></md-icon>
+                    </div>
+
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <div class="vip-task">
+                <div class="vip-task-det" layout="row" layout-align="center center">
+                    <md-icon class="icon-left" md-font-set="ks-icon" md-font-icon="ks-wechat-o"></md-icon>
+                    <div class="det-txt" flex layout="row" layout-align="space-between center">
+                        <div layout="column">
+                            <span class="det-txt-top">关注得钱币</span>
+                            <span class="det-txt-bottom">点击关注钱皇微信公众号</span>
+                        </div>
+                        <!--<div class="give">+10钱币</div>-->
+                    </div>
+                    <!--<md-icon class="icon-right" md-font-set="ks-icon" md-font-icon="ks-check-c-o"></md-icon>-->
+                    <md-icon class="ks-icon-right" ng-if="!data.isSubcribe" md-font-set="ks-icon"
+                             md-font-icon="ks-arrow_right"></md-icon>
+                    <!--<md-icon class="ks-icon-right" ng-if="data.isSubcribe" md-font-set="ks-icon"-->
+                    <!--md-font-icon="ks-selected"></md-icon>-->
+
+                    <div class="icon-par" ng-if="data.isSubcribe">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-selected"></md-icon>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <div class="vip-task">
+                <div class="vip-task-det" layout="row" layout-align="center center" ng-click="addInfo()">
+                    <md-icon class="icon-left" md-font-set="ks-icon" md-font-icon="ks-edit-pencil"></md-icon>
+                    <div class="det-txt" flex layout="row" layout-align="space-between center">
+                        <div layout="column">
+                            <span class="det-txt-top">完善个人资料</span>
+                            <span class="det-txt-bottom">填写个人资料绑定手机号</span>
+                        </div>
+                        <div class="give" ng-if="!data.isUpdateUserInfo">+10钱币</div>
+                    </div>
+                    <!--<md-icon class="ks-icon-right" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>-->
+                    <md-icon class="ks-icon-right" ng-if="!data.isUpdateUserInfo" md-font-set="ks-icon"
+                             md-font-icon="ks-arrow_right"></md-icon>
+                    <!--<md-icon class="ks-icon-right" ng-if="data.isUpdateUserInfo" md-font-set="ks-icon"-->
+                    <!--md-font-icon="ks-selected"></md-icon>-->
+
+                    <div class="icon-par" ng-if="data.isUpdateUserInfo">
+                        <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-selected"></md-icon>
+                    </div>
+                </div>
+                <!--<md-divider></md-divider>-->
+            </div>
+
+        </div>
+        <div class="line-diff"></div>
+        <div class="guess">
+            <div class="guess-title" layout="column" layout-align="center center">
+                <div class="guess-title-wrap" layout="row">
+                    <md-icon class="guess-icon" md-font-set="ks-icon" md-font-icon="ks-left-point"></md-icon>
+                    <span class="guess-txt">钱币兑换商品</span>
+                    <md-icon class="guess-icon" md-font-set="ks-icon" md-font-icon="ks-right-point"></md-icon>
+                </div>
+                <span>好商品 不花钱</span>
+            </div>
+            <div layout="row" layout-wrap>
+                <!--ng-repeat="item in vm.comments.result track by $index"-->
+                <div flex="50" layout="column" class="rec-item" ng-repeat="itemData in itemData.result track by $index">
+                    <div flex layout="column" style="position: relative" ui-sref="main.vip.detail({id:itemData.id})">
+                        <!-- 多追加一层div，方便使用  layout-wrap 和 ng-repeat 。 需要CSS特殊处理  -->
+                        <div class="item-img">
+                            <img ng-src="{{imgUrl}}/{{itemData.img}}"
+                                 img-holder/>
+                        </div>
+                        <div>
+                            <div class="item-title">
+                                {{itemData.title}}
+                            </div>
+                            <div class="item-price">
+                                {{itemData.integral/100|num:1}}钱币
+                            </div>
+                        </div>
+                        <!--等级专享 -->
+                        <div class="positionWap"
+                             ng-class="{yin:itemData.level.order == '1',gold:itemData.level.order == '2',jewel:itemData.level.order=='3'}"
+                             layout="row" layout-align="center center" ng-if="itemData.level">
+                            <span>{{itemData.level.name}}</span>
+                            <span>专享</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="line-diff"></div>
+        <div class="guess">
+            <div class="guess-title" layout="column" layout-align="center center">
+                <div class="guess-title-wrap" layout="row">
+                    <md-icon class="guess-icon" md-font-set="ks-icon" md-font-icon="ks-left-point"></md-icon>
+                    <span class="guess-txt">钱币兑换服务</span>
+                    <md-icon class="guess-icon" md-font-set="ks-icon" md-font-icon="ks-right-point"></md-icon>
+                </div>
+                <span>好服务 不花钱</span>
+            </div>
+            <div layout="row" layout-wrap>
+
+                <!--ng-repeat="item in vm.comments.result track by $index"-->
+                <div flex="50" layout="column" class="rec-item"
+                     ng-repeat="serviceData in serviceData.result track by $index">
+                    <div flex layout="column" style="position: relative" ui-sref="main.vip.detail({id:serviceData.id})">
+                        <!-- 多追加一层div，方便使用  layout-wrap 和 ng-repeat 。 需要CSS特殊处理  -->
+                        <div class="item-img">
+                            <img ng-src="{{imgUrl}}/{{serviceData.img}}" img-holder/>
+                        </div>
+                        <div>
+                            <div class="item-title">
+                                {{serviceData.title}}
+                            </div>
+                            <div class="item-price">
+                                {{serviceData.integral/100|num:1}}钱币
+                            </div>
+                        </div>
+                        <!--等级专享 -->
+                        <div class="positionWap"
+                             ng-class="{yin:serviceData.level.order == '1',gold:serviceData.level.order == '2',jewel:serviceData.level.order=='3'}"
+                             layout="row" layout-align="center center" ng-if="serviceData.level">
+                            <span>{{serviceData.level.name}}</span>
+                            <span>专享</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </md-content>
+
+    <div ks-footer-menu cur="'vip'"></div>
+</div>

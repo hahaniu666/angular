@@ -1,0 +1,177 @@
+.ks-cleansilkDlg{
+  height: 95vh;
+  position: fixed;
+  padding: 0 !important;
+  div.sheet-top{
+    height: 44px;
+    min-height: 44px;
+    border-bottom: 1px solid #d5d5d5;
+    .clearTxt{
+      font-size: 16px;
+      color: #999;
+      margin-left: 10px;
+      float: left;
+      line-height: 44px;
+    }
+    .close{
+      color: #999;
+      font-size: 14px;
+      float: right;
+      margin-right:10px;
+      text-align: right;
+      line-height: 24px;
+      margin-top: 10px;
+    }
+  }
+  div.sheet-body{
+    .layouts{
+      .row{
+        &:last-child{
+          border-bottom: 1px solid #d5d5d5;
+          .rightDivWrap {
+            .textWrap{
+              border: none;
+            }
+          }
+        }
+      }
+    }
+    div.row{
+      margin: 0 10px;
+      div.leftDiv{
+        padding: 15px 0;
+        .mdbox{
+          margin-top: 25px;
+        }
+        md-checkbox.ks-gold:not([disabled]).md-checked ._md-icon{
+          background: #00bd78 !important;;
+        }
+        md-checkbox.ks-gold:not([disabled]) ._md-icon {
+          border-color: #00bd78 !important;
+        }
+        }
+      div.rightDiv{
+        .imgc{
+          width: 70px;
+          height: 70px;
+          margin-right: 10px;
+          padding: 15px 0;
+        }
+        div.textWrap{
+          padding: 15px 0;
+          border-bottom: 1px dashed #d5d5d5;
+          p{
+            margin:0;
+            font-size: 14px;
+            color: #333;
+            height: 44px;
+            overflow: hidden;
+          }
+          div.textRow{
+            height: 24px;
+            line-height: 24px;
+            div.textPrice{
+              font-size: 14px;
+              color: #101010;
+              float: left;
+            }
+            div.bujin{
+              font-size: 14px;
+              float: right;
+              height: 24px;
+              width: 110px;
+              div{
+                display: inline-block;
+                text-align: center;
+              }
+              div.bujinLeft,div.bujinRight{
+                width: 30px;
+                height: 24px;
+                background-color: #F5F5F5;
+                .ks-icon{
+                  font-size: 10px;
+                  color: #101010;
+                  margin: auto;
+                }
+              }
+              div.bujingNum{
+                width: 50px;
+                background: #d5d5d5;
+              }
+            }
+            .clear{
+              height: 1px;
+              clear: both;
+            }
+          }
+        }
+      }
+    }
+  }
+  div.sheet-footer{
+    border-top: 1px solid #d5d5d5 ;
+    min-height: 78px;
+    margin-bottom: 80px;
+    div.msg{
+      height:30px;
+      background: #fff9eb;
+      font-size: 14px;
+      width: 100%;
+      text-align: center;
+      line-height: 30px;
+      color: #999999;
+    }
+    div.but{
+      height: 48px;
+      width: 100%;
+      line-height: 48px;
+
+      div.heji{
+        background: #666;
+        position: relative;
+
+        span{
+          color: #fff;
+          text-indent: 60px;
+          display: inline-block;
+        }
+        .icoImg{
+          text-align: center;
+          width: 60px;
+          height:60px;
+          border-radius: 50%;
+          background: #666;
+          position: absolute;
+          top:-13px;
+
+          .gift{
+            margin-top: 15px;
+            font-size: 30px;
+            color: #fff;
+          }
+          div.yuanxing{
+            width: 13px;
+            border-radius: 50%;
+            height: 13px;
+            font-size: 12px;
+            color: #fff;
+            text-align: center;
+            line-height: 13px;
+            background: #dd191d;
+            position: absolute;
+            z-index: 999 !important;
+            top:0;
+            left:30px;
+            border:2px solid #fff;
+          }
+        }
+      }
+      div.xiadan{
+        background: #00bd78;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+      }
+    }
+  }
+}

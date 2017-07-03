@@ -1,0 +1,716 @@
+// 主页相关的class
+
+.qh {
+  .swiper-container{
+    small{
+      display: block;
+      font-size: 12px;
+      line-height: 26px;
+    }
+  }
+
+  .swiper-container-multirow>.swiper-wrapper{
+    //-webkit-box-direction:normal;
+    //-webkit-box-lines:multiple;-moz-box-lines:multiple;-ms-box-lines:multiple;
+    //-webkit-flex-wrap:wrap;
+    //flex-wrap:wrap;
+  }
+
+  /*
+
+  */
+  .below-info {
+    position: relative;
+    width: 100%;
+    //margin-top: 12px;
+    margin-bottom: 12px;
+
+    .dummy {
+      padding-top: 66.6666%;
+    }
+    .info-item {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  /* 首页查看全部按钮样式 */
+  //.lookall {
+  //
+  //  button {
+  //    width: 100%;
+  //    padding: 1em;
+  //    border: 1px solid #e5e5e5;
+  //    background-color: #fff;
+  //    -webkit-border-radius: 0;
+  //    -moz-border-radius: 0;
+  //    border-radius: 0;
+  //    color: #666;
+  //  }
+  //
+  //  .btn:hover,
+  //  .btn:focus,
+  //  .btn.focus {
+  //    color: #727272;
+  //    text-decoration: none;
+  //  }
+  //}
+  .lookall2 {
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #fff;
+    .lookall2-text {
+      font-size: 14px;
+      color: #323232;
+    }
+    .lookall2-icon {
+      color: #c8c7cc;
+    }
+
+  }
+}
+
+//分隔线
+.separationline {
+  //height: 12px;
+  margin-bottom: 12px;
+  background-color: #f5f5f5;
+}
+
+//钱皇头条
+.silkheadline {
+  height: 38px;
+  background-color: white;
+  border: none;
+  padding: 5px 0 5px 15px;
+  .silkheadline1 {
+    height: 28px;
+    .qhheadline {
+      height: 28px;
+      float: left;
+      width: 60px;
+      img {
+        height: 100%
+      }
+    }
+    //滚动字
+    .linelunbo {
+      padding-right: 10px;
+      margin: 4px 0 4px 5px;
+      height: 20px;
+      float: left;
+      min-width: 240px;
+      width: 75%;
+      padding-left: 5px;
+      border-left: 1px solid #e5e5e5;
+      ul {
+        height: 20px;
+        width: 100%;
+        border: none;
+        background-color: white;
+        li {
+          font-size: 12px;
+          a {
+            color: #323232
+          }
+        }
+      }
+    }
+  }
+}
+
+.silkService {
+  background-color: white;
+  padding-left: 15px;
+  height: 38px;
+  font-size: 15px;
+  line-height: 38px;
+  border-bottom: 1px solid #e5e5e5;
+  span {
+    //font-weight: bold
+  }
+}
+
+.silkServiceye {
+  position: relative;
+  padding-right: 10px;
+  .silkServiceye1 {
+    float: right;
+    padding-right: 9px;
+    .silkServiceye11 {
+      font-size: 13px
+    }
+    .silkServiceye12 {
+      font-size: 12px;
+      position: absolute
+    }
+  }
+}
+
+.silkServicecontent {
+  background-color: white;
+  padding: 10px 15px 0 15px;
+  ul {
+    li {
+      width: 25%;
+      min-width: 50px;
+      float: left;
+      min-height: 65px;
+      text-align: center;
+      margin: 0 0 7px 0;
+      div {
+        //height: 70px;
+        width: 75px;
+        margin: 0 auto;
+        img {
+          width: 50px;
+          height: 50px;
+        }
+        //首页渐变图标
+        .home-server-photo1 {
+          color: #fff;
+          background-image: -webkit-linear-gradient(top, #fa696b 0%, #e5556d 100%);
+          background-image: -o-linear-gradient(top, #fa696b 0%, #e5556d 100%);
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#fa696b), to(#e5556d));
+          background-image: linear-gradient(to bottom, #fa696b 0%, #e5556d 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa696b', endColorstr='#e5556d', GradientType=0);
+          filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+          background-repeat: repeat-x;
+          border-color: transparent;
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+          .iconfont {
+            font-size: 30px;
+            color: #fff;
+          }
+        }
+
+        .home-server-photo2 {
+          color: #fff;
+          background-image: -webkit-linear-gradient(top, #eb9875 0%, #f7824f 100%);
+          background-image: -o-linear-gradient(top, #eb9875 0%, #f7824f 100%);
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#eb9875), to(#f7824f));
+          background-image: linear-gradient(to bottom, #eb9875 0%, #f7824f 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eb9875', endColorstr='#f7824f', GradientType=0);
+          filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+          background-repeat: repeat-x;
+          border-color: transparent;
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+          .iconfont {
+            font-size: 30px;
+            color: #fff;
+          }
+        }
+
+        .home-server-photo3 {
+          color: #fff;
+          background-image: -webkit-linear-gradient(top, #f25555 0%, #eb5252 100%);
+          background-image: -o-linear-gradient(top, #f25555 0%, #eb5252 100%);
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#f25555), to(#eb5252));
+          background-image: linear-gradient(to bottom, #f25555 0%, #eb5252 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f25555', endColorstr='#eb5252', GradientType=0);
+          filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+          background-repeat: repeat-x;
+          border-color: transparent;
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+          .iconfont {
+            font-size: 30px;
+            color: #fff;
+          }
+        }
+
+        .home-server-photo4 {
+          color: #fff;
+          background-image: -webkit-linear-gradient(top, #99cfff 0%, #45a4f7 100%);
+          background-image: -o-linear-gradient(top, #99cfff 0%, #45a4f7 100%);
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#99cfff), to(#45a4f7));
+          background-image: linear-gradient(to bottom, #99cfff 0%, #45a4f7 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#99cfff', endColorstr='#45a4f7', GradientType=0);
+          filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+          background-repeat: repeat-x;
+          border-color: transparent;
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+          .iconfont {
+            font-size: 30px;
+            color: #fff;
+          }
+        }
+
+        .home-server-photo5 {
+          color: #fff;
+          background-image: -webkit-linear-gradient(top, #f2c291 0%, #f7a34f 100%);
+          background-image: -o-linear-gradient(top, #f2c291 0%, #f7a34f 100%);
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#f2c291), to(#f7a34f));
+          background-image: linear-gradient(to bottom, #f2c291 0%, #f7a34f 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2c291', endColorstr='#f7a34f', GradientType=0);
+          filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+          background-repeat: repeat-x;
+          border-color: transparent;
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+          .iconfont {
+            font-size: 30px;
+            color: #fff;
+          }
+        }
+
+        .home-server-photo6 {
+          color: #fff;
+          background-image: -webkit-linear-gradient(top, #8debeb 0%, #32c8c9 100%);
+          background-image: -o-linear-gradient(top, #8debeb 0%, #32c8c9 100%);
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#8debeb), to(#32c8c9));
+          background-image: linear-gradient(to bottom, #8debeb 0%, #32c8c9 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8debeb', endColorstr='#32c8c9', GradientType=0);
+          filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+          background-repeat: repeat-x;
+          border-color: transparent;
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+          .iconfont {
+            font-size: 30px;
+            color: #fff;
+          }
+        }
+
+        div {
+          //height: 70px;
+          //width: 75px;
+          font-size: 13px;
+          color: #646464;
+        }
+      }
+
+    }
+  }
+}
+
+//蚕丝被服务细节
+.silkdetails {
+  background-color: white;
+  padding: 7px;
+  min-height: 200px;
+  ul {
+    li {
+      float: left;
+      width: 50%;
+      min-width: 142px;
+      padding: 3.5px;
+      .silkdetails1 {
+        background-color: #f5f5f5;
+        width: 100%;
+        height: 100%;
+        min-height: 48px;
+        .silkdetails2 {
+          float: left;
+          line-height: 48px;
+          text-align: center;
+          width: 70%;
+          span {
+            color: #323232;
+          }
+        }
+        .silkdetails3 {
+          text-align: center;
+          float: left;
+          line-height: 45px;
+          width: 30%;
+          span {
+            color: #dbdbdb;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//热门商品
+.hotsilk {
+  background-color: white;
+  min-height: 28px;
+  ul {
+    height: 38px;
+    li {
+      float: left;
+      width: 20%;
+      height: 38px;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 9px 0;
+      .hotsilk1 {
+        text-align: center;
+        height: 20px
+      }
+      .hotsilk2 {
+        text-align: center;
+        height: 20px;
+        border-left: 1px solid #e5e5e5
+      }
+    }
+  }
+}
+
+//底部导航栏
+.navigationbar {
+  z-index: 999;
+  position: fixed;
+  height: 50px;
+  bottom: 0;
+  background-color: white;
+  border-top: 1px solid #e5e5e5;
+  padding: 2px 0;
+  min-width: 320px;
+  max-width: 640px;
+  width: 100%;
+  ul {
+    min-width: 320px;
+    max-width: 640px;
+    height: 100%;
+    li {
+      float: left;
+      width: 20%;
+      text-align: center;
+      .navigationbar1 {
+        margin: 0 8px;
+        .sizecolor {
+          color: #646464;
+          font-size: 20px
+        }
+        .navigationbar2 {
+          color: #646464;
+          font-size: 10px
+        }
+        .homecolor {
+          font-size: 20px;
+          color: #646464;
+        }
+      }
+    }
+  }
+}
+
+.bared {
+  color: #eb5252 !important;
+}
+
+//备案
+.footnew {
+  margin-bottom: 50px;
+  background-color: #f5f5f5;
+  padding: 14px 0;
+  div {
+    ul {
+      font-size: 12px;
+      li {
+        line-height: 18px;
+        .footnewye1 {
+          color: #909090;
+          .footnewyeimg {
+            height: 15px;
+            margin-right: 5px
+          }
+        }
+        .footnewye2 {
+          border-left: 1px solid #909090;
+          padding-left: 2px;
+        }
+      }
+    }
+  }
+}
+
+//.footnew1 {
+//  font-size: 12px;
+//  padding: 8px 15px 0 15px;
+//  a {
+//    color: #909090;
+//  }
+//}
+//
+//.footnew2 {
+//  padding-bottom: 8px;
+//  span {
+//    font-size: 12px;
+//    color: #909090;
+//  }
+//}
+
+//热门搜索
+.hotsearch {
+  background-color: white;
+  padding-left: 15px;
+  height: 38px;
+  font-size: 15px;
+  line-height: 38px;
+  border-bottom: 1px solid #e5e5e5;
+  span {
+    //font-weight: bold
+  }
+}
+
+.hotcontent {
+  width: 100%;
+  min-width: 320px;
+  padding: 10px 0 10px 15px;
+  background-color: white;
+  a {
+    .hotcontentye1 {
+      width: 50%;
+      padding-bottom: 75%;
+      position: relative;
+      float: left;
+      .hotcontentye11 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        img {
+          width: 100%
+        }
+      }
+      .hotcontentye12 {
+        border: 2px solid white;
+        width: 75%;
+        height: 26%;
+        position: absolute;
+        bottom: 10%;
+        left: 13%;
+        padding: 2%;
+        .hotcontentye121 {
+          background-color: white;
+          height: 100%;
+          padding-top: 10%;
+          .hotcontentye1211 {
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #323232
+          }
+          .hotcontentye1212 {
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #646464
+          }
+        }
+      }
+    }
+  }
+  .hotcontentye2 {
+    width: 50%;
+    padding-bottom: 75%;
+    position: relative;
+    float: left;
+    ul {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      li {
+        text-align: center;
+        padding: 5px;
+        float: left;
+        width: 50%;
+        height: 33.3%;
+        background-color: white;
+        a {
+          .avatarye {
+            width: 75%;
+            min-width: 50px;
+            max-width: 85px
+          }
+          div {
+            font-size: 12px
+          }
+        }
+      }
+    }
+  }
+}
+
+#home-modal .progress {
+  margin-bottom: 0;
+}
+
+#home-modal {
+  width: 75vw;
+  min-width: 260px;
+  max-width: 600px;
+}
+
+//热门商品
+.hotproductye {
+  color: #eb5252;
+  //margin-left: 5px
+}
+
+.hotproductye1 {
+  font-weight: bold;
+  color: #eb5252
+}
+
+.hotproductye2 {
+  float: right;
+  color: #909090;
+  font-size: 12px;
+  line-height: 20px;
+  //margin-right: 5px
+}
+
+//new
+//new 服务图标 红蓝绿黄
+.control-serviceicon {
+  //底部导航点
+  .flexslider {
+    margin-bottom: 0!important;
+  }
+  .flex-control-nav{
+    bottom: 0!important;
+    text-align: left!important;
+  }
+  .flex-control-paging li a {
+    background-color: #ee124b !important;
+    width: 7px!important;height: 7px!important;
+  }
+
+  //图标样式
+  .home-server-photoye1 {
+    color: #fff;
+    background-color: #b32025;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa696b', endColorstr='#e5556d', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: transparent;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 20px;
+    .iconfont {
+      font-size: 30px;
+      color: #fff !important;
+    }
+  }
+  .home-server-photoye2 {
+    color: #fff;
+    background-color: #205bb3;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa696b', endColorstr='#e5556d', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: transparent;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 20px;
+    .iconfont {
+      font-size: 30px;
+      color: #fff !important;
+    }
+  }
+  .home-server-photoye3 {
+    color: #fff;
+    background-color: #046e60;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa696b', endColorstr='#e5556d', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: transparent;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 20px;
+    .iconfont {
+      font-size: 30px;
+      color: #fff !important;
+    }
+  }
+  .home-server-photoye4 {
+    color: #fff;
+    background-color: #c59147;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#99cfff', endColorstr='#45a4f7', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: transparent;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 20px;
+    .iconfont {
+      font-size: 30px;
+      color: #fff !important;
+    }
+  }
+
+}
+

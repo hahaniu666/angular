@@ -1,0 +1,125 @@
+<div flex="" layout="column" class="ks-main ks-vipOrder md-whiteframe-z2">
+
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="vm.fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>确认订单</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+
+    <md-content flex>
+        <div class="order-detail">
+            <!-- 收货地址 -->
+            <div class="block" ng-if="vm.data.item.type==='ITEM'">
+                <div class="title-row" layout-align="center center" layout="" ng-click="vm.updateAddress()">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center" ng-if="vm.data.address||vm.data.address!=null">
+                        收货地址
+                    </div>
+                    <div flex layout="" layout-align="start center" ng-if="!vm.data.address||vm.data.address==null">
+                        填写收货地址
+                    </div>
+                    <div layout="" layout-align="center" class="select-left">
+                        <div ng-if="vm.data.address||vm.data.address!=null">选择收货地址</div>
+                        <md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+                <md-divider class="dashed" ng-if="vm.data.address||vm.data.address!=null"></md-divider>
+                <div class="content-row" layout="column" ng-if="vm.data.address||vm.data.address!=null">
+                    <div>{{vm.data.address.receiver}} {{vm.data.address.phone}}<br>
+                        {{vm.data.address.addr}}/{{vm.data.address.street}}
+                    </div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <!-- 查看附近门店 -->
+            <div class="block" ng-if="vm.data.item.type==='SERVICE'">
+                <div class="title-row" layout-align="center center" layout="" ng-click="vm.orgAddress()">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">附近的门店</div>
+                    <div layout="" layout-align="center" class="select-left">
+                        <div></div>
+                        <md-icon md-font-set="ks-icon" md-font-icon="ks-arrow_right"></md-icon>
+                    </div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div class="content-row" layout="column">
+                    <div class="igToshop">
+                        该商品必须到实体店提取
+                    </div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <!-- 商品清单 -->
+            <div class="block">
+
+                <div class="title-row" layout-align="center center" layout="">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">商品清单</div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div ui-sref="main.vip.detail({id:vm.data.item.id})">
+                    <div layout="row"
+                         class="item-row"
+                         layout-align="center center">
+
+                        <div class="item-img">
+                            <img img-holder
+                                 ng-src="{{vm.imgUrl}}{{vm.data.item.img}}?imageView2/2/w/{{vm.simpleImg.w}}/h/{{vm.simpleImg.h}}"/>
+                        </div>
+
+                        <div flex layout="column" class="item-desp" layout-align="space-between none">
+                            <div class="item-title">{{vm.data.item.title}}
+                            </div>
+                            <div layout="row" layout-align="space-between none" class="price-row">
+                                <div flex class="item-price">{{vm.data.item.integral/100.0|num:1}}钱币&nbsp;<span
+                                        ng-if="vm.data.item.price>0">（￥{{vm.data.item.price/100|num:1}}）</span></div>
+                                <div class="count-show">
+                                    x 1
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+            <!--支付方式-->
+            <div class="block">
+                <!--<div class="title-row" layout-align="center center" layout="" ng-click="vm.changePay()">-->
+                <div class="title-row" layout-align="center center" layout="">
+                    <div class="color-block"></div>
+                    <div flex layout="" layout-align="start center">支付方式</div>
+                </div>
+                <md-divider class="dashed"></md-divider>
+                <div class="content-row" layout="column">
+                    <div>{{vm.payMenthod.pay.name}}</div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+
+            <!-- 订单总额，优惠金额 -->
+            <div class="block summary" layout="column" layout-align="center center">
+                <div>账户可用钱币： {{vm.data.account.integral/100.0|num:1}}</div>
+            </div>
+            <div class="agreement">
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-unselected" ng-if="!vm.select"
+                         ng-click="vm.changeSelect()"></md-icon>
+                <md-icon md-font-set="ks-icon" md-font-icon="ks-r-selected" ng-if="vm.select"
+                         ng-click="vm.changeSelect()"></md-icon>
+                <span class="agreetxt" ng-click="vm.changeSelect()">已阅读并同意以下协议</span>
+                <i class="info" ng-click="vm.goRentPage()">《兑换协议》</i>
+            </div>
+        </div>
+
+    </md-content>
+    <div class="pay-amount" layout="row" layout-align="center center">
+        <span ng-if="vm.payMenthod.pay.payType==='JF_PAY'">应付钱币:{{vm.data.item.integral/100.0|num:1}}钱币</span>
+        <span ng-if="vm.payMenthod.pay.payType!=='JF_PAY'">应付金额:￥{{vm.data.item.price/100|num:1}}</span>
+    </div>
+    <div class="submit-btn" layout="row" layout-align="center center">
+        <md-button class="md-primary md-raised" flex="90" ng-click="vm.createOrder()">去支付</md-button>
+    </div>
+</div>

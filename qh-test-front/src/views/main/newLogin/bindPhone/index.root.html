@@ -1,0 +1,44 @@
+<div flex="" layout="column" class="ks-main md-whiteframe-z2 ks-newLogin">
+    <md-toolbar class="ks-header">
+        <div layout="row" class="ks-header-divWrap">
+            <div class="divTop" flex class>
+                <md-icon md-font-set="ks-icon" class="chevron_left" ng-click="fallbackPage()" md-font-icon="ks-arrow_left"></md-icon>
+                <!--两种状态-->
+                <span class="regSpan">绑定手机号</span>
+                <!--<span class="regSpan">手机号登录</span>-->
+            </div>
+        </div>
+    </md-toolbar>
+    <md-divider></md-divider>
+    <md-content flex="">
+        <div class="content-divWrap">
+            <form class="registerForm2">
+                <div class="relative">
+                    <input type="tel" placeholder="手机号" ng-change="checkPhone()" ng-model="user.phone"/>
+                </div>
+                <div layout="row" class="inputWrap" style="border-bottom: 1px solid #d5d5d5">
+                    <div flex="70" layout="row" class="relative" style="border: none;">
+                        <input type="tel" ng-change="checkCode()" placeholder="验证码" ng-model="user.code">
+                    </div>
+                    <div flex layout="row" layout-align="center center">
+                        <span ng-click="sendCode()" ng-if="state == 1">{{fsyzm}}</span>
+                        <span ng-if="state == 2">{{fsyzm}}</span>
+                    </div>
+                </div>
+                <md-button class="ks-black md-login-button" aria-label="Custom Icon Button" ng-click="submit()"
+                           ng-disabled="!user.code || user.code.length <= 5 || !user.phone || user.phone.length<=10">
+                    <!--绑定手机号时显示确认，手机号登录时显示登录-->
+                    <span>确认</span>
+                    <!--<span>登录</span>-->
+                </md-button>
+                <!--手机号登录的时候显示，绑定手机号不显示-->
+                <div class="loginLink">
+                    <span>点击登录意味着您同意&nbsp;&nbsp;</span>
+                    <a href=""><span ng-click="goRent()" class="loginGo">《用户协议》</span></a>
+                </div>
+            </form>
+        </div>
+    </md-content>
+</div>
+
+

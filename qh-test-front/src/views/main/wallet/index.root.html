@@ -1,0 +1,325 @@
+<div flex="" layout="column" class="ks-main ks-wallets md-whiteframe-z2">
+    <md-toolbar class="ks-header" layout="row">
+        <div class="md-icon-button" flex="20" ng-click="fallbackPage()">
+            <md-icon class="ks-icon" md-font-set="ks-icon" md-font-icon="ks-arrow_left"></md-icon>
+        </div>
+        <h1 flex>我的钱包</h1>
+        <div class="md-icon-button" flex="20">
+        </div>
+    </md-toolbar>
+
+    <div class="top-button" layout="row" layout-align="center center">
+        <div class="btn-wrap" ng-class="{active:num == '1'}" layout="column" flex layout-align="center center"
+             ng-click="btnClick('1')">
+            <div class="btn-num">{{userData.integral/100|num:1}}</div>
+            <div class="btn-txt">钱币</div>
+            <div class="btn-line" ng-if="num == '1'"></div>
+        </div>
+        <div class="btn-wrap" ng-class="{active:num == '2'}" layout="column" flex layout-align="center center"
+             ng-click="btnClick('2')">
+            <div class="btn-num">{{canAmount/100|num:1}}</div>
+            <div class="btn-txt">佣金</div>
+            <div class="btn-line" ng-if="num=='2'"></div>
+        </div>
+        <div class="btn-wrap" ng-class="{active:num == '3'}" layout="column" flex layout-align="center center"
+             ng-click="btnClick('3')">
+            <div class="btn-num">{{giftAmount/100|num:1}}</div>
+            <div class="btn-txt">服务卡</div>
+            <div class="btn-line" ng-if="num == '3'"></div>
+        </div>
+    </div>
+    <div class="center-button" layout="row" layout-align="center center" ng-show="num == '1'">
+        <div class="btn-wrap" layout="row" layout-align="center center">
+            <div flex ng-class="{btnActive:num1 == '1'}" ng-click="btnClick1('1')">收入</div>
+            <div flex ng-class="{btnActive:num1 == '2'}" ng-click="btnClick1('2')">支出</div>
+        </div>
+    </div>
+    <div class="center-button" layout="row" layout-align="center center" ng-if="num == '2'">
+        <div class="btn-wrap" layout="row" layout-align="center center">
+            <div flex ng-class="{btnActive:num2 == '1'}" ng-click="viewStatus(1)">已获得</div>
+            <div flex ng-class="{btnActive:num2 == '2'}" ng-click="viewStatus(2)">冻结中</div>
+            <div flex ng-class="{btnActive:num2 == '3'}" ng-click="viewStatus(3)">被退款</div>
+        </div>
+    </div>
+    <div class="center-button" layout="row" layout-align="center center" ng-if="num == '3'">
+        <div class="btn-wrap" layout="row" layout-align="center center">
+            <div flex ng-class="{btnActive:num3 == '1'}" ng-click="btnClick3('1')">收入</div>
+            <div flex ng-class="{btnActive:num3 == '2'}" ng-click="btnClick3('2')">支出</div>
+        </div>
+    </div>
+    <md-content flex ng-if="num == '1'">
+
+        <div class="paymentWrap" ng-if="num1 == '1'">
+            <div class="paymentMsg" layout="row" ng-repeat="log in coinRecAccount.recList  track by $index">
+                <div flex class="paymentLeftMsg" layout="row">
+                    <span style="margin-right: 20px">{{log.typeDes}}</span>
+                    <span class="price-s" ng-if="log.changeAmount<0" style="color:#e84e40">
+                        {{log.changeAmount/100.0|num:1}}
+                    </span>
+                    <span class="price-s" ng-if="log.changeAmount>=0" style="color:#ba9f6e">
+                        {{log.changeAmount/100.0|num:1}}
+                    </span>
+                </div>
+                <div flex class="paymentRightMsg">
+                    {{log.date | date:'yyyy-MM-dd'}}
+                </div>
+            </div>
+
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-click="recPage()"
+                 ng-if="!recPageEnd">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    点击加载更多...
+                </md-button>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-if="recPageEnd&&totalRecCount>10">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    没有更多记录了
+                </md-button>
+            </div>
+        </div>
+        <div class="paymentWrap" ng-if="num1 == '2'">
+            <div class="paymentMsg" layout="row" ng-repeat="log in coinUseAccount.useList  track by $index">
+                <div flex class="paymentLeftMsg" layout="row">
+                    <span style="margin-right: 20px">{{log.typeDes}}</span>
+                    <span class="price-s" ng-if="log.changeAmount<0" style="color:#e84e40">
+                        {{log.changeAmount/100.0|num:1}}
+                    </span>
+                    <span class="price-s" ng-if="log.changeAmount>=0" style="color:#ba9f6e">
+                        {{log.changeAmount/100.0|num:1}}
+                    </span>
+                </div>
+                <div flex class="paymentRightMsg">
+                    {{log.date | date:'yyyy-MM-dd'}}
+                </div>
+            </div>
+
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-click="usePage()"
+                 ng-if="!usePageEnd">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    点击加载更多...
+                </md-button>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-if="usePageEnd&&totalUseCount>10">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    没有更多记录了
+                </md-button>
+            </div>
+        </div>
+
+
+    </md-content>
+    <md-content flex ng-if="num == '2'">
+
+        <div class="commissionContent" layout="row" layout-align="center center"
+             ng-if="frozen.commission[0]||available.commission[0]||fail.commission[0]">
+            <div class="contentWord jiu" flex layout="row" layout-align="center center">时间</div>
+            <div class="contentWord jiu" flex layout="row" layout-align="center center">用户</div>
+            <div class="contentWord jiu" flex layout="row" layout-align="center center">消费</div>
+            <div class="contentWord jiu" flex layout="row" layout-align="center center">佣金</div>
+        </div>
+        <div class="commissionContent" ng-repeat="tmp in frozen.commission" layout="row" layout-align="center center"
+             ng-if="view.frozen">
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.date|date:'yy-MM-dd'}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.phone}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.payment/100.0|num:1}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.price/100.0|num:1}}</div>
+        </div>
+
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.frozen && !pageEnd.frozen&&frozen.commission[0]" ng-click="queryFrozen(curPage.frozen)">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                点击加载更多...
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.frozen && pageEnd.frozen && curPage.frozen!=1">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                没有更多记录了...
+            </md-button>
+        </div>
+
+        <!--<div flex layout="column" layout-align="center center" ng-if="view.frozen&&!frozen.commission[0]"-->
+        <!--style="min-height: 400px">-->
+        <!--<md-icon md-font-set="ks-icon" class="icon">dollar-symbol</md-icon>-->
+        <!--<div class="txt">0佣金</div>-->
+        <!--</div>-->
+        <div class=" commissionContent" ng-repeat="tmp in available.commission" layout="row"
+             layout-align="center center" ng-if="view.available">
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.date|date:'yy-MM-dd'}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.phone}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.payment/100.0|num:1}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.price/100.0|num:1}}</div>
+        </div>
+
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.available && !pageEnd.available&&available.commission[0]"
+             ng-click="queryAvailable(curPage.available)">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                点击加载更多...
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.available && pageEnd.available && curPage.available!=1">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                没有更多记录了...
+            </md-button>
+        </div>
+
+        <!--<div flex layout="column" layout-align="center center" ng-if="view.available&&!available.commission[0]"-->
+        <!--style="min-height: 400px">-->
+        <!--<md-icon md-font-set="ks-icon" class="icon">dollar-symbol</md-icon>-->
+        <!--<div class="txt">0佣金</div>-->
+        <!--</div>-->
+        <div class=" commissionContent" ng-repeat="tmp in fail.commission" layout="row" layout-align="center center"
+             ng-if="view.fail">
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.date|date:'yy-MM-dd'}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">{{tmp.phone}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.payment/100.0|num:1}}</div>
+            <div class="contentWord" flex layout="row" layout-align="center center">￥{{tmp.price/100.0|num:1}}</div>
+        </div>
+
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.fail && !pageEnd.fail&&fail.commission[0]" ng-click="queryFail(curPage.fail)">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                点击加载更多...
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center" style="padding: 10px"
+             ng-if="view.fail && pageEnd.fail && curPage.fail!=1">
+            <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                没有更多记录了...
+            </md-button>
+        </div>
+
+        <!--<div flex layout="column" layout-align="center center" ng-if="view.fail&&!fail.commission[0]"-->
+        <!--style="min-height: 400px">-->
+        <!--<md-icon md-font-set="ks-icon" class="icon">dollar-symbol</md-icon>-->
+        <!--<div class="txt">0佣金</div>-->
+        <!--</div>-->
+    </md-content>
+
+    <!--<md-content flex ng-if="num == '2'">-->
+    <!--<div class="center-button" layout="row" layout-align="center center">-->
+    <!--<div class="btn-wrap" layout="row" layout-align="center center">-->
+    <!--<div flex ng-class="{btnActive:num1 == '1'}" ng-click="btnClick1('1')">已获得</div>-->
+    <!--<div flex ng-class="{btnActive:num1 == '2'}" ng-click="btnClick1('2')">冻结中</div>-->
+    <!--<div flex ng-class="{btnActive:num1 == '3'}" ng-click="btnClick1('3')">被退款</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="commission">-->
+    <!--<div class="commission-header" layout="column">-->
+    <!--<div class="header-des" layout="row" layout-align="center center">-->
+    <!--<div flex>时间</div>-->
+    <!--<div flex>用户</div>-->
+    <!--<div flex>消费</div>-->
+    <!--<div flex>佣金</div>-->
+    <!--</div>-->
+    <!--<md-divider></md-divider>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--</md-content>-->
+    <md-content flex ng-if="num == '3'">
+
+        <div class="transactionRecord" ng-if="num3 == '1'">
+            <!--<div class="month">-->
+            <!--<span>历史收支明细</span>-->
+            <!--</div>-->
+            <div class="introduceWrap" ng-repeat="s in recCounts.recList">
+                <div class="contentUserName" layout="row">
+                    <div class="contentUserNameOne" flex="15" layout="column" layout-align="center start ">
+                        <span>{{s.date|date:'MM-dd'}}</span>
+                    </div>
+                    <div class="contentUserNameTwo" flex="20" layout="column" layout-align="center center ">
+                        <div class="img1">
+                            <md-icon class="imgIcon ks-icon" md-font-set="ks-icon" md-font-icon="ks-card-r"></md-icon>
+                        </div>
+                    </div>
+                    <div class="contentUserNameThree" flex="30" layout="column" layout-align="center start ">
+                        <span class="inv-name">{{s.changeAmount/100.0|num:1}}</span>
+                        <span class="ivt-status">{{s.typeDes}}</span>
+                    </div>
+                    <div class="contentUserNameOne" flex="25" layout="column" layout-align="center start "
+                         ng-if="s.status==='PAY'">
+                        <span>{{s.statusDesp}}</span>
+                    </div>
+                </div>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px" ng-click="transRecRecord(curRecPage)"
+                 ng-if="!pageRecEnd">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    <!-- <md-icon style="color: #999;margin-right: 10px" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>-->
+                    点击加载更多...
+                </md-button>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-if="pageRecEnd&&totalRecCount>10">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    没有更多记录了
+                </md-button>
+            </div>
+        </div>
+        <div class="transactionRecord" ng-if="num3 == '2'">
+            <!--<div class="month">-->
+            <!--<span>历史收支明细</span>-->
+            <!--</div>-->
+            <div class="introduceWrap" ng-repeat="s in useCounts.useList">
+                <div class="contentUserName" layout="row">
+                    <div class="contentUserNameOne" flex="15" layout="column" layout-align="center start ">
+                        <span>{{s.date|date:'MM-dd'}}</span>
+                    </div>
+                    <div class="contentUserNameTwo" flex="20" layout="column" layout-align="center center ">
+                        <div class="img1">
+                            <md-icon class="imgIcon ks-icon" md-font-set="ks-icon" md-font-icon="ks-card-r"></md-icon>
+                        </div>
+                    </div>
+                    <div class="contentUserNameThree" flex="30" layout="column" layout-align="center start ">
+                        <span class="inv-name">{{s.giftAmount/100.0|num:1}}</span>
+                        <span class="ivt-status">{{s.typeDes}}</span>
+                    </div>
+                    <div class="contentUserNameOne" flex="25" layout="column" layout-align="center start "
+                         ng-if="s.status==='PAY'">
+                        <span>{{s.statusDesp}}</span>
+                    </div>
+                </div>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px" ng-click="transUseRecord(curUsePage)"
+                 ng-if="!pageUseEnd">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    <!-- <md-icon style="color: #999;margin-right: 10px" class=" ks-icon" md-font-set="ks-icon">loading</md-icon>-->
+                    点击加载更多...
+                </md-button>
+            </div>
+            <div layout="row" layout-align="center center" style="padding: 10px"
+                 ng-if="pageUseEnd&&useTotalCount>10">
+                <md-button class="ks-white md-raised" flex style="color: #999;box-shadow: 0 0 0 0 #fff">
+                    没有更多记录了
+                </md-button>
+            </div>
+        </div>
+
+    </md-content>
+    <div class="coin-btn" layout="row" layout-align="center center" ng-if="num == '1'"
+         ui-sref="main.wallet.earnMoney()">
+        <div flex>赚钱币</div>
+    </div>
+    <div class="coin-btn" layout="row" layout-align="center center" ng-if="num == '2'"
+         ui-sref="main.wallet.withdraw()">
+        <div flex>提现至微信</div>
+    </div>
+    <!--<div class="coin-btn" layout="row" layout-align="center center" ng-if="num == '2'"-->
+    <!--ui-sref="main.wallet.withdraw()">-->
+    <!--<div class="md-button" flex>提现至微信</div>-->
+    <!--</div>-->
+    <div class="fotter" ng-if="num == '3'">
+        <div layout="row" flex>
+            <input type="text" placeholder="请输入礼品卡卡号和密码" ng-model="card.giftCardCode">
+            <span flex="35" ng-click="exchangeGiftCard()">兑换</span>
+        </div>
+    </div>
+</div>
