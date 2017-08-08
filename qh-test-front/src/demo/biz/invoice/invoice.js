@@ -13,8 +13,8 @@
         }]);
 
     // ----------------------------------------------------------------------------
-    InvoiceController.$inject = ['$scope', '$http', '$state', '$element', '$rootScope', 'imgService', 'appConfig'];
-    function InvoiceController($scope, $http, $state, $element, $rootScope, imgService, appConfig) {
+    InvoiceController.$inject = ['$scope', '$http', '$state', '$element', '$rootScope', 'imgService'];
+    function InvoiceController($scope, $http, $state, $element, $rootScope, imgService) {
     }
 
 

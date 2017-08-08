@@ -5,7 +5,7 @@
     angular.module('qh-test-front')
         .config(['$stateProvider', function ($stateProvider) {
 
-            $stateProvider.state("main.mufengdialog.html", {
+            $stateProvider.state("main.mufengdialog", {
                 url: "/dialogMufeng",
                 views: {
                     "@": {

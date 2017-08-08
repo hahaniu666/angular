@@ -22,8 +22,8 @@
         };
     }]);
 
-    KsFooterMenuController.$inject = ["$scope", 'appConfig', '$http'];
-    function KsFooterMenuController($scope, appConfig, $http) {
+    KsFooterMenuController.$inject = ["$scope", '$http'];
+    function KsFooterMenuController($scope, $http) {
         var vm = this;
         vm.menus = [
             {
@@ -33,13 +33,6 @@
                 text: "首页",
                 state: "main.index"
             },
-            /*{
-             name: 'gift',
-             iconLiga: "gift-o",
-             iconClass: "ks-gift-o",
-             text: "福利社",
-             state: "main.welfare"
-             },*/
             {
                 name: 'vip',
                 iconLiga: "diamond-o",
@@ -63,12 +56,5 @@
             }
         ];
 
-
-        //动态设置按钮是否显示文字
-        /*vm.showMenu = 'false';
-         $http.get(appConfig.apiPath + "/common/sysConf?key=showIndexMenuText")
-         .success(function (data) {
-         vm.showMenu = data.value;
-         });*/
     }
 })();

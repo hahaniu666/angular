@@ -8,10 +8,10 @@ angular.module('qh-test-front').factory('appConfig', function () {
 
     // // -------------------------- 测试环境 api
     var domain = "//kingsilk.net";
-    //domain = "http://dev.test.me";
-    var rootPath = domain + "/qh/mall/local/?_ddnsPort=16300&wxPub=jngy";
+    domain = "http://dev.test.me";
+    var rootPath = domain + "/qh/mall/local/?_ddnsPort=17100&wxPub=jngy";
     // var apiPath = domain + "/qh/mall/api";
-    var apiPath = domain + "/qh/mall/local/11300/api";
+    var apiPath = domain + "/qh/mall/local//api";
     var appVersion = "3.0.0";
     return {
         rootPath: rootPath,
@@ -21,7 +21,7 @@ angular.module('qh-test-front').factory('appConfig', function () {
         maxSize: 5,  // 页数多少多少翻页数
         pageSize: 10, // 每页多少条数据
         imgUrl: "//img.kingsilk.net/",   // 图片地址
-        cdnUrl: "//img.kingsilk.net/qh-test-front/prod/",// cdn地址访问本地图片
+        cdnUrl: "//img.kingsilk.net/qh-jngy-front/prod/",// cdn地址访问本地图片
         imgView1: "?imageView2/2/w/500/h/500",// 对图片进行缩放(首页)
         imgView2: "?imageView2/2/w/100/h/100",// 对图片进行缩放(用户中心)
         imgUpload: "/common/uploadImgS",

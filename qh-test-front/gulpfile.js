@@ -51,24 +51,12 @@ gutil.log(`使用 env : ${chalk.red(process.env.env)}`);
 
 const config = {
     dev: {
-        base: "/qh/jngy/local/16300/",
-        target: "target"
-    },
-    test12: {
-        base: "11200/",
-        target: "target"
-    },
-    test13: {
-        base: "/qh/jngy/local/11300/",
-        target: "target"
-    },
-    test14: {
-        base: "/qh/jngy/local/11400/",
+        base: "",
         target: "target"
     },
     prod: {
         // 这里仅仅加载 css， js， font，部分图片等。
-        base: "/qh/jngy/",
+        base: "/qh/test/",
         target: "target"
     },
 };
@@ -365,9 +353,7 @@ const demoJsSrc = [
 
     'src/filters/**/*.js',
     'src/directives/**/*.js',
-
     'src/demo/biz/**/*.js',
-
     // html文件，需要转成js文件
     'src/demo/biz/**/*.html'
 ];
@@ -417,7 +403,6 @@ gulp.task('demo.js', cb => {
 const demoScssSrc = ["src/scss/index.scss"];
 const demoScssWatchSrc = ["src/scss/**/*.scss"];
 gulp.task('demo.scss', cb => {
-
     del([
         `src/demo/demo.css`,
         `src/demo/demo.css.map`
