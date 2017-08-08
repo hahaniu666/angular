@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
+// var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');  //webpack升级之后弃用
 var OfflinePlugin = require('offline-plugin');
 var ImageminPlugin = require('imagemin-webpack-plugin').default;
 var BellOnBundlerErrorPlugin = require('bell-on-bundler-error-plugin');
@@ -65,10 +65,10 @@ const plugins = [
     //     jQuery: "jquery",
     //     "window.jQuery": "jquery"
     // }),
-    new ChunkManifestPlugin({
-        filename: "manifest.json",
-        manifestVariable: "webpackManifest"
-    }),
+    // new ChunkManifestPlugin({
+    //     filename: "manifest.json",
+    //     manifestVariable: "webpackManifest"
+    // }),
     new webpack.optimize.CommonsChunkPlugin({
         name: "commons",
         minChunks: 2
