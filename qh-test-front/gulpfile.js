@@ -51,7 +51,7 @@ gutil.log(`使用 env : ${chalk.red(process.env.env)}`);
 
 const config = {
     dev: {
-        base: "",
+        base: "./",
         target: "target"
     },
     prod: {

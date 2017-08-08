@@ -1,0 +1,21 @@
+<!-- comment -->
+<div flex layout="column">
+    <div class=".btpka3-pages-main">
+        <md-button ui-sref="main.aaa"> qqqaaa</md-button>
+        <md-button ui-sref="main.bbb"> bbb</md-button>
+        <md-button ui-sref="main.ccc"> ccc</md-button>
+        <md-button ui-sref="main.ddd"> ddd</md-button>
+
+    </div>
+    <div style="height: 300px;border:1px solid red;" layout >
+        <div ui-view="aaa" ng-show="$state.includes('main.aaa')"></div>
+        <div ui-view="bbb" ng-show="$state.includes('main.bbb')"></div>
+        <div ui-view="ccc" ng-show="$state.includes('main.ccc')"></div>
+        <div ui-view="ddd" ng-show="$state.includes('main.ddd')"></div>
+
+    </div>
+
+    <div class="a">the color should be <span class="txt">red</span>.</div>
+    <img src="../components/_layout/logo.png" style="width:100px;"/>
+</div>
+
